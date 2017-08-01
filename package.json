@@ -1,0 +1,24 @@
+{
+  "name": "nazareth-events",
+  "version": "1.0.0",
+  "description": "A web app for viewing events in Nazareth",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./start.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/foundersandcoders/nazareth-events.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/foundersandcoders/nazareth-events/issues"
+  },
+  "homepage": "https://github.com/foundersandcoders/nazareth-events#readme",
+  "devDependencies": {
+    "express": "^4.15.3",
+    "express-handlebars": "^3.0.0"
+  }
+}
