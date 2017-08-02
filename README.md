@@ -1,7 +1,9 @@
 # nazareth-events
 A web app for viewing events in Nazareth.
 
-See the initial [prototype](http://nav-events.herokuapp.com/).
+An open platform to facilitate the creation of apps to promote local tourism and business [Nazareth open platform](https://nazareth-open-tourism-platform.herokuapp.com/)
+
+See the initial [prototype](https://nazareth-events.herokuapp.com/).
 
 ## outline
  ##### The site will have 2 users(and 2 separate branches).
@@ -32,7 +34,7 @@ See the initial [prototype](http://nav-events.herokuapp.com/).
 ### Stack
   * Server side: Express
   * Client side: Vanilla JS
-  * DataBase: platform 
+  * DataBase: platform
   * Views engine: Handlebars
   * CSS library: bootstrap
   * Testing: Tap
