@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start":"node ./start.js",
+    "start": "node ./start.js",
     "dev": "./node_modules/.bin/nodemon start.js",
     "lint": "./node_modules/.bin/eslint '**/**/*.js'"
   },
@@ -20,7 +20,14 @@
   },
   "homepage": "https://github.com/foundersandcoders/nazareth-events#readme",
   "devDependencies": {
+    "eslint": "^4.3.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-node": "^5.1.1",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^3.0.1",
     "express": "^4.15.3",
-    "express-handlebars": "^3.0.0"
+    "express-handlebars": "^3.0.0",
+    "nodemon": "^1.11.0"
   }
 }
