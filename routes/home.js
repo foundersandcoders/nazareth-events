@@ -5,10 +5,7 @@ module.exports = (req, res) => {
     request(baseURL, function(error, response, body) {
       const parseResult = JSON.parse(body);
       const results = parseResult.filter(result => {
-        if (this.en !== 'en') {
-          return true;
-        }
-          return false;
+
       });
       console.log(results);
       res.render('home', {
