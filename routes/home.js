@@ -1,9 +1,16 @@
-var request = require('request');
-var url = require('url');
-module.exports = (req, res) => {
-    request('https://nazareth-open-tourism-platform.herokuapp.com' + '/events', function(error, response, body) {
-      var parseResult = JSON.parse(body);
+const request = require('request');
 
+module.exports = (req, res) => {
+    const baseURL = 'https://nazareth-open-tourism-platform.herokuapp.com' + '/events';
+    request(baseURL, function(error, response, body) {
+      const parseResult = JSON.parse(body);
+      const results = parseResult.filter(result => {
+        if (this.en !== 'en') {
+          return true;
+        }
+          return false;
+      });
+      console.log(results);
       res.render('home', {
         events:parseResult
       });
