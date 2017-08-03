@@ -1,0 +1,12 @@
+<h1>list events</h1>
+
+{{#each events}}
+<div class="events" style="background: #fefefe;
+padding: 0.5em 0.8em; border-top: 1px solid #ccc;">
+      <h2>{{this.en.name}}</h2>
+      <h3>{{this.categories}}</h3>
+      <h3>{{this.placeId}}</h3>
+      <p>{{this.en.description}}</p>
+      <br>
+</div>
+{{/each}}
