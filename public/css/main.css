@@ -3,3 +3,15 @@
   padding: 0.5em 0.8em;
   border-top: 1px solid #ccc;"
 }
+.calendarImg {
+  width: 30px;
+}
+.header {
+  background-color:	#F5F5F5;
+  padding: 3px;
+  box-shadow: 4px 3px 12px;
+  font-family: 'Quattrocento Sans', sans-serif;
+}
+.naz-events{
+  color: #6495ED;
+}
