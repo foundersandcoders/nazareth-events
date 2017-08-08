@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 const hbs = require('express-handlebars');
-// const router = require('./routes/index.js');
+const router = require('./routes/index.js');
 
 const server = express();
 
@@ -10,7 +10,7 @@ server.set('view engine', 'hbs');
 server.set('views', path.join(__dirname, './', 'views'));
 
 server.use(express.static(path.join(__dirname, './', 'public')));
-// server.use(router);
+server.use(router);
 
 server.engine('hbs', hbs({
   defaultLayout: 'main',
