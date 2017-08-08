@@ -37,8 +37,8 @@
       var h4Element = document.createElement('h4');
       h4Element.className = 'placeTime text-muted';
       var aElement = document.createElement('a');
-      // the next step is to add id for the href .. events / + id 
-      aElement.href = '/events/';
+      var id = event._id;
+      aElement.href = '/events/' + id;
       aElement.className = 'event-link';
 
       h3Element.innerHTML = event.en.name;
