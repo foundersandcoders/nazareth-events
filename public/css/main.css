@@ -1,7 +1,5 @@
-.events {
-  background: #fefefe;
-  padding: 0.5em 0.8em;
-  border-top: 1px solid #ccc;"
+a, a:hover, a:active, a:visited, a:focus {
+    text-decoration: none;
 }
 .calendarImg {
   width: 30px;
