@@ -10,13 +10,13 @@ module.exports = (req, res) => {
       var options = {
         name: event.name,
         img: event.imageUrl,
-        time: event.startTime + ' To ' + event.endTime + ' - At: ' + event.placeId,
-        price: event.cost,
+        time: event.startTime + ' To ' + event.endTime,
+        where: event.placeId,
+        cost: event.cost,
         category: event.categories,
         accessibilityOptions: event.accessibilityOptions,
-        info: event.description
+        description: event.description
       };
-
       res.render('event_details', {
         title: 'event details',
         options: options,
