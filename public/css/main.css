@@ -19,3 +19,9 @@ a, a:hover, a:active, a:visited, a:focus {
   margin-right: 7px;
   direction: rtl;
 }
+.previous, .next {
+  color: #FF8C00;
+}
+.previous, .next :hover {
+  color: #FF8C00;
+}
