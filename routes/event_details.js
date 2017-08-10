@@ -5,21 +5,11 @@ module.exports = (req, res) => {
 
   request.get(url, (error, event) => {
     if (error) {
-      return false;
+      res.send('error :(');
     } else {
-      var options = {
-        name: event.name,
-        img: event.imageUrl,
-        time: event.startTime + ' To ' + event.endTime,
-        where: event.placeId,
-        cost: event.cost,
-        category: event.categories,
-        accessibilityOptions: event.accessibilityOptions,
-        description: event.description
-      };
       res.render('event_details', {
         title: 'event details',
-        options: options,
+        event: event,
         back: req.headers.referer
       });
     }
