@@ -18,7 +18,8 @@
 
   // event listener for calendar button in header
   document.getElementById('calendar-button').addEventListener('click', function (e) {
-    document.getElementById('list-page-content').classList.toggle('cal');
+    document.getElementById('list-page-content').classList.toggle('hide');
+    document.getElementById('show-cal').classList.toggle('show');
   });
 
   // calendar next and prev month buttons
