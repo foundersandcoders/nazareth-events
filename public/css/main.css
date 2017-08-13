@@ -21,7 +21,49 @@ a, a:hover, a:active, a:visited, a:focus {
 }
 .previous, .next {
   color: #FF8C00;
+  box-shadow: 1px 2px 8px;
 }
-.previous, .next :hover {
-  color: #FF8C00;
+.previous {
+  position: absolute;
+  top: 7.8em;
+  left: 6%;
+}
+.next {
+  position: absolute;
+  top: 7.8em;
+  right: 6%;
+}
+#calendar {
+  width: 100%;
+  /*position: absolute;*/
+}
+
+#calendar thead {
+  font-size: 1.5em;
+  text-align: center;
+  font-weight: bold;
+}
+#calendar table {
+  width: 100%;
+  text-align: center;
+}
+
+#calendar td {
+  height: 2.5em;
+  vertical-align: middle;
+  width: 14.285714%;
+}
+
+td.not-current-month {
+  color: #ddd;
+}
+
+td.today {
+  /* arbitrary af */
+  color: #6495ED;
+}
+#show-cal p{
+  text-align: center;
+  margin-top: 0.8em;
+  font-weight: bold;
 }
