@@ -48,9 +48,9 @@ Cal.prototype.showMonth = function (y, m) {
   // First day of the week in the selected month
    firstDayOfMonth = new Date(y, m, 1).getDay();
   // Last day of the selected month
-   lastDateOfMonth =  new Date(y, m+1, 0).getDate();
+   lastDateOfMonth = new Date(y, m + 1, 0).getDate();
   // Last day of the previous month
-   lastDayOfLastMonth = m == 0 ? new Date(y-1, 11, 0).getDate() : new Date(y, m, 0).getDate();
+   lastDayOfLastMonth = m == 0 ? new Date(y - 1, 11, 0).getDate() : new Date(y, m, 0).getDate();
 
   var html = '<table>';
 
@@ -61,13 +61,13 @@ Cal.prototype.showMonth = function (y, m) {
 
   // Write the header of the days of the week
   html += '<tr class="days">';
-  for (var i=0; i < this.DaysOfWeek.length; i++) {
+  for (var i = 0; i < this.DaysOfWeek.length; i++) {
     html += '<td>' + this.DaysOfWeek[i] + '</td>';
   }
   html += '</tr>';
 
   // Write the days
-  var i=1;
+  var i = 1;
   do {
     var dateObj = new Date(y, m, i);
 
@@ -84,8 +84,8 @@ Cal.prototype.showMonth = function (y, m) {
       // it will write the last days from the previous month
     } else if (i == 1) {
       html += '<tr>';
-      var k = lastDayOfLastMonth - firstDayOfMonth+1;
-      for(var j=0; j < firstDayOfMonth; j++) {
+      var k = lastDayOfLastMonth - firstDayOfMonth + 1;
+      for(var j = 0; j < firstDayOfMonth; j++) {
         html += '<td data-date=' + dstring + ' class="day not-current-month">' + k + '</td>';
         k++;
       }
@@ -105,9 +105,9 @@ Cal.prototype.showMonth = function (y, m) {
       html += '</tr>';
       // If not Saturday, but last day of the selected month
       // it will write the next few days from the next month
-    } else if ( i == lastDateOfMonth ) {
-      var k=1;
-      for(dow; dow < 6; dow++) {
+    } else if ( i == lastDateOfMonth) {
+      var k = 1;
+      for (dow; dow < 6; dow++) {
         html += '<td data-date=' + dstring + ' class="day not-current-month">' + k + '</td>';
         k++;
       }
