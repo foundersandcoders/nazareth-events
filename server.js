@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const hbs = require('express-handlebars');
 const router = require('./routes/index.js');
+const dateFormat = require('./helpers/helper.js');
 
 const server = express();
 
@@ -16,7 +17,11 @@ server.engine('hbs', hbs({
   defaultLayout: 'main',
   layoutDir: path.join(__dirname, './', 'views/layouts'),
   partialsDir: path.join(__dirname, './', 'views/partials'),
-  extname: 'hbs'
+  extname: 'hbs',
+  helpers: {
+    prettyDate: (date) => dateFormat(date, 'dddd d mmmm, yyyy'),
+    prettyTime: (time) => time.toString().slice(0, 5)
+  }
 }));
 
 module.exports = server;
