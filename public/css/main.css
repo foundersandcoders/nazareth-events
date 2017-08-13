@@ -8,3 +8,22 @@ a, a:hover, a:active, a:visited, a:focus {
 .eventDetailsHeader {
   margin-bottom: 70px;
 }
+.description {
+  font-size: 25px;
+}
+.event-details h4 {
+  font-weight: bold;
+}
+.event-details h3 {
+  font-family: "Times New Roman", Times, serif;
+}
+.eventName {
+  font-family: "Times New Roman", Times, serif;
+}
+img {
+  width: 100%;
+}
+.information {
+  box-shadow: 1px 2px 8px ;
+  padding: 3px;
+}
