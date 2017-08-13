@@ -8,3 +8,13 @@ a, a:hover, a:active, a:visited, a:focus {
 .eventDetailsHeader {
   margin-bottom: 70px;
 }
+.event-details h4 {
+  font-weight: bold;
+}
+.info {
+  font-size: 17px;
+  font-weight: bold;
+}
+img {
+  width: 100%;
+}
