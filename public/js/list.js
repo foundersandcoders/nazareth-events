@@ -1,7 +1,6 @@
-(function() {
-
+(function () {
   function dateClickHandler (e) {
-    window.location.assign('/?d=' + e.target.dataset.date)
+    window.location.assign('/?d=' + e.target.dataset.date);
   }
 
   function addDateEventListeners () {
