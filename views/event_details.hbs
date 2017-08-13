@@ -8,12 +8,16 @@
     </div>
   </div>
   <div class="event-details text-center">
-    <h1>{{event.name}}</h1>
-    <img src="{{options.img}}" alt="event picture">
-    <br>
-    <h4>{{event.time}}</h4>
-    <h4>{{event.where}}</h4>
-    <h4>Price: </h4><h4>{{event.cost}}</h4>
-    <p class="text-muted">{{event.description}}</p>
+    <h1 class="text-warning eventName">{{event.en.name}}</h1>
+    {{#if imageUrl}}
+    <img src="{{event.imageUrl}}" alt="event picture">
+    {{/if}}
+    <h4 class="text-muted">{{prettyTime event.startTime}}</h4> - <h4 class="text-muted">{{prettyTime event.endTime}}</h4>
+    <div class="information">
+      <h3  class="text-danger">categories: </h3> <h4 class="text-info">{{event.categories}}</h4>
+      <h3  class="text-danger">price: </h3> <h4 class="text-info">{{event.cost}}</h4>
+      <h3 class="text-danger">disabled access: </h3><h4 class="text-info">{{event.accessibilityOptions}}</h4>
+    </div>
+    <p class="text-muted description">{{event.en.description}}</p>
   </div>
 </div>
