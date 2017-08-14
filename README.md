@@ -1,9 +1,10 @@
 # nazareth-events
-A web app for viewing events in Nazareth.
+A web app for viewing events in Nazareth,
+ it's built on top of the Nazareth Open Tourism Platform
 
-An open platform to facilitate the creation of apps to promote local tourism and business [Nazareth open platform](https://nazareth-open-tourism-platform.herokuapp.com/)
+An open platform to facilitate the creation of apps to promote local tourism and business [Nazareth open platform](https://nazareth-open-tourism-platform.herokuapp.com/events)
 
-See the initial [prototype](https://nazareth-events.herokuapp.com/).
+See the initial [prototype](http://nav-events.herokuapp.com/home).
 
 ## outline
  ##### The site will have 2 users(and 2 separate branches).
@@ -37,14 +38,30 @@ See the initial [prototype](https://nazareth-events.herokuapp.com/).
   * DataBase: platform
   * Views engine: Handlebars
   * CSS library: bootstrap
-  * Testing: Tap
+  * Testing: Tap, travis CI
 
-### Plan:
-  * 1/8-2/8 Folder Structure, Initial Setup.
-  * 2/8-3/8 Getting the events into the first page and viewing in a list.
-  * 6/8 Load more events on the main page, there'll be a load more events buttons.
-  * 7/8 The calendar option would allow choosing a date
-  * 8/8 some CSS
-  * 8/8 The event details page to see all the information about the event.
-  * 9/8-10/8 A page specific to one place's events, this will be followed by the login.
-  * 13/8-14/8 Adding an event, only users with a login can do add event.
+### File Structure
+* public/
+  * css/
+    * main.CSS
+  * images/  
+  * js/
+    * main.js
+    * list.js
+    * calendar.js
+* helpers/
+    * helpers.js
+* routes/
+  * home.js
+  * event_details.js
+  * index.js
+* views/
+  * layouts/
+    * main.hbs
+  * partials/
+    * header.hbs
+    * calendar.hbs
+  * home.hbs
+  * event_details.hbs  
+* server.js
+* start.js  
