@@ -2,11 +2,6 @@ const tape = require('tape');
 const request = require('supertest');
 const server = require('../server.js');
 
-tape('test tape', (t) => {
-  t.ok(true, 'its working');
-  t.end();
-});
-
 tape('home route test: GET request to /', t => {
   request(server)
     .get('/')
