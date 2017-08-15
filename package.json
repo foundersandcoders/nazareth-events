@@ -8,7 +8,7 @@
     "start": "node ./start.js",
     "dev": "./node_modules/.bin/nodemon start.js",
     "lint": "./node_modules/.bin/eslint '**/**/*.js'",
-    "coverage": "cd ./tests && istanbul cover ./back-end/tests.js"
+    "coverage" : " istanbul cover ./tests/tests.js"
   },
   "pre-commit": [
     "lint",
