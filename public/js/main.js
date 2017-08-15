@@ -1,3 +1,5 @@
+/* global  XMLHttpRequest */
+
 (function () {
   var url = 'https://nazareth-open-tourism-platform.herokuapp.com/events';
   function makeRequest (url, callback) {
