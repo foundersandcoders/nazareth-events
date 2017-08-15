@@ -1,3 +1,20 @@
 a, a:hover, a:active, a:visited, a:focus {
     text-decoration: none;
 }
+.prevBtn{
+  margin-top: -38px;
+  margin-left: 10px;
+}
+.eventDetailsHeader {
+  margin-bottom: 70px;
+}
+.event-details h4 {
+  font-weight: bold;
+}
+.info {
+  font-size: 17px;
+  font-weight: bold;
+}
+img {
+  width: 100%;
+}

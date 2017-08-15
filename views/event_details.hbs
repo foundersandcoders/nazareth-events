@@ -1,0 +1,24 @@
+<div class="event-details">
+  <div class="eventDetailsHeader">
+    <div>
+      {{>header}}
+    </div>
+    <div class="prevBtn ">
+      <a href="{{{back}}}"><span class="glyphicon glyphicon-chevron-left"></span></a>
+    </div>
+  </div>
+  <div class="event-details text-center">
+    <h1 class="text-warning">{{placeInfo.en.name}}</h1>
+    <h4>{{placeInfo.en.openingHours}} <span class="glyphicon glyphicon-time text-info"></span></h4>
+    <h4>{{placeInfo.en.address}}</h4>
+    <img src="{{placeInfo.imageUrl}}" alt="event picture">
+    <h4>{{placeInfo.categories}}</h4>
+    <h3 class="text-danger">disabled access: </h3><h4>{{placeInfo.accessibilityOptions}}</h4>
+    <p class="text-muted info">{{placeInfo.en.description}}</p>
+    <h3 class="text-info">Contact Us:</h3>
+    <h4>{{placeInfo.phone}} <span class="glyphicon glyphicon-phone-alt text-info"></span></h4>
+    <h4>{{placeInfo.email}} <span class="glyphicon glyphicon-envelope	text-info"></span></h4>
+    <br>
+    <a target="_blank" class="text-info" href="{{placeInfo.website}}">{{placeInfo.website}}</a>
+  </div>
+</div>
