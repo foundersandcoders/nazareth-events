@@ -5,9 +5,7 @@ module.exports = (req, res) => {
 
   request.get(url, (error, result) => {
     var event = JSON.parse(result.body);
-    if (error) {
-      res.send('error :(');
-    }
+
     if (error) {
       res.send('error :(');
     } else {
