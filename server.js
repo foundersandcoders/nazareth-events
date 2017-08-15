@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 const hbs = require('express-handlebars');
 const router = require('./routes/index.js');
-const dateFormat = require('./helpers/helper.js');
+const dateFormat = require('dateformat');
 
 const server = express();
 
