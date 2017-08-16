@@ -44,11 +44,11 @@
       aElement.className = 'event-link';
 
       h3Element.innerHTML = event.en.name;
-      h4Element.innerHTML = new Date(event.startTime).toDateString() + '<p style="color:red;"> To </p>' + new Date(event.endTime).toDateString() + '<p style="color:red;"> At </p>' + event.placeId;
+      h4Element.innerHTML = new Date(event.startTime).toDateString() + ' - ' + new Date(event.endTime).toDateString() + '<br>' + event.placeId.en.address;
 
       aElement.appendChild(h3Element);
+      aElement.appendChild(h4Element);
       eventContainerDiv.appendChild(aElement);
-      eventContainerDiv.appendChild(h4Element);
       eventsSection.appendChild(eventContainerDiv);
     });
     listPage.appendChild(eventsSection);
