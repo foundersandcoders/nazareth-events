@@ -27,3 +27,12 @@ img {
   box-shadow: 1px 2px 8px ;
   padding: 3px;
 }
+.container-div {
+  background-color:	#F5F5F5;
+  padding: 1px;
+  margin-bottom: 2px;
+  box-shadow: 1px 1px 1px;
+}
+.container-div:active{
+  color: #6495ED;
+}
