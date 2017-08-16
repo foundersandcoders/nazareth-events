@@ -30,7 +30,7 @@ img {
 .container-div {
   background-color:	#F5F5F5;
   padding: 1px;
-  margin-bottom: 2px;
+  margin-bottom: 1px;
   box-shadow: 1px 1px 1px;
 }
 .container-div:active{
