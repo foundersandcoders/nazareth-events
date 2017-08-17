@@ -12,7 +12,9 @@
     {{#if imageUrl}}
     <img src="{{event.imageUrl}}" alt="event picture">
     {{/if}}
-    <h4 class="text-muted">{{prettyTime event.startTime}}</h4> - <h4 class="text-muted">{{prettyTime event.endTime}}</h4>
+    <h4 class="text-muted eventStartDate">{{prettyDate event.startTime}}</h4>
+    <h5 class="text-muted eventTime">{{prettyTime event.startTime}} - {{prettyTime event.endTime}}</h5> <h3 class="text-primary">at: {{event.placeId.en.name}}</h3>
+
     <div class="information">
       <h3  class="text-danger">categories: </h3> <h4 class="text-info">{{event.categories}}</h4>
       <h3  class="text-danger">price: </h3> <h4 class="text-info">{{event.cost}}</h4>
