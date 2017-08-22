@@ -44,7 +44,7 @@
       aElement.className = 'event-link';
 
       h3Element.innerHTML = event.en.name;
-      h4Element.innerHTML = event.startTime + ' To ' + event.endTime + ' At ' + event.placeId;
+      h4Element.innerHTML = event.placeId.en.name + '<br>' + new Date(new Date(event.startTime).getTime()).toLocaleTimeString() + ' - ' + new Date(new Date(event.endTime).getTime()).toLocaleTimeString();
 
       aElement.appendChild(h3Element);
       aElement.appendChild(h4Element);

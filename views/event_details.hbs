@@ -1,0 +1,22 @@
+<div class="eventDetailsHeader">
+    {{>header}}
+  <div class="prevBtn ">
+    <a href="{{{back}}}"><span class="glyphicon glyphicon-chevron-left"></span></a>
+  </div>
+</div>
+
+<div class="event-details text-center">
+  <h1 class="text-warning eventName">{{event.en.name}}</h1>
+  {{#if imageUrl}}
+  <img src="{{event.imageUrl}}" alt="event picture">
+  {{/if}}
+  <h4 class="text-muted eventStartDate">{{prettyDate event.startTime}}</h4>
+  <h5 class="text-muted eventTime">{{prettyTime event.startTime}} - {{prettyTime event.endTime}}</h5> <h3 class="text-primary">at: {{event.placeId.en.name}}</h3>
+
+  <div class="information">
+    <h3  class="text-danger">categories: </h3> <h4 class="text-info">{{event.categories}}</h4>
+    <h3  class="text-danger">price: </h3> <h4 class="text-info">{{event.cost}}</h4>
+    <h3 class="text-danger">disabled access: </h3><h4 class="text-info">{{event.accessibilityOptions}}</h4>
+  </div>
+  <p class="text-muted description">{{event.en.description}}</p>
+</div>
