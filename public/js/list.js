@@ -1,6 +1,12 @@
+<<<<<<< Updated upstream
+/* global Cal */
+=======
+/* global  makeRequest renderEvents Cal */
+>>>>>>> Stashed changes
 (function () {
   function dateClickHandler (e) {
     window.location.assign('/?d=' + e.target.dataset.date);
+    makeRequest('', renderEvents);
   }
 
   function addDateEventListeners () {
