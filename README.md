@@ -1,13 +1,18 @@
-# nazareth-events
+# Nazareth Events
 A web app for viewing events in Nazareth,
- it's built on top of the Nazareth Open Tourism Platform
+ it's built on top of the [Nazareth Open Tourism Platform](https://nazareth-open-tourism-platform.herokuapp.com/events)
 
-An open platform to facilitate the creation of apps to promote local tourism and business [Nazareth open platform](https://nazareth-open-tourism-platform.herokuapp.com/events)
+This app's purpose is to help users find what events are happening in Nazareth, where and when.
 
-See the initial [prototype](http://nav-events.herokuapp.com/home).
+The app is hosted on heroku, you can view it [here](http://nazareth-events.herokuapp.com/). See the initial prototype [here](http://nav-events.herokuapp.com/home).
 
-## outline
- ##### The site will have 2 users(and 2 separate branches).
+## User Stories
+
+- As someone interested in the events happening in Nazareth I would like to able to view these events in a chronological order so I can view them easily.
+- As a person visiting Nazareth I would like, to see what events are happening while I'm visiting so I can know which events to attend.
+- As an owner of place that hosts events, I would like an efficient way to add my events so people would know about it.
+
+##### 2 types of users
   1. Someone looking for events
 
     * home(/list) page displays a list of all events starting on today.
@@ -20,17 +25,19 @@ See the initial [prototype](http://nav-events.herokuapp.com/home).
     * a form to add a new event.
 
 ### Team
-  * Product owner - liwan restaurant
-  * Developer - Mohamed omari
-  * QA - Matt lubes
-  * Scrum master - Shireen zoaby
+  * Product owner - Liwan restaurant
+  * Developer - Mohamed Omari
+  * QA - Matt Lubell
+  * Scrum master - Shireen Zoaby
 
-### Sprint goals
+### Sprint I goals
   * getting the events into the first page and viewing in a list  
-  * clicking on the calendar would allow choosing a date to start from
   * clicking on an event would take you to a new page with the event's details
   * a page specific to one place's events, this will be followed by the login
-  * adding an event(only users with a login can do so)
+
+### Sprint II goals
+  * calendar view, clicking on the calendar would allow choosing a date to start from
+  * add an event to the calendar
 
 ### Stack
   * Server side: Express
@@ -38,7 +45,7 @@ See the initial [prototype](http://nav-events.herokuapp.com/home).
   * DataBase: platform
   * Views engine: Handlebars
   * CSS library: bootstrap
-  * Testing: Tap, travis CI
+  * Testing: tape, travis CI
 
 ### File Structure
 * public/
