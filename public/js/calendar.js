@@ -17,7 +17,7 @@ var Cal = function (divId) {
 
 // Goes to next month
 Cal.prototype.nextMonth = function () {
-  if (this.currMonth == 11) {
+  if (this.currMonth === 11) {
     this.currMonth = 0;
     this.currYear = this.currYear + 1;
   } else {
@@ -28,7 +28,7 @@ Cal.prototype.nextMonth = function () {
 
 // Goes to previous month
 Cal.prototype.previousMonth = function () {
-  if (this.currMonth == 0) {
+  if (this.currMonth === 0) {
     this.currMonth = 11;
     this.currYear = this.currYear - 1;
   } else {
@@ -44,13 +44,12 @@ Cal.prototype.render = function () {
 
 // Show month (year, month)
 Cal.prototype.showMonth = function (y, m) {
-  var d = new Date();
   // First day of the week in the selected month
-   firstDayOfMonth = new Date(y, m, 1).getDay();
+  var firstDayOfMonth = new Date(y, m, 1).getDay();
   // Last day of the selected month
-   lastDateOfMonth = new Date(y, m + 1, 0).getDate();
+  var lastDateOfMonth = new Date(y, m + 1, 0).getDate();
   // Last day of the previous month
-   lastDayOfLastMonth = m == 0 ? new Date(y - 1, 11, 0).getDate() : new Date(y, m, 0).getDate();
+  var lastDayOfLastMonth = m === 0 ? new Date(y - 1, 11, 0).getDate() : new Date(y, m, 0).getDate();
 
   var html = '<table>';
 
@@ -67,7 +66,6 @@ Cal.prototype.showMonth = function (y, m) {
   html += '</tr>';
 
   // Write the days
-  var i = 1;
   do {
     var dateObj = new Date(y, m, i);
 
@@ -77,15 +75,15 @@ Cal.prototype.showMonth = function (y, m) {
     var dstring = y + '-' + (m + 1) + '-' + i;
 
     // If Sunday, start new row
-    if (dow == 0) {
+    if (dow === 0) {
       html += '<tr>';
 
       // If not Sunday but first day of the month
       // it will write the last days from the previous month
-    } else if (i == 1) {
+    } else if (i === 1) {
       html += '<tr>';
       var k = lastDayOfLastMonth - firstDayOfMonth + 1;
-      for(var j = 0; j < firstDayOfMonth; j++) {
+      for (var j = 0; j < firstDayOfMonth; j++) {
         html += '<td data-date=' + dstring + ' class="day not-current-month">' + k + '</td>';
         k++;
       }
@@ -95,18 +93,17 @@ Cal.prototype.showMonth = function (y, m) {
     var chk = new Date();
     var chkY = chk.getFullYear();
     var chkM = chk.getMonth();
-    if (chkY == this.currYear && chkM == this.currMonth && i == this.currDay) {
+    if (chkY === this.currYear && chkM === this.currMonth && i === this.currDay) {
       html += '<td data-date=' + dstring + ' class="day today">' + i + '</td>';
     } else {
       html += '<td data-date=' + dstring + ' class="day normal">' + i + '</td>';
     }
     // If Saturday, closes the row
-    if (dow == 6) {
+    if (dow === 6) {
       html += '</tr>';
       // If not Saturday, but last day of the selected month
       // it will write the next few days from the next month
-    } else if ( i == lastDateOfMonth) {
-      var k = 1;
+    } else if (i === lastDateOfMonth) {
       for (dow; dow < 6; dow++) {
         html += '<td data-date=' + dstring + ' class="day not-current-month">' + k + '</td>';
         k++;
@@ -114,11 +111,11 @@ Cal.prototype.showMonth = function (y, m) {
     }
 
     i++;
-  } while (i <= lastDateOfMonth)
+  } while (i <= lastDateOfMonth);
 
   // Closes table
   html += '</table>';
 
   // Write HTML to the div
   document.getElementById(this.divId).innerHTML = html;
-}
+};
