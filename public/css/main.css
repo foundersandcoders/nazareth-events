@@ -1,0 +1,41 @@
+a, a:hover, a:active, a:visited, a:focus {
+    text-decoration: none;
+}
+.prevBtn{
+  margin-top: -38px;
+  margin-left: 10px;
+}
+.description {
+  font-size: 25px;
+}
+.event-details {
+  margin-top: 60px;
+}
+.event-details h4 {
+  font-weight: bold;
+}
+.event-details h3 {
+  font-family: "Times New Roman", Times, serif;
+}
+.eventName {
+  font-family: "Times New Roman", Times, serif;
+}
+img {
+  width: 100%;
+}
+.information {
+  box-shadow: 1px 2px 8px ;
+  padding: 3px;
+}
+.container-div {
+  background-color:	#F5F5F5;
+  padding: 1px;
+  margin-bottom: 1px;
+  box-shadow: 1px 1px 1px;
+}
+.container-div:active{
+  color: #6495ED;
+}
+.eventTime, .eventStartDate {
+  font-size: 20px;
+}
