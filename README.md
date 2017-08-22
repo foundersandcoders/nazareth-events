@@ -12,7 +12,9 @@ The app is hosted on heroku, you can view it [here](http://nazareth-events.herok
 - As a person visiting Nazareth I would like, to see what events are happening while I'm visiting so I can know which events to attend.
 - As an owner of place that hosts events, I would like an efficient way to add my events so people would know about it.
 
-##### 2 types of users
+### Outline
+
+#### 2 types of users
   1. Someone looking for events
 
     * home(/list) page displays a list of all events starting on today.
@@ -27,7 +29,7 @@ The app is hosted on heroku, you can view it [here](http://nazareth-events.herok
 ### Team
   * Product owner - Liwan restaurant
   * Developer - Mohamed Omari
-  * QA - Matt Lubell
+  * QA - Matt Lubel
   * Scrum master - Shireen Zoaby
 
 ### Sprint I goals
