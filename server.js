@@ -3,7 +3,6 @@ const path = require('path');
 const hbs = require('express-handlebars');
 const router = require('./routes/index.js');
 const dateFormat = require('dateformat');
-const date = require('date-and-time');
 
 const server = express();
 
@@ -20,8 +19,8 @@ server.engine('hbs', hbs({
   partialsDir: path.join(__dirname, './', 'views/partials'),
   extname: 'hbs',
   helpers: {
-    prettyDate: (date) => dateFormat(date, 'dddd d - mmm - yyyy'),
-    prettyTime: (time) => date.format(new Date(time), 'HH:mm A', true)
+    prettyDate: (date) => dateFormat(date, 'dddd d  mmm  yyyy'),
+    prettyTime: (time) => dateFormat(time, 'UTC:HH:MM')
   }
 }));
 
