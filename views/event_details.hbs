@@ -1,9 +1,10 @@
-<div>
-  {{>header}}
+<div class="eventDetailsHeader">
+    {{>header}}
+  <div class="prevBtn ">
+    <a href="{{{back}}}"><span class="glyphicon glyphicon-chevron-left"></span></a>
+  </div>
 </div>
-<div class="prevBtn ">
-  <a href="{{{back}}}"><span class="glyphicon glyphicon-chevron-left"></span></a>
-</div>
+
 <div class="event-details text-center">
   <h1 class="text-warning eventName">{{event.en.name}}</h1>
   {{#if imageUrl}}
