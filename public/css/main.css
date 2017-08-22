@@ -5,11 +5,11 @@ a, a:hover, a:active, a:visited, a:focus {
   margin-top: -38px;
   margin-left: 10px;
 }
-.eventDetailsHeader {
-  margin-bottom: 70px;
-}
 .description {
   font-size: 25px;
+}
+.event-details {
+  margin-top: 60px;
 }
 .event-details h4 {
   font-weight: bold;
