@@ -39,20 +39,29 @@ img {
 .eventTime, .eventStartDate {
   font-size: 20px;
 }
-input {
-  margin-bottom: 10px;
+input, textarea, select {
+  margin-bottom: 7px;
 }
 label {
   margin-left: 5px;
-  color: 	#000060;
+  color: #FF7F50;
 }
 .submitBtn {
   width: 70px;
   height: 40px;
-  margin: 8px;
-  margin-left: 45%;
+  margin: 30px;
+  margin-left: 42%;
+  color: #000060;
+  font-weight: bold;
 }
 .submitBtn:active {
-  padding-left: 5px;
-  padding-bottom: 5px;
+  padding-top: 12px;
+  background-color: #000060;
+  color: #FF7F50;
+}
+.userAddEvent {
+  color: #000060;
+  box-shadow: 2px 3px 6px;
+  padding: 8px;
+  margin-bottom: 30px;
 }
