@@ -39,3 +39,20 @@ img {
 .eventTime, .eventStartDate {
   font-size: 20px;
 }
+input {
+  margin-bottom: 10px;
+}
+label {
+  margin-left: 5px;
+  color: 	#000060;
+}
+.submitBtn {
+  width: 70px;
+  height: 40px;
+  margin: 8px;
+  margin-left: 45%;
+}
+.submitBtn:active {
+  padding-left: 5px;
+  padding-bottom: 5px;
+}
