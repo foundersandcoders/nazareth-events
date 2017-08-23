@@ -1,47 +1,50 @@
-<h1>add event</h1>
+<div class="add-eventContainer">
+  <h3 class="userAddEvent">{user name} please add event</h3>
 
-<form class="add-event-form" action="/add-event" method="post">
-  <label>Title: </label>
-  <input class="form-control" type="text" name="title" value="" required>
+  <form class="add-event-form" action="/add-event" method="post">
+    <label>Title: </label>
+    <input class="form-control" type="text" name="title" value="" placeholder="title" required>
 
-  <label>Img: </label>
-  <input class="form-control" type="img" name="img" value="">
+    <label>Img: </label>
+    <input class="form-control" type="img" name="img" placeholder="choose img" value="">
 
-  <label>Start Date: </label>
-  <input class="form-control" type="text" name="start-date" value="" required>
+    <label>Start Time: </label>
+    <input class="form-control" type="text" name="start-date" placeholder="start time" value="" required>
 
-  <label>End Date: </label>
-  <input class="form-control" type="text" name="end-time" value="" required>
+    <label>End Time: </label>
+    <input class="form-control" type="text" name="end-time" value="" placeholder="end time" required>
 
-  <label>Location: </label>
-  <input class="form-control" type="text" name="place" value="" required>
+    <label>Location: </label>
+    <input class="form-control" type="text" name="place" value="" placeholder="place" required>
 
-  <label class="sel1">Category: </label>
-  <select class="options form-control" name="type" required>
-    <option value="Sports">Music Event</option>
-    <option value="Educational">Educational</option>
-    <option value="Theatrical">Theatrical</option>
-    <option value="Social Gathering">Social Gathering</option>
-    <option value="Cinema">Cinema</option>
-    <option value="Music Event">Sport</option>
-    <option value="Cultural Event">Cultural Event</option>
-    <option value="Guesthouse">Guesthouse</option>
-    <option value="Store">Store</option>
-    <option value="Restaurant">Restaurant</option>
-    <option value="Historical site">Historical site</option>
-    <option value="Hangout Spots">Hangout Spots</option>
-    <option value="Miscellaneous">Miscellaneous</option>
-    <option value="Unspecified">Unspecified</option>
-  </select>
+    <label class="sel1">Category: </label>
+    <select class="options form-control" name="type" required>
+      <option value="" disabled selected>Select your option</option>
+      <option value="Sports">Music Event</option>
+      <option value="Educational">Educational</option>
+      <option value="Theatrical">Theatrical</option>
+      <option value="Social Gathering">Social Gathering</option>
+      <option value="Cinema">Cinema</option>
+      <option value="Music Event">Sport</option>
+      <option value="Cultural Event">Cultural Event</option>
+      <option value="Guesthouse">Guesthouse</option>
+      <option value="Store">Store</option>
+      <option value="Restaurant">Restaurant</option>
+      <option value="Historical site">Historical site</option>
+      <option value="Hangout Spots">Hangout Spots</option>
+      <option value="Miscellaneous">Miscellaneous</option>
+      <option value="Unspecified">Unspecified</option>
+    </select>
 
-  <label>Cost: </label>
-  <input class="form-control" type="text" name="cost" value="" required>
+    <label>Cost: </label>
+    <input class="form-control" type="text" name="cost" value="" placeholder="cost" required>
 
-  <label>Accessibility: </label>
-  <input class="form-control" type="text" name="Accessibility" value="" required>
+    <label>Accessibility: </label>
+    <input class="form-control" type="text" name="Accessibility" value="" placeholder="accessibility" required>
 
-  <label>Description: </label>
-  <textarea class="form-control" rows="3" required></textarea>
+    <label>Description: </label>
+    <textarea class="form-control" rows="3" placeholder="description" required></textarea>
 
-  <button type="submit" name="submitBtn" value="" class="submitBtn text-center btn-primary">Add</button>
-</form>
+    <button type="submit" name="submitBtn" value="" class="submitBtn text-center btn">Submit</button>
+  </form>
+</div>
