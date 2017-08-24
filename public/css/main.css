@@ -40,11 +40,13 @@ img {
   font-size: 20px;
 }
 input, textarea, select {
-  margin-bottom: 7px;
+  margin-bottom: 12px;
 }
 label {
   margin-left: 5px;
   color: #FF7F50;
+  border-bottom: 2px solid #FF7F50;
+
 }
 .submitBtn {
   width: 70px;
