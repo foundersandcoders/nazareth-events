@@ -1,3 +1,4 @@
+/* global */
 var Cal = function (divId) {
   this.divId = divId;
 
@@ -104,9 +105,10 @@ Cal.prototype.showMonth = function (y, m) {
       // If not Saturday, but last day of the selected month
       // it will write the next few days from the next month
     } else if (i === lastDateOfMonth) {
+      var notCurrentMonth = 1;
       for (dow; dow < 6; dow++) {
-        html += '<td data-date=' + dstring + ' class="day not-current-month">' + k + '</td>';
-        k++;
+        html += '<td data-date=' + dstring + ' class="day not-current-month">' + notCurrentMonth + '</td>';
+        notCurrentMonth++;
       }
     }
 
