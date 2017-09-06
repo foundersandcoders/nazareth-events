@@ -14,8 +14,27 @@
     <label>End Time: </label>
     <input class="form-control" type="text" name="endTime" placeholder="end time" required>
 
-    <label>Location: </label>
-    <input class="form-control" type="text" name="place" placeholder="place" required>
+    <label>Place: </label>
+    <button id="addPlaceBtn" class="addPlaceBtn btn-default" type="button" name="button">add new place</button>
+    <input id="searchPlace" class="form-control" type="text" name="place" placeholder="search place" required>
+    <select id="selectAllPlaces" class="options form-control" name="categories" required>
+      {{#each eachPlaces}}
+      <option value="{{this.id}}">{{this.name}}</option>
+      {{/each}}
+    </select>
+    <div id="addPlaceContainer" class="add-place">
+      <form class="add-place-form" action="/add-place" method="post">
+        <input class="form-control" type="text" name="location" placeholder="location">
+        <input class="form-control" type="text" name="imageUrl" placeholder="image - link to image of place">
+        <input class="form-control" type="text" name="website" placeholder="website - link to place's website">
+        <input class="form-control" type="text" name="phone" placeholder="number phone">
+        <input class="form-control" type="text" name="email" placeholder="email">
+        <input class="form-control" type="text" name="name" placeholder="name of the place">
+        <input class="form-control" type="text" name="address" placeholder="address of the place">
+        <input class="form-control" type="text" name="openingHours" placeholder="opening hours from - to">
+        <button class="submitToAdd btn-success" type="button" name="add-place">add new place</button>
+      </form>
+    </div>
 
     <label class="sel1">Category: </label>
     <select class="options form-control" name="categories" required>
@@ -48,3 +67,4 @@
     <button type="submit" name="submitBtn" class="submitBtn text-center btn">Submit</button>
   </form>
 </div>
+<script src="./js/add_place.js" type="text/javascript"></script>
