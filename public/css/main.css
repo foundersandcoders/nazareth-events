@@ -67,3 +67,24 @@ label {
   padding: 8px;
   margin-bottom: 30px;
 }
+.add-place {
+  display: none;
+  background: #F8F8FF;
+  margin-bottom: 20px;
+  margin-top: 15px;
+}
+.add-place button {
+  padding: 5px;
+  margin-bottom: 20px;
+  margin-left: 135px;
+  font-weight: bold;
+}
+.add-place input {
+  width:80%;
+  margin-left: 40px;
+}
+.addPlaceBtn {
+  color: #000060;
+  border-radius: 5px;
+  font-weight: bold;
+}
