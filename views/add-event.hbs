@@ -3,48 +3,48 @@
 
   <form class="add-event-form" action="/add-event" method="post">
     <label>Title: </label>
-    <input class="form-control" type="text" name="title" value="" placeholder="title" required>
+    <input class="form-control" type="text" name="name" placeholder="title" required>
 
     <label>Picture: </label>
-    <input class="form-control" type="file" name="pic" accept="image/*" placeholder="choose picture" value="">
+    <input class="form-control" type="file" name="imageUrl" accept="image/*" placeholder="choose picture">
 
     <label>Start Time: </label>
-    <input class="form-control" type="text" name="start-date" placeholder="start time" value="" required>
+    <input class="form-control" type="text" name="startTime" placeholder="start time" required>
 
     <label>End Time: </label>
-    <input class="form-control" type="text" name="end-time" value="" placeholder="end time" required>
+    <input class="form-control" type="text" name="endTime" placeholder="end time" required>
 
     <label>Location: </label>
-    <input class="form-control" type="text" name="place" value="" placeholder="place" required>
+    <input class="form-control" type="text" name="place" placeholder="place" required>
 
     <label class="sel1">Category: </label>
-    <select class="options form-control" name="type" required>
-      <option value="" disabled selected>Select your option..</option>
-      <option value="Sports">Music Event</option>
-      <option value="Educational">Educational</option>
-      <option value="Theatrical">Theatrical</option>
-      <option value="Social Gathering">Social Gathering</option>
-      <option value="Cinema">Cinema</option>
-      <option value="Music Event">Sport</option>
-      <option value="Cultural Event">Cultural Event</option>
-      <option value="Guesthouse">Guesthouse</option>
-      <option value="Store">Store</option>
-      <option value="Restaurant">Restaurant</option>
-      <option value="Historical site">Historical site</option>
-      <option value="Hangout Spots">Hangout Spots</option>
-      <option value="Miscellaneous">Miscellaneous</option>
-      <option value="Unspecified">Unspecified</option>
+    <select class="options form-control" name="categories" required>
+      <option disabled selected>Select your option..</option>
+      <option value="music">Music</option>
+      <option value="educational">Educational</option>
+      <option value="theatrical">Theatrical</option>
+      <option value="social Gathering">Social Gathering</option>
+      <option value="cinema">Cinema</option>
+      <option value="sport">Sport</option>
+      <option value="cultural Event">Cultural</option>
+      <option value="guesthouse">Guesthouse</option>
+      <option value="store">Store</option>
+      <option value="restaurant">Restaurant</option>
+      <option value="historical site">Historical site</option>
+      <option value="hangout Spots">Hangout Spots</option>
+      <option value="miscellaneous">Miscellaneous</option>
+      <option value="unspecified">Unspecified</option>
     </select>
 
     <label>Cost: </label>
-    <input class="form-control" type="text" name="cost" value="" placeholder="cost" required>
+    <input class="form-control" type="text" name="cost" placeholder="cost" required>
 
     <label>Accessibility: </label>
-    <input class="form-control" type="text" name="Accessibility" value="" placeholder="accessibility" required>
+    <input class="form-control" type="text" name="accessibilityOptions" placeholder="accessibility" required>
 
     <label>Description: </label>
-    <textarea class="form-control" rows="3" placeholder="description" required></textarea>
+    <textarea class="form-control" rows="3" name="description" placeholder="description" required></textarea>
 
-    <button type="submit" name="submitBtn" value="" class="submitBtn text-center btn">Submit</button>
+    <button type="submit" name="submitBtn" class="submitBtn text-center btn">Submit</button>
   </form>
 </div>
