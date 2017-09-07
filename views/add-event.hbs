@@ -1,12 +1,12 @@
 <div class="add-eventContainer">
-  <h3 class="userAddEvent">{user name} please add event</h3>
+  <h3 class="userAddEvent">{user name} add event</h3>
 
   <form class="add-event-form" action="/add-event" method="post">
     <label>Title: </label>
     <input class="form-control" type="text" name="name" placeholder="title" required>
 
     <label>Picture: </label>
-    <input class="form-control" type="file" name="imageUrl" accept="image/*" placeholder="choose picture">
+    <input class="form-control" type="text" name="imageUrl" placeholder="choose picture">
 
     <label>Start Time: </label>
     <input class="form-control" type="text" name="startTime" placeholder="start time" required>
@@ -15,11 +15,13 @@
     <input class="form-control" type="text" name="endTime" placeholder="end time" required>
 
     <label>Place: </label>
-    <button id="addPlaceBtn" class="addPlaceBtn btn-default" type="button" name="button">add new place</button>
-    <input id="searchPlace" class="form-control" type="text" name="place" placeholder="search place" required>
+    <li id="addPlaceIcon" class="glyphicon glyphicon-plus"></li><span class="addPlaceSpan text-muted">add new place</span>
+    <input id="searchPlace" class="form-control" type="text" name="place" placeholder="search place or click to add new place" required>
+    <div id="option-list-container"></div>
     <select id="selectAllPlaces" class="options form-control" name="categories" required>
+      <option disabled selected>Select place..</option>
       {{#each eachPlaces}}
-      <option value="{{this.id}}">{{this.name}}</option>
+      <option class="placesList" value="{{this.id}}">{{this.name}}</option>
       {{/each}}
     </select>
     <div id="addPlaceContainer" class="add-place">
@@ -27,7 +29,7 @@
         <input class="form-control" type="text" name="location" placeholder="location">
         <input class="form-control" type="text" name="imageUrl" placeholder="image - link to image of place">
         <input class="form-control" type="text" name="website" placeholder="website - link to place's website">
-        <input class="form-control" type="text" name="phone" placeholder="number phone">
+        <input class="form-control" type="number" name="phone" placeholder="number phone">
         <input class="form-control" type="text" name="email" placeholder="email">
         <input class="form-control" type="text" name="name" placeholder="name of the place">
         <input class="form-control" type="text" name="address" placeholder="address of the place">
@@ -38,28 +40,38 @@
 
     <label class="sel1">Category: </label>
     <select class="options form-control" name="categories" required>
-      <option disabled selected>Select your option..</option>
+      <option disabled selected>Select option..</option>
       <option value="music">Music</option>
-      <option value="educational">Educational</option>
-      <option value="theatrical">Theatrical</option>
-      <option value="social Gathering">Social Gathering</option>
-      <option value="cinema">Cinema</option>
-      <option value="sport">Sport</option>
-      <option value="cultural Event">Cultural</option>
-      <option value="guesthouse">Guesthouse</option>
-      <option value="store">Store</option>
-      <option value="restaurant">Restaurant</option>
-      <option value="historical site">Historical site</option>
-      <option value="hangout Spots">Hangout Spots</option>
-      <option value="miscellaneous">Miscellaneous</option>
-      <option value="unspecified">Unspecified</option>
+      <option value="educational">Dining</option>
+      <option value="theatrical">Educational</option>
+      <option value="social Gathering">Conference</option>
+      <option value="cinema">Sport</option>
+      <option value="sport">Competition</option>
+      <option value="cultural Event">Launch</option>
+      <option value="guesthouse">Party</option>
+      <option value="store">Wedding</option>
+      <option value="restaurant">Cultural event</option>
+      <option value="historical site">Miscellaneous</option>
+    </select>
+
+    <label>Accessibility: </label>
+    <select class="accessibility form-control" name="AccessibilityOptions" required>
+      <option disabled selected>Select Accessibility..</option>
+      <option value="audio-recordings">Audio Recordings</option>
+      <option value="braille">Braille</option>
+      <option value="big-fonts">Big Fonts</option>
+      <option value="carer">Carer</option>
+      <option value="guide-dog">Place for Guide Dog</option>
+      <option value="messaging">SMS Messaging</option>
+      <option value="language">Sign Language</option>
+      <option value="lighting">Good Lighting</option>
+      <option value="wheel-chair">WheelChair Access</option>
+      <option value="parking">Disabled Parking</option>
+      <option value="toilets">Disabled Toilets</option>
     </select>
 
     <label>Cost: </label>
-    <input class="form-control" type="text" name="cost" placeholder="cost" required>
-
-    <label>Accessibility: </label>
-    <input class="form-control" type="text" name="accessibilityOptions" placeholder="accessibility" required>
+    <input class="form-control" type="number" name="cost" placeholder="cost in shekels" required>
 
     <label>Description: </label>
     <textarea class="form-control" rows="3" name="description" placeholder="description" required></textarea>
