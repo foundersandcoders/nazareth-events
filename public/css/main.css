@@ -45,8 +45,6 @@ input, textarea, select {
 label {
   margin-left: 5px;
   color: #FF7F50;
-  border-bottom: 2px solid #FF7F50;
-
 }
 .submitBtn {
   width: 70px;
@@ -66,4 +64,7 @@ label {
   box-shadow: 2px 3px 6px;
   padding: 8px;
   margin-bottom: 30px;
+}
+.shekelIcon {
+  width: 16px;
 }
