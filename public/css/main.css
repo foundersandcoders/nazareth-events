@@ -83,8 +83,12 @@ label {
   width:80%;
   margin-left: 40px;
 }
-.addPlaceBtn {
-  color: #000060;
-  border-radius: 5px;
-  font-weight: bold;
+#addPlaceIcon{
+  float: right;
+  margin-right: 15px;
+  color: green;
+}
+.addPlaceSpan{
+  float: right;
+  margin-right: 17px;
 }
