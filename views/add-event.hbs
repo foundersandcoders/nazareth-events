@@ -8,65 +8,50 @@
     <label>Picture: </label>
     <input class="form-control" type="text" name="imageUrl" placeholder="choose picture">
 
+    <label>Start Date:</label>
+    <input class="form-control" type="date" name="startDate" required>
+
+    <label>End Date:</label>
+    <input class="form-control" type="date" name="endDate" required>
+
     <label>Start Time: </label>
-    <input class="form-control" type="text" name="startTime" placeholder="start time" required>
+    <input class="form-control" type="text" name="startTime" placeholder="example 00:00" required>
 
     <label>End Time: </label>
-    <input class="form-control" type="text" name="endTime" placeholder="end time" required>
+    <input class="form-control" type="text" name="endTime" placeholder="example 00:00" required>
 
     <label>Place: </label>
-    <button id="addPlaceBtn" class="addPlaceBtn btn-default" type="button" name="button">add new place</button>
-    <input id="searchPlace" class="form-control" type="text" name="place" placeholder="search place or click to add new place" required>
-    <select id="selectAllPlaces" class="options form-control" name="categories" required>
-      {{#each eachPlaces}}
-      <option disabled selected>Select place..</option>
-      <option value="{{this.id}}">{{this.name}}</option>
-      {{/each}}
-    </select>
-    <div id="addPlaceContainer" class="add-place">
-      <form class="add-place-form" action="/add-place" method="post">
-        <input class="form-control" type="text" name="location" placeholder="location">
-        <input class="form-control" type="text" name="imageUrl" placeholder="image - link to image of place">
-        <input class="form-control" type="text" name="website" placeholder="website - link to place's website">
-        <input class="form-control" type="number" name="phone" placeholder="number phone">
-        <input class="form-control" type="text" name="email" placeholder="email">
-        <input class="form-control" type="text" name="name" placeholder="name of the place">
-        <input class="form-control" type="text" name="address" placeholder="address of the place">
-        <input class="form-control" type="text" name="openingHours" placeholder="opening hours from - to">
-        <button class="submitToAdd btn-success" type="button" name="add-place">add new place</button>
-      </form>
-    </div>
 
     <label class="sel1">Category: </label>
     <select class="options form-control" name="categories" required>
       <option disabled selected>Select option..</option>
       <option value="music">Music</option>
-      <option value="educational">Dining</option>
-      <option value="theatrical">Educational</option>
-      <option value="social Gathering">Conference</option>
-      <option value="cinema">Sport</option>
-      <option value="sport">Competition</option>
-      <option value="cultural Event">Launch</option>
-      <option value="guesthouse">Party</option>
-      <option value="store">Wedding</option>
-      <option value="restaurant">Cultural event</option>
-      <option value="historical site">Miscellaneous</option>
+      <option value="dining">Dining</option>
+      <option value="educational">Educational</option>
+      <option value="conference">Conference</option>
+      <option value="sport">Sport</option>
+      <option value="competition">Competition</option>
+      <option value="launch">Launch</option>
+      <option value="party">Party</option>
+      <option value="wedding">Wedding</option>
+      <option value="cultural event">Cultural event</option>
+      <option value="Miscellaneous">Miscellaneous</option>
     </select>
 
     <label>Accessibility: </label>
-    <select class="accessibility form-control" name="AccessibilityOptions" required>
+    <select class="accessibility form-control" name="accessibilityOptions" required>
       <option disabled selected>Select Accessibility..</option>
-      <option value="audio-recordings">Audio Recordings</option>
-      <option value="braille">Braille</option>
-      <option value="big-fonts">Big Fonts</option>
-      <option value="carer">Carer</option>
-      <option value="guide-dog">Place for Guide Dog</option>
-      <option value="messaging">SMS Messaging</option>
-      <option value="language">Sign Language</option>
-      <option value="lighting">Good Lighting</option>
-      <option value="wheel-chair">WheelChair Access</option>
-      <option value="parking">Disabled Parking</option>
-      <option value="toilets">Disabled Toilets</option>
+      <option value="Audio recordings">Audio Recordings</option>
+      <option value="Braille">Braille</option>
+      <option value="Big fonts">Big Fonts</option>
+      <option value="Carer">Carer</option>
+      <option value="Place for guide dog">Place for Guide Dog</option>
+      <option value="SMS messaging">SMS Messaging</option>
+      <option value="Sign language">Sign Language</option>
+      <option value="Good lighting">Good Lighting</option>
+      <option value="Wheelchair access">WheelChair Access</option>
+      <option value="Disabled parking">Disabled Parking</option>
+      <option value="Disabled toilets">Disabled Toilets</option>
     </select>
 
     <label>Cost: </label>
