@@ -1,4 +1,3 @@
-/* global */
 var Cal = function (divId) {
   this.divId = divId;
 
@@ -46,11 +45,11 @@ Cal.prototype.render = function () {
 // Show month (year, month)
 Cal.prototype.showMonth = function (y, m) {
   // First day of the week in the selected month
-  var firstDayOfMonth = new Date(y, m, 1).getDay();
+  this.firstDayOfMonth = new Date(y, m, 1).getDay();
   // Last day of the selected month
-  var lastDateOfMonth = new Date(y, m + 1, 0).getDate();
+  this.lastDateOfMonth = new Date(y, m + 1, 0).getDate();
   // Last day of the previous month
-  var lastDayOfLastMonth = m === 0 ? new Date(y - 1, 11, 0).getDate() : new Date(y, m, 0).getDate();
+  this.lastDayOfLastMonth = m === 0 ? new Date(y - 1, 11, 0).getDate() : new Date(y, m, 0).getDate();
 
   var html = '<table>';
 
@@ -67,6 +66,7 @@ Cal.prototype.showMonth = function (y, m) {
   html += '</tr>';
 
   // Write the days
+  i = 1;
   do {
     var dateObj = new Date(y, m, i);
 
@@ -83,8 +83,8 @@ Cal.prototype.showMonth = function (y, m) {
       // it will write the last days from the previous month
     } else if (i === 1) {
       html += '<tr>';
-      var k = lastDayOfLastMonth - firstDayOfMonth + 1;
-      for (var j = 0; j < firstDayOfMonth; j++) {
+      var k = this.lastDayOfLastMonth - this.firstDayOfMonth + 1;
+      for (var j = 0; j < this.firstDayOfMonth; j++) {
         html += '<td data-date=' + dstring + ' class="day not-current-month">' + k + '</td>';
         k++;
       }
@@ -104,16 +104,16 @@ Cal.prototype.showMonth = function (y, m) {
       html += '</tr>';
       // If not Saturday, but last day of the selected month
       // it will write the next few days from the next month
-    } else if (i === lastDateOfMonth) {
-      var notCurrentMonth = 1;
+    } else if (i === this.lastDateOfMonth) {
+      k = 1;
       for (dow; dow < 6; dow++) {
-        html += '<td data-date=' + dstring + ' class="day not-current-month">' + notCurrentMonth + '</td>';
-        notCurrentMonth++;
+        html += '<td data-date=' + dstring + ' class="day not-current-month">' + k + '</td>';
+        k++;
       }
     }
 
     i++;
-  } while (i <= lastDateOfMonth);
+  } while (i <= this.lastDateOfMonth);
 
   // Closes table
   html += '</table>';
