@@ -1,8 +1,14 @@
-/* global getEvents renderEvents Cal */
+/* global renderModule Cal */
 function dateClickHandler (e) {
-  var path = '/?d=' + e.target.dataset.date;
-  getEvents(path, renderEvents);
-}
+  var plusDay = parseInt(e.target.dataset.date.split('-')[2]) + 1;
+  var plusDate = e.target.dataset.date.split('-');
+  plusDate.pop();
+  plusDate.push(plusDay.toString());
+  var path = '/?date_from=' + e.target.dataset.date + '&date_to=' + plusDate;
+  module.getEvents(path, renderModule.renderEvents);
+  document.getElementById('list-page-content').classList.toggle('hide');
+  document.getElementById('show-cal').classList.toggle('show');
+};
 
 function addDateEventListeners () {
   document.querySelectorAll('td.day').forEach(function (day) {
@@ -17,7 +23,7 @@ calendar.render();
 addDateEventListeners();
 
 // event listener for calendar button in header
-document.getElementById('calendar-button').addEventListener('click', function (e) {
+document.getElementById('calendar-button').addEventListener('click', function () {
   document.getElementById('list-page-content').classList.toggle('hide');
   document.getElementById('show-cal').classList.toggle('show');
 });
@@ -33,4 +39,4 @@ document.getElementById('prev-button').onclick = function () {
   addDateEventListeners();
 };
 
-getEvents('', renderEvents);
+module.getEvents('', renderModule.renderEvents);
