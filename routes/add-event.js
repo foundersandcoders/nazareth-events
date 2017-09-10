@@ -1,6 +1,6 @@
 const request = require('request');
 module.exports = (req, res) => {
-  var url = 'https://nazareth-open-tourism-platform.herokuapp.com/events';
+  const url = 'https://nazareth-open-tourism-platform.herokuapp.com/events';
 
   const requestBody = {
     categories: req.body.categories,
