@@ -4,11 +4,11 @@ module.exports = (req, res) => {
   var url = 'https://nazareth-open-tourism-platform.herokuapp.com/events/' + id;
 
   request.get(url, (error, result) => {
-    var event = JSON.parse(result.body);
-
     if (error) {
       res.send('error :(');
     } else {
+      console.log(1);
+      var event = JSON.parse(result.body);
       res.render('event_details', {
         title: 'event details',
         event: event,
