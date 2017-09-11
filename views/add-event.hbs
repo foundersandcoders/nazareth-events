@@ -1,18 +1,18 @@
 <div class="add-eventContainer">
-  <h3 class="userAddEvent">{user name} add event</h3>
+  <h3 class="userAddEvent">add event</h3>
 
   <form class="add-event-form" action="/add-event" method="post">
     <label>Title: </label>
     <input class="form-control" type="text" name="name" placeholder="title" required>
 
-    <label>Picture: </label>
-    <input class="form-control" type="text" name="imageUrl" placeholder="choose picture">
+    <label> Image URL: </label>
+    <input class="form-control" type="text" name="imageUrl" placeholder="image URL link">
 
     <label>Start Date:</label>
-    <input class="form-control" type="date" name="startDate" placeholder="example year-month-day" required>
+    <input class="form-control" type="date" name="startDate" placeholder="example yyyy-mm-dd" required>
 
     <label>End Date:</label>
-    <input class="form-control" type="date" name="endDate" placeholder="example year-month-day" required>
+    <input class="form-control" type="date" name="endDate" placeholder="example yyyy-mm-dd" required>
 
     <label>Start Time: </label>
     <input class="form-control" type="text" name="startTime" placeholder="example 00:00" required>
@@ -39,7 +39,7 @@
     </select>
 
     <label>Accessibility: </label>
-    <select class="accessibility form-control" name="accessibilityOptions" required>
+    <select multiple class="accessibility form-control" name="accessibilityOptions" required>
       <option disabled selected>Select Accessibility..</option>
       <option value="Audio recordings">Audio Recordings</option>
       <option value="Braille">Braille</option>
@@ -63,4 +63,3 @@
     <button type="submit" name="submitBtn" class="submitBtn text-center btn">Submit</button>
   </form>
 </div>
-<script src="./js/add_place.js" type="text/javascript"></script>
