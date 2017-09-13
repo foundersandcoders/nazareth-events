@@ -7,7 +7,6 @@ var renderModule = (function () {
       while (eventsSection.firstChild) {
         eventsSection.removeChild(eventsSection.firstChild);
       }
-      console.log(eventsArray);
       if (eventsArray.length === 0) {
         var noEvents = document.createElement('h1');
         noEvents.innerHTML = 'No Events Where Found On This Day';
