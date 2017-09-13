@@ -72,7 +72,7 @@ td.today {
   text-align: center;
   margin-top: 0.8em;
   font-weight: bold;
-}  
+}
 .prevBtn{
   margin-top: -38px;
   margin-left: 10px;
@@ -102,11 +102,9 @@ img {
 .container-div {
   background-color:	#F5F5F5;
   padding: 1px;
-  margin-bottom: 1px;
-  box-shadow: 1px 1px 1px;
-}
-.container-div:active{
-  color: #6495ED;
+  margin-bottom: 2px;
+  margin-top: 2px;
+  box-shadow: 1px 2px 6px;
 }
 .eventTime, .eventStartDate {
   font-size: 20px;
@@ -116,6 +114,9 @@ img {
 }
 @media only screen and (max-width: 768px) {
     /* For mobile phones: */
+    .container-div:active{
+      color: #6495ED;
+    }
     label {
       margin-left: 6px;
       color: #FF7F50;
@@ -143,7 +144,6 @@ img {
       color: #000060;
       font-weight: bold;
       font-family: "Times New Roman", Times, serif;
-
     }
     .submitBtn:active {
       padding-top: 10px;
@@ -153,6 +153,9 @@ img {
 }
 @media only screen and (min-width: 768px) {
     /* For desktop : */
+    .container-div:hover{
+      color: #6495ED;
+    }
     label {
       color: #FF7F50;
       font-family: 'Open Sans', sans-serif;
