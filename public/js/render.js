@@ -7,6 +7,7 @@ var renderModule = (function () {
       while (eventsSection.firstChild) {
         eventsSection.removeChild(eventsSection.firstChild);
       }
+      console.log(eventsArray);
       if (eventsArray.length === 0) {
         var noEvents = document.createElement('h1');
         noEvents.innerHTML = 'No Events Where Found On This Day';
@@ -17,14 +18,11 @@ var renderModule = (function () {
       }
 
       var filterEvents = eventsArray.filter(function (event) {
-        if (event.en) {
-          return true;
-        }
+        if (event.en) return true;
         return false;
       });
 
       filterEvents.forEach(function (event) {
-        console.log(1);
         var eventContainerDiv = document.createElement('div');
         eventContainerDiv.className = 'container-div';
         var h3Element = document.createElement('h3');

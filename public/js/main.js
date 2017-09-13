@@ -1,11 +1,7 @@
-/* global renderModule Cal */
+/* global renderModule Cal addDay */
 function dateClickHandler (e) {
-  var plusDay = parseInt(e.target.dataset.date.split('-')[2]) + 1;
-  var plusDate = e.target.dataset.date.split('-');
-  plusDate.pop();
-  plusDate.push(plusDay.toString());
-  var path = '/?date_from=' + e.target.dataset.date + '&date_to=' + plusDate;
-  module.getEvents(path, renderModule.renderEvents);
+  console.log(e.target.dataset.date);
+  module.getEvents({ date_from: e.target.dataset.date, date_to: addDay(e.target.dataset) }, renderModule.renderEvents);
   document.getElementById('list-page-content').classList.toggle('hide');
   document.getElementById('show-cal').classList.toggle('show');
 };
@@ -39,4 +35,4 @@ document.getElementById('prev-button').onclick = function () {
   addDateEventListeners();
 };
 
-module.getEvents('', renderModule.renderEvents);
+module.getEvents({}, renderModule.renderEvents);
