@@ -7,7 +7,6 @@ module.exports = (req, res) => {
     if (error) {
       res.send('error :(');
     } else {
-      console.log(1);
       var event = JSON.parse(result.body);
       res.render('event_details', {
         title: 'event details',
