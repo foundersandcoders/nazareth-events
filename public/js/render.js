@@ -1,4 +1,4 @@
-var renderModule = (function () {
+var renderModule = function () {
   console.log(renderModule);
   return {
     renderEvents: function (error, eventsArray) {
@@ -17,8 +17,7 @@ var renderModule = (function () {
       }
 
       var filterEvents = eventsArray.filter(function (event) {
-        if (event.en) return true;
-        return false;
+        return event.en;
       });
 
       filterEvents.forEach(function (event) {
@@ -44,4 +43,4 @@ var renderModule = (function () {
       listPage.appendChild(eventsSection);
     }
   };
-})();
+};

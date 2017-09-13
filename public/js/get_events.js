@@ -1,6 +1,6 @@
 /* global XMLHttpRequest */
-var module = (function () {
-  console.log(module);
+var getEventsModule = function () {
+  console.log(getEventsModule);
   return {
     getEvents: function (queryParams, callback) {
       var baseUrl = 'https://nazareth-open-tourism-platform.herokuapp.com/events';
@@ -24,4 +24,4 @@ var module = (function () {
       xhr.send();
     }
   };
-})();
+};

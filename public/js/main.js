@@ -1,7 +1,7 @@
-/* global renderModule Cal addDay */
+/* global renderModule getEventsModule Cal addDay */
 function dateClickHandler (e) {
   console.log(e.target.dataset.date);
-  module.getEvents({ date_from: e.target.dataset.date, date_to: addDay(e.target.dataset) }, renderModule.renderEvents);
+  getEventsModule.getEvents({ date_from: e.target.dataset.date, date_to: addDay(e.target.dataset) }, renderModule.renderEvents);
   document.getElementById('list-page-content').classList.toggle('hide');
   document.getElementById('show-cal').classList.toggle('show');
 };
@@ -35,4 +35,4 @@ document.getElementById('prev-button').onclick = function () {
   addDateEventListeners();
 };
 
-module.getEvents({}, renderModule.renderEvents);
+getEventsModule.getEvents({}, renderModule.renderEvents);
