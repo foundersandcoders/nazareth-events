@@ -39,33 +39,81 @@ img {
 .eventTime, .eventStartDate {
   font-size: 20px;
 }
-input, textarea, select {
-  margin-bottom: 12px;
+.shekelIcon {
+  width: 17px;
 }
-label {
-  margin-left: 5px;
-  color: #FF7F50;
-  border-bottom: 2px solid #FF7F50;
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    label {
+      margin-left: 6px;
+      color: #FF7F50;
+      font-family: "Times New Roman", Times, serif;
+      margin-left: 5%;
+    }
+    input, textarea, select {
+      margin-bottom: 10px;
+      max-width: 92%;
+      margin-left: 4%;
+    }
+    .userAddEvent {
+      color: #000060;
+      padding: 5px;
+      margin-bottom: 15px;
+      text-shadow: 2px 6px 10px;
+      text-align: center;
+      font-family: "Times New Roman", Times, serif;
+    }
+    .submitBtn {
+      width: 120px;
+      height: 40px;
+      margin: 10px;
+      margin-left: 34%;
+      color: #000060;
+      font-weight: bold;
+      font-family: "Times New Roman", Times, serif;
 
+    }
+    .submitBtn:active {
+      padding-top: 10px;
+      background-color: #000060;
+      color: #FF7F50;
+    }
 }
-.submitBtn {
-  width: 70px;
-  height: 40px;
-  margin: 20px;
-  margin-left: 42%;
-  color: #000060;
-  font-weight: bold;
-}
-.submitBtn:active {
-  padding-top: 12px;
-  background-color: #000060;
-  color: #FF7F50;
-}
-.userAddEvent {
-  color: #000060;
-  box-shadow: 2px 3px 6px;
-  padding: 8px;
-  margin-bottom: 30px;
+@media only screen and (min-width: 768px) {
+    /* For desktop : */
+    label {
+      color: #FF7F50;
+      font-family: 'Open Sans', sans-serif;
+      margin-left: 33%;
+    }
+    input, textarea, select {
+      margin-bottom: 15px;
+      min-width: 25%;
+      max-width: 35%;
+      margin-left: 33%;
+    }
+    .userAddEvent {
+      color: #005060;
+      box-shadow: 2px 3px 6px;
+      padding: 8px;
+      margin-bottom: 30px;
+      text-align: center;
+      font-family: 'Open Sans', sans-serif;
+    }
+    .submitBtn {
+      width: 270px;
+      height: 55px;
+      margin: 15px;
+      margin-left: 40%;
+      color: #005060;
+      font-size: 20px;
+      font-family: 'Open Sans', sans-serif;
+    }
+    .submitBtn:hover {
+      padding-top: 12px;
+      background-color: #005060;
+      color: #FF7F50;
+    }
 }
 .add-place {
   display: none;
