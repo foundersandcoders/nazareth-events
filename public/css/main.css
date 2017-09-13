@@ -48,9 +48,12 @@ img {
       margin-left: 6px;
       color: #FF7F50;
       font-family: "Times New Roman", Times, serif;
+      margin-left: 5%;
     }
     input, textarea, select {
       margin-bottom: 10px;
+      max-width: 92%;
+      margin-left: 4%;
     }
     .userAddEvent {
       color: #000060;
@@ -79,12 +82,15 @@ img {
 @media only screen and (min-width: 768px) {
     /* For desktop : */
     label {
-      margin-left: 8px;
       color: #FF7F50;
       font-family: 'Open Sans', sans-serif;
+      margin-left: 33%;
     }
     input, textarea, select {
       margin-bottom: 15px;
+      min-width: 25%;
+      max-width: 35%;
+      margin-left: 33%;
     }
     .userAddEvent {
       color: #005060;
