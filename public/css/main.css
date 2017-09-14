@@ -78,6 +78,15 @@ img {
       background-color: #000060;
       color: #FF7F50;
     }
+    #addPlaceIcon{
+      float: right;
+      margin-right: 15px;
+      color: green;
+    }
+    .addPlaceSpan{
+      float: right;
+      margin-right: 17px;
+    }
 }
 @media only screen and (min-width: 768px) {
     /* For desktop : */
@@ -95,48 +104,52 @@ img {
     .userAddEvent {
       color: #005060;
       box-shadow: 2px 3px 6px;
+      width: 40%;
+      margin-left: 30%;
+      border-radius: 5px;
       padding: 8px;
       margin-bottom: 30px;
       text-align: center;
       font-family: 'Open Sans', sans-serif;
+      font-size: 30px;
     }
     .submitBtn {
-      width: 270px;
-      height: 55px;
+      width: 240px;
+      height: 45px;
       margin: 15px;
-      margin-left: 40%;
+      margin-left: 42%;
       color: #005060;
       font-size: 20px;
       font-family: 'Open Sans', sans-serif;
+      box-shadow: 2px 3px 6px;
+      border-radius: 10px;
     }
     .submitBtn:hover {
-      padding-top: 12px;
+      padding-top: 10px;
       background-color: #005060;
       color: #FF7F50;
+    }
+    #addPlaceIcon{
+      float: right;
+      margin-right: 32%;
+      color: green;
+    }
+    .addPlaceSpan{
+      float: right;
+      margin-right: 17px;
+      color: #005060;
     }
 }
 .add-place {
   display: none;
-  background: #F8F8FF;
+  background: #F5F5F5;
   margin-bottom: 20px;
   margin-top: 15px;
+  padding: 30px;
 }
 .add-place button {
   padding: 5px;
   margin-bottom: 20px;
   margin-left: 135px;
   font-weight: bold;
-}
-.add-place input {
-  width:80%;
-  margin-left: 40px;
-}
-#addPlaceIcon{
-  float: right;
-  margin-right: 15px;
-  color: green;
-}
-.addPlaceSpan{
-  float: right;
-  margin-right: 17px;
 }
