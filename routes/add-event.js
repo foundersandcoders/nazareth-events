@@ -3,7 +3,8 @@ module.exports = (req, res) => {
   const url = 'https://nazareth-open-tourism-platform.herokuapp.com/events';
 
   const requestBody = {
-    categories: req.body.categories,
+    placeId: req.body.categories[0],
+    categories: req.body.categories[1],
     accessibilityOptions: req.body.accessibilityOptions,
     startTime: req.body.startDate + 'T' + req.body.startTime,
     endTime: req.body.endDate + 'T' + req.body.endTime,
@@ -14,6 +15,7 @@ module.exports = (req, res) => {
       description: req.body.description
     }
   };
+  console.log('req.body', req.body);
 
   const options = {
     method: 'post',
@@ -22,10 +24,11 @@ module.exports = (req, res) => {
     url
   };
 
-  request(options, (error, result, body) => {
+  request(options, (error, result) => {
     if (error) {
       res.send(error);
     } else {
+      console.log(options);
       if (result.statusCode >= 400 && result.statusCode <= 499) {
         res.send(`error :( ${result.body.reasons}`);
       } else if (result.statusCode >= 500 && result.statusCode <= 599) {
