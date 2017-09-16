@@ -1,5 +1,4 @@
 var renderModule = function (error, eventsArray) {
-  console.log(renderModule);
   var listPage = document.getElementById('list-page-content');
   var eventsSection = document.getElementById('events-section');
   while (eventsSection.firstChild) {

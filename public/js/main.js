@@ -1,6 +1,5 @@
 /* global renderModule getEventsModule Cal addDay */
 function dateClickHandler (e) {
-  console.log(e.target.dataset.date);
   getEventsModule({ date_from: e.target.dataset.date, date_to: addDay(e.target.dataset) }, renderModule);
   document.getElementById('list-page-content').classList.toggle('hide');
   document.getElementById('show-cal').classList.toggle('show');
