@@ -22,7 +22,7 @@
 
     <label>Place: </label>
     <li id="addPlaceIcon" class="glyphicon glyphicon-plus"></li><span class="addPlaceSpan text-muted">add new place</span>
-    <input id="searchPlace" class="form-control" type="text" name="place" placeholder="search place or click to add new place" required>
+    <input id="searchPlace" class="form-control" type="search" placeholder="search place or click to add new place">
     <div id="option-list-container"></div>
     <select id="selectAllPlaces" class="options form-control" name="placeId" required>
       <option disabled selected>Select place..</option>
@@ -31,17 +31,14 @@
       {{/each}}
     </select>
     <div id="addPlaceContainer" class="add-place">
-      <form class="add-place-form" action="/add-place" method="post">
-        <input class="form-control" type="text" name="location" placeholder="location">
-        <input class="form-control" type="text" name="imageUrl" placeholder="image - link to image of place">
-        <input class="form-control" type="text" name="website" placeholder="website - link to place's website">
-        <input class="form-control" type="number" name="phone" placeholder="number phone">
-        <input class="form-control" type="text" name="email" placeholder="email">
-        <input class="form-control" type="text" name="name" placeholder="name of the place">
-        <input class="form-control" type="text" name="address" placeholder="address of the place">
-        <input class="form-control" type="text" name="openingHours" placeholder="opening hours from - to">
-        <button class="submitToAdd btn-success" type="button" name="add-place">add new place</button>
-      </form>
+        <input class="form-control" type="text" name="place_location" placeholder="location">
+        <input class="form-control" type="text" name="place_imageUrl" placeholder="image - link to image of place">
+        <input class="form-control" type="text" name="place_website" placeholder="website - link to place's website">
+        <input class="form-control" type="number" name="place_phone" placeholder="number phone">
+        <input class="form-control" type="text" name="place_email" placeholder="email">
+        <input class="form-control" type="text" name="place_name" placeholder="name of the place">
+        <input class="form-control" type="text" name="place_address" placeholder="address of the place">
+        <input class="form-control" type="text" name="place_openingHours" placeholder="opening hours from - to">
     </div>
 
     <label class="sel1">Category: </label>
