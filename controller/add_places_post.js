@@ -1,9 +1,9 @@
 const request = require('request');
 module.exports = (req, res) => {
-  var id = req.params.id;
-  var url = 'https://nazareth-open-tourism-platform.herokuapp.com/places' + id;
+  var url = 'https://nazareth-open-tourism-platform.herokuapp.com/places';
 
   const requestBody = {
+    _id: req.body.placeId,
     location: req.body.place_location,
     categories: req.body.place_categories,
     accessibilityOptions: req.body.place_accessibilityOptions,
