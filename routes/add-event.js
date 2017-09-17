@@ -3,13 +3,13 @@ module.exports = (req, res) => {
   const url = 'https://nazareth-open-tourism-platform.herokuapp.com/events';
 
   const requestBody = {
-    placeId: req.body.categories[0],
-    categories: req.body.categories[1],
+    place: req.body.placeId,
+    categories: req.body.categories,
     accessibilityOptions: req.body.accessibilityOptions,
     startTime: req.body.startDate + 'T' + req.body.startTime,
     endTime: req.body.endDate + 'T' + req.body.endTime,
     cost: req.body.cost,
-    image: req.body.imageUrl,
+    imageUrl: req.body.imageUrl,
     en: {
       name: req.body.name,
       description: req.body.description
