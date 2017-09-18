@@ -1,6 +1,17 @@
-var addDay = function (dataSet) {
-  var plusDay = parseInt(dataSet.date.split('-')[2]) + 1;
-  var plusDate = dataSet.date.split('-');
-  const actualDateTo = new Date(plusDate[0], plusDate[1], +plusDate[2] + 1);
-  return actualDateTo.getFullYear().toString() + '-' + actualDateTo.getMonth().toString() + '-' + actualDateTo.getDate().toString();
+var toDateString = function (date) {
+  // + 1 on the month because month is zero-indexed
+  return date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
+};
+
+var addDays = function (date, daysToAdd) {
+  var splitDate = date.split('-');
+  var newDate = new Date(
+    // year
+    splitDate[0],
+    // month (-1 because zero indexed)
+    +splitDate[1] - 1,
+    // day
+    +splitDate[2] + daysToAdd
+  );
+  return toDateString(newDate);
 };
