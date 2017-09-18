@@ -14,13 +14,15 @@ module.exports = (req, res) => {
       description: req.body.description
     }
   };
+
   const options = {
     method: 'post',
     body: requestBody,
     json: true,
     url
   };
-  request(options, (error, result, body) => {
+
+  request(options, (error, result) => {
     if (error) {
       res.send(error);
     } else {
