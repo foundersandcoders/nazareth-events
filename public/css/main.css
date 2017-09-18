@@ -26,8 +26,9 @@ span.glyphicon {
   font-size: 20px;
 }
 .previous, .next {
-  color: #FF8C00;
-  box-shadow: 1px 2px 8px;
+  box-shadow: 1px 2px 6px;
+  padding: 2px;
+  font-weight: bold;
 }
 .previous {
   position: absolute;
