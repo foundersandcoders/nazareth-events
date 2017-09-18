@@ -190,3 +190,11 @@ img {
       color: #FF7F50;
     }
 }
+.noEvents {
+  color: #B22222;
+  text-align: center;
+  background: linear-gradient(to top, #B22222, white, white, white);
+  margin-top: 100px;
+  padding: 20px;
+  text-shadow: 4px 3px 10px;
+}
