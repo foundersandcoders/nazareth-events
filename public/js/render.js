@@ -9,7 +9,8 @@ var renderModule = (function () {
       }
       if (eventsArray.length === 0) {
         var noEvents = document.createElement('h1');
-        noEvents.innerHTML = 'No Events Where Found On This Day';
+        noEvents.innerHTML = 'NO UPCOMING EVENTS.';
+        noEvents.className = 'noEvents';
         return eventsSection.appendChild(noEvents);
       }
       if (error) {
