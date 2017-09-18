@@ -33,17 +33,45 @@
     <div id="addPlaceContainer" class="add-place">
         <input class="form-control" type="text" name="place_location" placeholder="location">
         <input class="form-control" type="text" name="place_imageUrl" placeholder="image - link to image of place">
+        <select class="form-control" name="categories">
+          <option disabled selected>Select place categories..</option>
+          <option value="cafe">Cafe</option>
+          <option value="music venue">Music Venue</option>
+          <option value="religious site">Religious Site</option>
+          <option value="food and drink">Food and Drink</option>
+          <option value="education">Education</option>
+          <option value="retail">Retail</option>
+          <option value="sport">Sport</option>
+          <option value="municipal">Municipal</option>
+          <option value="healthcare">Healthcare</option>
+        </select>
+        <select multiple class="form-control"name="accessibilityOptions">
+          <option disabled selected>Select accessibility..</option>
+          <option value="Audio recordings">Audio Recordings</option>
+          <option value="Braille">Braille</option>
+          <option value="Big fonts">Big Fonts</option>
+          <option value="Carer">Carer</option>
+          <option value="Place for guide dog">Place for Guide Dog</option>
+          <option value="SMS messaging">SMS Messaging</option>
+          <option value="Sign language">Sign Language</option>
+          <option value="Good lighting">Good Lighting</option>
+          <option value="Wheelchair access">WheelChair Access</option>
+          <option value="Disabled parking">Disabled Parking</option>
+          <option value="Disabled toilets">Disabled Toilets</option>
+        </select>
         <input class="form-control" type="text" name="place_website" placeholder="website - link to place's website">
-        <input class="form-control" type="number" name="place_phone" placeholder="number phone">
+        <input class="form-control" type="number" name="place_phone" placeholder="number phone" >
         <input class="form-control" type="text" name="place_email" placeholder="email">
-        <input class="form-control" type="text" name="place_name" placeholder="name of the place">
-        <input class="form-control" type="text" name="place_address" placeholder="address of the place">
+        <input class="form-control" type="text" name="place_name" placeholder="name of the place" >
+        <input class="form-control" type="text" name="place_address" placeholder="address of the place" >
         <input class="form-control" type="text" name="place_openingHours" placeholder="opening hours from - to">
+        <textarea class="form-control" rows="3" name="place_description" placeholder="write some description here .."></textarea>
     </div>
 
     <label class="sel1">Category: </label>
     <select class="options form-control" name="categories" required>
       <option disabled selected>Select option..</option>
+      <option value="music">Music</option>
       <option value="dining">Dining</option>
       <option value="educational">Educational</option>
       <option value="conference">Conference</option>
