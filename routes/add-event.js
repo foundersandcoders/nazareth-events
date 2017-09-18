@@ -15,7 +15,6 @@ module.exports = (req, res) => {
       description: req.body.description
     }
   };
-  console.log('req.body', req.body);
 
   const options = {
     method: 'post',

@@ -1,6 +1,78 @@
 a, a:hover, a:active, a:visited, a:focus {
     text-decoration: none;
 }
+.calendar:hover {
+  color: #6495ED;
+}
+.calendar {
+  color: gray;
+}
+.header {
+  background-color:	#F5F5F5;
+  padding: 3px;
+  padding-bottom: 12px;
+  box-shadow: 4px 3px 12px;
+  font-family: 'Quattrocento Sans', sans-serif;
+}
+.naz-events{
+  color: #6495ED;
+}
+.div-calendarBtn{
+  margin-top: -37px;
+  margin-right: 7px;
+  direction: rtl;
+}
+span.glyphicon {
+  font-size: 20px;
+}
+.previous, .next {
+  color: #FF8C00;
+  box-shadow: 1px 2px 8px;
+}
+.previous {
+  position: absolute;
+  top: 7.8em;
+  left: 6%;
+}
+.next {
+  position: absolute;
+  top: 7.8em;
+  right: 6%;
+}
+#calendar {
+  width: 100%;
+  /*position: absolute;*/
+}
+
+#calendar thead {
+  font-size: 1.5em;
+  text-align: center;
+  font-weight: bold;
+}
+#calendar table {
+  width: 100%;
+  text-align: center;
+}
+
+#calendar td {
+  height: 2.5em;
+  vertical-align: middle;
+  width: 14.285714%;
+}
+
+td.not-current-month {
+  color: #ddd;
+}
+
+td.today {
+  /* arbitrary af */
+  color: #6495ED;
+}
+#show-cal p{
+  text-align: center;
+  margin-top: 0.8em;
+  font-weight: bold;
+}
 .prevBtn{
   margin-top: -38px;
   margin-left: 10px;
@@ -30,11 +102,9 @@ img {
 .container-div {
   background-color:	#F5F5F5;
   padding: 1px;
-  margin-bottom: 1px;
-  box-shadow: 1px 1px 1px;
-}
-.container-div:active{
-  color: #6495ED;
+  margin-bottom: 2px;
+  margin-top: 2px;
+  box-shadow: 1px 2px 6px;
 }
 .eventTime, .eventStartDate {
   font-size: 20px;
@@ -44,6 +114,9 @@ img {
 }
 @media only screen and (max-width: 768px) {
     /* For mobile phones: */
+    .container-div:active{
+      color: #6495ED;
+    }
     label {
       margin-left: 6px;
       color: #FF7F50;
@@ -71,7 +144,6 @@ img {
       color: #000060;
       font-weight: bold;
       font-family: "Times New Roman", Times, serif;
-
     }
     .submitBtn:active {
       padding-top: 10px;
@@ -90,6 +162,9 @@ img {
 }
 @media only screen and (min-width: 768px) {
     /* For desktop : */
+    .container-div:hover{
+      color: #6495ED;
+    }
     label {
       color: #FF7F50;
       font-family: 'Open Sans', sans-serif;
@@ -152,4 +227,12 @@ img {
   margin-bottom: 20px;
   margin-left: 135px;
   font-weight: bold;
+}
+.noEvents {
+  color: #B22222;
+  text-align: center;
+  background: linear-gradient(to top, #B22222, white, white, white);
+  margin-top: 100px;
+  padding: 20px;
+  text-shadow: 4px 3px 10px;
 }
