@@ -1,9 +1,9 @@
-/* global renderModule getEventsModule Cal addDay */
+/* global renderModule getEventsModule Cal addDays */
 function dateClickHandler (e) {
   var date = e.target.dataset.date;
   var dateParams = {
     date_from: date,
-    date_to: addDay(date, 14)
+    date_to: addDays(date, 14)
   };
   getEventsModule(dateParams, renderModule);
   document.getElementById('list-page-content').classList.toggle('hide');
