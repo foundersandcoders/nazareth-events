@@ -5,7 +5,7 @@
   </div>
 </div>
 
-<div class="event-details text-center">
+<div id="event-details" class="event-details text-center">
   <h1 class="text-warning eventName">{{event.en.name}}</h1>
   {{#if imageUrl}}
   <img src="{{event.imageUrl}}" alt="event picture">
@@ -20,3 +20,7 @@
   </div>
   <p class="text-muted description">{{event.en.description}}</p>
 </div>
+
+<script type="text/javascript">
+  document.getElementById('calendar-button').classList.toggle('hide');
+</script>
