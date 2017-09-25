@@ -31,7 +31,7 @@ var renderModule = function (error, eventsArray) {
     aElement.className = 'event-link';
 
     h3Element.innerHTML = event.en.name;
-    h4Element.innerHTML = event.startTime + ' To ' + event.endTime + ' At ' + event.placeId;
+    h4Element.innerHTML = new Date(event.startTime).toDateString() + '</br>' + new Date(new Date(event.startTime).getTime()).toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'}) + ' - ' + new Date(new Date(event.endTime).getTime()).toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'});
 
     aElement.appendChild(h3Element);
     aElement.appendChild(h4Element);
