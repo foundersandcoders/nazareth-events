@@ -1,3 +1,5 @@
+/* global counter */
+
 var renderModule = function (error, eventsArray) {
   var listPage = document.getElementById('list-page-content');
   var eventsSection = document.getElementById('events-section');
@@ -14,9 +16,21 @@ var renderModule = function (error, eventsArray) {
     eventsSection.innerHTML = error;
   }
 
-  var filterEvents = eventsArray.filter(function (event) {
-    return event.en;
-  });
+  var filterEvents = [];
+
+  if (counter === 0) {
+    filterEvents = eventsArray.filter(function (event) {
+      if (event.en && new Date() <= new Date(event.startTime)) {
+        return true;
+      } else {
+        return false;
+      }
+    });
+  } else {
+    filterEvents = eventsArray.filter(function (event) {
+      return event.en;
+    });
+  }
 
   filterEvents.forEach(function (event) {
     var eventContainerDiv = document.createElement('div');
