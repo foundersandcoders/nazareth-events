@@ -16,14 +16,20 @@ tape('home route test: GET request to /', t => {
 
 tape('Test the event details route', t => {
   const htmlSample = '<h1 class="text-warning eventName">default</h1>';
-  supertest(server)
-    .get('/events/59afaf75b0a5e80011beeafa')
-    .expect(200)
-    .end((err, res) => {
-      t.error(err);
-      t.ok(res.text.includes(htmlSample), 'It found the right event');
-      t.end();
-    });
+  let eventId = '';
+  request.get('https://nazareth-open-tourism-platform.herokuapp.com/events', (err, res) => {
+    if (err) return err;
+    const filteredResult = JSON.parse(res.body).filter((event) => event.en.name === 'default');
+    eventId = filteredResult[0]._id;
+    supertest(server)
+      .get('/events/' + eventId)
+      .expect(200)
+      .end((err, res) => {
+        t.error(err);
+        t.ok(res.text.includes(htmlSample), 'It found the right event');
+        t.end();
+      });
+  });
 });
 
 tape('Tests what renders when you get an error in event details', t => {
