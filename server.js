@@ -25,7 +25,7 @@ server.engine('hbs', hbs({
   extname: 'hbs',
   helpers: {
     prettyDate: (date) => dateFormat(date, 'dddd d  mmm  yyyy'),
-    prettyTime: (time) => new Date(new Date(time).getTime()).toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'})
+    prettyTime: (time) => new Date(new Date(time).getTime()).toLocaleTimeString([], {hour: '2-digit', minute: '2-digit', hour12: false})
   }
 }));
 
