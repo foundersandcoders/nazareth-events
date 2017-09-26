@@ -26,7 +26,8 @@ module.exports = (req, res) => {
       }
     });
     res.render('add-event', {
-      eachPlaces: places
+      eachPlaces: places,
+      title: 'Add Event'
     });
   });
 };

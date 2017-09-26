@@ -1,5 +1,5 @@
 const request = require('request');
-const getPlaces = require('../controller/get_places.js');
+const getPlaces = require('./get_places.js');
 
 module.exports = (req, res) => {
   var placeResponse = [];
