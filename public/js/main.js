@@ -1,7 +1,6 @@
 /* global renderModule getEventsModule Cal addDays counter:true */
 function dateClickHandler (e) {
   var date = e.target.dataset.date;
-  console.log(date);
   var dateParams = {
     date_from: date,
     date_to: addDays(date, 14)
