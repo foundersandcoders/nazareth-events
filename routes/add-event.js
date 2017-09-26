@@ -1,9 +1,20 @@
 const request = require('request');
+const getPlaces = require('../controller/get_places.js');
+
+var response = [];
+getPlaces((err, places) => {
+  if (err) return err;
+  response = places;
+});
 module.exports = (req, res) => {
   const url = 'https://nazareth-open-tourism-platform.herokuapp.com/events';
+  const filterResponse = response.filter((place) => {
+    console.log(place.name, req.body.place_name);
+    return place.name === req.body.place_name;
+  });
 
   const requestBody = {
-    place: req.body.placeId,
+    place: filterResponse[0].id,
     categories: req.body.categories,
     accessibilityOptions: req.body.accessibilityOptions,
     startTime: req.body.startDate + 'T' + req.body.startTime,
