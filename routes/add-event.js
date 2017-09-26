@@ -8,7 +8,6 @@ module.exports = (req, res) => {
     placeResponse = places;
     const url = 'https://nazareth-open-tourism-platform.herokuapp.com/events';
     const filterResponse = placeResponse.filter((place) => {
-      console.log(place.name, req.body.place_name);
       return place.name === req.body.place_name;
     });
 
@@ -37,7 +36,6 @@ module.exports = (req, res) => {
       if (error) {
         res.send(error);
       } else {
-        console.log(options);
         if (result.statusCode >= 400 && result.statusCode <= 499) {
           res.send(`error :( ${result.body.reasons}`);
         } else if (result.statusCode >= 500 && result.statusCode <= 599) {
