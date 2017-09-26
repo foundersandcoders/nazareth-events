@@ -9,7 +9,7 @@ const addPlace = require('../controller/add_places_post.js');
 router.get('/', homePage);
 router.get('/events/:id', detailsPage);
 router.get('/add-event', getPlaces);
-router.post('/add-event', addEvent);
 router.post('/add-event', addPlace);
+router.post('/add-event', addEvent);
 
 module.exports = router;
