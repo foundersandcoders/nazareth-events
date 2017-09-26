@@ -1,4 +1,4 @@
-/* global renderModule getEventsModule Cal addDays counter:true */
+/* global renderModule getEventsModule Cal addDays */
 function dateClickHandler (e) {
   var date = e.target.dataset.date;
   var dateParams = {
@@ -40,5 +40,5 @@ document.getElementById('prev-button').onclick = function () {
 };
 
 getEventsModule({
-  date_from: new Date().toISOString().replace(/T.*/, '').split('-').join('-')
+  date_from: new Date().toISOString().slice(0, 10)
 }, renderModule);

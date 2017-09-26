@@ -1,5 +1,3 @@
-/* global counter */
-
 var renderModule = function (error, eventsArray) {
   var listPage = document.getElementById('list-page-content');
   var eventsSection = document.getElementById('events-section');
@@ -16,9 +14,7 @@ var renderModule = function (error, eventsArray) {
     eventsSection.innerHTML = error;
   }
 
-  var filterEvents = [];
-
-  filterEvents = eventsArray.filter(function (event) {
+  var filterEvents = eventsArray.filter(function (event) {
     return event.en;
   });
 

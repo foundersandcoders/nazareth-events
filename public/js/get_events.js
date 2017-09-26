@@ -8,6 +8,8 @@ var getEventsModule = function (queryParams, callback) {
     url = baseUrl + '/?date_from=' + queryParams.date_from + '&date_to=' + queryParams.date_to;
   } else if (queryParams.date_from && !queryParams.date_to) {
     url = baseUrl + '/?date_from=' + queryParams.date_from;
+  } else {
+    url = baseUrl + '/?date_to=' + queryParams.date_to;
   }
   var xhr = new XMLHttpRequest();
   xhr.onreadystatechange = function () {
