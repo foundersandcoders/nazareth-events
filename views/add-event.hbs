@@ -31,9 +31,9 @@
       {{/each}}
     </select>
     <div id="addPlaceContainer" class="add-place">
-        <input class="form-control" type="text" name="place_location" placeholder="location">
+        <input class="form-control" type="number" name="place_location" placeholder="location">
         <input class="form-control" type="text" name="place_imageUrl" placeholder="image - link to image of place">
-        <select class="form-control" name="categories">
+        <select class="form-control" name="place_categories">
           <option disabled selected>Select place categories..</option>
           <option value="cafe">Cafe</option>
           <option value="music venue">Music Venue</option>
@@ -45,7 +45,7 @@
           <option value="municipal">Municipal</option>
           <option value="healthcare">Healthcare</option>
         </select>
-        <select multiple class="form-control"name="accessibilityOptions">
+        <select multiple class="form-control" name="place_accessibilityOptions">
           <option disabled selected>Select accessibility..</option>
           <option value="Audio recordings">Audio Recordings</option>
           <option value="Braille">Braille</option>
