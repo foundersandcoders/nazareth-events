@@ -1,11 +1,12 @@
 /* global XMLHttpRequest */
 var getEventsModule = function (queryParams, callback) {
   var baseUrl = 'https://nazareth-open-tourism-platform.herokuapp.com/events';
-  var url = '';
-  if (!queryParams.date_from || !queryParams.date_to) {
-    url = baseUrl;
+  if (queryParams.date_from && queryParams.date_to) {
+    baseUrl += '/?date_from=' + queryParams.date_from + '&date_to=' + queryParams.date_to;
+  } else if (queryParams.date_from && !queryParams.date_to) {
+    baseUrl += '/?date_from=' + queryParams.date_from;
   } else {
-    url = baseUrl + '/?date_from=' + queryParams.date_from + '&date_to=' + queryParams.date_to;
+    baseUrl += '/?date_to=' + queryParams.date_to;
   }
   var xhr = new XMLHttpRequest();
   xhr.onreadystatechange = function () {
@@ -16,6 +17,6 @@ var getEventsModule = function (queryParams, callback) {
       callback(errorMessage, null);
     }
   };
-  xhr.open('GET', url, true);
+  xhr.open('GET', baseUrl, true);
   xhr.send();
 };
