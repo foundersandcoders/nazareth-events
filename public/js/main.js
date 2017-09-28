@@ -39,4 +39,6 @@ document.getElementById('prev-button').onclick = function () {
   addDateEventListeners();
 };
 
-getEventsModule({}, renderModule);
+getEventsModule({
+  date_from: new Date().toISOString().slice(0, 10)
+}, renderModule);
