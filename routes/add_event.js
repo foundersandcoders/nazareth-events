@@ -1,9 +1,10 @@
 const request = require('request');
-const postEvent = require('./middleware/post_event.js');
 
 module.exports = (req, res) => {
+  const url = 'https://nazareth-open-tourism-platform.herokuapp.com/events';
+
   const requestBody = {
-    place: res.locals.id,
+    place: req.locals.id,
     categories: req.body.categories,
     accessibilityOptions: req.body.accessibilityOptions,
     startTime: req.body.startDate + 'T' + req.body.startTime,
@@ -16,11 +17,18 @@ module.exports = (req, res) => {
     }
   };
 
-  postEvent(requestBody, (err) => {
-    if (err) {
-      res.send(err);
+  const options = {
+    method: 'post',
+    body: requestBody,
+    json: true,
+    url
+  };
+
+  request(options, (error, result) => {
+    if (error) {
+      res.send(error);
     } else {
-      res.redirect('/');
+      res.redirect(`/event/${req.locals.id}`);
     }
   });
 };

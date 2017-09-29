@@ -1,6 +1,6 @@
 const request = require('request');
 
-module.exports = (cb) => {
+module.exports = (req, res, next) => {
   var url = 'https://nazareth-open-tourism-platform.herokuapp.com/places';
 
   const options = {
@@ -11,7 +11,7 @@ module.exports = (cb) => {
   var places = [];
   request(options, (error, result, body) => {
     if (error) {
-      cb(error);
+      res.send(error);
     }
     places = result.body.map(place => {
       if (place.en) {
@@ -26,6 +26,7 @@ module.exports = (cb) => {
         };
       }
     });
-    cb(null, places);
+    res.locals.places = places;
+    return next();
   });
 };
