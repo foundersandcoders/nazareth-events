@@ -1,6 +1,7 @@
 const path = require('path');
 const hbs = require('express-handlebars');
 const express = require('express');
+const compression = require('compression');
 const router = require('./routes/index.js');
 const dateFormat = require('dateformat');
 const bodyParser = require('body-parser');
@@ -14,6 +15,7 @@ server.set('views', path.join(__dirname, './', 'views'));
 server.use(express.static(path.join(__dirname, './', 'public')));
 server.use(bodyParser.urlencoded({ extended: true }));
 server.use(bodyParser.json());
+server.use(compression());
 
 server.use(router);
 
