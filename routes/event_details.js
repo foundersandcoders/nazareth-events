@@ -1,17 +1,15 @@
 const request = require('request');
+const getEvent = require('./middleware/get_event.js');
+
 module.exports = (req, res) => {
-  var id = req.params.id;
-  var url = 'https://nazareth-open-tourism-platform.herokuapp.com/events/' + id;
-
-  request.get(url, (error, result) => {
-    var event = JSON.parse(result.body);
-
-    if (error) {
-      res.send('error :(');
+  const id = req.params.id;
+  getEvent(id, (err, event) => {
+    if (err) {
+      res.send(err);
     } else {
       res.render('event_details', {
         title: 'event details',
-        event: event,
+        event,
         back: req.headers.referer
       });
     }
