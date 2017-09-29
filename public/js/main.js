@@ -42,8 +42,3 @@ document.getElementById('prev-button').onclick = function () {
 getEventsModule({
   date_from: new Date().toISOString().slice(0, 10)
 }, renderModule);
-
-document.getElementById('addPlaceIcon').addEventListener('click', function (e) {
-  document.getElementById('addPlaceContainer').classList.toggle('show');
-  document.getElementById('selectAllPlaces').classList.toggle('hide');
-});
