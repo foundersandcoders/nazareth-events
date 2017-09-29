@@ -4,7 +4,7 @@ module.exports = (req, res) => {
   const url = 'https://nazareth-open-tourism-platform.herokuapp.com/events';
 
   const requestBody = {
-    place: req.locals.id,
+    place: res.locals.id,
     categories: req.body.categories,
     accessibilityOptions: req.body.accessibilityOptions,
     startTime: req.body.startDate + 'T' + req.body.startTime,
@@ -24,11 +24,11 @@ module.exports = (req, res) => {
     url
   };
 
-  request(options, (error, result) => {
+  request(options, (error, result, body) => {
     if (error) {
       res.send(error);
     } else {
-      res.redirect(`/event/${req.locals.id}`);
+      res.redirect(`/events/${body._id}`);
     }
   });
 };
