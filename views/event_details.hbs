@@ -1,7 +1,7 @@
 <div class="eventDetailsHeader">
     {{>header}}
-  <div class="prevBtn ">
-    <a href="{{{back}}}"><span class="glyphicon glyphicon-chevron-left"></span></a>
+  <div class="prevBtn-div">
+    <a href="{{{back}}}"><span class="glyphicon glyphicon-chevron-left prevBtn"></span></a>
   </div>
 </div>
 
@@ -11,7 +11,7 @@
   <img src="{{event.imageUrl}}" alt="event picture">
   {{/if}}
   <h4 class="text-muted eventStartDate">{{prettyDate event.startTime}}</h4>
-  <h5 class="text-muted eventTime">{{prettyTime event.startTime}} - {{prettyTime event.endTime}}</h5> <h3 class="text-primary">at: {{event.placeId.en.name}}</h3>
+  <h5 class="text-muted eventTime">{{prettyTime event.startTime}} - {{prettyTime event.endTime}}</h5> <h3 class="text-primary">at: {{event.place.en.name}}</h3>
 
   <div class="information">
     <h3  class="text-danger">categories: </h3> <h4 class="text-info">{{event.categories}}</h4>

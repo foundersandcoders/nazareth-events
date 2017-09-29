@@ -1,24 +1,25 @@
 a, a:hover, a:active, a:visited, a:focus {
     text-decoration: none;
 }
-.calendar:hover {
-  color: #6495ED;
+.calendar:active {
+  color: #008080;
 }
 .calendar {
-  color: gray;
+  color: #F5F5F5;
 }
 .header {
-  background-color:	#F5F5F5;
+  background-color:	#008080;
   padding: 3px;
-  padding-bottom: 12px;
+  padding-bottom: 40px;
   box-shadow: 4px 3px 12px;
-  font-family: 'Quattrocento Sans', sans-serif;
 }
 .naz-events{
-  color: #6495ED;
+  color: #F5F5F5;
+  font-weight: bold;
+  font-family: 'Quattrocento Sans', sans-serif;
 }
 .div-calendarBtn{
-  margin-top: -37px;
+  margin-top: -39px;
   margin-right: 7px;
   direction: rtl;
 }
@@ -26,8 +27,7 @@ span.glyphicon {
   font-size: 20px;
 }
 .previous, .next {
-  color: #FF8C00;
-  box-shadow: 1px 2px 8px;
+  margin-top: 45px;
 }
 .previous {
   position: absolute;
@@ -73,9 +73,12 @@ td.today {
   margin-top: 0.8em;
   font-weight: bold;
 }
-.prevBtn{
-  margin-top: -53px;
+.prevBtn-div{
+  margin-top: -80px;
   margin-left: 10px;
+}
+.prevBtn{
+  color: #F5F5F5;
 }
 .description {
   font-size: 25px;
@@ -100,11 +103,9 @@ img {
   padding: 3px;
 }
 .container-div {
-  background-color:	#F5F5F5;
-  padding: 1px;
-  margin-bottom: 2px;
-  margin-top: 2px;
+  padding: 4px;
   box-shadow: 1px 2px 6px;
+  border-radius: 3px;
 }
 .eventTime, .eventStartDate {
   font-size: 20px;
@@ -115,7 +116,7 @@ img {
 @media only screen and (max-width: 768px) {
     /* For mobile phones: */
     .container-div:active{
-      color: #6495ED;
+      color: #008080;
     }
     label {
       margin-left: 6px;
@@ -154,7 +155,7 @@ img {
 @media only screen and (min-width: 768px) {
     /* For desktop : */
     .container-div:hover{
-      color: #6495ED;
+      color: #008080;
     }
     label {
       color: #FF7F50;
