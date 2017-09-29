@@ -1,58 +1,44 @@
-/* global  XMLHttpRequest */
-
-(function () {
-  var url = 'https://nazareth-open-tourism-platform.herokuapp.com/events';
-  function makeRequest (url, callback) {
-    var xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = function () {
-      if (xhr.readyState === 4 && xhr.status === 200) {
-        callback(null, JSON.parse(xhr.responseText));
-      } else if (xhr.status === 500) {
-        var errorMessage = new Error('Server Error! Status: ' + xhr.status);
-        callback(errorMessage, null);
-      }
-    };
-    xhr.open('GET', url, true);
-    xhr.send();
+/* global renderModule getEventsModule Cal addDays */
+function dateClickHandler (e) {
+  var date = e.target.dataset.date;
+  var dateParams = {
+    date_from: date,
+    date_to: addDays(date, 14)
   };
+  getEventsModule(dateParams, renderModule);
+  document.getElementById('list-page-content').classList.toggle('hide');
+  document.getElementById('show-cal').classList.toggle('show');
+};
 
-  function renderEvents (error, eventsArray) {
-    var listPage = document.getElementById('list-page-content');
-    var eventsSection = document.getElementById('events-section');
+function addDateEventListeners () {
+  document.querySelectorAll('td.day').forEach(function (day) {
+    day.removeEventListener('click', dateClickHandler);
+    day.addEventListener('click', dateClickHandler);
+  });
+}
 
-    if (error) {
-      eventsSection.innerHTML = error;
-    }
+// create calendar
+var calendar = new Cal('calendar');
+calendar.render();
+addDateEventListeners();
 
-    var filterEvents = eventsArray.filter(function (event) {
-      if (event.en) {
-        return true;
-      }
-      return false;
-    });
+// event listener for calendar button in header
+document.getElementById('calendar-button').addEventListener('click', function () {
+  document.getElementById('list-page-content').classList.toggle('hide');
+  document.getElementById('show-cal').classList.toggle('show');
+});
 
-    filterEvents.forEach(function (event) {
-      var eventContainerDiv = document.createElement('div');
-      eventContainerDiv.className = 'container-div';
-      var h3Element = document.createElement('h3');
-      h3Element.className = 'event text-primary';
-      var h4Element = document.createElement('h4');
-      h4Element.className = 'placeTime text-muted';
-      var aElement = document.createElement('a');
-      var id = event._id;
-      aElement.href = '/events/' + id;
-      aElement.className = 'event-link';
+// calendar next and prev month buttons
+document.getElementById('next-button').onclick = function () {
+  calendar.nextMonth();
+  addDateEventListeners();
+};
 
-      h3Element.innerHTML = event.en.name;
-      h4Element.innerHTML = event.placeId.en.name + '<br>' + new Date(new Date(event.startTime).getTime()).toLocaleTimeString() + ' - ' + new Date(new Date(event.endTime).getTime()).toLocaleTimeString();
+document.getElementById('prev-button').onclick = function () {
+  calendar.previousMonth();
+  addDateEventListeners();
+};
 
-      aElement.appendChild(h3Element);
-      aElement.appendChild(h4Element);
-      eventContainerDiv.appendChild(aElement);
-      eventsSection.appendChild(eventContainerDiv);
-    });
-    listPage.appendChild(eventsSection);
-  }
-
-  makeRequest(url, renderEvents);
-})();
+getEventsModule({
+  date_from: new Date().toISOString().slice(0, 10)
+}, renderModule);

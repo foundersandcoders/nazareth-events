@@ -1,0 +1,63 @@
+<div class="add-eventContainer">
+  <h3 class="userAddEvent">add event</h3>
+
+  <form class="add-event-form" action="/add-event" method="post">
+    <label>Title: </label>
+    <input class="form-control" type="text" name="name" placeholder="title" required>
+
+    <label> Image URL: </label>
+    <input class="form-control" type="text" name="imageUrl" placeholder="image URL link">
+
+    <label>Start Date:</label>
+    <input class="form-control" type="date" name="startDate" placeholder="example yyyy-mm-dd" required>
+
+    <label>End Date:</label>
+    <input class="form-control" type="date" name="endDate" placeholder="example yyyy-mm-dd" required>
+
+    <label>Start Time: </label>
+    <input class="form-control" type="text" name="startTime" placeholder="example 00:00" required>
+
+    <label>End Time: </label>
+    <input class="form-control" type="text" name="endTime" placeholder="example 00:00" required>
+
+    <label class="sel1">Category: </label>
+    <select class="options form-control" name="categories" required>
+      <option disabled selected>Select option..</option>
+      <option value="music">Music</option>
+      <option value="dining">Dining</option>
+      <option value="educational">Educational</option>
+      <option value="conference">Conference</option>
+      <option value="sport">Sport</option>
+      <option value="competition">Competition</option>
+      <option value="launch">Launch</option>
+      <option value="party">Party</option>
+      <option value="wedding">Wedding</option>
+      <option value="culture">Cultural</option>
+      <option value="miscellaneous">Miscellaneous</option>
+    </select>
+
+    <label>Accessibility: </label>
+    <select multiple class="accessibility form-control" name="accessibilityOptions" required>
+      <option disabled selected>Select Accessibility..</option>
+      <option value="Audio recordings">Audio Recordings</option>
+      <option value="Braille">Braille</option>
+      <option value="Big fonts">Big Fonts</option>
+      <option value="Carer">Carer</option>
+      <option value="Place for guide dog">Place for Guide Dog</option>
+      <option value="SMS messaging">SMS Messaging</option>
+      <option value="Sign language">Sign Language</option>
+      <option value="Good lighting">Good Lighting</option>
+      <option value="Wheelchair access">WheelChair Access</option>
+      <option value="Disabled parking">Disabled Parking</option>
+      <option value="Disabled toilets">Disabled Toilets</option>
+    </select>
+
+    <label>Cost: </label>
+    <input class="form-control" type="number" name="cost" placeholder="cost in shekels" required>
+
+    <label>Description: </label>
+    <textarea class="form-control" rows="3" name="description" placeholder="description" required></textarea>
+
+    <button type="submit" name="submitBtn" class="submitBtn text-center btn">Submit</button>
+  </form>
+</div>

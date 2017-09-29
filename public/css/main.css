@@ -1,8 +1,80 @@
 a, a:hover, a:active, a:visited, a:focus {
     text-decoration: none;
 }
+.calendar:hover {
+  color: #6495ED;
+}
+.calendar {
+  color: gray;
+}
+.header {
+  background-color:	#F5F5F5;
+  padding: 3px;
+  padding-bottom: 12px;
+  box-shadow: 4px 3px 12px;
+  font-family: 'Quattrocento Sans', sans-serif;
+}
+.naz-events{
+  color: #6495ED;
+}
+.div-calendarBtn{
+  margin-top: -37px;
+  margin-right: 7px;
+  direction: rtl;
+}
+span.glyphicon {
+  font-size: 20px;
+}
+.previous, .next {
+  color: #FF8C00;
+  box-shadow: 1px 2px 8px;
+}
+.previous {
+  position: absolute;
+  top: 7.8em;
+  left: 6%;
+}
+.next {
+  position: absolute;
+  top: 7.8em;
+  right: 6%;
+}
+#calendar {
+  width: 100%;
+  /*position: absolute;*/
+}
+
+#calendar thead {
+  font-size: 1.5em;
+  text-align: center;
+  font-weight: bold;
+}
+#calendar table {
+  width: 100%;
+  text-align: center;
+}
+
+#calendar td {
+  height: 2.5em;
+  vertical-align: middle;
+  width: 14.285714%;
+}
+
+td.not-current-month {
+  color: #ddd;
+}
+
+td.today {
+  /* arbitrary af */
+  color: #6495ED;
+}
+#show-cal p{
+  text-align: center;
+  margin-top: 0.8em;
+  font-weight: bold;
+}
 .prevBtn{
-  margin-top: -38px;
+  margin-top: -53px;
   margin-left: 10px;
 }
 .description {
@@ -30,12 +102,99 @@ img {
 .container-div {
   background-color:	#F5F5F5;
   padding: 1px;
-  margin-bottom: 1px;
-  box-shadow: 1px 1px 1px;
-}
-.container-div:active{
-  color: #6495ED;
+  margin-bottom: 2px;
+  margin-top: 2px;
+  box-shadow: 1px 2px 6px;
 }
 .eventTime, .eventStartDate {
   font-size: 20px;
+}
+.shekelIcon {
+  width: 17px;
+}
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    .container-div:active{
+      color: #6495ED;
+    }
+    label {
+      margin-left: 6px;
+      color: #FF7F50;
+      font-family: "Times New Roman", Times, serif;
+      margin-left: 5%;
+    }
+    input, textarea, select {
+      margin-bottom: 10px;
+      max-width: 92%;
+      margin-left: 4%;
+    }
+    .userAddEvent {
+      color: #000060;
+      padding: 5px;
+      margin-bottom: 15px;
+      text-shadow: 2px 6px 10px;
+      text-align: center;
+      font-family: "Times New Roman", Times, serif;
+    }
+    .submitBtn {
+      width: 120px;
+      height: 40px;
+      margin: 10px;
+      margin-left: 34%;
+      color: #000060;
+      font-weight: bold;
+      font-family: "Times New Roman", Times, serif;
+    }
+    .submitBtn:active {
+      padding-top: 10px;
+      background-color: #000060;
+      color: #FF7F50;
+    }
+}
+@media only screen and (min-width: 768px) {
+    /* For desktop : */
+    .container-div:hover{
+      color: #6495ED;
+    }
+    label {
+      color: #FF7F50;
+      font-family: 'Open Sans', sans-serif;
+      margin-left: 33%;
+    }
+    input, textarea, select {
+      margin-bottom: 15px;
+      min-width: 25%;
+      max-width: 35%;
+      margin-left: 33%;
+    }
+    .userAddEvent {
+      color: #005060;
+      box-shadow: 2px 3px 6px;
+      padding: 8px;
+      margin-bottom: 30px;
+      text-align: center;
+      font-family: 'Open Sans', sans-serif;
+    }
+    .submitBtn {
+      width: 270px;
+      height: 55px;
+      margin: 15px;
+      margin-left: 40%;
+      color: #005060;
+      font-size: 20px;
+      font-family: 'Open Sans', sans-serif;
+    }
+    .submitBtn:hover {
+      padding-top: 12px;
+      background-color: #005060;
+      color: #FF7F50;
+    }
+}
+.noEvents {
+  color: #B22222;
+  text-align: center;
+  background: linear-gradient(to top, #B22222, white, white, white);
+  margin-top: 100px;
+  padding: 20px;
+  text-shadow: 4px 3px 10px;
 }
