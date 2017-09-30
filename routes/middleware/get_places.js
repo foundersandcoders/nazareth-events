@@ -25,10 +25,9 @@ module.exports = (req, res, next) => {
             id: place._id
           };
         }
-      });
-      res.locals.places.sort((firstPlaceObject, secondPlaceObject) => {
-        const firstName = firstPlaceObject.name;
-        const secondName = secondPlaceObject.name;
+      }).sort((indexA, indexB) => {
+        const firstName = indexA.name.toUpperCase();
+        const secondName = indexB.name.toUpperCase();
         return (firstName < secondName) ? -1 : (firstName > secondName) ? 1 : 0;
       });
     }
