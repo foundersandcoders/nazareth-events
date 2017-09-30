@@ -12,20 +12,26 @@ module.exports = (req, res, next) => {
   request(options, (error, result, body) => {
     if (error) {
       res.send(error);
+    } else {
+      res.locals.places = result.body.map(place => {
+        if (place.en) {
+          return {
+            name: place.en.name,
+            id: place._id
+          };
+        } else {
+          return {
+            name: place.ar.name,
+            id: place._id
+          };
+        }
+      });
+      res.locals.places.sort((firstPlaceObject, secondPlaceObject) => {
+        const firstName = firstPlaceObject.name;
+        const secondName = secondPlaceObject.name;
+        return (firstName < secondName) ? -1 : (firstName > secondName) ? 1 : 0;
+      });
     }
-    res.locals.places = result.body.map(place => {
-      if (place.en) {
-        return {
-          name: place.en.name,
-          id: place._id
-        };
-      } else {
-        return {
-          name: place.ar.name,
-          id: place._id
-        };
-      }
-    });
     return next();
   });
 };
