@@ -1,4 +1,5 @@
 const request = require('request');
+
 module.exports = (req, res, next) => {
   var url = 'https://nazareth-open-tourism-platform.herokuapp.com/places';
   const requestBody = {
