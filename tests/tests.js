@@ -72,7 +72,6 @@ tape('Test if it posts the event to the api', t => {
     .send(requestBody)
     .end((err, res) => {
       t.error(err);
-      console.log(res.text);
       t.end();
     });
 });
