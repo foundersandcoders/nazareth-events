@@ -27,9 +27,12 @@
   "dependencies": {
     "body-parser": "^1.17.2",
     "compression": "^1.7.1",
+    "cookie-parser": "^1.4.3",
     "dateformat": "^2.0.0",
+    "dotenv": "^4.0.0",
     "express": "^4.15.3",
     "express-handlebars": "^3.0.0",
+    "jsonwebtoken": "^8.0.1",
     "request": "^2.81.0"
   },
   "devDependencies": {

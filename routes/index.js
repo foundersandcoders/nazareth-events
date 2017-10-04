@@ -4,12 +4,15 @@ const homePage = require('./home.js');
 const detailsPage = require('./event_details.js');
 const addEventForm = require('./render_add_form.js');
 const addEvent = require('./add_event.js');
+const handleOauth = require('./oauth.js');
 const addPlace = require('./middleware/post_place.js');
 const getAllPlaces = require('./middleware/get_places.js');
+const authenticate = require('./middleware/authenticate');
 
 router.get('/', homePage);
 router.get('/events/:id', detailsPage);
-router.get('/add-event', getAllPlaces, addEventForm);
+router.get('/add-event', authenticate, getAllPlaces, addEventForm);
 router.post('/add-event', addPlace, addEvent);
+router.get('/token', handleOauth);
 
 module.exports = router;
