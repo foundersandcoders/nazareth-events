@@ -2,8 +2,8 @@
   <h3 class="userAddEvent">add event</h3>
 
   <form class="add-event-form" action="/add-event" method="post">
-    <label>Title: </label>
-    <input class="form-control" type="text" name="name" placeholder="title" required>
+    <label>Name: </label>
+    <input class="form-control" type="text" name="name" placeholder="name" required>
 
     <label> Image URL: </label>
     <input class="form-control" type="text" name="imageUrl" placeholder="image URL link">
@@ -20,19 +20,18 @@
     <label>End Time: </label>
     <input class="form-control" type="text" name="endTime" placeholder="example 00:00" required>
 
-    <label>Place: </label>
+    <label>Location: </label>
     <li id="addPlaceIcon" class="glyphicon glyphicon-plus"></li>
-    <span class="addPlaceSpan text-muted">add new place</span>
+    <span class="addPlaceSpan text-muted">add new location</span>
 
     <select id="selectAllPlaces" class="options form-control" name="placeId" required>
-      <option disabled selected>Select place..</option>
+      <option disabled selected>Select location..</option>
       {{#each places}}
         <option class="placesList" value="{{this.id}}">{{this.name}}</option>
       {{/each}}
     </select>
 
     <div id="addPlaceContainer" class="add-place">
-      <input class="form-control" type="number" name="place_location" placeholder="location">
       <input class="form-control" type="text" name="place_imageUrl" placeholder="image - link to image of place">
       <select class="form-control" name="place_categories">
         <option disabled selected>Select place categories..</option>
@@ -102,7 +101,7 @@
     </select>
 
     <label>Cost: </label>
-    <input class="form-control" type="number" name="cost" placeholder="cost in shekels" required>
+    <input class="form-control" type="number" name="cost" min="0" placeholder="cost in shekels" required>
 
     <label>Description: </label>
     <textarea class="form-control" rows="3" name="description" placeholder="description" required></textarea>
