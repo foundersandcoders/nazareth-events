@@ -1,4 +1,6 @@
 /* global renderModule getEventsModule Cal addDays */
+var type = 'English';
+
 function dateClickHandler (e) {
   var date = e.target.dataset.date;
   var dateParams = {
