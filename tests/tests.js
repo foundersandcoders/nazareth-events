@@ -17,12 +17,12 @@ tape('home route test: GET request to /', t => {
 });
 
 tape('Test the event details route', t => {
-  const htmlSample = '<h1 class="text-warning eventName">FACN2</h1>';
   let eventId = '';
   request.get('https://nazareth-open-tourism-platform.herokuapp.com/events', (err, res) => {
     if (err) return err;
-    const filteredResult = JSON.parse(res.body).filter((event) => event.en.name === 'FACN2');
-    eventId = filteredResult[0]._id;
+    const parsedBody = JSON.parse(res.body);
+    const htmlSample = `<h1 class="text-warning eventName">${parsedBody[0].en.name}</h1>`;
+    eventId = parsedBody[0]._id;
     supertest(server)
       .get('/events/' + eventId)
       .expect(200)
@@ -32,34 +32,6 @@ tape('Test the event details route', t => {
         t.end();
       });
   });
-});
-
-// Work in progress
-// tape('Tests what renders when you get an error in event details', t => {
-//   const original = request.get;
-//   request.get = (url, callback) => {
-//     process.nextTick(callback, new Error('hushs'));
-//   };
-//   supertest(server)
-//     .get('/events/59afaf75b0a5e80011beeafa')
-//     .end((err, res) => {
-//       t.error(err);
-//       t.ok(res.text.includes();
-//       request.get = original;
-//       t.end();
-//     });
-// });
-
-tape('Test if it\'s rendering the add event form currectley', t => {
-  const htmlSample = '<h3 class="userAddEvent">add event</h3>';
-  supertest(server)
-    .get('/add-event')
-    .expect(200)
-    .end((err, res) => {
-      t.error(err);
-      t.ok(res.text.includes(htmlSample));
-      t.end();
-    });
 });
 
 tape('Test if it posts the event to the api', t => {
