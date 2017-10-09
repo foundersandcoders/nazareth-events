@@ -37,18 +37,17 @@ tape('Test the event details route', t => {
 tape('Test the authentication middleware', t => {
   supertest(server)
     .get('/add-event')
-    .set('Cookie', [ 'token=eyJhbGciOiJIUzI1NiJ9.NTdhYjM2NTQ0NGUxYjhhOTY3NzExMWMzZjYxY2VjNzFiNzMyNjZhYw.Fpzao_FN05j29auCfrrM0-eNhqYJQ_QYbzJiXnZXSQA' ])
+    .set('Cookie', [ 'token=eyJhbGciOiJIUzI1NiJ9.N2NmYjA4ZmM1YjkxMzg3MDdhOTA0NmI3MTZmYzhlMjJhOGQ5NGY1ZQ.tf-1O-3nY_yxodRTg9cqY1dModGqgYqfS1M_r7r4tys' ])
     .end((err, res) => {
       t.error(err);
-      console.log(res.text);
       t.ok(res.text.includes('add event'), 'rendered the form after successful auth');
+      supertest(server)
+        .get('/add-event')
+        .end((err, res) => {
+          t.error(err);
+          t.equal(res.status, 302, 'Should redirect to the OTP api login');
+          t.end();
+        });
     });
 
-  supertest(server)
-    .get('/add-event')
-    .end((err, res) => {
-      t.error(err);
-      t.equal(res.status, 302, 'Should redirect to the OTP api login');
-      t.end();
-    });
 });
