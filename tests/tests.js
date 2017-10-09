@@ -33,17 +33,3 @@ tape('Test the event details route', t => {
       });
   });
 });
-
-tape('Test if it posts the event to the api', t => {
-  const requestBody = {
-    name: 'random',
-    categories: ['music']
-  };
-  supertest(server)
-    .post('/add-event')
-    .send(requestBody)
-    .end((err, res) => {
-      t.error(err);
-      t.end();
-    });
-});
