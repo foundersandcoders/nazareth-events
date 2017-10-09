@@ -40,6 +40,7 @@ tape('Test the authentication middleware', t => {
     .set('Cookie', [ 'token=eyJhbGciOiJIUzI1NiJ9.NTdhYjM2NTQ0NGUxYjhhOTY3NzExMWMzZjYxY2VjNzFiNzMyNjZhYw.Fpzao_FN05j29auCfrrM0-eNhqYJQ_QYbzJiXnZXSQA' ])
     .end((err, res) => {
       t.error(err);
+      console.log(res.text);
       t.ok(res.text.includes('add event'), 'rendered the form after successful auth');
     });
 
