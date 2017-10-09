@@ -31,7 +31,7 @@ var renderModule = function (error, eventsArray) {
     aElement.className = 'event-link';
 
     h3Element.innerHTML = event.en.name;
-    h4Element.innerHTML = new Date(event.startTime).toDateString() + '</br>' + new Date(new Date(event.startTime).getTime()).toLocaleTimeString([], {hour: '2-digit', minute: '2-digit', hour12: false, timeZone: 'UTC'}) + ' - ' + new Date(new Date(event.endTime).getTime()).toLocaleTimeString([], {hour: '2-digit', minute: '2-digit', hour12: false, timeZone: 'UTC'});
+    h4Element.innerHTML = new Date(event.startTime).toDateString() + '</br>' + new Date(new Date(event.startTime).getTime()).toLocaleTimeString([], {hour: '2-digit', minute: '2-digit', hour12: false, timeZone: 'UTC'}) + ' - ' + new Date(new Date(event.endTime).getTime()).toLocaleTimeString([], {hour: '2-digit', minute: '2-digit', hour12: false, timeZone: 'UTC'}) + '<br>' + (event.place ? 'At ' + event.place.en.name : '');
 
     aElement.appendChild(h3Element);
     aElement.appendChild(h4Element);
