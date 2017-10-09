@@ -33,3 +33,21 @@ tape('Test the event details route', t => {
       });
   });
 });
+
+tape('Test the authentication middleware', t => {
+  supertest(server)
+    .get('/add-event')
+    .set('Cookie', [ 'token=eyJhbGciOiJIUzI1NiJ9.NTdhYjM2NTQ0NGUxYjhhOTY3NzExMWMzZjYxY2VjNzFiNzMyNjZhYw.Fpzao_FN05j29auCfrrM0-eNhqYJQ_QYbzJiXnZXSQA' ])
+    .end((err, res) => {
+      t.error(err);
+      t.ok(res.text.includes('add event'), 'rendered the form after successful auth');
+    });
+
+  supertest(server)
+    .get('/add-event')
+    .end((err, res) => {
+      t.error(err);
+      t.equal(res.status, 302, 'Should redirect to the OTP api login');
+      t.end();
+    });
+});
