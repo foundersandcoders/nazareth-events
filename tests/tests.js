@@ -2,6 +2,8 @@ const tape = require('tape');
 const supertest = require('supertest');
 const server = require('../server.js');
 const request = require('request');
+const jwt = require('jsonwebtoken');
+require('dotenv').config();
 
 const postPlace = require('../routes/middleware/post_place.js');
 
@@ -35,9 +37,10 @@ tape('Test the event details route', t => {
 });
 
 tape('Test the authentication middleware', t => {
+  const token = jwt.sign('somthing', process.env.JWT_SECRET);
   supertest(server)
     .get('/add-event')
-    .set('Cookie', [ 'token=eyJhbGciOiJIUzI1NiJ9.N2NmYjA4ZmM1YjkxMzg3MDdhOTA0NmI3MTZmYzhlMjJhOGQ5NGY1ZQ.tf-1O-3nY_yxodRTg9cqY1dModGqgYqfS1M_r7r4tys' ])
+    .set('Cookie', [ `token=${token}` ])
     .end((err, res) => {
       t.error(err);
       t.ok(res.text.includes('add event'), 'rendered the form after successful auth');
@@ -49,5 +52,4 @@ tape('Test the authentication middleware', t => {
           t.end();
         });
     });
-
 });
