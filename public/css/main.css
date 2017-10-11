@@ -1,29 +1,69 @@
 a, a:hover, a:active, a:visited, a:focus {
     text-decoration: none;
 }
-.calendar:hover {
-  color: #6495ED;
-}
-.calendar {
-  color: gray;
+body {
+  background-color: #F0EAEA;
 }
 .header {
-  background-color:	#F5F5F5;
-  padding: 3px;
-  padding-bottom: 12px;
-  box-shadow: 4px 3px 12px;
-  font-family: 'Quattrocento Sans', sans-serif;
+  background-color: #229e93;
+  font-family: 'Noto Sans', sans-serif;
+  padding: 1.5em;
+  text-align: center;
 }
 .naz-events{
-  color: #6495ED;
+  color: white;
+  font-weight: bold;
+  font-size: 2em;
 }
-.div-calendarBtn{
-  margin-top: -37px;
-  margin-right: 7px;
-  direction: rtl;
+.calendar {
+  font-size: 1.4em;
+  color: white;
 }
-span.glyphicon {
-  font-size: 20px;
+.calendar:hover {
+  color: white;
+}
+.div-calContainer{
+  float: right;
+  width: 10%;
+  margin-top: 0.7em;
+}
+.plusIcon{
+  font-size: 1.4em;
+  color: white;
+}
+.plusIcon:hover {
+  color:white;
+}
+.div-plusContainer{
+  float: left;
+  width: 10%;
+  margin-top: 0.7em;
+}
+.languageNav {
+  background: #F0EAEA;
+  width: 100%;
+  padding: 0.5em;
+  margin-bottom: 0.5em;
+  box-shadow: 0.2em 0.3em 0.3em #DADADA;
+}
+.engBtn{
+  width: 47%;
+  float: right;
+  margin-right: 0.3em;
+  font-weight: bold;
+  font-size: 1.2em;
+  color: 	#585858;
+  padding: 0.3em;
+  background: #DADADA;
+}
+.arBtn{
+  width: 47%;
+  margin-left: 0.3em;
+  font-weight: bold;
+  font-size: 1.2em;
+  color: 	#585858;
+  padding: 0.3em;
+  background: #DADADA;
 }
 .previous, .next {
   box-shadow: 1px 2px 6px;
@@ -101,120 +141,33 @@ img {
   padding: 3px;
 }
 .container-div {
-  background-color:	#F5F5F5;
-  padding: 1px;
-  margin-bottom: 2px;
-  margin-top: 2px;
-  box-shadow: 1px 2px 6px;
+  background-color:	#DADADA;
+  padding: 0.1em;
+  margin: 0.8em;
+}
+.eventName {
+  color: #229e93;
+  font-weight: bold;
+  font-size: 1.4em;
+  margin-left: 0.4em;
+  font-family: 'Noto Sans', sans-serif;
+}
+.time {
+  color: #585858;
+  font-size: 1.1em;
+  margin-left: 0.4em;
+}
+.where {
+  color: 	#9c9ea0;
+  font-size: 1em;
+  font-style: italic;
+  margin-left: 0.8em;
 }
 .eventTime, .eventStartDate {
   font-size: 20px;
 }
 .shekelIcon {
   width: 17px;
-}
-@media only screen and (max-width: 768px) {
-    /* For mobile phones: */
-    .container-div:active{
-      color: #6495ED;
-    }
-    label {
-      margin-left: 6px;
-      color: #FF7F50;
-      font-family: "Times New Roman", Times, serif;
-      margin-left: 5%;
-    }
-    input, textarea, select {
-      margin-bottom: 10px;
-      max-width: 92%;
-      margin-left: 4%;
-    }
-    .userAddEvent {
-      color: #000060;
-      padding: 5px;
-      margin-bottom: 15px;
-      text-shadow: 2px 6px 10px;
-      text-align: center;
-      font-family: "Times New Roman", Times, serif;
-    }
-    .submitBtn {
-      width: 120px;
-      height: 40px;
-      margin: 10px;
-      margin-left: 34%;
-      color: #000060;
-      font-weight: bold;
-      font-family: "Times New Roman", Times, serif;
-    }
-    .submitBtn:active {
-      padding-top: 10px;
-      background-color: #000060;
-      color: #FF7F50;
-    }
-    #addPlaceIcon{
-      float: right;
-      margin-right: 15px;
-      color: green;
-    }
-    .addPlaceSpan{
-      float: right;
-      margin-right: 17px;
-    }
-}
-@media only screen and (min-width: 768px) {
-    /* For desktop : */
-    .container-div:hover{
-      color: #6495ED;
-    }
-    label {
-      color: #FF7F50;
-      font-family: 'Open Sans', sans-serif;
-      margin-left: 33%;
-    }
-    input, textarea, select {
-      margin-bottom: 15px;
-      min-width: 25%;
-      max-width: 35%;
-      margin-left: 33%;
-    }
-    .userAddEvent {
-      color: #005060;
-      box-shadow: 2px 3px 6px;
-      width: 40%;
-      margin-left: 30%;
-      border-radius: 5px;
-      padding: 8px;
-      margin-bottom: 30px;
-      text-align: center;
-      font-family: 'Open Sans', sans-serif;
-      font-size: 30px;
-    }
-    .submitBtn {
-      width: 240px;
-      height: 45px;
-      margin: 15px;
-      margin-left: 42%;
-      color: #005060;
-      font-size: 20px;
-      font-family: 'Open Sans', sans-serif;
-      box-shadow: 2px 3px 6px;
-      border-radius: 10px;
-    }
-    .submitBtn:hover {
-      padding-top: 10px;
-      background-color: #005060;
-      color: #FF7F50;
-    }
-    #addPlaceIcon{
-      float: right;
-      margin-right: 32%;
-      color: green;
-    }
-    .addPlaceSpan{
-      float: right;
-      margin-right: 17px;
-      color: #005060;
-    }
 }
 .add-place {
   display: none;
