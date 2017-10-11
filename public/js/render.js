@@ -22,18 +22,22 @@ var renderModule = function (error, eventsArray) {
     var eventContainerDiv = document.createElement('div');
     eventContainerDiv.className = 'container-div';
     var h3Element = document.createElement('h3');
-    h3Element.className = 'event text-primary';
+    h3Element.className = 'eventName';
     var h4Element = document.createElement('h4');
-    h4Element.className = 'placeTime text-muted';
+    h4Element.className = 'time';
+    var h5Element = document.createElement('h5');
+    h5Element.className = 'where';
     var aElement = document.createElement('a');
     var id = event._id;
     aElement.href = '/events/' + id;
     aElement.className = 'event-link';
 
     h3Element.innerHTML = event.en.name;
-    h4Element.innerHTML = new Date(event.startTime).toDateString() + '</br>' + new Date(new Date(event.startTime).getTime()).toLocaleTimeString([], {hour: '2-digit', minute: '2-digit', hour12: false, timeZone: 'UTC'}) + ' - ' + new Date(new Date(event.endTime).getTime()).toLocaleTimeString([], {hour: '2-digit', minute: '2-digit', hour12: false, timeZone: 'UTC'}) + '<br>' + (event.place ? 'At ' + event.place.en.name : '');
+    h5Element.innerHTML = (event.place ? 'At ' + event.place.en.name : '');
+    h4Element.innerHTML = new Date(event.startTime).toDateString() + ' / ' + new Date(new Date(event.startTime).getTime()).toLocaleTimeString([], {hour: '2-digit', minute: '2-digit', hour12: false, timeZone: 'UTC'}) + ' - ' + new Date(new Date(event.endTime).getTime()).toLocaleTimeString([], {hour: '2-digit', minute: '2-digit', hour12: false, timeZone: 'UTC'});
 
     aElement.appendChild(h3Element);
+    aElement.appendChild(h5Element);
     aElement.appendChild(h4Element);
     eventContainerDiv.appendChild(aElement);
     eventsSection.appendChild(eventContainerDiv);
