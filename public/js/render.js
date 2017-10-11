@@ -1,6 +1,20 @@
 /* global getEventsModule type:true */
 /* eslint no-global-assign: "error" */
+
+document.getElementById('arLang').addEventListener('click', function () {
+  type = 'Arabic';
+  renderModule(null, allEvents);
+});
+
+document.getElementById('enLang').addEventListener('click', function () {
+  type = 'English';
+  renderModule(null, allEvents);
+});
+
+var allEvents = [];
+
 var renderModule = function (error, eventsArray) {
+  allEvents = eventsArray;
   var listPage = document.getElementById('list-page-content');
   var eventsSection = document.getElementById('events-section');
   while (eventsSection.firstChild) {
@@ -17,20 +31,6 @@ var renderModule = function (error, eventsArray) {
   }
 
   var filterEvents = [];
-
-  document.getElementById('arLang').addEventListener('click', function () {
-    type = 'Arabic';
-    getEventsModule({
-      date_from: new Date().toISOString().slice(0, 10)
-    }, renderModule);
-  });
-
-  document.getElementById('enLang').addEventListener('click', function () {
-    type = 'English';
-    getEventsModule({
-      date_from: new Date().toISOString().slice(0, 10)
-    }, renderModule);
-  });
 
   switch (type) {
     case 'Arabic':
