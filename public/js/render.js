@@ -2,13 +2,7 @@
 /* eslint no-global-assign: "error" */
 
 var renderModule = function (error, apiData) {
-  var listPage = document.getElementById('list-page-content');
-  var eventsSection = document.getElementById('events-section');
-  while (eventsSection.firstChild) {
-    eventsSection.removeChild(eventsSection.firstChild);
-  }
-
-  renderEvents(apiData, 'en');
+  renderEvents(apiData, 'ar');
 
   document.getElementById('arLang').addEventListener('click', function () {
     renderEvents(apiData, 'ar');
@@ -18,6 +12,12 @@ var renderModule = function (error, apiData) {
   });
 
   function renderEvents (eventsArray, language) {
+    var listPage = document.getElementById('list-page-content');
+    var eventsSection = document.getElementById('events-section');
+    while (eventsSection.firstChild) {
+      eventsSection.removeChild(eventsSection.firstChild);
+    }
+
     if (eventsArray.length === 0) {
       var noEvents = document.createElement('h1');
       noEvents.innerHTML = 'NO UPCOMING EVENTS.';
@@ -28,21 +28,13 @@ var renderModule = function (error, apiData) {
       eventsSection.innerHTML = error;
     }
 
-    var filterEvents = [];
-
-    switch (language) {
-      case 'ar':
-        filterEvents = eventsArray.filter(function (event) {
-          return event.ar;
-        });
-        break;
-      default:
-        filterEvents = eventsArray.filter(function (event) {
-          return event.en;
-        });
+    if (language === 'en') {
+      eventsArray = eventsArray.filter(function (event) {
+        return event.en;
+      });
     }
 
-    filterEvents.forEach(function (event) {
+    eventsArray.forEach(function (event) {
       var eventContainerDiv = document.createElement('div');
       eventContainerDiv.className = 'container-div';
       var h3Element = document.createElement('h3');
@@ -54,7 +46,7 @@ var renderModule = function (error, apiData) {
       aElement.href = '/events/' + id;
       aElement.className = 'event-link';
 
-      h3Element.innerHTML = language === 'ar' ? event.ar.name : event.en.name;
+      h3Element.innerHTML = language === 'ar' && event.ar ? event.ar.name : event.en.name;
       h4Element.innerHTML = new Date(event.startTime).toDateString() + '</br>' + new Date(new Date(event.startTime).getTime()).toLocaleTimeString([], {hour: '2-digit', minute: '2-digit', hour12: false, timeZone: 'UTC'}) + ' - ' + new Date(new Date(event.endTime).getTime()).toLocaleTimeString([], {hour: '2-digit', minute: '2-digit', hour12: false, timeZone: 'UTC'}) + '<br>' + (event.place ? 'At ' + event.place.en.name : '');
 
       aElement.appendChild(h3Element);
