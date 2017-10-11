@@ -8,14 +8,22 @@ module.exports = (req, res) => {
     categories: req.body.categories,
     accessibilityOptions: req.body.accessibilityOptions,
     startTime: req.body.startDate + 'T' + req.body.startTime,
-    endTime: req.body.endDate + 'T' + req.body.endTime,
+    endTime: req.body.startDate + 'T' + req.body.endTime,
     cost: req.body.cost,
-    imageUrl: req.body.imageUrl,
-    en: {
-      name: req.body.name,
-      description: req.body.description
-    }
+    imageUrl: req.body.imageUrl
   };
+
+  if (req.body.name_english) {
+    requestBody.en = {
+      name: req.body.name_english
+    };
+  }
+
+  if (req.body.name_arabic) {
+    requestBody.ar = {
+      name: req.body.name_arabic
+    };
+  }
 
   const options = {
     method: 'post',
