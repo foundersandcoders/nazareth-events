@@ -42,14 +42,14 @@ body {
 .languageNav {
   background: #F0EAEA;
   width: 100%;
-  padding: 0.5em;
-  margin-bottom: 0.5em;
+  padding: 0.4em;
+  margin-bottom: 0.4em;
   box-shadow: 0.2em 0.3em 0.3em #DADADA;
 }
 .engBtn{
   width: 47%;
   float: right;
-  margin-right: 0.3em;
+  margin-right: 0.2em;
   font-weight: bold;
   font-size: 1.2em;
   color: 	#585858;
@@ -58,7 +58,7 @@ body {
 }
 .arBtn{
   width: 47%;
-  margin-left: 0.3em;
+  margin-left: 0.2em;
   font-weight: bold;
   font-size: 1.2em;
   color: 	#585858;
@@ -143,7 +143,9 @@ img {
 .container-div {
   background-color:	#DADADA;
   padding: 0.1em;
-  margin: 0.8em;
+  margin: 0.7em;
+  box-shadow: 0.0em 0.1em 0.5em #DADADA;
+  border-radius: 0.2em;
 }
 .eventName {
   color: #229e93;
@@ -159,9 +161,9 @@ img {
 }
 .where {
   color: 	#9c9ea0;
-  font-size: 1em;
+  font-size: 1.1em;
   font-style: italic;
-  margin-left: 0.8em;
+  margin-left: 1em;
 }
 .eventTime, .eventStartDate {
   font-size: 20px;
