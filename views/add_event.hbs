@@ -4,11 +4,11 @@
   <form class="add-event-form" action="/add-event" method="post">
     <label>Name </label>
     <input class="form-control" type="text" name="name_english" placeholder="English" required>
-    <input class="form-control" type="text" name="name_arabic" placeholder="Arabic" required>
+    <input class="form-control" type="text" name="name_arabic" placeholder="Arabic">
 
     <label>Description </label>
     <textarea class="form-control" rows="2" name="description_en" placeholder="English" required></textarea>
-    <textarea class="form-control" rows="2" name="description_ar" placeholder="Arabic" required></textarea>
+    <textarea class="form-control" rows="2" name="description_ar" placeholder="Arabic"></textarea>
 
     <label>Cost </label>
     <input class="form-control" type="number" name="cost" min="0" placeholder="cost in shekels" required>
@@ -58,7 +58,7 @@
     </select>
 
     <label>Place </label>
-    <li id="addPlaceIcon" class="glyphicon glyphicon-plus"></li>
+    <div id="addPlaceIcon" class="glyphicon glyphicon-plus"></div>
 
     <select id="selectAllPlaces" class="options form-control" name="placeId" required>
       <option disabled selected></option>
@@ -68,7 +68,7 @@
     </select>
 
     <div id="addPlaceContainer" class="add-place">
-    <label for="">Place name</label>
+    <label>Place name</label>
       <input class="form-control" type="text" name="place_name_en" placeholder="English">
       <input class="form-control" type="text" name="place_name_ar" placeholder="Arabic">
     </div>

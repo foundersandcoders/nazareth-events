@@ -15,13 +15,15 @@ module.exports = (req, res) => {
 
   if (req.body.name_english) {
     requestBody.en = {
-      name: req.body.name_english
+      name: req.body.name_english,
+      description: req.body.description_en ? req.body.description_en : ''
     };
   }
 
   if (req.body.name_arabic) {
     requestBody.ar = {
-      name: req.body.name_arabic
+      name: req.body.name_arabic,
+      description: req.body.description_ar ? req.body.description_ar : ''
     };
   }
 
