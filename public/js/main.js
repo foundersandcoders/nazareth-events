@@ -6,8 +6,8 @@ function dateClickHandler (e) {
     date_to: addDays(date, 14)
   };
   getEventsModule(dateParams, renderModule);
-  document.getElementById('list-page-content').classList.toggle('hide');
-  document.getElementById('show-cal').classList.toggle('show');
+  document.getElementById('list-page-content').style.display = 'block';
+  document.getElementById('show-cal').style.display = 'none';
 };
 
 function addDateEventListeners () {
