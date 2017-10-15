@@ -34,7 +34,8 @@ var renderModule = function (error, eventsArray) {
 
     h3Element.innerHTML = event.en.name;
     h5Element.innerHTML = (event.place ? 'At ' + event.place.en.name : '');
-    h4Element.innerHTML = new Date(event.startTime).toDateString() + ' / ' + new Date(new Date(event.startTime).getTime()).toLocaleTimeString([], {hour: '2-digit', minute: '2-digit', hour12: false, timeZone: 'UTC'}) + ' - ' + new Date(new Date(event.endTime).getTime()).toLocaleTimeString([], {hour: '2-digit', minute: '2-digit', hour12: false, timeZone: 'UTC'});
+    h4Element.innerHTML = new Date(event.startTime).toDateString().split(' ', [3]).join(' ') +
+ ' / ' + new Date(new Date(event.startTime).getTime()).toLocaleTimeString([], {hour: '2-digit', minute: '2-digit', hour12: false, timeZone: 'UTC'}) + ' - ' + new Date(new Date(event.endTime).getTime()).toLocaleTimeString([], {hour: '2-digit', minute: '2-digit', hour12: false, timeZone: 'UTC'});
 
     aElement.appendChild(h3Element);
     aElement.appendChild(h5Element);
