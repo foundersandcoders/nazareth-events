@@ -24,8 +24,15 @@ addDateEventListeners();
 
 // event listener for calendar button in header
 document.getElementById('calendarIcon').addEventListener('click', function () {
-  document.getElementById('list-page-content').classList.toggle('hide');
-  document.getElementById('show-cal').classList.toggle('show');
+  var list = document.getElementById('list-page-content');
+  var calendar = document.getElementById('show-cal');
+  if (list.style.display === 'block') {
+    list.style.display = 'none';
+    calendar.style.display = 'block';
+  } else {
+    calendar.style.display = 'none';
+    list.style.display = 'block';
+  }
 });
 
 // calendar next and prev month buttons
