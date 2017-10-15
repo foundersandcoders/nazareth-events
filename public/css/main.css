@@ -1,11 +1,16 @@
+* {
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+body {
+  background-color: #F2F2F2;
+}
 a, a:hover, a:active, a:visited, a:focus {
     text-decoration: none;
 }
-body {
-  background-color: #F0EAEA;
-}
 .header {
-  background-color: #229e93;
+  background-color: #409A93;
   font-family: 'Noto Sans', sans-serif;
   padding: 1.5em;
   text-align: center;
@@ -16,8 +21,7 @@ body {
   font-size: 2em;
 }
 .calendar {
-  font-size: 1.4em;
-  color: white;
+  width: 1.4em;
 }
 .calendar:hover {
   color: white;
@@ -28,8 +32,7 @@ body {
   margin-top: 0.7em;
 }
 .plusIcon{
-  font-size: 1.4em;
-  color: white;
+  width: 1.4em;
 }
 .plusIcon:hover {
   color:white;
@@ -40,30 +43,36 @@ body {
   margin-top: 0.7em;
 }
 .languageNav {
-  background: #F0EAEA;
+  background: #F2F2F2;
   width: 100%;
   padding: 0.4em;
   margin-bottom: 0.4em;
-  box-shadow: 0.2em 0.3em 0.3em #DADADA;
+  box-shadow: 0.2em 0.3em 0.3em #DBDBDB;
 }
 .engBtn{
-  width: 47%;
+  width: 48%;
   float: right;
   margin-right: 0.2em;
   font-weight: bold;
   font-size: 1.2em;
-  color: 	#585858;
-  padding: 0.3em;
-  background: #DADADA;
+  color: #5C5C5C;
+  padding: 0.2em;
+  background: #DBDBDB;
+  border: 0.1em solid #DBDBDB;
+  border-radius: 0.1em;
+  font-family: 'Lato', sans-serif;
 }
 .arBtn{
-  width: 47%;
+  width: 48%;
   margin-left: 0.2em;
   font-weight: bold;
   font-size: 1.2em;
-  color: 	#585858;
-  padding: 0.3em;
-  background: #DADADA;
+  color: #5C5C5C;
+  padding: 0.2em;
+  background: #DBDBDB;
+  border: 0.1em solid #DBDBDB;
+  border-radius: 0.1em;
+  font-family: 'Lato', sans-serif;
 }
 .previous, .next {
   box-shadow: 1px 2px 6px;
@@ -114,6 +123,9 @@ td.today {
   margin-top: 0.8em;
   font-weight: bold;
 }
+#show-cal {
+  display: none;
+}
 .prevBtn{
   margin-top: -53px;
   margin-left: 10px;
@@ -141,29 +153,32 @@ img {
   padding: 3px;
 }
 .container-div {
-  background-color:	#DADADA;
-  padding: 0.1em;
-  margin: 0.7em;
+  background-color: #EAEAEA;
+  padding: 0.6em;
+  margin: 1em;
   box-shadow: 0.0em 0.1em 0.5em #DADADA;
-  border-radius: 0.2em;
+  border-radius: 0.1em;
 }
 .eventName {
-  color: #229e93;
+  color: #409A93;
   font-weight: bold;
   font-size: 1.4em;
   margin-left: 0.4em;
+  margin-bottom: 0.1em;
   font-family: 'Noto Sans', sans-serif;
 }
 .time {
   color: #585858;
-  font-size: 1.1em;
+  font-size: 0.9em;
   margin-left: 0.4em;
+  font-family: 'Lato', sans-serif;
 }
 .where {
-  color: 	#9c9ea0;
-  font-size: 1.1em;
+  color: #A6A8A9;
+  font-size: 1em;
   font-style: italic;
   margin-left: 1em;
+  margin-bottom: 0.5em;
 }
 .eventTime, .eventStartDate {
   font-size: 20px;
