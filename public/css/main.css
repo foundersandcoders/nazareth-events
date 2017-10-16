@@ -1,4 +1,4 @@
-/*** RESET ***/
+/*** ELEMENT RESET ***/
 
 html {
   font-size: 62.5%; /* 1rem = 10px */
@@ -17,6 +17,12 @@ a:hover, button:hover {
 
 a {
   text-decoration: none;
+}
+
+/*** GENERAL ***/
+
+body {
+  background-color: #F2F2F2;
 }
 
 /*** HEADER BAR ***/
