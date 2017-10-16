@@ -1,0 +1,30 @@
+/*** RESET ***/
+
+html {
+  font-size: 62.5%; /* 1rem = 10px */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+a:hover, button:hover {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+}
+
+/*** HEADER BAR ***/
+
+/*** EVENTS LIST ***/
+
+/*** CALENDAR ***/
+
+/*** EVENT DETAILS ***/
+
+/*** ADD EVENT FORM ***/
