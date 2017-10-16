@@ -1,12 +1,13 @@
 a, a:hover, a:active, a:visited, a:focus {
     text-decoration: none;
 }
-.calendar:hover {
+/*.calendar:hover {
   color: #6495ED;
 }
 .calendar {
   color: gray;
-}
+}*/
+
 .header {
   background-color:	#F5F5F5;
   padding: 3px;
@@ -17,20 +18,20 @@ a, a:hover, a:active, a:visited, a:focus {
 .naz-events{
   color: #6495ED;
 }
-.div-calendarBtn{
+/*.div-calendarBtn{
   margin-top: -37px;
   margin-right: 7px;
   direction: rtl;
 }
 span.glyphicon {
   font-size: 20px;
-}
-.previous, .next {
+}*/
+/*.previous, .next {
   box-shadow: 1px 2px 6px;
   padding: 2px;
   font-weight: bold;
-}
-.previous {
+}*/
+/*.previous {
   position: absolute;
   top: 7.8em;
   left: 6%;
@@ -39,10 +40,9 @@ span.glyphicon {
   position: absolute;
   top: 7.8em;
   right: 6%;
-}
-#calendar {
+}*/
+/*#calendar {
   width: 100%;
-  /*position: absolute;*/
 }
 
 #calendar thead {
@@ -59,21 +59,20 @@ span.glyphicon {
   height: 2.5em;
   vertical-align: middle;
   width: 14.285714%;
-}
+}*/
 
-td.not-current-month {
+/*td.not-current-month {
   color: #ddd;
 }
 
 td.today {
-  /* arbitrary af */
   color: #6495ED;
 }
 #show-cal p{
   text-align: center;
   margin-top: 0.8em;
   font-weight: bold;
-}
+}*/
 .prevBtn{
   margin-top: -53px;
   margin-left: 10px;
