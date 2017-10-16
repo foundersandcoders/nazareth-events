@@ -1,9 +1,3 @@
-window.addEventListener('keydown', function (e) {
-  if (e.key === 'q') {
-    document.querySelector('.cal-wrap').classList.toggle('hide-cal');
-  }
-});
-
 var Cal = function (divId) {
   this.divId = divId;
 
