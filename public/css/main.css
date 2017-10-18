@@ -1,123 +1,189 @@
-* {
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
+/*** ELEMENT RESET ***/
+html {
+  font-size: 62.5%; /* 1rem = 10px */
 }
 
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+a:hover, button:hover, .cal-nav-button, td {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+}
+
+/*** GENERAL ***/
 body {
   background-color: #F2F2F2;
 }
 
-a, a:hover, a:active, a:visited, a:focus {
-    text-decoration: none;
-}
-
+/*** HEADER BAR ***/
 .header {
   background-color: #409A93;
   font-family: 'Noto Sans', sans-serif;
-  padding: 1.5em;
+  padding: 2.5rem;
   text-align: center;
+  display: flex;
+  justify-content: space-between;
 }
 
 .naz-events{
   color: white;
   font-weight: bold;
-  font-size: 2em;
+  font-size: 2.3rem;
 }
 
 .calendar {
-  font-size: 1.5em;
+  font-size: 2rem;
   color: white;
-  margin-top: -2em;
+  margin-top: -3rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin: 0.1rem;
 }
 
-.calendar:hover {
+.plus{
+  font-size: 2rem;
+  margin-top: -2rem;
   color: white;
-}
-
-.div-calContainer{
-  float: right;
-  width: 10%;
-  margin-top: 0.7em;
-}
-
-.plusIcon{
-  font-size: 1.5em;
-  margin-top: -2em;
-  color: white;
-}
-
-.plusIcon:hover {
-  color:white;
-}
-
-.div-plusContainer{
-  float: left;
-  width: 10%;
-  margin-top: 0.7em;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin: 0.1rem;
 }
 
 .languageNav {
   background: #F2F2F2;
   width: 100%;
-  padding: 0.4em;
-  margin-bottom: 0.4em;
-  box-shadow: 0.2em 0.3em 0.3em #DBDBDB;
+  padding: 0.6rem;
+  box-shadow: 0.4rem 0.5rem 0.5rem #DBDBDB;
 }
 
 .langBtn{
-  width: 48%;
-  font-weight: bold;
-  font-size: 1.2em;
+  width: 48.5%;
+  font-weight: bolder;
+  font-size: 1.5rem;
   color: #5C5C5C;
-  padding: 0.2em;
+  padding: 0.5rem;
   background: #DBDBDB;
-  border: 0.1em solid #DBDBDB;
-  border-radius: 0.1em;
+  border: 0.1rem solid #DBDBDB;
+  border-radius: 0.1rem;
   font-family: 'Lato', sans-serif;
 }
 
 #arLang{
-  margin-right: 0.2em;
+  margin-right: 0.2rem;
   float: right;
 }
 
 #enLang {
-  margin-left: 0.2em;
+  margin-left: 0.2rem;
 }
 
-.calendar-container{
-  display: none;
-}
-
+/*** EVENTS LIST ***/
 .container-div {
   background-color: #EAEAEA;
-  padding: 0.6em;
-  margin: 1em;
-  box-shadow: 0.0em 0.1em 0.5em #DADADA;
-  border-radius: 0.1em;
+  padding: 0.6rem;
+  margin: 1rem;
+  box-shadow: 0.0rem 0.1rem 0.5rem #DADADA;
 }
 
 .eventName {
   color: #409A93;
   font-weight: bold;
-  font-size: 1.4em;
-  margin-left: 0.4em;
-  margin-bottom: 0.1em;
+  font-size: 2rem;
+  margin-left: 0.4rem;
+  margin-bottom: 0.1rem;
   font-family: 'Noto Sans', sans-serif;
 }
 
 .time {
   color: #585858;
-  font-size: 0.9em;
-  margin-left: 0.4em;
+  font-size: 1.3rem;
+  margin-left: 0.4rem;
   font-family: 'Lato', sans-serif;
 }
 
 .where {
   color: #A6A8A9;
-  font-size: 1em;
+  font-size: 1.3rem;
   font-style: italic;
-  margin-left: 1em;
-  margin-bottom: 0.5em;
+  margin-left: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+/*** EVENT DETAILS ***/
+
+/*** ADD EVENT FORM ***/
+
+/*** CALENDAR ***/
+
+.cal-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 3rem;
+  background-color: #EAEAEA;
+  color: #5C5C5C;
+  font: 2rem sans-serif;
+  box-shadow: 0 .2rem 1rem #aaa;
+  transition: .4s linear;
+}
+
+.hide-cal {
+  top: -50rem;
+}
+
+.cal-nav-button {
+  font-size: 3rem;
+}
+
+.cal-month {
+  font: bold 2.5rem sans-serif;
+  margin: 0 3rem;
+  width: 19.5rem;
+}
+
+.cal-instructions {
+  margin: 1.7rem 0 1.5rem 0;
+  font-size: 1.8rem;
+  color: #aaa;
+}
+
+th {
+  width: 3.5rem;
+  margin: .5rem;
+  font-size: 2.2rem;
+}
+
+tr, td {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+td {
+  width: 3.5rem;
+  height: 3.5rem;
+  margin: .5rem;
+  font-size: 1.7rem;
+  color: white;
+  background-color: #9ABCB9;
+  border-radius: 100%;
+  box-shadow: 0 .2rem .2rem #aaa;
+}
+
+.not-current-month {
+  color: #eee;
+  background-color: #bbb;
 }
