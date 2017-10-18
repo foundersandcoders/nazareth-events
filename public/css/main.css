@@ -3,49 +3,60 @@
   padding:0;
   box-sizing:border-box;
 }
+
 body {
   background-color: #F2F2F2;
 }
+
 a, a:hover, a:active, a:visited, a:focus {
     text-decoration: none;
 }
+
 .header {
   background-color: #409A93;
   font-family: 'Noto Sans', sans-serif;
   padding: 1.5em;
   text-align: center;
 }
+
 .naz-events{
   color: white;
   font-weight: bold;
   font-size: 2em;
 }
+
 .calendar {
   font-size: 1.5em;
   color: white;
   margin-top: -2em;
 }
+
 .calendar:hover {
   color: white;
 }
+
 .div-calContainer{
   float: right;
   width: 10%;
   margin-top: 0.7em;
 }
+
 .plusIcon{
   font-size: 1.5em;
   margin-top: -2em;
   color: white;
 }
+
 .plusIcon:hover {
   color:white;
 }
+
 .div-plusContainer{
   float: left;
   width: 10%;
   margin-top: 0.7em;
 }
+
 .languageNav {
   background: #F2F2F2;
   width: 100%;
@@ -53,6 +64,7 @@ a, a:hover, a:active, a:visited, a:focus {
   margin-bottom: 0.4em;
   box-shadow: 0.2em 0.3em 0.3em #DBDBDB;
 }
+
 .langBtn{
   width: 48%;
   font-weight: bold;
@@ -64,91 +76,20 @@ a, a:hover, a:active, a:visited, a:focus {
   border-radius: 0.1em;
   font-family: 'Lato', sans-serif;
 }
+
 #arLang{
   margin-right: 0.2em;
   float: right;
 }
+
 #enLang {
   margin-left: 0.2em;
 }
-.previous, .next {
-  box-shadow: 1px 2px 6px;
-  padding: 2px;
-  font-weight: bold;
-}
-.previous {
-  position: absolute;
-  top: 7.8em;
-  left: 6%;
-}
-.next {
-  position: absolute;
-  top: 7.8em;
-  right: 6%;
-}
-#calendar {
-  width: 100%;
-  /*position: absolute;*/
-}
 
-#calendar thead {
-  font-size: 1.5em;
-  text-align: center;
-  font-weight: bold;
-}
-#calendar table {
-  width: 100%;
-  text-align: center;
-}
-
-#calendar td {
-  height: 2.5em;
-  vertical-align: middle;
-  width: 14.285714%;
-}
-
-td.not-current-month {
-  color: #ddd;
-}
-
-td.today {
-  /* arbitrary af */
-  color: #6495ED;
-}
-#show-cal p{
-  text-align: center;
-  margin-top: 0.8em;
-  font-weight: bold;
-}
-#show-cal {
+.calendar-container{
   display: none;
 }
-.prevBtn{
-  margin-top: -53px;
-  margin-left: 10px;
-}
-.description {
-  font-size: 25px;
-}
-.event-details {
-  margin-top: 60px;
-}
-.event-details h4 {
-  font-weight: bold;
-}
-.event-details h3 {
-  font-family: "Times New Roman", Times, serif;
-}
-.eventName {
-  font-family: "Times New Roman", Times, serif;
-}
-img {
-  width: 100%;
-}
-.information {
-  box-shadow: 1px 2px 8px ;
-  padding: 3px;
-}
+
 .container-div {
   background-color: #EAEAEA;
   padding: 0.6em;
@@ -156,6 +97,7 @@ img {
   box-shadow: 0.0em 0.1em 0.5em #DADADA;
   border-radius: 0.1em;
 }
+
 .eventName {
   color: #409A93;
   font-weight: bold;
@@ -164,43 +106,18 @@ img {
   margin-bottom: 0.1em;
   font-family: 'Noto Sans', sans-serif;
 }
+
 .time {
   color: #585858;
   font-size: 0.9em;
   margin-left: 0.4em;
   font-family: 'Lato', sans-serif;
 }
+
 .where {
   color: #A6A8A9;
   font-size: 1em;
   font-style: italic;
   margin-left: 1em;
   margin-bottom: 0.5em;
-}
-.eventTime, .eventStartDate {
-  font-size: 20px;
-}
-.shekelIcon {
-  width: 17px;
-}
-.add-place {
-  display: none;
-  background: #F5F5F5;
-  margin-bottom: 20px;
-  margin-top: 15px;
-  padding: 30px;
-}
-.add-place button {
-  padding: 5px;
-  margin-bottom: 20px;
-  margin-left: 135px;
-  font-weight: bold;
-}
-.noEvents {
-  color: #B22222;
-  text-align: center;
-  background: linear-gradient(to top, #B22222, white, white, white);
-  margin-top: 100px;
-  padding: 20px;
-  text-shadow: 4px 3px 10px;
 }
