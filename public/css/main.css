@@ -132,7 +132,7 @@ body {
 }
 
 .hide-cal {
-  top: -50rem;
+  transform: translateY(-50rem);
 }
 
 .cal-nav-button {
