@@ -1,13 +1,11 @@
-<div class="header">
-  <a href="/"><h1 class="text-center naz-events">Nazareth Events</h1></a>
-  <a href="/add-event" class="glyphicon glyphicon-plus"></a>
+<header class="header">
+  <a href="/add-event" class="fa fa-plus plus-icon">
+  <a href="/" class="naz-events">Nazareth Events</a>
   {{#if calendarButton}}
-    <div id="calendar-button" class="div-calendarBtn">
-      <span class="glyphicon glyphicon-calendar calendar"></span>
-    </div>
+    <i id="calendarIcon" class="fa fa-calendar calendar-icon"></i>
   {{/if}}
-  <div class="chooseLang">
-    <label><input id="enLang" type="radio" name="optradio">English</label>
-    <label><input id="arLang" type="radio" name="optradio" checked>Arabic</label>
-  </div>
-</div>
+</header>
+<nav class="language-nav">
+  <button id="enLang" class="lang-btn en-lang" type="button" name="english button">English</button>
+  <button id="arLang" class="lang-btn ar-lang" type="button" name="arabic button">Arabic</button>
+</nav>
