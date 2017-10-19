@@ -4,7 +4,7 @@ html {
   font-size: 62.5%; /* 1rem = 10px */
 }
 
-body, div, span, a {
+* {
   margin: 0;
   padding: 0;
   border: 0;
@@ -32,6 +32,111 @@ body {
 /*** EVENT DETAILS ***/
 
 /*** ADD EVENT FORM ***/
+
+.add-event-form {
+  max-width: 100vw;
+  padding: 4rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.add-event-form > label {
+  font: bold 1.8rem 'Lato';
+  color: #5C5C5C;
+}
+
+
+.form-input {
+  height: 3rem;
+  width: 100%;
+  border: 0.1rem gray solid;
+  border-radius: 0.2rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  background-color: white;
+}
+
+.event-description {
+  height: 5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  border-radius: 0.2rem;
+  width: 100%;
+  border: 0.1rem gray solid;
+}
+
+.checkbox-wrap {
+  padding: 1rem 1rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  border: 0.1rem gray solid;
+  flex-flow: wrap;
+  display: flex;
+  box-shadow: 0 .2rem .2rem #aaa;
+}
+
+.checkbox-wrap label {
+  width: 50%;
+  font: bold 1.4rem 'Lato';
+  margin-top: 0.2rem;
+  margin-bottom: 0.2rem;
+  color: #5C5C5C;
+}
+
+.checkbox-wrap input {
+  width: 15%;
+}
+
+.place-section {
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  display: flex;
+  width: 100%;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.place-wrap {
+  margin-top: 0.5rem;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.place-wrap label {
+  font: 1.8rem 'Lato';
+}
+
+.place-options {
+  background-color: white;
+}
+
+.add-place {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.add-place label {
+  font: bold 1.8rem 'Lato';
+  color: #5C5C5C;
+}
+
+.hide {
+  display: none;
+}
+
+.submit-event-button {
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #409A93;
+  font: bold 2rem 'Lato';
+  color: white;
+  border-radius: 0.3rem;
+  padding: 1rem;
+  width: 50%;
+}
 
 /*** CALENDAR ***/
 
