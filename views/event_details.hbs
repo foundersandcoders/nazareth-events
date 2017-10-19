@@ -5,18 +5,22 @@
   </div>
 </div>
 
-<div class="event-details text-center">
-  <h1 class="text-warning eventName">{{event.en.name}}</h1>
-  {{#if imageUrl}}
-  <img src="{{event.imageUrl}}" alt="event picture">
+<div class="event-details">
+  {{#if event.imageUrl}}
+  <img class="event-img center" src="{{event.imageUrl}}" alt="event picture">
   {{/if}}
-  <h4 class="text-muted eventStartDate">{{prettyDate event.startTime}}</h4>
-  <h5 class="text-muted eventTime">{{prettyTime event.startTime}} - {{prettyTime event.endTime}}</h5> <h3 class="text-primary">at: {{event.place.en.name}}</h3>
-
-  <div class="information">
-    <h3  class="text-danger">categories: </h3> <h4 class="text-info">{{event.categories}}</h4>
-    <h3  class="text-danger">price: </h3> <h4 class="text-info">{{event.cost}} <img class="shekelIcon" src="../images/shekel.png" alt="shekel icon"></h4>
-    <h3 class="text-danger">disabled access: </h3><h4 class="text-info">{{event.accessibilityOptions}}</h4>
+  <h1 class="event-name center">{{event.en.name}}</h1>
+  <span class="light-text">{{prettyDate event.startDate}}, {{prettyTime event.startTime}}</span>
+  <p class="light-text">{{event.en.description}}</p>
+  <h4 class="dark-text cost">{{event.cost}} <i class="fa fa-ils"></i></h4>
+  <h3 class="dark-text"><i class="fa fa-map-marker" aria-hidden="true"></i> {{event.place.en.name}}</h3>
+  <div class="map">
+    <h1>map</h1>
   </div>
-  <p class="text-muted description">{{event.en.description}}</p>
+</div>
+<div class="access-category">
+  <h3 class="dark-text margins">Accessibiltlity</h3>
+  <span class="light-text margins"> - {{event.accessibilityOptions}}</span>
+  <h3  class="dark-text margins">Categories</h3>
+  <span class="light-text margins"> - {{event.categories}}</span>
 </div>
