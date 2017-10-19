@@ -52,11 +52,11 @@ var renderModule = function (error, apiData) {
       h5Element.innerHTML = (event.place ? 'At ' + event.place.en.name : ' ');
       h4Element.innerHTML = new Date(event.startTime).toDateString().split(' ', [3]).join(' ') + ' / ' + new Date(new Date(event.startTime).getTime()).toLocaleTimeString([], {hour: '2-digit', minute: '2-digit', hour12: false, timeZone: 'UTC'}) + ' - ' + new Date(new Date(event.endTime).getTime()).toLocaleTimeString([], {hour: '2-digit', minute: '2-digit', hour12: false, timeZone: 'UTC'});
 
-      aElement.appendChild(h3Element);
-      aElement.appendChild(h5Element);
-      aElement.appendChild(h4Element);
-      eventContainerDiv.appendChild(aElement);
-      eventsSection.appendChild(eventContainerDiv);
+      eventContainerDiv.appendChild(h3Element);
+      eventContainerDiv.appendChild(h5Element);
+      eventContainerDiv.appendChild(h4Element);
+      aElement.appendChild(eventContainerDiv);
+      eventsSection.appendChild(aElement);
     });
     listPage.appendChild(eventsSection);
   };
