@@ -1,8 +1,5 @@
 <div class="eventDetailsHeader">
     {{>header}}
-  <div class="prevBtn ">
-    <a href="{{{back}}}"><span class="glyphicon glyphicon-chevron-left"></span></a>
-  </div>
 </div>
 
 <div class="event-details">
@@ -11,7 +8,7 @@
   {{/if}}
   <h1 class="event-name center">{{event.en.name}}</h1>
   <span class="light-text">{{prettyDate event.startDate}}, {{prettyTime event.startTime}}</span>
-  <p class="light-text">{{event.en.description}}</p>
+  <p class="light-text description">{{event.en.description}}</p>
   <h4 class="dark-text cost">{{event.cost}} <i class="fa fa-ils"></i></h4>
   <h3 class="dark-text"><i class="fa fa-map-marker" aria-hidden="true"></i> {{event.place.en.name}}</h3>
   <div class="map">
@@ -19,8 +16,8 @@
   </div>
 </div>
 <div class="access-category">
-  <h3 class="dark-text margins">Accessibiltlity</h3>
+  <h3 class="dark-text margins accessbililty">Accessibiltlity</h3>
   <span class="light-text margins"> - {{event.accessibilityOptions}}</span>
-  <h3  class="dark-text margins">Categories</h3>
+  <h3  class="dark-text margins categories">Categories</h3>
   <span class="light-text margins"> - {{event.categories}}</span>
 </div>
