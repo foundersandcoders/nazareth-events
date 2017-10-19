@@ -1,9 +1,10 @@
 /*** ELEMENT RESET ***/
+
 html {
   font-size: 62.5%; /* 1rem = 10px */
 }
 
-*{
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -19,11 +20,13 @@ a {
 }
 
 /*** GENERAL ***/
+
 body {
   background-color: #F2F2F2;
 }
 
 /*** HEADER BAR ***/
+
 .header {
   background-color: #409A93;
   font-family: 'Lato', sans-serif;
@@ -37,7 +40,7 @@ body {
   box-shadow: 0 .2rem .2rem #DADADA;
 }
 
-.naz-events{
+.naz-events {
   color: white;
   font-weight: bold;
   font-size: 2.3rem;
@@ -49,7 +52,7 @@ body {
   margin-top: .1rem;
 }
 
-.plus-icon{
+.plus-icon {
   margin-top: .2rem;
   font-size: 2.3rem;
   color: white;
@@ -59,11 +62,11 @@ body {
   background: #F2F2F2;
   width: 100%;
   padding: .6rem;
-  box-shadow: .4rem .5rem .5rem #DBDBDB;
+  box-shadow: 0 .2rem .5rem #DADADA;
   display: flex;
 }
 
-.lang-btn{
+.lang-btn {
   color: #5C5C5C;
   padding: .5rem;
   background: #DBDBDB;
@@ -78,33 +81,39 @@ body {
 }
 
 /*** EVENTS LIST ***/
-.container-div {
+
+.events-section {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.event-link {
   background-color: #EAEAEA;
-  height: 9rem;
-  padding: 0.6rem;
-  margin: 1rem;
+  height: 9.5rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
   box-shadow: 0 .2rem .2rem #DADADA;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .event-name {
   color: #409A93;
-  margin-left: .4rem;
-  margin-bottom: .1rem;
   font: bold 2rem 'Lato', sans-serif;
 }
 
 .time {
   color: #585858;
-  margin-left: .4rem;
   font: 1.5rem 'Lato', sans-serif;
 }
 
 .where {
   color: #A6A8A9;
   font: 1.5rem 'Lato', sans-serif;
-  margin-left: 1rem;
-  margin-bottom: .5rem;
   font-style: italic;
+  margin-bottom: .2rem;
 }
 
 /*** EVENT DETAILS ***/
@@ -125,7 +134,7 @@ body {
   padding: 3rem;
   background-color: #EAEAEA;
   color: #5C5C5C;
-  font: 2rem sans-serif;
+  font: 2rem 'Lato', sans-serif;
   box-shadow: 0 .2rem 1rem #aaa;
   transition: .4s linear;
 }
@@ -134,14 +143,20 @@ body {
   transform: translateY(-50rem);
 }
 
+.cal-nav {
+  display: flex;
+}
+
 .cal-nav-button {
   font-size: 3rem;
 }
 
 .cal-month {
-  font: bold 2.5rem sans-serif;
+  font: bold 2.5rem 'Lato', sans-serif;
+  font-weight: bold;
   margin: 0 3rem;
   width: 19.5rem;
+  text-align: center;
 }
 
 .cal-instructions {

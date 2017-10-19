@@ -35,27 +35,26 @@ var renderModule = function (error, apiData) {
     }
 
     eventsArray.forEach(function (event) {
-      var eventContainerDiv = document.createElement('div');
-      eventContainerDiv.className = 'container-div';
       var h3Element = document.createElement('h3');
       h3Element.className = 'event-name';
+
       var h4Element = document.createElement('h4');
       h4Element.className = 'time';
+
       var h5Element = document.createElement('h5');
       h5Element.className = 'where';
+
       var aElement = document.createElement('a');
-      var id = event._id;
-      aElement.href = '/events/' + id;
+      aElement.href = '/events/' + event._id;
       aElement.className = 'event-link';
 
       h3Element.innerHTML = language === 'ar' && event.ar ? event.ar.name : event.en.name;
-      h5Element.innerHTML = (event.place ? 'At ' + event.place.en.name : ' ');
+      h5Element.innerHTML = (event.place ? event.place.en.name : ' ');
       h4Element.innerHTML = new Date(event.startTime).toDateString().split(' ', [3]).join(' ') + ' / ' + new Date(new Date(event.startTime).getTime()).toLocaleTimeString([], {hour: '2-digit', minute: '2-digit', hour12: false, timeZone: 'UTC'}) + ' - ' + new Date(new Date(event.endTime).getTime()).toLocaleTimeString([], {hour: '2-digit', minute: '2-digit', hour12: false, timeZone: 'UTC'});
 
-      eventContainerDiv.appendChild(h3Element);
-      eventContainerDiv.appendChild(h5Element);
-      eventContainerDiv.appendChild(h4Element);
-      aElement.appendChild(eventContainerDiv);
+      aElement.appendChild(h3Element);
+      aElement.appendChild(h5Element);
+      aElement.appendChild(h4Element);
       eventsSection.appendChild(aElement);
     });
     listPage.appendChild(eventsSection);
