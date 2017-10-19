@@ -26,7 +26,7 @@ body {
 /*** HEADER BAR ***/
 .header {
   background-color: #409A93;
-  font-family: 'Noto Sans', sans-serif;
+  font-family: 'Lato', sans-serif;
   height: 8rem;
   padding: 2.5rem;
   z-index: 1;
@@ -90,7 +90,7 @@ body {
   color: #409A93;
   margin-left: .4rem;
   margin-bottom: .1rem;
-  font:bold 2rem 'Noto Sans', sans-serif;
+  font: bold 2rem 'Lato', sans-serif;
 }
 
 .time {
@@ -101,9 +101,10 @@ body {
 
 .where {
   color: #A6A8A9;
-  font: 1.5rem 'Oleo Script', cursive;
+  font: 1.5rem 'Lato', sans-serif;
   margin-left: 1rem;
   margin-bottom: .5rem;
+  font-style: italic;
 }
 
 /*** EVENT DETAILS ***/
