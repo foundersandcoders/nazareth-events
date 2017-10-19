@@ -31,6 +31,58 @@ body {
 
 /*** EVENT DETAILS ***/
 
+.event-details {
+  text-align: center;
+}
+
+.event-img {
+  width: 100%;
+  height: 18rem;
+  margin-bottom: 2rem;
+}
+
+.event-name {
+  color: #5C5C5C;
+  font: bolder 2.5rem 'Lato', sans-serif;
+  margin-bottom: .4rem;
+}
+
+.description {
+  text-align: center;
+}
+
+.cost {
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+}
+
+.dark-text {
+  color: #5C5C5C;
+  font: bolder 2rem 'Lato', sans-serif;
+}
+
+.light-text {
+  color: #95989A;
+  font: 1.6rem 'Lato', sans-serif;
+}
+
+.map {
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+  height: 25rem;
+  border: .2rem solid black;
+}
+
+.access-category {
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+
+.margins {
+  margin-left: 1.5rem;
+  margin-bottom: 0.4rem;
+}
 /*** ADD EVENT FORM ***/
 
 /*** CALENDAR ***/
