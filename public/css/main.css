@@ -37,13 +37,14 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 .2rem .2rem #DADADA;
+  box-shadow: 0 .1rem .3rem;
 }
 
 .naz-events {
   color: white;
   font-weight: bold;
   font-size: 2.3rem;
+  margin: auto;
 }
 
 .calendar-icon {
@@ -124,7 +125,6 @@ body {
 
 .event-img {
   width: 100%;
-  height: 18rem;
   margin-bottom: 2rem;
 }
 
@@ -135,7 +135,7 @@ body {
 }
 
 .description {
-  text-align: center;
+  margin-top: 2rem;
 }
 
 .cost {
@@ -154,6 +154,7 @@ body {
 }
 
 .map {
+  margin-top: 2rem;
   margin-left: auto;
   margin-right: auto;
   width: 90%;
@@ -164,6 +165,10 @@ body {
 .access-category {
   margin-top: 4rem;
   margin-bottom: 4rem;
+}
+
+.categories {
+  margin-top: 2rem;
 }
 
 .margins {
