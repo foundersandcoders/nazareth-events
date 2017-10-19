@@ -5,7 +5,9 @@
     <i id="calendarIcon" class="fa fa-calendar calendar-icon"></i>
   {{/if}}
 </header>
-<nav class="language-nav">
-  <button id="enLang" class="lang-btn en-lang" type="button" name="english button">English</button>
-  <button id="arLang" class="lang-btn ar-lang" type="button" name="arabic button">Arabic</button>
-</nav>
+{{#if filterButtons}}
+  <nav class="language-nav">
+    <button id="enLang" class="lang-btn en-lang" type="button" name="english button">English</button>
+    <button id="arLang" class="lang-btn ar-lang" type="button" name="arabic button">Arabic</button>
+  </nav>
+{{/if}}
