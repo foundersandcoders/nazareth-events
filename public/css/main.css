@@ -5,10 +5,10 @@ html {
 }
 
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
   border: 0;
-  box-sizing: border-box;
 }
 
 a:hover, button:hover, .cal-nav-button, td {
@@ -27,7 +27,94 @@ body {
 
 /*** HEADER BAR ***/
 
+.header {
+  background-color: #409A93;
+  font-family: 'Lato', sans-serif;
+  height: 8rem;
+  padding: 2.5rem;
+  z-index: 1;
+  position:  relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 .2rem .2rem #DADADA;
+}
+
+.naz-events {
+  color: white;
+  font-weight: bold;
+  font-size: 2.3rem;
+}
+
+.calendar-icon {
+  font-size: 2.3rem;
+  color: white;
+  margin-top: .1rem;
+}
+
+.plus-icon {
+  margin-top: .2rem;
+  font-size: 2.3rem;
+  color: white;
+}
+
+.language-nav {
+  background: #F2F2F2;
+  width: 100%;
+  padding: .6rem;
+  box-shadow: 0 .2rem .5rem #DADADA;
+  display: flex;
+}
+
+.lang-btn {
+  color: #5C5C5C;
+  padding: .5rem;
+  background: #DBDBDB;
+  border: .1rem solid #DBDBDB;
+  border-radius: .1rem;
+  font: bolder 1.5rem 'Lato', sans-serif;
+  flex-grow: 1;
+}
+
+.en-lang {
+  margin-right: .6rem;
+}
+
 /*** EVENTS LIST ***/
+
+.events-section {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.event-link {
+  background-color: #EAEAEA;
+  height: 9.5rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 .2rem .2rem #DADADA;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.event-name {
+  color: #409A93;
+  font: bold 2rem 'Lato', sans-serif;
+}
+
+.time {
+  color: #585858;
+  font: 1.5rem 'Lato', sans-serif;
+}
+
+.where {
+  color: #A6A8A9;
+  font: 1.5rem 'Lato', sans-serif;
+  font-style: italic;
+  margin-bottom: .2rem;
+}
 
 /*** EVENT DETAILS ***/
 
@@ -146,19 +233,23 @@ body {
   align-items: center;
   flex-direction: column;
   position: fixed;
-  top: 0;
+  top: 8rem;
   left: 0;
   width: 100%;
   padding: 3rem;
   background-color: #EAEAEA;
   color: #5C5C5C;
-  font: 2rem sans-serif;
+  font: 2rem 'Lato', sans-serif;
   box-shadow: 0 .2rem 1rem #aaa;
   transition: .4s linear;
 }
 
 .hide-cal {
-  top: -50rem;
+  transform: translateY(-50rem);
+}
+
+.cal-nav {
+  display: flex;
 }
 
 .cal-nav-button {
@@ -166,9 +257,11 @@ body {
 }
 
 .cal-month {
-  font: bold 2.5rem sans-serif;
+  font: bold 2.5rem 'Lato', sans-serif;
+  font-weight: bold;
   margin: 0 3rem;
   width: 19.5rem;
+  text-align: center;
 }
 
 .cal-instructions {
