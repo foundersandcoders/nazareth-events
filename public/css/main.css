@@ -133,7 +133,7 @@ body {
 }
 
 
-.add-event-form input {
+.add-event-form input, select {
   height: 3rem;
   width: 100%;
   border: 0.1rem gray solid;
@@ -143,6 +143,7 @@ body {
   background-color: white;
   padding: 0.5rem;
   font: 1.5rem 'Lato';
+  background-color: white;
 }
 
 .event-description {
@@ -176,6 +177,7 @@ body {
 }
 
 .checkbox-wrap input {
+  height: initial;
   width: 15%;
 }
 
@@ -192,10 +194,6 @@ body {
   display: flex;
   width: 100%;
   justify-content: space-between;
-}
-
-.place-options {
-  background-color: white;
 }
 
 .add-place {
