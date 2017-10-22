@@ -1,23 +1,21 @@
-<div class="eventDetailsHeader">
-    {{>header}}
-</div>
+{{>header}}
 
 <div class="event-details">
   {{#if event.imageUrl}}
-  <img class="event-img center" src="{{event.imageUrl}}" alt="event picture">
+    <img class="event-img center" src="{{event.imageUrl}}" alt="event picture">
   {{/if}}
-  <h1 class="event-name center">{{event.en.name}}</h1>
+  <h1 class="event-name-details">{{event.en.name}}</h1>
   <span class="light-text">{{prettyDate event.startDate}}, {{prettyTime event.startTime}}</span>
-  <p class="light-text description">{{event.en.description}}</p>
-  <h4 class="dark-text cost">{{event.cost}} <i class="fa fa-ils"></i></h4>
+  <p class="light-text description margins">{{event.en.description}}</p>
+  <h4 class="dark-text cost margins">{{event.cost}} <i class="fa fa-ils"></i></h4>
   <h3 class="dark-text"><i class="fa fa-map-marker" aria-hidden="true"></i> {{event.place.en.name}}</h3>
-  <div class="map">
+  <div class="map margins">
     <h1>map</h1>
   </div>
-</div>
-<div class="access-category">
-  <h3 class="dark-text margins accessbililty">Accessibiltlity</h3>
-  <span class="light-text margins"> - {{event.accessibilityOptions}}</span>
-  <h3  class="dark-text margins categories">Categories</h3>
-  <span class="light-text margins"> - {{event.categories}}</span>
+  <div class="access-category margins">
+    <h3 class="dark-text margin-access-category">Accessibility</h3>
+    <li class="light-text"> - {{event.accessibilityOptions}}</li>
+    <h3  class="dark-text margin-access-category">Categories</h3>
+    <li class="light-text"> - {{event.categories}}</li>
+  </div>
 </div>
