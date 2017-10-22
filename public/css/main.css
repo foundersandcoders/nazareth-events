@@ -37,7 +37,6 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 .1rem .3rem;
 }
 
 .naz-events {
@@ -118,29 +117,17 @@ body {
 }
 
 /*** EVENT DETAILS ***/
-
-.event-details {
+.event-details{
   text-align: center;
 }
 
 .event-img {
   width: 100%;
-  margin-bottom: 2rem;
 }
 
-.event-name {
+.event-name-details {
   color: #5C5C5C;
   font: bolder 2.5rem 'Lato', sans-serif;
-  margin-bottom: .4rem;
-}
-
-.description {
-  margin-top: 2rem;
-}
-
-.cost {
-  margin-top: 5rem;
-  margin-bottom: 5rem;
 }
 
 .dark-text {
@@ -154,7 +141,6 @@ body {
 }
 
 .map {
-  margin-top: 2rem;
   margin-left: auto;
   margin-right: auto;
   width: 90%;
@@ -162,19 +148,25 @@ body {
   border: .2rem solid black;
 }
 
-.access-category {
+.margins {
   margin-top: 4rem;
   margin-bottom: 4rem;
 }
 
-.categories {
-  margin-top: 2rem;
+.access-category {
+  width: 100%;
+  text-align: left;
 }
 
-.margins {
-  margin-left: 1.5rem;
-  margin-bottom: 0.4rem;
+.margin-access-category {
+  margin-top: 2.5rem;
+  margin-bottom: .5rem;
 }
+
+li{
+  display: inline-block;
+}
+
 /*** ADD EVENT FORM ***/
 
 /*** CALENDAR ***/
