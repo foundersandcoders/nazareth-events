@@ -133,6 +133,8 @@ body {
 .add-event-form label {
   font: bold 1.8rem "Lato";
   color: #5c5c5c;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .add-event-form input,
