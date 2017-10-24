@@ -11,7 +11,10 @@ html {
   border: 0;
 }
 
-a:hover, button:hover, .cal-nav-button, td {
+a:hover,
+button:hover,
+.cal-nav-button,
+td {
   cursor: pointer;
 }
 
@@ -22,22 +25,22 @@ a {
 /*** GENERAL ***/
 
 body {
-  background-color: #F2F2F2;
+  background-color: #f2f2f2;
 }
 
 /*** HEADER BAR ***/
 
 .header {
-  background-color: #409A93;
-  font-family: 'Lato', sans-serif;
+  background-color: #409a93;
+  font-family: "Lato", sans-serif;
   height: 8rem;
   padding: 2.5rem;
   z-index: 1;
-  position:  relative;
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 .2rem .2rem #DADADA;
+  box-shadow: 0 0.2rem 0.2rem #dadada;
 }
 
 .naz-events {
@@ -49,35 +52,35 @@ body {
 .calendar-icon {
   font-size: 2.3rem;
   color: white;
-  margin-top: .1rem;
+  margin-top: 0.1rem;
 }
 
 .plus-icon {
-  margin-top: .2rem;
+  margin-top: 0.2rem;
   font-size: 2.3rem;
   color: white;
 }
 
 .language-nav {
-  background: #F2F2F2;
+  background: #f2f2f2;
   width: 100%;
-  padding: .6rem;
-  box-shadow: 0 .2rem .5rem #DADADA;
+  padding: 0.6rem;
+  box-shadow: 0 0.2rem 0.5rem #dadada;
   display: flex;
 }
 
 .lang-btn {
-  color: #5C5C5C;
-  padding: .5rem;
-  background: #DBDBDB;
-  border: .1rem solid #DBDBDB;
-  border-radius: .1rem;
-  font: bolder 1.5rem 'Lato', sans-serif;
+  color: #5c5c5c;
+  padding: 0.5rem;
+  background: #dbdbdb;
+  border: 0.1rem solid #dbdbdb;
+  border-radius: 0.1rem;
+  font: bolder 1.5rem "Lato", sans-serif;
   flex-grow: 1;
 }
 
 .en-lang {
-  margin-right: .6rem;
+  margin-right: 0.6rem;
 }
 
 /*** EVENTS LIST ***/
@@ -89,31 +92,31 @@ body {
 }
 
 .event-link {
-  background-color: #EAEAEA;
+  background-color: #eaeaea;
   height: 9.5rem;
   padding: 1rem;
   margin-bottom: 1rem;
-  box-shadow: 0 .2rem .2rem #DADADA;
+  box-shadow: 0 0.2rem 0.2rem #dadada;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
 .event-name {
-  color: #409A93;
-  font: bold 2rem 'Lato', sans-serif;
+  color: #409a93;
+  font: bold 2rem "Lato", sans-serif;
 }
 
 .time {
   color: #585858;
-  font: 1.5rem 'Lato', sans-serif;
+  font: 1.5rem "Lato", sans-serif;
 }
 
 .where {
-  color: #A6A8A9;
-  font: 1.5rem 'Lato', sans-serif;
+  color: #a6a8a9;
+  font: 1.5rem "Lato", sans-serif;
   font-style: italic;
-  margin-bottom: .2rem;
+  margin-bottom: 0.2rem;
 }
 
 /*** EVENT DETAILS ***/
@@ -128,12 +131,12 @@ body {
 }
 
 .add-event-form label {
-  font: bold 1.8rem 'Lato';
-  color: #5C5C5C;
+  font: bold 1.8rem "Lato";
+  color: #5c5c5c;
 }
 
-
-.add-event-form input, select {
+.add-event-form input,
+select {
   height: 3rem;
   width: 100%;
   border: 0.1rem gray solid;
@@ -142,19 +145,19 @@ body {
   margin-bottom: 0.5rem;
   background-color: white;
   padding: 0.5rem;
-  font: 1.5rem 'Lato';
+  font: 1.4rem "Lato";
   background-color: white;
 }
 
 .event-description {
   padding-left: 0.5rem;
-  padding-top: 1rem;
+  padding-top: 0.5rem;
   height: 5rem;
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
-  border-radius: 0.2rem;
+  border-radius: 0.3rem;
   border: 0.1rem gray solid;
-  font: 1.5rem 'Lato';
+  font: 1.5rem "Lato";
 }
 
 .checkbox-wrap {
@@ -164,16 +167,16 @@ body {
   border: 0.1rem gray solid;
   flex-flow: wrap;
   display: flex;
-  border-radius: 0.2rem;
-  background-color: #E8E8E8;
+  border-radius: 0.3rem;
+  background-color: #e8e8e8;
 }
 
 .checkbox-wrap label {
   width: 50%;
-  font: bold 1.4rem 'Lato';
+  font: bold 1.4rem "Lato";
   margin-top: 0.2rem;
   margin-bottom: 0.2rem;
-  color: #5C5C5C;
+  color: #5c5c5c;
 }
 
 .checkbox-wrap input {
@@ -200,6 +203,7 @@ body {
   width: 100%;
   display: flex;
   flex-direction: column;
+  margin-top: 1rem;
 }
 
 .hide {
@@ -209,18 +213,18 @@ body {
 .submit-event-button {
   margin-left: auto;
   margin-right: auto;
-  background-color: #409A93;
-  font: bold 2rem 'Lato';
+  background-color: #409a93;
+  font: bold 2rem "Lato";
   color: white;
   border-radius: 0.3rem;
   padding: 1rem;
   width: 50%;
-  box-shadow: 0rem .3rem .4rem #DADADA;
+  box-shadow: 0rem 0.3rem 0.4rem #dadada;
 }
 
 .add-place-icon {
   font-size: 2rem;
-  color: #5C5C5C;
+  color: #5c5c5c;
 }
 
 /*** CALENDAR ***/
@@ -235,11 +239,11 @@ body {
   left: 0;
   width: 100%;
   padding: 3rem;
-  background-color: #EAEAEA;
-  color: #5C5C5C;
-  font: 2rem 'Lato', sans-serif;
-  box-shadow: 0 .2rem 1rem #aaa;
-  transition: .4s linear;
+  background-color: #eaeaea;
+  color: #5c5c5c;
+  font: 2rem "Lato", sans-serif;
+  box-shadow: 0 0.2rem 1rem #aaa;
+  transition: 0.4s linear;
 }
 
 .hide-cal {
@@ -255,7 +259,7 @@ body {
 }
 
 .cal-month {
-  font: bold 2.5rem 'Lato', sans-serif;
+  font: bold 2.5rem "Lato", sans-serif;
   font-weight: bold;
   margin: 0 3rem;
   width: 19.5rem;
@@ -270,11 +274,12 @@ body {
 
 th {
   width: 3.5rem;
-  margin: .5rem;
+  margin: 0.5rem;
   font-size: 2.2rem;
 }
 
-tr, td {
+tr,
+td {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -283,12 +288,12 @@ tr, td {
 td {
   width: 3.5rem;
   height: 3.5rem;
-  margin: .5rem;
+  margin: 0.5rem;
   font-size: 1.7rem;
   color: white;
-  background-color: #9ABCB9;
+  background-color: #9abcb9;
   border-radius: 100%;
-  box-shadow: 0 .2rem .2rem #aaa;
+  box-shadow: 0 0.2rem 0.2rem #aaa;
 }
 
 .not-current-month {
