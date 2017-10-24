@@ -120,7 +120,21 @@ body {
   color: #585858;
   font: bold 2rem 'Lato', sans-serif;
   text-align: center;
-  margin-top: 60%;
+  margin-top: 55%;
+}
+
+.loading-icon {
+  color: #585858;
+  width: 100%;
+  text-align: center;
+  margin-top: 55%;
+  font-size: 5rem;
+  animation: spin 1.2s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg) }
+  to { transform: rotate(360deg) }
 }
 
 /*** EVENT DETAILS ***/
