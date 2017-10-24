@@ -70,14 +70,21 @@ body {
   color: #5C5C5C;
   padding: .5rem;
   background: #DBDBDB;
-  border: .1rem solid #DBDBDB;
   border-radius: .1rem;
   font: bolder 1.5rem 'Lato', sans-serif;
   flex-grow: 1;
 }
 
+.lang-btn:focus {
+  outline: none;
+}
+
 .en-lang {
   margin-right: .6rem;
+}
+
+.active-lang {
+  color: #409A93;
 }
 
 /*** EVENTS LIST ***/

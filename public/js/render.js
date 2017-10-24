@@ -2,7 +2,7 @@
 /* eslint no-global-assign: "error" */
 
 var renderModule = function (error, apiData) {
-  renderEvents(apiData, 'ar');
+  renderEvents(apiData, 'en');
 
   document.getElementById('arLang').addEventListener('click', function () {
     renderEvents(apiData, 'ar');
@@ -12,6 +12,10 @@ var renderModule = function (error, apiData) {
   });
 
   function renderEvents (eventsArray, language) {
+    document.getElementById('arLang').classList.remove('active-lang');
+    document.getElementById('enLang').classList.remove('active-lang');
+    document.getElementById(language + 'Lang').classList.add('active-lang');
+
     var listPage = document.getElementById('list-page-content');
     var eventsSection = document.getElementById('events-section');
     while (eventsSection.firstChild) {
