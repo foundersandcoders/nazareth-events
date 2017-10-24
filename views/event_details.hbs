@@ -1,21 +1,28 @@
 {{>header}}
 
 <div class="event-details">
-  {{#if event.imageUrl}}
-    <img class="event-img center" src="{{event.imageUrl}}" alt="event picture">
-  {{/if}}
+  <div class="event-img" style="background-image: url('{{event.imageUrl}}')">
+  </div>
   <h1 class="event-name-details">{{event.en.name}}</h1>
   <span class="light-text">{{prettyDate event.startDate}}, {{prettyTime event.startTime}}</span>
   <p class="light-text description margins">{{event.en.description}}</p>
   <h4 class="dark-text cost margins">{{event.cost}} <i class="fa fa-ils"></i></h4>
   <h3 class="dark-text"><i class="fa fa-map-marker" aria-hidden="true"></i> {{event.place.en.name}}</h3>
+
   <div class="map margins">
     <h1>map</h1>
   </div>
+
   <div class="access-category margins">
     <h3 class="dark-text margin-access-category">Accessibility</h3>
-    <li class="light-text"> - {{event.accessibilityOptions}}</li>
+    {{#each event.accessibilityOptions}}
+      <li class="light-text">-{{this}}</li>
+    {{/each}}
+
     <h3  class="dark-text margin-access-category">Categories</h3>
-    <li class="light-text"> - {{event.categories}}</li>
+    {{#each event.categories}}
+      <li class="light-text">-{{this}}</li>
+    {{/each}}
   </div>
+
 </div>
