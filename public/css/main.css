@@ -116,6 +116,13 @@ body {
   margin-bottom: .2rem;
 }
 
+.no-events {
+  color: #585858;
+  font: bold 2rem 'Lato', sans-serif;
+  text-align: center;
+  margin-top: 60%;
+}
+
 /*** EVENT DETAILS ***/
 
 /*** ADD EVENT FORM ***/

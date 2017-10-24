@@ -20,8 +20,8 @@ var renderModule = function (error, apiData) {
 
     if (eventsArray.length === 0) {
       var noEvents = document.createElement('h1');
-      noEvents.innerHTML = 'NO UPCOMING EVENTS.';
-      noEvents.className = 'noEvents';
+      noEvents.innerHTML = 'No upcoming events.';
+      noEvents.className = 'no-events';
       return eventsSection.appendChild(noEvents);
     }
     if (error) {
