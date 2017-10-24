@@ -122,7 +122,10 @@ body {
 }
 
 .event-img {
-  width: 100%;
+  height: 20rem;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 .2rem 1rem #bbb;
 }
 
 .event-name-details {
@@ -165,6 +168,11 @@ body {
 
 li{
   display: inline-block;
+}
+
+.prev-icon {
+  font-size: 2.3rem;
+  color: white;
 }
 
 /*** ADD EVENT FORM ***/
