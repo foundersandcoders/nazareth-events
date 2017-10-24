@@ -4,6 +4,10 @@
   {{#if calendarButton}}
     <i id="calendarIcon" class="fa fa-calendar calendar-icon"></i>
   {{/if}}
+
+  {{#if back}}
+    <a href="{{{back}}}"><i class="fa fa-arrow-left prev-icon" aria-hidden="true"></i></a>
+  {{/if}}
 </header>
 {{#if filterButtons}}
   <nav class="language-nav">
