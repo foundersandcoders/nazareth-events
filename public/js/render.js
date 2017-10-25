@@ -2,7 +2,7 @@
 /* eslint no-global-assign: "error" */
 
 var renderModule = function (error, apiData) {
-  renderEvents(apiData, 'ar');
+  renderEvents(apiData, 'en');
 
   document.getElementById('arLang').addEventListener('click', function () {
     renderEvents(apiData, 'ar');
@@ -12,6 +12,14 @@ var renderModule = function (error, apiData) {
   });
 
   function renderEvents (eventsArray, language) {
+    if (language === 'en') {
+      document.getElementById('enLang').classList.add('active-lang');
+      document.getElementById('arLang').classList.remove('active-lang');
+    } else {
+      document.getElementById('enLang').classList.add('active-lang');
+      document.getElementById('arLang').classList.add('active-lang');
+    }
+
     var listPage = document.getElementById('list-page-content');
     var eventsSection = document.getElementById('events-section');
     while (eventsSection.firstChild) {
@@ -20,8 +28,8 @@ var renderModule = function (error, apiData) {
 
     if (eventsArray.length === 0) {
       var noEvents = document.createElement('h1');
-      noEvents.innerHTML = 'NO UPCOMING EVENTS.';
-      noEvents.className = 'noEvents';
+      noEvents.innerHTML = 'No upcoming events.';
+      noEvents.className = 'no-events';
       return eventsSection.appendChild(noEvents);
     }
     if (error) {
