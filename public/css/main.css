@@ -46,16 +46,10 @@ body {
   margin: auto;
 }
 
-.calendar-icon {
+.header-icon {
   font-size: 2.3rem;
   color: white;
-  margin-top: .1rem;
-}
-
-.plus-icon {
-  margin-top: .2rem;
-  font-size: 2.3rem;
-  color: white;
+  width: 2.5rem;
 }
 
 .language-nav {
@@ -196,11 +190,6 @@ body {
 
 li{
   display: inline-block;
-}
-
-.prev-icon {
-  font-size: 2.3rem;
-  color: white;
 }
 
 /*** ADD EVENT FORM ***/
