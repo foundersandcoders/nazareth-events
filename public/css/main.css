@@ -93,11 +93,14 @@ body {
   background-color: #EAEAEA;
   height: 9.5rem;
   padding: 1rem;
-  margin-bottom: 1rem;
   box-shadow: 0 .2rem .2rem #DADADA;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+.event-link:not(:last-child) {
+  margin-bottom: 1rem;
 }
 
 .event-name {
