@@ -1,13 +1,13 @@
 <header class="header">
-  <a href="/add-event" class="fa fa-plus header-icon">
-  <a href="/" class="naz-events">Nazareth Events</a>
   {{#if calendarButton}}
     <i id="calendarIcon" class="fa fa-calendar header-icon"></i>
   {{/if}}
-
   {{#if back}}
     <a href="{{{back}}}"><i class="fa fa-arrow-left header-icon" aria-hidden="true"></i></a>
   {{/if}}
+
+  <a href="/" class="naz-events">Nazareth Events</a>
+  <a href="/add-event" class="fa fa-plus header-icon"></a>
 </header>
 {{#if filterButtons}}
   <nav class="language-nav">
