@@ -191,6 +191,10 @@ body {
   text-align: left;
 }
 
+.access-category li {
+  text-transform: capitalize;
+}
+
 .margin-access-category {
   margin-top: 2.5rem;
   margin-bottom: .5rem;
