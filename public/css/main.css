@@ -136,7 +136,7 @@ body {
   text-align: center;
   margin-top: 55%;
   font-size: 5rem;
-  animation: spin 1.2s linear infinite;
+  animation: spin 1s linear infinite;
 }
 
 @keyframes spin {
