@@ -12,9 +12,13 @@ var renderModule = function (error, apiData) {
   });
 
   function renderEvents (eventsArray, language) {
-    document.getElementById('arLang').classList.remove('active-lang');
-    document.getElementById('enLang').classList.remove('active-lang');
-    document.getElementById(language + 'Lang').classList.add('active-lang');
+    if (language === 'en') {
+      document.getElementById('enLang').classList.add('active-lang');
+      document.getElementById('arLang').classList.remove('active-lang');
+    } else {
+      document.getElementById('enLang').classList.add('active-lang');
+      document.getElementById('arLang').classList.add('active-lang');
+    }
 
     var listPage = document.getElementById('list-page-content');
     var eventsSection = document.getElementById('events-section');
