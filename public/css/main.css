@@ -70,17 +70,24 @@ body {
 }
 
 .lang-btn {
-  color: #5c5c5c;
-  padding: 0.5rem;
-  background: #dbdbdb;
-  border: 0.1rem solid #dbdbdb;
-  border-radius: 0.1rem;
-  font: bolder 1.5rem "Lato", sans-serif;
+  color: #5C5C5C;
+  padding: .5rem;
+  background: #DBDBDB;
+  border-radius: .1rem;
+  font: bolder 1.5rem 'Lato', sans-serif;
   flex-grow: 1;
+}
+
+.lang-btn:focus {
+  outline: none;
 }
 
 .en-lang {
   margin-right: 0.6rem;
+}
+
+.active-lang {
+  color: #409A93;
 }
 
 /*** EVENTS LIST ***/
@@ -117,6 +124,27 @@ body {
   font: 1.5rem "Lato", sans-serif;
   font-style: italic;
   margin-bottom: 0.2rem;
+}
+
+.no-events {
+  color: #585858;
+  font: bold 2rem 'Lato', sans-serif;
+  text-align: center;
+  margin-top: 55%;
+}
+
+.loading-icon {
+  color: #585858;
+  width: 100%;
+  text-align: center;
+  margin-top: 55%;
+  font-size: 5rem;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg) }
+  to { transform: rotate(360deg) }
 }
 
 /*** EVENT DETAILS ***/
