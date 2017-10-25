@@ -168,11 +168,18 @@ body {
   font: 1.6rem 'Lato', sans-serif;
 }
 
+.map-icon {
+  margin-right: 0.5rem;
+}
+
 .map {
-  margin-top: 0.7rem;
+  margin-top: 1rem;
   height: 20rem;
   background-color: lightgray;
   box-shadow: 0 0.3rem 0.3rem #ccc;
+  background-image: url('https://i.imgur.com/uf4WPdJ.png');
+  background-size: cover;
+  background-position: center;
 }
 
 .margins {
