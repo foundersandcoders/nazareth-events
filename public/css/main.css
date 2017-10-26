@@ -40,13 +40,13 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 0.2rem 0.2rem #dadada;
 }
 
 .naz-events {
   color: white;
   font-weight: bold;
   font-size: 2.3rem;
+  margin: auto;
 }
 
 .calendar-icon {
@@ -55,10 +55,10 @@ body {
   margin-top: 0.1rem;
 }
 
-.plus-icon {
-  margin-top: 0.2rem;
+.header-icon {
   font-size: 2.3rem;
   color: white;
+  width: 2.5rem;
 }
 
 .language-nav {
@@ -70,17 +70,24 @@ body {
 }
 
 .lang-btn {
-  color: #5c5c5c;
-  padding: 0.5rem;
-  background: #dbdbdb;
-  border: 0.1rem solid #dbdbdb;
-  border-radius: 0.1rem;
-  font: bolder 1.5rem "Lato", sans-serif;
+  color: #5C5C5C;
+  padding: .5rem;
+  background: #DBDBDB;
+  border-radius: .1rem;
+  font: bolder 1.5rem 'Lato', sans-serif;
   flex-grow: 1;
+}
+
+.lang-btn:focus {
+  outline: none;
 }
 
 .en-lang {
   margin-right: 0.6rem;
+}
+
+.active-lang {
+  color: #409A93;
 }
 
 /*** EVENTS LIST ***/
@@ -96,10 +103,14 @@ body {
   height: 9.5rem;
   padding: 1rem;
   margin-bottom: 1rem;
-  box-shadow: 0 0.2rem 0.2rem #dadada;
+  box-shadow: 0 .2rem .2rem #DADADA;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+.event-link:not(:last-child) {
+  margin-bottom: 1rem;
 }
 
 .event-name {
@@ -119,7 +130,88 @@ body {
   margin-bottom: 0.2rem;
 }
 
+.no-events {
+  color: #585858;
+  font: bold 2rem 'Lato', sans-serif;
+  text-align: center;
+  margin-top: 55%;
+}
+
+.loading-icon {
+  color: #585858;
+  width: 100%;
+  text-align: center;
+  margin-top: 55%;
+  font-size: 5rem;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg) }
+  to { transform: rotate(360deg) }
+}
+
 /*** EVENT DETAILS ***/
+
+.event-details {
+  text-align: center;
+  padding: 2rem;
+}
+
+.event-img {
+  height: 20rem;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 .2rem 1rem #bbb;
+}
+
+.event-name-details {
+  color: #5C5C5C;
+  font: bolder 2.5rem 'Lato', sans-serif;
+  margin-bottom: 0.7rem;
+}
+
+.dark-text {
+  color: #5C5C5C;
+  font: bold 1.8rem 'Lato', sans-serif;
+}
+
+.light-text {
+  color: #95989A;
+  font: 1.6rem 'Lato', sans-serif;
+}
+
+.map-icon {
+  margin-right: 0.5rem;
+}
+
+.map {
+  margin-top: 1rem;
+  height: 20rem;
+  background-color: lightgray;
+  box-shadow: 0 0.3rem 0.3rem #ccc;
+  background-image: url('https://i.imgur.com/uf4WPdJ.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.margins {
+  margin-bottom: 4rem;
+}
+
+.access-category {
+  width: 100%;
+  text-align: left;
+}
+
+.access-category li {
+  text-transform: capitalize;
+}
+
+.margin-access-category {
+  margin-top: 2.5rem;
+  margin-bottom: .5rem;
+}
 
 /*** ADD EVENT FORM ***/
 
