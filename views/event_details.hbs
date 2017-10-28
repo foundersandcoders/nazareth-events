@@ -1,6 +1,8 @@
 {{>header}}
 
-<div class="event-img" style="background-image: url('{{event.imageUrl}}')"></div>
+{{#if event.imageUrl}}
+  <div class="event-img" style="background-image: url('{{event.imageUrl}}')"></div>
+{{/if}}
 
 <div class="event-details">
   <div class="margins">

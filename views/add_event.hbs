@@ -1,79 +1,218 @@
-<div class="add-eventContainer">
-  <h3 class="userAddEvent">Add Event</h3>
-
+{{>header}}
   <form class="add-event-form" action="/add-event" method="post">
-    <label>Name </label>
-    <input class="form-control" type="text" name="name_english" placeholder="English" required>
-    <input class="form-control" type="text" name="name_arabic" placeholder="Arabic">
+    <label>Name
+      <input class="" type="text" name="name_english" placeholder="English" required>
+      <input class="arabic-event-name " type="text" name="name_arabic" placeholder="Arabic">
+    </label>
 
-    <label>Description </label>
-    <textarea class="form-control" rows="2" name="description_en" placeholder="English" required></textarea>
-    <textarea class="form-control" rows="2" name="description_ar" placeholder="Arabic"></textarea>
+    <label>Description
+      <textarea class="event-description" rows="2" name="description_en" placeholder="English" required></textarea>
+      <textarea class="event-description" rows="2" name="description_ar" placeholder="Arabic"></textarea>
+    </label>
 
-    <label>Cost </label>
-    <input class="form-control" type="number" name="cost" min="0" placeholder="cost in shekels" required>
+    <label>Cost
+      <input class="" type="number" name="cost" min="0" placeholder="Cost in shekels" required>
+    </label>
 
-    <label>Date</label>
-    <input class="form-control" type="date" name="startDate" placeholder="example yyyy-mm-dd" required>
+    <label>Date
+      <input class="" type="date" name="startDate" placeholder="Example yyyy-mm-dd" required>
+    </label>
 
-    <label>Start Time </label>
-    <input class="" type="time" name="startTime" placeholder="Example 00:00" required>
+    <label>Start Time
+      <input class="" type="time" name="startTime" placeholder="Example 00:00" required>
+    </label>
 
-    <label>End Time </label>
-    <input class="" type="time" name="endTime" placeholder="Example 00:00" required>
+    <label>End Time
+      <input class="" type="time" name="endTime" placeholder="Example 00:00" required>
+    </label>
 
-    <label>Image </label>
-    <input class="form-control" type="text" name="imageUrl" placeholder="Please submit a URL">
+    <label>Image
+      <input class="" type="text" name="imageUrl" placeholder="Please submit a URL">
+    </label>
 
-    <label>Accessibility Options </label>
-    <select multiple class="accessibility form-control" name="accessibilityOptions" required>
-      <option disabled selected>Select Accessibility..</option>
-      <option value="Audio recordings">Audio Recordings</option>
-      <option value="Big fonts">Big Fonts</option>
-      <option value="Braille">Braille</option>
-      <option value="Carer">Carer</option>
-      <option value="Disabled parking">Disabled Parking</option>
-      <option value="Disabled toilets">Disabled Toilets</option>
-      <option value="Good lighting">Good Lighting</option>
-      <option value="Place for guide dog">Place for Guide Dog</option>
-      <option value="Sign language">Sign Language</option>
-      <option value="SMS messaging">SMS Messaging</option>
-      <option value="Wheelchair access">Wheelchair Access</option>
-    </select>
+    <label>Accessibility Options
+      <div class="checkbox-wrap">
+        <label>
+          <input
+            type="checkbox"
+            name="accessibilityOptions"
+            value="Audio recordings">Audio Recordings
+          </input>
+        </label>
+        <label>
+          <input
+            type="checkbox"
+            name="accessibilityOptions"
+            value="Big fonts">Big Fonts
+          </input>
+        </label>
+        <label>
+          <input
+            type="checkbox"
+            name="accessibilityOptions"
+            value="Braille">Braille
+          </input>
+        </label>
+        <label>
+          <input
+            type="checkbox"
+            name="accessibilityOptions"
+            value="Carer">Carer
+          </input>
+        </label>
+        <label>
+          <input
+            type="checkbox"
+            name="accessibilityOptions"
+            value="Disabled parking">Disabled Parking
+          </input>
+        </label>
+        <label>
+          <input
+            type="checkbox"
+            name="accessibilityOptions"
+            value="Disabled toilets">Disabled Toilets
+          </input>
+        </label>
+        <label>
+          <input
+            type="checkbox"
+            name="accessibilityOptions"
+            value="Good lighting">Good Lighting
+          </input>
+        </label>
+        <label>
+          <input
+            type="checkbox"
+            name="accessibilityOptions"
+            value="Place for guide dog">Guide Dog
+          </input>
+        </label>
+        <label>
+          <input
+            type="checkbox"
+            name="accessibilityOptions"
+            value="Sign language">Sign Language
+          </input>
+        </label>
+        <label>
+          <input
+            type="checkbox"
+            name="accessibilityOptions"
+            value="SMS messaging">SMS Messaging
+          </input>
+        </label>
+        <label>
+          <input
+            type="checkbox"
+            name="accessibilityOptions"
+            value="Wheelchair access">Wheelchair Access
+          </input>
+        </label>
+      </div>
+    </label>
 
-    <label class="sel1">Categories </label>
-    <select multiple class="options form-control" name="categories" required>
-      <option disabled selected>Select option..</option>
-      <option value="competition">Competition</option>
-      <option value="conference">Conference</option>
-      <option value="culture">Culture</option>
-      <option value="dining">Dining</option>
-      <option value="educational">Educational</option>
-      <option value="launch">Launch</option>
-      <option value="miscellaneous">Miscellaneous</option>
-      <option value="music">Music</option>
-      <option value="party">Party</option>
-      <option value="sport">Sport</option>
-      <option value="wedding">Wedding</option>
-    </select>
+    <label>Categories
+      <div class="checkbox-wrap">
+        <label>
+          <input
+            type="checkbox"
+            name="categories"
+            value="competition">Competition
+          </input>
+        </label>
+        <label>
+          <input
+            type="checkbox"
+            name="categories"
+            value="conference">Conference
+          </input>
+        </label>
+        <label>
+          <input
+            type="checkbox"
+            name="categories"
+            value="culture">Culture
+          </input>
+        </label>
+        <label>
+          <input
+            type="checkbox"
+            name="categories"
+            value="dining">Dining
+          </input>
+        </label>
+        <label>
+          <input
+            type="checkbox"
+            name="categories"
+            value="educational">Educational
+          </input>
+        </label>
+        <label>
+          <input
+            type="checkbox"
+            name="categories"
+            value="launch">Launch
+          </input>
+        </label>
+        <label>
+          <input
+            type="checkbox"
+            name="categories"
+            value="miscellaneous">Miscellaneous
+          </input>
+        </label>
+        <label>
+          <input
+            type="checkbox"
+            name="categories"
+            value="music">Music
+          </input>
+        </label>
+        <label>
+          <input
+            type="checkbox"
+            name="categories"
+            value="party">Party
+          </input>
+        </label>
+        <label>
+          <input
+            type="checkbox"
+            name="categories"
+            value="sport">Sport
+          </input>
+        </label>
+        <label>
+          <input
+            type="checkbox"
+            name="categories"
+            value="wedding">Wedding
+          </input>
+        </label>
+      </div>
+    </label>
 
-    <label>Place </label>
-    <div id="addPlaceIcon" class="glyphicon glyphicon-plus"></div>
+    <div class="place-section">
+      <div class="place-wrap">
+        <label>Place </label>
+        <div id="addPlaceIcon" class="fa fa-plus-circle fa-2x add-place-icon"></div>
+      </div>
+      <select id="selectAllPlaces" class="place-options " name="placeId" required>
+        <option disabled selected></option>
+        {{#each places}}
+          <option class="placesList" value="{{this.id}}">{{this.name}}</option>
+        {{/each}}
+      </select>
 
-    <select id="selectAllPlaces" class="options form-control" name="placeId" required>
-      <option disabled selected></option>
-      {{#each places}}
-        <option class="placesList" value="{{this.id}}">{{this.name}}</option>
-      {{/each}}
-    </select>
-
-    <div id="addPlaceContainer" class="add-place">
-    <label>Place name</label>
-      <input class="form-control" type="text" name="place_name_en" placeholder="English">
-      <input class="form-control" type="text" name="place_name_ar" placeholder="Arabic">
+      <div id="addPlaceContainer" class="hide add-place">
+        <label>Name</label>
+        <input class="" type="text" name="place_name_en" placeholder="English">
+        <input class="" type="text" name="place_name_ar" placeholder="Arabic">
+      </div>
     </div>
 
-    <button type="submit" name="submitBtn" class="submitBtn text-center btn">Submit</button>
+    <button type="submit" name="submitBtn" class="submit-event-button">Submit</button>
   </form>
-</div>
 <script src="./js/add_place.js" type="text/javascript"></script>
