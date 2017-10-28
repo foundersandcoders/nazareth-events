@@ -12,10 +12,12 @@
 
   <p class="light-text description margins">{{eventText.description}}</p>
 
-  <h4 class="dark-text cost margins">
-    {{event.cost}}
-    <i class="fa fa-ils"></i>
-  </h4>
+  {{#if event.cost}}
+    <h4 class="dark-text cost margins">
+      {{event.cost}}
+      <i class="fa fa-ils"></i>
+    </h4>
+  {{/if}}
 
   <div class="margins">
     <h3 class="dark-text">

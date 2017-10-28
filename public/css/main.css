@@ -100,7 +100,7 @@ body {
 
 .event-link {
   background-color: #eaeaea;
-  height: 9.5rem;
+  min-height: 9.5rem;
   padding: 1rem;
   margin-bottom: 1rem;
   box-shadow: 0 0.2rem 0.2rem #dadada;
