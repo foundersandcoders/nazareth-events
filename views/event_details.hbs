@@ -6,35 +6,43 @@
 
 <div class="event-details">
   <div class="margins">
-    <h1 class="event-name-details">{{event.en.name}}</h1>
+    <h1 class="event-name-details">{{eventText.name}}</h1>
     <span class="light-text">{{prettyDate event.startDate}}, {{prettyTime event.startTime}}</span>
   </div>
 
-  <p class="light-text description margins">{{event.en.description}}</p>
+  <p class="light-text description margins">{{eventText.description}}</p>
 
-  <h4 class="dark-text cost margins">
-    {{event.cost}}
-    <i class="fa fa-ils"></i>
-  </h4>
+  {{#if event.cost}}
+    <h4 class="dark-text cost margins">
+      {{event.cost}}
+      <i class="fa fa-ils"></i>
+    </h4>
+  {{/if}}
 
   <div class="margins">
     <h3 class="dark-text">
       <i class="fa fa-map-marker map-icon" aria-hidden="true"></i>
-      {{event.place.en.name}}
+      {{place.name}}
     </h3>
     <div class="map"></div>
   </div>
 
   <div class="access-category">
-    <h3 class="dark-text margin-access-category">Accessibility</h3>
-    {{#each event.accessibilityOptions}}
-      <li class="light-text">{{this}}</li>
-    {{/each}}
 
-    <h3  class="dark-text margin-access-category">Categories</h3>
-    {{#each event.categories}}
-      <li class="light-text">{{this}}</li>
-    {{/each}}
+    {{#if event.accessibilityOptions}}
+      <h3 class="dark-text margin-access-category">Accessibility</h3>
+      {{#each event.accessibilityOptions}}
+        <li class="light-text">{{this}}</li>
+      {{/each}}
+    {{/if}}
+
+    {{#if event.categories}}
+      <h3  class="dark-text margin-access-category">Categories</h3>
+      {{#each event.categories}}
+        <li class="light-text">{{this}}</li>
+      {{/each}}
+    {{/if}}
+
   </div>
 
 </div>
