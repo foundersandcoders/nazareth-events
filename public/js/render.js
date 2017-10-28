@@ -16,7 +16,7 @@ var renderModule = function (error, apiData) {
       document.getElementById('enLang').classList.add('active-lang');
       document.getElementById('arLang').classList.remove('active-lang');
     } else {
-      document.getElementById('enLang').classList.add('active-lang');
+      document.getElementById('enLang').classList.remove('active-lang');
       document.getElementById('arLang').classList.add('active-lang');
     }
 
@@ -40,6 +40,10 @@ var renderModule = function (error, apiData) {
       eventsArray = eventsArray.filter(function (event) {
         return event.en;
       });
+    } else {
+      eventsArray = eventsArray.filter(function (event) {
+        return event.ar;
+      });
     }
 
     eventsArray.forEach(function (event) {
@@ -53,7 +57,7 @@ var renderModule = function (error, apiData) {
       h5Element.className = 'where';
 
       var aElement = document.createElement('a');
-      aElement.href = '/events/' + event._id;
+      aElement.href = language + '/events/' + event._id;
       aElement.className = 'event-link';
 
       h3Element.innerHTML = language === 'ar' && event.ar ? event.ar.name : event.en.name;
