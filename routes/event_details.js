@@ -11,6 +11,7 @@ module.exports = (req, res) => {
         title: 'Event Details',
         eventText: JSON.parse(result.body)[req.params.lang],
         event: JSON.parse(result.body),
+        place: JSON.parse(result.body).place[req.params.lang],
         back: req.headers.referer
       });
     }
