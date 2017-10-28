@@ -32,7 +32,7 @@ body {
 
 .header {
   background-color: #409a93;
-  font-family: "Lato", sans-serif;
+  font-family: 'Lato', sans-serif;
   height: 8rem;
   padding: 2.5rem;
   z-index: 1;
@@ -70,10 +70,10 @@ body {
 }
 
 .lang-btn {
-  color: #5C5C5C;
-  padding: .5rem;
-  background: #DBDBDB;
-  border-radius: .1rem;
+  color: #5c5c5c;
+  padding: 0.5rem;
+  background: #dbdbdb;
+  border-radius: 0.1rem;
   font: bolder 1.5rem 'Lato', sans-serif;
   flex-grow: 1;
 }
@@ -87,7 +87,7 @@ body {
 }
 
 .active-lang {
-  color: #409A93;
+  color: #409a93;
 }
 
 /*** EVENTS LIST ***/
@@ -103,7 +103,7 @@ body {
   height: 9.5rem;
   padding: 1rem;
   margin-bottom: 1rem;
-  box-shadow: 0 .2rem .2rem #DADADA;
+  box-shadow: 0 0.2rem 0.2rem #dadada;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -115,19 +115,17 @@ body {
 
 .event-name {
   color: #409a93;
-  font: bold 2rem "Lato", sans-serif;
-  white-space: nowrap;
-  overflow: hidden;
+  font: bold 2rem 'Lato', sans-serif;
 }
 
 .time {
   color: #585858;
-  font: 1.5rem "Lato", sans-serif;
+  font: 1.5rem 'Lato', sans-serif;
 }
 
 .where {
   color: #a6a8a9;
-  font: 1.5rem "Lato", sans-serif;
+  font: 1.5rem 'Lato', sans-serif;
   font-style: italic;
   margin-bottom: 0.2rem;
 }
@@ -149,8 +147,12 @@ body {
 }
 
 @keyframes spin {
-  from { transform: rotate(0deg) }
-  to { transform: rotate(360deg) }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /*** EVENT DETAILS ***/
@@ -164,22 +166,22 @@ body {
   height: 20rem;
   background-size: cover;
   background-position: center;
-  box-shadow: 0 .2rem 1rem #bbb;
+  box-shadow: 0 0.2rem 1rem #bbb;
 }
 
 .event-name-details {
-  color: #5C5C5C;
+  color: #5c5c5c;
   font: bolder 2.5rem 'Lato', sans-serif;
   margin-bottom: 0.7rem;
 }
 
 .dark-text {
-  color: #5C5C5C;
+  color: #5c5c5c;
   font: bold 1.8rem 'Lato', sans-serif;
 }
 
 .light-text {
-  color: #95989A;
+  color: #95989a;
   font: 1.6rem 'Lato', sans-serif;
 }
 
@@ -212,7 +214,7 @@ body {
 
 .margin-access-category {
   margin-top: 2.5rem;
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
 }
 
 /*** ADD EVENT FORM ***/
@@ -225,14 +227,15 @@ body {
 }
 
 .add-event-form > label {
-  font: bold 1.8rem "Lato";
+  font: bold 1.8rem 'Lato';
   color: #5c5c5c;
   margin-bottom: 2rem;
   display: flex;
   flex-direction: column;
 }
 
-.add-event-form input, select {
+.add-event-form input,
+select {
   height: 3rem;
   width: 100%;
   margin-top: 0.5rem;
@@ -240,7 +243,7 @@ body {
   border-radius: 0.3rem;
   background-color: white;
   padding: 0.8rem;
-  font: 1.4rem "Lato";
+  font: 1.4rem 'Lato';
   background-color: white;
 }
 
@@ -249,7 +252,7 @@ body {
   height: 5rem;
   margin-top: 0.5rem;
   border: 0.1rem gray solid;
-  font: 1.5rem "Lato";
+  font: 1.5rem 'Lato';
   width: 100%;
   border-radius: 0.3rem;
 }
@@ -267,7 +270,7 @@ body {
 .checkbox-wrap label {
   height: 2.5rem;
   width: 50%;
-  font: bold 1.4rem "Lato";
+  font: bold 1.4rem 'Lato';
   color: #5c5c5c;
 }
 
@@ -290,7 +293,7 @@ body {
 
 .place-section label {
   color: #5c5c5c;
-  font: bold 1.8rem "Lato";
+  font: bold 1.8rem 'Lato';
 }
 
 .add-place {
@@ -309,7 +312,7 @@ body {
   margin-right: auto;
   margin-top: 3rem;
   background-color: #409a93;
-  font: bold 2rem "Lato";
+  font: bold 2rem 'Lato';
   color: white;
   border-radius: 0.3rem;
   padding: 1rem;
@@ -336,7 +339,7 @@ body {
   padding: 3rem;
   background-color: #eaeaea;
   color: #5c5c5c;
-  font: 2rem "Lato", sans-serif;
+  font: 2rem 'Lato', sans-serif;
   box-shadow: 0 0.2rem 1rem #aaa;
   transition: 0.4s linear;
 }
@@ -354,7 +357,7 @@ body {
 }
 
 .cal-month {
-  font: bold 2.5rem "Lato", sans-serif;
+  font: bold 2.5rem 'Lato', sans-serif;
   font-weight: bold;
   margin: 0 3rem;
   width: 19.5rem;
