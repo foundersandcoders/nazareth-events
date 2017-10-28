@@ -9,6 +9,7 @@ module.exports = (req, res) => {
     } else {
       res.render('event_details', {
         title: 'Event Details',
+        eventText: JSON.parse(result.body)[req.params.lang],
         event: JSON.parse(result.body),
         back: req.headers.referer
       });
