@@ -29,8 +29,8 @@ The app is hosted on heroku, you can view it [here](http://nazareth-events.herok
 
 ### Team
   * Product owner - Liwan culture cafe
-  * Development team - Mohamed Omari (@MohamedOmari), Mario Saliba (@Karyum)
-  * QAs - Matt Lubel (@mattlub), Jack Davies (@Jwld)
+  * Development team - Mohamed Omari (@MohamedOmarii), Mario Saliba (@Karyum)
+  * QAs - Matt Lubel (@mattlub), Jack Davies (@JWLD)
   * Scrum master - Shireen Zoaby (@shiryz)
 
 ### Sprint I goals
