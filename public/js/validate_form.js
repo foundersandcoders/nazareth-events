@@ -1,4 +1,4 @@
-/* global XMLHttpRequest */
+/* global XMLHttpRequest axios */
 
 function handleValidate (messageBox, message, input) {
   var inputParent = document.querySelector(input).children;
@@ -27,14 +27,22 @@ function validatedLanguage (input, messageBox, lang) {
 document.querySelector('.add-event-form').addEventListener('submit', function (event) {
   event.preventDefault();
 
-  var englishChars = /[a-zA-Z]/;
-  var arabicChars = /[ا-ي]/;
+  var englishChars = /[a-zA-Z0-9]/;
+  var arabicChars = /[ا-ي0-9]/;
   var elements = event.target.elements;
   var data = {
     nameEn: elements.name_english.value,
     nameAr: elements.name_arabic.value,
     descriptionEn: elements.description_en.value,
-    descriptionAr: elements.description_ar.value
+    descriptionAr: elements.description_ar.value,
+    categories: elements.categories,
+    placeId: elements.placeId,
+    accessibilityOptions: elements.accessibilityOptions,
+    startDate: elements.startDate,
+    startTime: elements.startTime,
+    endTime: elements.endTime,
+    cost: elements.cost,
+    imageUrl: elements.imageUrl
   };
 
   if (!data.nameEn && !data.nameAr) {
@@ -66,7 +74,5 @@ document.querySelector('.add-event-form').addEventListener('submit', function (e
     validated('#eventName', '.msg-box-input');
   }
 
-  var xhr = new XMLHttpRequest();
-  xhr.open('POST', '/add-event', true);
-  xhr.send(data);
+  axios.post('/add-event', data);
 });

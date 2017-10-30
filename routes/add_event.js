@@ -13,17 +13,17 @@ module.exports = (req, res) => {
     imageUrl: req.body.imageUrl
   };
 
-  if (req.body.name_english) {
+  if (req.body.nameEn) {
     requestBody.en = {
-      name: req.body.name_english,
-      description: req.body.description_en ? req.body.description_en : ''
+      name: req.body.nameEn,
+      description: req.body.descriptionEn ? req.body.descriptionEn : ''
     };
   }
 
-  if (req.body.name_arabic) {
+  if (req.body.nameAr) {
     requestBody.ar = {
-      name: req.body.name_arabic,
-      description: req.body.description_ar ? req.body.description_ar : ''
+      name: req.body.nameAr,
+      description: req.body.descriptionAr ? req.body.descriptionAr : ''
     };
   }
 
@@ -34,11 +34,12 @@ module.exports = (req, res) => {
     url
   };
 
-  request(options, (error, result, body) => {
-    if (error) {
-      res.send(error);
-    } else {
-      res.redirect(`/events/${body._id}`);
-    }
-  });
+  console.log(req.body);
+  // request(options, (error, result, body) => {
+  //   if (error) {
+  //     res.send(error);
+  //   } else {
+  //     res.redirect(`/events/${body._id}`);
+  //   }
+  // });
 };
