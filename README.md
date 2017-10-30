@@ -10,7 +10,8 @@ The app is hosted on heroku, you can view it [here](http://nazareth-events.herok
 
 - As someone interested in the events happening in Nazareth I would like to able to view these events in a chronological order so I can view them easily.
 - As a person visiting Nazareth I would like, to see what events are happening while I'm visiting so I can know which events to attend.
-- As an owner of place that hosts events, I would like an efficient way to add my events so people would know about it.
+- As an owner of a venue that hosts events, I would like an efficient way to add my events so people would know about it.
+- As a user of Nazareth events I would like an easy way to filter events.
 
 ### Outline
 
@@ -27,10 +28,10 @@ The app is hosted on heroku, you can view it [here](http://nazareth-events.herok
     * a form to add a new event.
 
 ### Team
-  * Product owner - Liwan restaurant
-  * Developer - Mohamed Omari
-  * QA - Matt Lubel
-  * Scrum master - Shireen Zoaby
+  * Product owner - Liwan culture cafe
+  * Development team - Mohamed Omari (@MohamedOmari), Mario Saliba (@Karyum)
+  * QAs - Matt Lubel (@mattlub), Jack Davies (@Jwld)
+  * Scrum master - Shireen Zoaby (@shiryz)
 
 ### Sprint I goals
   * getting the events into the first page and viewing in a list  
