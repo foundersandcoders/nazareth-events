@@ -55,22 +55,31 @@ The app is hosted on heroku, you can view it [here](http://nazareth-events.herok
     * main.CSS
   * images/  
   * js/
+    * helpers/
+      * date.js
     * main.js
-    * list.js
     * calendar.js
-* helpers/
-    * helpers.js
+    * add_place.js
+    * get_events.js
+    * render.js
 * routes/
+  * middleware/
+  * add_event.js
   * home.js
   * event_details.js
   * index.js
+  * oauth.js
+  * render_add_form.js
 * views/
   * layouts/
     * main.hbs
   * partials/
     * header.hbs
     * calendar.hbs
+  * add_event.hbs
   * home.hbs
   * event_details.hbs  
+* tests/
+  * tests.js
 * server.js
 * start.js  
