@@ -42,7 +42,9 @@ document.querySelector('.add-event-form').addEventListener('submit', function (e
     startTime: elements.startTime,
     endTime: elements.endTime,
     cost: elements.cost,
-    imageUrl: elements.imageUrl
+    imageUrl: elements.imageUrl,
+    place_name_en: elements.place_name_en,
+    place_name_ar: elements.place_name_ar
   };
 
   if (!data.nameEn && !data.nameAr) {
