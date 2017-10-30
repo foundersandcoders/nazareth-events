@@ -11,7 +11,7 @@ The app is hosted on heroku, you can view it [here](http://nazareth-events.herok
 - As someone interested in the events happening in Nazareth I would like to able to view these events in a chronological order so I can view them easily.
 - As a person visiting Nazareth I would like, to see what events are happening while I'm visiting so I can know which events to attend.
 - As an owner of a venue that hosts events, I would like an efficient way to add my events so people would know about it.
-- As a user of Nazareth events I would like an easy way to filter events.
+- As a user of Nazareth events I would like an easy way to filter events by language and category of an event.
 
 ### Outline
 
@@ -49,38 +49,3 @@ The app is hosted on heroku, you can view it [here](http://nazareth-events.herok
   * Views engine: Handlebars
   * CSS library: bootstrap
   * Testing: tape, travis CI
-
-### File Structure
-* public/
-  * css/
-    * main.CSS
-  * images/  
-  * js/
-    * helpers/
-      * date.js
-    * main.js
-    * calendar.js
-    * add_place.js
-    * get_events.js
-    * render.js
-* routes/
-  * middleware/
-  * add_event.js
-  * home.js
-  * event_details.js
-  * index.js
-  * oauth.js
-  * render_add_form.js
-* views/
-  * layouts/
-    * main.hbs
-  * partials/
-    * header.hbs
-    * calendar.hbs
-  * add_event.hbs
-  * home.hbs
-  * event_details.hbs  
-* tests/
-  * tests.js
-* server.js
-* start.js  
