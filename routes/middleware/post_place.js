@@ -1,7 +1,7 @@
 const request = require('request');
 
 module.exports = (req, res, next) => {
-  var url = 'https://nazareth-open-tourism-platform.herokuapp.com/places';
+  var url = 'https://nazareth-open-tourism-platform.herokuapp.com/api/v1/places';
   const requestBody = {};
 
   if (req.body.place_name_en) {
