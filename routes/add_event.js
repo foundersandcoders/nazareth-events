@@ -1,7 +1,7 @@
 const request = require('request');
 
 module.exports = (req, res) => {
-  const url = 'https://nazareth-open-tourism-platform.herokuapp.com/events';
+  const url = 'https://nazareth-open-tourism-platform.herokuapp.com/api/v1/events';
 
   const requestBody = {
     place: res.locals.id || req.body.placeId,
