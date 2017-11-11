@@ -7,7 +7,7 @@ function dateClickHandler (e) {
   };
   getEventsModule(dateParams, renderModule);
   document.getElementById('list-page-content').classList.toggle('hide');
-  document.getElementById('show-cal').classList.toggle('show');
+  document.getElementById('show-cal').classList.toggle('hide-cal');
 };
 
 function addDateEventListeners () {
@@ -23,9 +23,9 @@ calendar.render();
 addDateEventListeners();
 
 // event listener for calendar button in header
-document.getElementById('calendar-button').addEventListener('click', function () {
+document.getElementById('calendarIcon').addEventListener('click', function () {
   document.getElementById('list-page-content').classList.toggle('hide');
-  document.getElementById('show-cal').classList.toggle('show');
+  document.getElementById('show-cal').classList.toggle('hide-cal');
 });
 
 // calendar next and prev month buttons

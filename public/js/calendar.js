@@ -2,7 +2,7 @@ var Cal = function (divId) {
   this.divId = divId;
 
   // Days of week, starting on Sunday
-  this.DaysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+  this.DaysOfWeek = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
 
   // Months, stating on January
   this.Months = [ 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December' ];
@@ -54,14 +54,12 @@ Cal.prototype.showMonth = function (y, m) {
   var html = '<table>';
 
   // Write selected month and year
-  html += '<thead><tr>';
-  html += '<td colspan="7">' + this.Months[m] + ' ' + y + '</td>';
-  html += '</tr></thead>';
+  document.getElementById('cal-month').innerHTML = this.Months[m] + ' ' + y;
 
   // Write the header of the days of the week
-  html += '<tr class="days">';
+  html += '<tr>';
   for (var i = 0; i < this.DaysOfWeek.length; i++) {
-    html += '<td>' + this.DaysOfWeek[i] + '</td>';
+    html += '<th>' + this.DaysOfWeek[i] + '</th>';
   }
   html += '</tr>';
 

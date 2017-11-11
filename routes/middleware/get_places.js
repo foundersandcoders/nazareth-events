@@ -1,7 +1,7 @@
 const request = require('request');
 
 module.exports = (req, res, next) => {
-  const url = 'https://nazareth-open-tourism-platform.herokuapp.com/places';
+  const url = 'https://nazareth-open-tourism-platform.herokuapp.com/api/v1/places';
 
   const options = {
     method: 'GET',

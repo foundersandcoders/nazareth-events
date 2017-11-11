@@ -1,22 +1,48 @@
-<div class="eventDetailsHeader">
-    {{>header}}
-  <div class="prevBtn ">
-    <a href="{{{back}}}"><span class="glyphicon glyphicon-chevron-left"></span></a>
-  </div>
-</div>
+{{>header}}
 
-<div class="event-details text-center">
-  <h1 class="text-warning eventName">{{event.en.name}}</h1>
-  {{#if imageUrl}}
-  <img src="{{event.imageUrl}}" alt="event picture">
+{{#if event.imageUrl}}
+  <div class="event-img" style="background-image: url('{{event.imageUrl}}')"></div>
+{{/if}}
+
+<div class="event-details">
+  <div class="margins">
+    <h1 class="event-name-details">{{eventText.name}}</h1>
+    <span class="light-text">{{prettyDate event.startDate}}, {{prettyTime event.startTime}}</span>
+  </div>
+
+  <p class="light-text description margins">{{eventText.description}}</p>
+
+  {{#if event.cost}}
+    <h4 class="dark-text cost margins">
+      {{event.cost}}
+      <i class="fa fa-ils"></i>
+    </h4>
   {{/if}}
-  <h4 class="text-muted eventStartDate">{{prettyDate event.startTime}}</h4>
-  <h5 class="text-muted eventTime">{{prettyTime event.startTime}} - {{prettyTime event.endTime}}</h5> <h3 class="text-primary">at: {{event.place.en.name}}</h3>
 
-  <div class="information">
-    <h3  class="text-danger">categories: </h3> <h4 class="text-info">{{event.categories}}</h4>
-    <h3  class="text-danger">price: </h3> <h4 class="text-info">{{event.cost}} <img class="shekelIcon" src="../images/shekel.png" alt="shekel icon"></h4>
-    <h3 class="text-danger">disabled access: </h3><h4 class="text-info">{{event.accessibilityOptions}}</h4>
+  <div class="margins">
+    <h3 class="dark-text">
+      <i class="fa fa-map-marker map-icon" aria-hidden="true"></i>
+      {{place.name}}
+    </h3>
+    <div class="map"></div>
   </div>
-  <p class="text-muted description">{{event.en.description}}</p>
+
+  <div class="access-category">
+
+    {{#if event.accessibilityOptions}}
+      <h3 class="dark-text margin-access-category">Accessibility</h3>
+      {{#each event.accessibilityOptions}}
+        <li class="light-text">{{this}}</li>
+      {{/each}}
+    {{/if}}
+
+    {{#if event.categories}}
+      <h3  class="dark-text margin-access-category">Categories</h3>
+      {{#each event.categories}}
+        <li class="light-text">{{this}}</li>
+      {{/each}}
+    {{/if}}
+
+  </div>
+
 </div>
