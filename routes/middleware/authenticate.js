@@ -2,7 +2,7 @@ const qs = require('querystring');
 require('dotenv').config();
 const jwt = require('jsonwebtoken');
 
-module.exports = (req, res, next) => {
+module.exports = async (req, res, next) => {
   const tokenCookie = req.cookies.token;
   const queries = qs.stringify({
     client_id: process.env.CLIENT_ID,
@@ -11,13 +11,12 @@ module.exports = (req, res, next) => {
   });
 
   if (tokenCookie) {
-    jwt.verify(tokenCookie, process.env.JWT_SECRET, (err) => {
-      if (err) {
-        res.redirect(`https://nazareth-open-tourism-platform.herokuapp.com/oauth/authorize?${queries}`);
-      } else {
-        return next();
-      }
-    });
+    try {
+      const encryptedData = await jwt.verify(tokenCookie, process.env.JWT_SECRET);
+      return next();
+    } catch (err) {
+      res.redirect(`https://nazareth-open-tourism-platform.herokuapp.com/oauth/authorize?${queries}`);
+    }
   } else {
     res.redirect(`https://nazareth-open-tourism-platform.herokuapp.com/oauth/authorize?${queries}`);
   }
