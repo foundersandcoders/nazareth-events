@@ -1,7 +1,7 @@
 const tape = require('tape');
 const supertest = require('supertest');
 const server = require('../server.js');
-const request = require('request');
+const axios = require('axios');
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
 
@@ -13,43 +13,71 @@ tape('home route test: GET request to /', t => {
     .end((err, res) => {
       t.error(err);
       t.equal(res.status, 200, 'should return status code 200');
-      t.ok(res.text.includes('<div id="list-page-content">'), 'should return home page containing test string "<div id="list-page-content">"');
+      t.ok(res.text.includes('<div id="list-page-content">'));
       t.end();
     });
 });
 
-tape('Test the event details route', t => {
+tape('Test the event details route', async t => {
   let eventId = '';
-  request.get('https://nazareth-open-tourism-platform.herokuapp.com/events', (err, res) => {
-    if (err) return err;
-    const parsedBody = JSON.parse(res.body);
-    const htmlSample = `<h1 class="text-warning eventName">${parsedBody[0].en.name}</h1>`;
-    eventId = parsedBody[0]._id;
+  try {
+    const eventResponse = await axios.get(
+      'https://nazareth-open-tourism-platform.herokuapp.com/api/v1/events'
+    );
+    const parsedBody = eventResponse.data;
+    const lastIndex = parsedBody.length - 1;
+    const htmlSample = `<h1 class="event-name-details">${
+      parsedBody[lastIndex].en.name
+    }</h1>`;
+    eventId = parsedBody[lastIndex]._id;
     supertest(server)
-      .get('/events/' + eventId)
-      .expect(200)
+      .get('/en/events/' + eventId)
       .end((err, res) => {
         t.error(err);
         t.ok(res.text.includes(htmlSample), 'It found the right event');
+      });
+    supertest(server)
+      .get('/en/events/someid')
+      .end((err, res) => {
+        t.error(err);
+        t.ok(res.text.includes('<title>Not Found</title>'));
         t.end();
       });
-  });
+  } catch (err) {
+    console.log(err);
+  }
 });
+//
+// tape('Test get all places middleware', async t => {
+//   s
+// })
 
 tape('Test the authentication middleware', t => {
   const token = jwt.sign('somthing', process.env.JWT_SECRET);
   supertest(server)
     .get('/add-event')
-    .set('Cookie', [ `token=${token}` ])
+    .set('Cookie', [`token=${token}`])
     .end((err, res) => {
       t.error(err);
-      t.ok(res.text.includes('add event'), 'rendered the form after successful auth');
+      t.ok(
+        res.text.includes(
+          '<form class="add-event-form" action="/add-event" method="post">'
+        )
+      );
       supertest(server)
         .get('/add-event')
         .end((err, res) => {
           t.error(err);
           t.equal(res.status, 302, 'Should redirect to the OTP api login');
-          t.end();
         });
+    });
+
+  supertest(server)
+    .get('/add-event')
+    .set('Cookie', ['token=testcookie'])
+    .end((err, res) => {
+      t.error(err);
+      t.equal(res.status, 302, 'Should redirect to the OTP api login');
+      t.end();
     });
 });
