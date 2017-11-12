@@ -47,10 +47,6 @@ tape('Test the event details route', async t => {
     console.log(err);
   }
 });
-//
-// tape('Test get all places middleware', async t => {
-//   s
-// })
 
 tape('Test the authentication middleware', t => {
   const token = jwt.sign('somthing', process.env.JWT_SECRET);
