@@ -9,10 +9,11 @@ const addPlace = require('./middleware/post_place.js');
 const getAllPlaces = require('./middleware/get_places.js');
 const authenticate = require('./middleware/authenticate');
 
-router.get('/', homePage);
-router.get('/:lang/events/:id', detailsPage);
 router.get('/add-event', authenticate, getAllPlaces, addEventForm);
 router.post('/add-event', addPlace, addEvent);
 router.get('/token', handleOauth);
+router.get('/', homePage);
+router.get('/:lang', homePage);
+router.get('/:lang/events/:id', detailsPage);
 
 module.exports = router;

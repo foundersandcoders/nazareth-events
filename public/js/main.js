@@ -8,7 +8,7 @@ function dateClickHandler (e) {
   getEventsModule(dateParams, renderModule);
   document.getElementById('list-page-content').classList.toggle('hide');
   document.getElementById('show-cal').classList.toggle('hide-cal');
-};
+}
 
 function addDateEventListeners () {
   document.querySelectorAll('td.day').forEach(function (day) {
@@ -38,7 +38,3 @@ document.getElementById('prev-button').onclick = function () {
   calendar.previousMonth();
   addDateEventListeners();
 };
-
-getEventsModule({
-  date_from: new Date().toISOString().slice(0, 10)
-}, renderModule);
