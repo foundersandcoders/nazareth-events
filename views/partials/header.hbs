@@ -11,7 +11,7 @@
 </header>
 {{#if filterButtons}}
   <nav class="language-nav">
-    <button id="enLang" class="lang-btn en-lang" type="button" name="english button">English</button>
-    <button id="arLang" class="lang-btn ar-lang" type="button" name="arabic button">عربية</button>
+    <button id="enLang" class="lang-btn en-lang {{#if english}}active-lang{{/if}}" type="button" name="english button">English</button>
+    <button id="arLang" class="lang-btn ar-lang {{#if arabic}}active-lang{{/if}}" type="button" name="arabic button">عربية</button>
   </nav>
 {{/if}}
