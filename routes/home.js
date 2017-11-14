@@ -2,7 +2,6 @@ const axios = require('axios');
 
 module.exports = async (req, res) => {
   let url = `https://nazareth-open-tourism-platform.herokuapp.com/api/v1/events/`;
-  console.log(req.params);
   try {
     if (req.query.date_from) {
       url =
