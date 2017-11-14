@@ -1,11 +1,13 @@
-/* global renderModule getEventsModule Cal addDays */
+/* global  URL Cal addDays */
 function dateClickHandler (e) {
   var date = e.target.dataset.date;
-  var dateParams = {
-    date_from: date,
-    date_to: addDays(date, 14)
-  };
-  getEventsModule(dateParams, renderModule);
+  window.location.href =
+    new URL(window.location.href).pathname +
+    '?date_from=' +
+    date +
+    '&date_to=' +
+    addDays(date, 14);
+
   document.getElementById('list-page-content').classList.toggle('hide');
   document.getElementById('show-cal').classList.toggle('hide-cal');
 }
