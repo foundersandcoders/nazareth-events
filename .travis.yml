@@ -7,3 +7,4 @@ install:
 
 script:
   - npm run coverage
+  - npm run report-coverage
