@@ -11,7 +11,7 @@ module.exports = () => {
 
   mongoose.connection.on('open', () => {
     mongoose.connection.db.dropDatabase(function (err, res) {
-      console.log('ehehhee', err);
+      console.log(err);
       console.log(res);
       process.exit(0);
     });

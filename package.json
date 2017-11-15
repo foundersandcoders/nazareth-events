@@ -11,7 +11,11 @@
     "coverage": "istanbul cover ./tests/tests.js",
     "report-coverage": "codecov -t b766cfc5-d01f-48a0-9fe9-51c9e61c2b9b"
   },
-  "pre-commit": ["lint", "test", "report-coverage"],
+  "pre-commit": [
+    "lint",
+    "test",
+    "report-coverage"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/foundersandcoders/nazareth-events.git"
@@ -32,6 +36,7 @@
     "express": "^4.15.3",
     "express-handlebars": "^3.0.0",
     "jsonwebtoken": "^8.0.1",
+    "mongodb": "^2.2.33",
     "request": "^2.81.0"
   },
   "devDependencies": {
@@ -43,6 +48,8 @@
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-standard": "^3.0.1",
     "istanbul": "^1.1.0-alpha.1",
+    "mongo": "^0.1.0",
+    "mongoose": "^4.13.2",
     "nodemon": "^1.12.1",
     "pre-commit": "^1.2.2",
     "supertest": "^3.0.0",

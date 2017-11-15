@@ -3,4 +3,4 @@ instrumentation:
     extensions:
         - .js
     default-excludes: true
-    excludes: ['**/add_event.js', '**/oauth.js', '**/post_place.js']
+    excludes: ['**/oauth.js']
