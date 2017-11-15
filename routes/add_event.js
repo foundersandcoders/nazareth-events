@@ -1,7 +1,8 @@
 const request = require('request');
+require('dotenv').config();
 
 module.exports = (req, res) => {
-  const url = 'https://nazareth-open-tourism-platform.herokuapp.com/api/v1/events';
+  const url = `${process.env.URI}/events`;
 
   const requestBody = {
     place: res.locals.id || req.body.placeId,
@@ -16,14 +17,14 @@ module.exports = (req, res) => {
   if (req.body.name_english) {
     requestBody.en = {
       name: req.body.name_english,
-      description: req.body.description_en ? req.body.description_en : ''
+      description: req.body.description_en
     };
   }
 
   if (req.body.name_arabic) {
     requestBody.ar = {
       name: req.body.name_arabic,
-      description: req.body.description_ar ? req.body.description_ar : ''
+      description: req.body.description_ar
     };
   }
 
@@ -35,10 +36,13 @@ module.exports = (req, res) => {
   };
 
   request(options, (error, result, body) => {
+    /* istanbul ignore next */
     if (error) {
-      res.send(error);
+      res.render('home', {
+        title: 'Not found'
+      });
     } else {
-      res.redirect(`/events/${body._id}`);
+      res.redirect(`en/events/${body._id}`);
     }
   });
 };

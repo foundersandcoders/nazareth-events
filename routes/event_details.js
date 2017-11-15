@@ -1,9 +1,8 @@
 const axios = require('axios');
+require('dotenv').config();
 
 module.exports = async (req, res) => {
-  const url = `https://nazareth-open-tourism-platform.herokuapp.com/api/v1/events/${
-    req.params.id
-  }`;
+  const url = `${process.env.URI}/events/${req.params.id}`;
   try {
     const result = await axios.get(url);
     const event = result.data;

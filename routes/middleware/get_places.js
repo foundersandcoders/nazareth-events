@@ -1,8 +1,7 @@
 const axios = require('axios');
 
 module.exports = async (req, res, next) => {
-  const url =
-    'https://nazareth-open-tourism-platform.herokuapp.com/api/v1/places';
+  const url = `${process.env.URI}/places`;
   const placesResponse = await axios.get(url);
   res.locals.places = placesResponse.data
     .map(place => {
