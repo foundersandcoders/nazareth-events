@@ -3,6 +3,7 @@ const supertest = require('supertest');
 const server = require('../server.js');
 const axios = require('axios');
 const jwt = require('jsonwebtoken');
+const nock = require('nock');
 const flush = require('./flush_database.js');
 require('dotenv').config();
 
@@ -37,11 +38,20 @@ tape('Test POST arabic event', t => {
     place_name_ar: 'واو'
   };
 
+  nock(process.env.URI)
+    .post('/events')
+    .reply(200, { _id: 1 });
+
+  nock(process.env.URI)
+    .post('/places')
+    .reply(200, { _id: 1 });
+
   supertest(server)
     .post('/add-event')
     .send(data)
     .end((err, res) => {
       t.error(err, 'posting an event did not error');
+      console.log(res.statusCode);
       t.end();
     });
 });
@@ -58,6 +68,14 @@ tape('Test POST english event', t => {
     cost: 0,
     place_name_en: 'over the rainbow'
   };
+
+  nock(process.env.URI)
+    .post('/events')
+    .reply(200, { _id: 1 });
+
+  nock(process.env.URI)
+    .post('/places')
+    .reply(200, { _id: 1 });
 
   supertest(server)
     .post('/add-event')
@@ -81,6 +99,14 @@ tape('Test POST event with a specific place', t => {
     placeId: id
   };
 
+  nock(process.env.URI)
+    .post('/events')
+    .reply(200, { _id: 1 });
+
+  nock(process.env.URI)
+    .post('/places')
+    .reply(200, { _id: null });
+
   supertest(server)
     .post('/add-event')
     .send(data)
@@ -91,6 +117,14 @@ tape('Test POST event with a specific place', t => {
 });
 
 tape('Test the authentication middleware', t => {
+  nock(process.env.URI)
+    .get('/places')
+    .reply(200, [
+      { ar: { name: 'سيس' } },
+      { en: { name: 'base' } },
+      { en: { name: 'home' } }
+    ]);
+
   const token = jwt.sign('somthing', process.env.JWT_SECRET);
   supertest(server)
     .get('/add-event')
@@ -122,30 +156,29 @@ tape('Test the authentication middleware', t => {
 });
 
 tape('Test the event details route', async t => {
-  try {
-    const eventResponse = await axios.get(`${process.env.URI}/events`);
-    const parsedBody = eventResponse.data;
-    const lastIndex = parsedBody.length - 1;
-    const htmlSample = `<h1 class="event-name-details">${
-      parsedBody[lastIndex].en.name
-    }</h1>`;
-    supertest(server)
-      .get('/en/events/' + parsedBody[lastIndex]._id)
-      .end((err, res) => {
-        t.error(err, 'event details /:lang/events/:id did not return an error');
-        t.ok(res.text.includes(htmlSample), 'It found the right event');
-      });
-    supertest(server)
-      .get('/en/events/someid')
-      .end((err, res) => {
-        t.error(err, 'Event details with a random id did not error');
-        t.ok(res.text.includes('<title>Not Found</title>'));
-        // flushing database here
-        flush();
-        t.end();
-      });
-  } catch (err) {
-    t.fail('This test has hit catch');
-    t.end();
-  }
+  nock(process.env.URI)
+    .get('/events/1')
+    .reply(200, {
+      en: { name: 'FAC' },
+      place: { en: { name: 'somehwere' } }
+    });
+
+  nock(process.env.URI)
+    .get('/events/someid')
+    .reply(404);
+
+  const htmlSample = `<h1 class="event-name-details">FAC</h1>`;
+  supertest(server)
+    .get('/en/events/1')
+    .end((err, res) => {
+      t.error(err, 'event details /:lang/events/:id did not return an error');
+      t.ok(res.text.includes(htmlSample), 'It found the right event');
+    });
+
+  supertest(server)
+    .get('/en/events/someid')
+    .end((err, res) => {
+      t.error(err, 'event details /:lang/events/:id did not return an error');
+      t.end();
+    });
 });
