@@ -7,12 +7,7 @@ const nock = require('nock');
 const flush = require('./flush_database.js');
 require('dotenv').config();
 
-let id;
-axios
-  .post(`${process.env.URI}/places`, { en: { name: 'guesthouse mario' } })
-  .then(res => {
-    id = res.data._id;
-  });
+const sortPlaces = require('../helpers/sort_places.js');
 
 tape('home route test: GET request to /', t => {
   supertest(server)
@@ -20,7 +15,10 @@ tape('home route test: GET request to /', t => {
     .end((err, res) => {
       t.error(err, '/ home route does not return an error');
       t.equal(res.status, 200, 'should return status code 200');
-      t.ok(res.text.includes('<div id="list-page-content">'));
+      t.ok(
+        res.text.includes('<div id="list-page-content">'),
+        'rendered the home view correctly'
+      );
       t.end();
     });
 });
@@ -51,7 +49,7 @@ tape('Test POST arabic event', t => {
     .send(data)
     .end((err, res) => {
       t.error(err, 'posting an event did not error');
-      console.log(res.statusCode);
+      t.equal(res.statusCode, 302, 'added the event successfully');
       t.end();
     });
 });
@@ -96,16 +94,12 @@ tape('Test POST event with a specific place', t => {
     startTime: '00:00',
     endTime: '14:00',
     cost: 0,
-    placeId: id
+    placeId: 1
   };
 
   nock(process.env.URI)
     .post('/events')
     .reply(200, { _id: 1 });
-
-  nock(process.env.URI)
-    .post('/places')
-    .reply(200, { _id: null });
 
   supertest(server)
     .post('/add-event')
@@ -119,11 +113,7 @@ tape('Test POST event with a specific place', t => {
 tape('Test the authentication middleware', t => {
   nock(process.env.URI)
     .get('/places')
-    .reply(200, [
-      { ar: { name: 'سيس' } },
-      { en: { name: 'base' } },
-      { en: { name: 'home' } }
-    ]);
+    .reply(200, [{ en: { name: 'home' } }]);
 
   const token = jwt.sign('somthing', process.env.JWT_SECRET);
   supertest(server)
@@ -163,10 +153,6 @@ tape('Test the event details route', async t => {
       place: { en: { name: 'somehwere' } }
     });
 
-  nock(process.env.URI)
-    .get('/events/someid')
-    .reply(404);
-
   const htmlSample = `<h1 class="event-name-details">FAC</h1>`;
   supertest(server)
     .get('/en/events/1')
@@ -175,10 +161,31 @@ tape('Test the event details route', async t => {
       t.ok(res.text.includes(htmlSample), 'It found the right event');
     });
 
+  nock(process.env.URI)
+    .get('/en/events/someid')
+    .reply(404);
+
   supertest(server)
     .get('/en/events/someid')
     .end((err, res) => {
       t.error(err, 'event details /:lang/events/:id did not return an error');
       t.end();
     });
+});
+
+tape('test sort places function', t => {
+  const expected = sortPlaces([
+    { ar: { name: 'بقبق' }, _id: 1 },
+    { en: { name: 'liwan' }, _id: 2 },
+    { en: { name: 'somewhere' }, ar: { name: 'بقبق' }, _id: 3 }
+  ]);
+
+  const actual = [
+    { name: 'liwan', id: 2 },
+    { name: 'somewhere / بقبق', id: 3 },
+    { name: 'بقبق', id: 1 }
+  ];
+
+  t.deepEqual(actual, expected, 'should get an array with 2 indexes');
+  t.end();
 });
