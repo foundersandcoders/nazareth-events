@@ -56,10 +56,8 @@ Cal.prototype.previousMonth = function () {
 Cal.prototype.render = function () {
   dateArray((err, res) => {
     if (err) {
-      console.log(err);
-      return null;
+      return err;
     }
-    console.log(res);
     this.showMonth(this.currYear, this.currMonth, res);
   });
 };
@@ -135,7 +133,6 @@ Cal.prototype.showMonth = function (y, m, dateArray) {
           new Date(dateArray[h]).setHours(0, 0, 0, 0) ===
           now.setHours(0, 0, 0, 0)
         ) {
-          console.log(1);
           check = true;
           html +=
             '<td data-date=' +

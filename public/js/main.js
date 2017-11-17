@@ -11,7 +11,6 @@ function dateClickHandler (e) {
 }
 
 function addDateEventListeners () {
-  console.log(document.querySelectorAll('td.day'));
   document.querySelectorAll('td.day').forEach(function (day) {
     day.removeEventListener('click', dateClickHandler);
     day.addEventListener('click', dateClickHandler);

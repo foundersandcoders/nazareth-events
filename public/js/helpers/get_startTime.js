@@ -12,7 +12,6 @@ var dateArray = function (callback) {
       );
     })
     .catch(function (err) {
-      console.log(err);
       callback(err, null);
     });
 };
