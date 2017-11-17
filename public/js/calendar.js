@@ -1,3 +1,5 @@
+/* global dateArray */
+
 var Cal = function (divId) {
   this.divId = divId;
 
@@ -5,7 +7,20 @@ var Cal = function (divId) {
   this.DaysOfWeek = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
 
   // Months, stating on January
-  this.Months = [ 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December' ];
+  this.Months = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December'
+  ];
 
   // Set the current month, year
   var d = new Date();
@@ -39,17 +54,25 @@ Cal.prototype.previousMonth = function () {
 
 // Show current month
 Cal.prototype.render = function () {
-  this.showMonth(this.currYear, this.currMonth);
+  dateArray((err, res) => {
+    if (err) {
+      console.log(err);
+      return null;
+    }
+    console.log(res);
+    this.showMonth(this.currYear, this.currMonth, res);
+  });
 };
 
 // Show month (year, month)
-Cal.prototype.showMonth = function (y, m) {
+Cal.prototype.showMonth = function (y, m, dateArray) {
   // First day of the week in the selected month
   this.firstDayOfMonth = new Date(y, m, 1).getDay();
   // Last day of the selected month
   this.lastDateOfMonth = new Date(y, m + 1, 0).getDate();
   // Last day of the previous month
-  this.lastDayOfLastMonth = m === 0 ? new Date(y - 1, 11, 0).getDate() : new Date(y, m, 0).getDate();
+  this.lastDayOfLastMonth =
+    m === 0 ? new Date(y - 1, 11, 0).getDate() : new Date(y, m, 0).getDate();
 
   var html = '<table>';
 
@@ -83,7 +106,12 @@ Cal.prototype.showMonth = function (y, m) {
       html += '<tr>';
       var k = this.lastDayOfLastMonth - this.firstDayOfMonth + 1;
       for (var j = 0; j < this.firstDayOfMonth; j++) {
-        html += '<td data-date=' + dstring + ' class="day not-current-month">' + k + '</td>';
+        html +=
+          '<td data-date=' +
+          dstring +
+          ' class="day not-current-month">' +
+          k +
+          '</td>';
         k++;
       }
     }
@@ -92,10 +120,35 @@ Cal.prototype.showMonth = function (y, m) {
     var chk = new Date();
     var chkY = chk.getFullYear();
     var chkM = chk.getMonth();
-    if (chkY === this.currYear && chkM === this.currMonth && i === this.currDay) {
+    if (
+      chkY === this.currYear &&
+      chkM === this.currMonth &&
+      i === this.currDay
+    ) {
       html += '<td data-date=' + dstring + ' class="day today">' + i + '</td>';
     } else {
-      html += '<td data-date=' + dstring + ' class="day normal">' + i + '</td>';
+      var now = new Date(this.currYear, this.currMonth, i);
+      for (var h = 0; h < dateArray.length; h++) {
+        var check = false;
+
+        if (
+          new Date(dateArray[h]).setHours(0, 0, 0, 0) ===
+          now.setHours(0, 0, 0, 0)
+        ) {
+          console.log(1);
+          check = true;
+          html +=
+            '<td data-date=' +
+            dstring +
+            ' class="day normal yup">' +
+            i +
+            '</td>';
+          break;
+        } else if (h === dateArray.length - 1 && !check) {
+          html +=
+            '<td data-date=' + dstring + ' class="day normal">' + i + '</td>';
+        }
+      }
     }
     // If Saturday, closes the row
     if (dow === 6) {
@@ -105,7 +158,12 @@ Cal.prototype.showMonth = function (y, m) {
     } else if (i === this.lastDateOfMonth) {
       k = 1;
       for (dow; dow < 6; dow++) {
-        html += '<td data-date=' + dstring + ' class="day not-current-month">' + k + '</td>';
+        html +=
+          '<td data-date=' +
+          dstring +
+          ' class="day not-current-month">' +
+          k +
+          '</td>';
         k++;
       }
     }

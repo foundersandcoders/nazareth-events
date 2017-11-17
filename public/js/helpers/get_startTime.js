@@ -1,3 +1,5 @@
+/* global axios */
+
 var dateArray = function (callback) {
   axios
     .get('https://nazareth-open-tourism-platform.herokuapp.com/api/v1/events')
