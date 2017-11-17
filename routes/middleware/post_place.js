@@ -9,12 +9,12 @@ module.exports = (req, res, next) => {
     requestBody.en = {
       name: req.body.place_name_en
     };
-  }
-
-  if (req.body.place_name_ar) {
+  } else if (req.body.place_name_ar) {
     requestBody.ar = {
       name: req.body.place_name_ar
     };
+  } else {
+    return next();
   }
 
   const options = {
