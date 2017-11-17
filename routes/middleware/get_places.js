@@ -1,27 +1,15 @@
 const axios = require('axios');
+const sortPlaces = require('../../helpers/sort_places.js');
 
 module.exports = async (req, res, next) => {
-  const url = `${process.env.URI}/places`;
-  const placesResponse = await axios.get(url);
-  res.locals.places = placesResponse.data
-    .map(place => {
-      if (place.ar) {
-        return {
-          name: place.ar.name,
-          id: place._id
-        };
-      } else {
-        return {
-          name: place.en.name,
-          id: place._id
-        };
-      }
-    })
-    .sort((indexA, indexB) => {
-      const firstName = indexA.name.toUpperCase();
-      const secondName = indexB.name.toUpperCase();
-      return firstName < secondName ? -1 : 1;
-    });
+  try {
+    const url = `${process.env.URI}/places`;
+    const placesResponse = await axios.get(url);
+    res.locals.places = sortPlaces(placesResponse.data);
 
-  return next();
+    return next();
+  } catch (err) {
+    /* istanbul ignore next */
+    return next();
+  }
 };
