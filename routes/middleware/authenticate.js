@@ -17,17 +17,9 @@ module.exports = async (req, res, next) => {
       );
       return next();
     } catch (err) {
-      res.redirect(
-        `https://nazareth-open-tourism-platform.herokuapp.com/oauth/authorize?${
-          queries
-        }`
-      );
+      res.redirect(`${process.env.OAUTH_URI}/authorize?${queries}`);
     }
   } else {
-    res.redirect(
-      `https://nazareth-open-tourism-platform.herokuapp.com/oauth/authorize?${
-        queries
-      }`
-    );
+    res.redirect(`${process.env.OAUTH_URI}/authorize?${queries}`);
   }
 };
