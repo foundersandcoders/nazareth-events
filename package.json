@@ -8,11 +8,13 @@
     "start": "node ./start.js",
     "dev": "./node_modules/.bin/nodemon start.js",
     "lint": "./node_modules/.bin/eslint '**/**/*.js'",
-    "coverage": " istanbul cover ./tests/tests.js"
+    "coverage": "istanbul cover ./tests/tests.js",
+    "report-coverage": "codecov -t b766cfc5-d01f-48a0-9fe9-51c9e61c2b9b"
   },
   "pre-commit": [
     "lint",
-    "test"
+    "test",
+    "report-coverage"
   ],
   "repository": {
     "type": "git",
@@ -25,6 +27,7 @@
   },
   "homepage": "https://github.com/foundersandcoders/nazareth-events#readme",
   "dependencies": {
+    "axios": "^0.17.1",
     "body-parser": "^1.17.2",
     "compression": "^1.7.1",
     "cookie-parser": "^1.4.3",
@@ -33,20 +36,25 @@
     "express": "^4.15.3",
     "express-handlebars": "^3.0.0",
     "jsonwebtoken": "^8.0.1",
+    "mongodb": "^2.2.33",
     "request": "^2.81.0"
   },
   "devDependencies": {
+    "codecov": "^3.0.0",
     "eslint": "^4.3.0",
     "eslint-config-standard": "^10.2.1",
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-node": "^5.1.1",
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-standard": "^3.0.1",
+    "istanbul": "^1.1.0-alpha.1",
+    "mongo": "^0.1.0",
+    "mongoose": "^4.13.2",
+    "nock": "^9.1.0",
+    "nodemon": "^1.12.1",
+    "pre-commit": "^1.2.2",
     "supertest": "^3.0.0",
     "tap-spec": "^4.1.1",
-    "tape": "^4.8.0",
-    "istanbul": "^0.4.5",
-    "nodemon": "^1.11.0",
-    "pre-commit": "^1.2.2"
+    "tape": "^4.8.0"
   }
 }
