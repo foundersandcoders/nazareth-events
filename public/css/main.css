@@ -267,6 +267,13 @@ select {
   background-color: #e8e8e8;
 }
 
+.error-msg {
+  font: bold 1.8rem 'Lato';
+  color: #5c5c5c;
+  display: flex;
+  flex-direction: column;
+}
+
 .checkbox-wrap label {
   height: 2.5rem;
   width: 50%;
