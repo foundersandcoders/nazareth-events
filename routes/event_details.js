@@ -2,12 +2,10 @@ const axios = require('axios');
 require('dotenv').config();
 
 module.exports = async (req, res) => {
-  const OTPUrl = `https://nazareth-open-tourism-platform.herokuapp.com/api/v1/events/${
-    req.params.id
-  }`;
+  const url = `${process.env.URI}/events/${req.params.id}`;
 
   try {
-    const specificEventResponse = await axios.get(OTPUrl);
+    const specificEventResponse = await axios.get(url);
     const event = specificEventResponse.data;
     let lng;
     let lat;
@@ -38,6 +36,8 @@ module.exports = async (req, res) => {
       lat
     });
   } catch (err) {
-    console.log('me', err);
+    res.render('event_details', {
+      title: 'Not Found'
+    });
   }
 };

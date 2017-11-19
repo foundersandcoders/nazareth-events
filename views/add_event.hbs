@@ -199,7 +199,7 @@
         <label>Place </label>
         <div id="addPlaceIcon" class="fa fa-plus-circle fa-2x add-place-icon"></div>
       </div>
-      <select id="selectAllPlaces" class="place-options " name="placeId" required>
+      <select id="selectAllPlaces" class="place-options" name="placeId">
         <option disabled selected></option>
         {{#each places}}
           <option class="placesList" value="{{this.id}}">{{this.name}}</option>
