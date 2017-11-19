@@ -125,19 +125,19 @@ Cal.prototype.showMonth = function (y, m, dateArray) {
     ) {
       html += '<td data-date=' + dstring + ' class="day today">' + i + '</td>';
     } else {
-      var now = new Date(this.currYear, this.currMonth, i);
+      var currentDate = new Date(this.currYear, this.currMonth, i);
       for (var h = 0; h < dateArray.length; h++) {
         var check = false;
 
         if (
           new Date(dateArray[h]).setHours(0, 0, 0, 0) ===
-          now.setHours(0, 0, 0, 0)
+          currentDate.setHours(0, 0, 0, 0)
         ) {
           check = true;
           html +=
             '<td data-date=' +
             dstring +
-            ' class="day normal yup">' +
+            ' class="day normal event-found">' +
             i +
             '</td>';
           break;
