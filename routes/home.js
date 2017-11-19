@@ -1,7 +1,7 @@
 const axios = require('axios');
 
 module.exports = async (req, res) => {
-  let url = `https://nazareth-open-tourism-platform.herokuapp.com/api/v1/events/`;
+  let url = `${process.env.URI}/events`;
   try {
     if (req.query.date_from) {
       url =
@@ -10,7 +10,6 @@ module.exports = async (req, res) => {
       const currentDate = new Date().toISOString().slice(0, 10);
       url = url + `?date_from=${currentDate}`;
     }
-
     const eventsResponse = await axios.get(url);
 
     let events = eventsResponse.data.filter(event => event['en']);
@@ -29,7 +28,7 @@ module.exports = async (req, res) => {
       arabic: req.params.lang === 'ar'
     });
   } catch (err) {
-    console.log(err);
+    /* istanbul ignore next */
     res.render('home', {
       title: 'Not Found'
     });

@@ -6,7 +6,7 @@ function dateClickHandler (e) {
     '?date_from=' +
     date +
     '&date_to=' +
-    addDays(date, 14);
+    addDays(date);
 
   document.getElementById('list-page-content').classList.toggle('hide');
   document.getElementById('show-cal').classList.toggle('hide-cal');
