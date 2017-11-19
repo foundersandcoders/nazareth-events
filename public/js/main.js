@@ -17,33 +17,11 @@ function addDateEventListeners () {
   });
 }
 
-// create calendar
-var calendar = new Cal('calendar');
-calendar.render();
-setTimeout(function () {
-  addDateEventListeners();
-}, 1000);
-
 // event listener for calendar button in header
 document.getElementById('calendarIcon').addEventListener('click', function () {
   document.getElementById('list-page-content').classList.toggle('hide');
   document.getElementById('show-cal').classList.toggle('hide-cal');
 });
-
-// calendar next and prev month buttons
-document.getElementById('next-button').onclick = function () {
-  calendar.nextMonth();
-  setTimeout(function () {
-    addDateEventListeners();
-  }, 1000);
-};
-
-document.getElementById('prev-button').onclick = function () {
-  calendar.previousMonth();
-  setTimeout(function () {
-    addDateEventListeners();
-  }, 1000);
-};
 
 getEventsModule(
   {

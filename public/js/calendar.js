@@ -31,35 +31,30 @@ var Cal = function (divId) {
 };
 
 // Goes to next month
-Cal.prototype.nextMonth = function () {
+Cal.prototype.nextMonth = function (res) {
   if (this.currMonth === 11) {
     this.currMonth = 0;
     this.currYear = this.currYear + 1;
   } else {
     this.currMonth = this.currMonth + 1;
   }
-  this.render();
+  this.render(res);
 };
 
 // Goes to previous month
-Cal.prototype.previousMonth = function () {
+Cal.prototype.previousMonth = function (res) {
   if (this.currMonth === 0) {
     this.currMonth = 11;
     this.currYear = this.currYear - 1;
   } else {
     this.currMonth = this.currMonth - 1;
   }
-  this.render();
+  this.render(res);
 };
 
 // Show current month
-Cal.prototype.render = function () {
-  dateArray((err, res) => {
-    if (err) {
-      return err;
-    }
-    this.showMonth(this.currYear, this.currMonth, res);
-  });
+Cal.prototype.render = function (res) {
+  this.showMonth(this.currYear, this.currMonth, res);
 };
 
 // Show month (year, month)
