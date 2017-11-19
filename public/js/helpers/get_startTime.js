@@ -1,17 +1,25 @@
-/* global axios */
+/* global axios Cal addDateEventListeners */
 
-var dateArray = function (callback) {
+(function () {
   axios
     .get('https://nazareth-open-tourism-platform.herokuapp.com/api/v1/events')
     .then(function (res) {
-      callback(
-        null,
-        res.data.reduce((acc, event) => {
-          return acc.concat(event.startTime);
-        }, [])
-      );
-    })
-    .catch(function (err) {
-      callback(err, null);
+      var data = res.data.reduce((acc, event) => {
+        return acc.concat(event.startTime);
+      }, []);
+      // create calendar
+      var calendar = new Cal('calendar');
+      calendar.render(data);
+      addDateEventListeners();
+
+      // calendar next and prev month buttons
+      document.getElementById('next-button').onclick = function () {
+        calendar.nextMonth(data);
+        addDateEventListeners();
+      };
+      document.getElementById('prev-button').onclick = function () {
+        calendar.previousMonth(data);
+        addDateEventListeners();
+      };
     });
-};
+})();
