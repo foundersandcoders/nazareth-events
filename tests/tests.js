@@ -162,7 +162,7 @@ tape('Test the event details route', async t => {
     });
 
   nock(process.env.URI)
-    .get('/en/events/someid')
+    .get('/events/someid')
     .reply(404);
 
   supertest(server)
@@ -170,6 +170,19 @@ tape('Test the event details route', async t => {
     .end((err, res) => {
       t.error(err, 'event details /:lang/events/:id did not return an error');
       t.end();
+    });
+
+  nock(process.env.URI)
+    .get('/events/2')
+    .reply(200, {
+      en: { name: 'FAC' },
+      place: { en: { name: 'somehwere' }, location: [32.2323, 33.23232] }
+    });
+
+  supertest(server)
+    .get('/en/events/2')
+    .end((err, res) => {
+      t.error(err);
     });
 });
 

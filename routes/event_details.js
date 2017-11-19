@@ -9,8 +9,8 @@ module.exports = async (req, res) => {
     const event = specificEventResponse.data;
     let lng;
     let lat;
+    console.log(event);
     if (event.place.location) {
-      console.log(event.place.location);
       lat = event.place.location[0];
       lng = event.place.location[1];
     } else {
