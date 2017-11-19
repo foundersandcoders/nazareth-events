@@ -13,23 +13,23 @@
     </label>
 
     <label>Cost
-      <input class="" type="number" name="cost" min="0" placeholder="Cost in shekels">
+      <input type="number" name="cost" min="0" placeholder="Cost in shekels">
     </label>
 
     <label>Date
-      <input class="" type="date" name="startDate" placeholder="Example yyyy-mm-dd" required>
+      <input type="date" name="startDate" placeholder="Example yyyy-mm-dd" required>
     </label>
 
     <label>Start Time
-      <input class="" type="time" name="startTime" placeholder="Example 00:00" required>
+      <input type="time" name="startTime" placeholder="Example 00:00" required>
     </label>
 
     <label>End Time
-      <input class="" type="time" name="endTime" placeholder="Example 00:00" required>
+      <input type="time" name="endTime" placeholder="Example 00:00" required>
     </label>
 
     <label>Image
-      <input class="" type="text" name="imageUrl" placeholder="Please submit a URL">
+      <input type="text" name="imageUrl" placeholder="Please submit a URL">
     </label>
 
     <label>Accessibility Options
@@ -115,7 +115,7 @@
     </label>
 
     <label>Categories
-      <div class="checkbox-wrap">
+      <div class="checkbox-wrap" id="categoriesBox">
         <label>
           <input
             type="checkbox"
@@ -194,6 +194,7 @@
           </input>
         </label>
       </div>
+      <p class="msg-box-categories error-msg"></p>
     </label>
 
     <div class="place-section">
@@ -201,7 +202,7 @@
         <label>Place </label>
         <div id="addPlaceIcon" class="fa fa-plus-circle fa-2x add-place-icon"></div>
       </div>
-      <select id="selectAllPlaces" style="padding: 0px;" class="place-options" name="placeId" required>
+      <select id="selectAllPlaces" style="padding: 0px;" class="place-options" name="placeId">
         <option disabled selected></option>
         {{#each places}}
           <option class="placesList" value="{{this.id}}">{{this.name}}</option>
@@ -209,10 +210,12 @@
       </select>
 
       <div id="addPlaceContainer" class="hide add-place">
-        <label>Name</label>
-        <input type="text" name="place_name_en" placeholder="English">
-        <input type="text" name="place_name_ar" placeholder="Arabic">
+        <label id="placeName">Name
+          <input type="text" name="place_name_en" placeholder="English">
+          <input type="text" name="place_name_ar" placeholder="Arabic">
+        </label>
       </div>
+      <p class="msg-box-place error-msg"></p>
     </div>
 
     <button type="submit" name="submitBtn" class="submit-event-button">Submit</button>

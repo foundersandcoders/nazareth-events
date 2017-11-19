@@ -7,7 +7,7 @@ module.exports = (req, res) => {
   const requestBody = {
     place: res.locals.id || req.body.placeId,
     categories: req.body.categories,
-    accessibilityOptions: req.body.accessibilityOptions,
+    accessibilityOptions: req.body.accessibilityOptions || [],
     startTime: req.body.startDate + 'T' + req.body.startTime,
     endTime: req.body.startDate + 'T' + req.body.endTime,
     cost: req.body.cost,
@@ -17,14 +17,14 @@ module.exports = (req, res) => {
   if (req.body.nameEn) {
     requestBody.en = {
       name: req.body.nameEn,
-      description: req.body.descriptionEn ? req.body.descriptionEn : ''
+      description: req.body.descriptionEn
     };
   }
 
   if (req.body.nameAr) {
     requestBody.ar = {
       name: req.body.nameAr,
-      description: req.body.descriptionAr ? req.body.descriptionAr : ''
+      description: req.body.descriptionAr
     };
   }
 
