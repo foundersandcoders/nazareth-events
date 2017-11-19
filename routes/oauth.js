@@ -17,7 +17,7 @@ module.exports = (req, res) => {
 
     const tokenRequestOptions = {
       method: 'POST',
-      uri: 'https://nazareth-open-tourism-platform.herokuapp.com/oauth/token',
+      uri: `${process.env.OAUTH_URI}/token`,
       body: tokenQueries,
       headers: {
         'content-type': 'application/x-www-form-urlencoded'

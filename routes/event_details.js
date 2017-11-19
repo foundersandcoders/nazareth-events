@@ -1,19 +1,21 @@
-const request = require('request');
+const axios = require('axios');
+require('dotenv').config();
 
-module.exports = (req, res) => {
-  const url = `https://nazareth-open-tourism-platform.herokuapp.com/events/${req.params.id}`;
-
-  request.get(url, (error, result) => {
-    if (error) {
-      res.send(error);
-    } else {
-      res.render('event_details', {
-        title: 'Event Details',
-        eventText: JSON.parse(result.body)[req.params.lang],
-        event: JSON.parse(result.body),
-        place: JSON.parse(result.body).place[req.params.lang],
-        back: req.headers.referer
-      });
-    }
-  });
+module.exports = async (req, res) => {
+  const url = `${process.env.URI}/events/${req.params.id}`;
+  try {
+    const result = await axios.get(url);
+    const event = result.data;
+    res.render('event_details', {
+      title: 'Event Details',
+      eventText: event[req.params.lang],
+      event,
+      place: event.place[req.params.lang],
+      back: req.headers.referer
+    });
+  } catch (err) {
+    res.render('event_details', {
+      title: 'Not Found'
+    });
+  }
 };
