@@ -7,24 +7,24 @@ module.exports = (req, res) => {
   const requestBody = {
     place: res.locals.id || req.body.placeId,
     categories: req.body.categories,
-    accessibilityOptions: req.body.accessibilityOptions,
+    accessibilityOptions: req.body.accessibilityOptions || [],
     startTime: req.body.startDate + 'T' + req.body.startTime,
     endTime: req.body.startDate + 'T' + req.body.endTime,
     cost: req.body.cost,
     imageUrl: req.body.imageUrl
   };
 
-  if (req.body.name_english) {
+  if (req.body.nameEn) {
     requestBody.en = {
-      name: req.body.name_english,
-      description: req.body.description_en
+      name: req.body.nameEn,
+      description: req.body.descriptionEn
     };
   }
 
-  if (req.body.name_arabic) {
+  if (req.body.nameAr) {
     requestBody.ar = {
-      name: req.body.name_arabic,
-      description: req.body.description_ar
+      name: req.body.nameAr,
+      description: req.body.descriptionAr
     };
   }
 

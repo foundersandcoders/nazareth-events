@@ -28,6 +28,21 @@ body {
   background-color: #f2f2f2;
 }
 
+/*** ERROR ***/
+
+.error-container {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.error-message {
+  color: #585858;
+  font: bold 2rem 'Lato', sans-serif;
+  text-align: center;
+  margin-top: 55%;
+}
+
 /*** HEADER BAR ***/
 
 .header {
@@ -267,6 +282,13 @@ select {
   background-color: #e8e8e8;
 }
 
+.error-msg {
+  font: bold 1.8rem 'Lato';
+  color: #5c5c5c;
+  display: flex;
+  flex-direction: column;
+}
+
 .checkbox-wrap label {
   height: 2.5rem;
   width: 50%;
@@ -294,6 +316,7 @@ select {
 .place-section label {
   color: #5c5c5c;
   font: bold 1.8rem 'Lato';
+  margin-bottom: 2rem;
 }
 
 .add-place {

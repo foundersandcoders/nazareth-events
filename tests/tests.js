@@ -50,10 +50,10 @@ tape('Test home route', t => {
 
 tape('Test POST arabic event', t => {
   const data = {
-    name_arabic: 'شو عم بصير',
-    description_ar: 'واو',
+    nameAr: 'شو عم بصير',
+    descriptionAr: 'واو',
     categories: ['music'],
-    accessibilityOptions: ['Disabled toilets'],
+    accessibilityOptions: '',
     startDate: '2017-11-24',
     startTime: '00:00',
     endTime: '14:00',
@@ -81,8 +81,8 @@ tape('Test POST arabic event', t => {
 
 tape('Test POST english event', t => {
   const data = {
-    name_english: 'going to the beach',
-    description_en: 'there is a beach',
+    nameEn: 'going to the beach',
+    descriptionEn: 'there is a beach',
     categories: ['music'],
     accessibilityOptions: ['Disabled toilets'],
     startDate: '2017-11-24',
@@ -111,8 +111,8 @@ tape('Test POST english event', t => {
 
 tape('Test POST event with a specific place', t => {
   const data = {
-    name_english: 'Finn week off',
-    description_en: 'there is a beach, music',
+    nameEn: 'Finn week off',
+    descriptionEn: 'there is a beach, music',
     categories: ['music'],
     accessibilityOptions: ['Disabled toilets'],
     startDate: '2017-11-24',
@@ -146,11 +146,7 @@ tape('Test the authentication middleware', t => {
     .set('Cookie', [`token=${token}`])
     .end((err, res) => {
       t.error(err, ' /add-event with a valid token did not return an error');
-      t.ok(
-        res.text.includes(
-          '<form class="add-event-form" action="/add-event" method="post">'
-        )
-      );
+      t.ok(res.text.includes('<form class="add-event-form">'));
     });
 
   supertest(server)
