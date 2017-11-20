@@ -199,7 +199,7 @@
 
     <div class="place-section">
       <div class="place-wrap">
-        <label>Place </label>
+        <label style="margin-bottom: 0rem;">Place </label>
         <div id="addPlaceIcon" class="fa fa-plus-circle fa-2x add-place-icon"></div>
       </div>
       <select id="selectAllPlaces" style="padding: 0px;" class="place-options" name="placeId">
@@ -214,9 +214,24 @@
           <input type="text" name="place_name_en" placeholder="English">
           <input type="text" name="place_name_ar" placeholder="Arabic">
         </label>
-      </div>
       <p class="msg-box-place error-msg"></p>
+
+      <label>Address
+        <input type="test" name="placeAddress" required>
+      </label>
+      <label>Website / Facebook Link
+        <input type="text" name="placeWebsite">
+      </label>
+
+      <label>Email
+        <input type="text" name="placeEmail">
+      </label>
+
+      <label>Phone number
+        <input type="text" name="placePhone">
+      </label>
     </div>
+  </div>
 
     <button type="submit" name="submitBtn" class="submit-event-button">Submit</button>
   </form>
