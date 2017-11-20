@@ -5,7 +5,7 @@ var toDateString = function (date) {
   );
 };
 
-var addDays = function (date) {
+var formatDate = function (date) {
   var splitDate = date.split('-');
   var newDate = new Date(
     // year

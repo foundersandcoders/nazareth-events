@@ -1,4 +1,4 @@
-/* global  URL Cal addDays */
+/* global  URL Cal formatDate */
 function dateClickHandler (e) {
   var date = e.target.dataset.date;
   window.location.href =
@@ -6,7 +6,7 @@ function dateClickHandler (e) {
     '?date_from=' +
     date +
     '&date_to=' +
-    addDays(date);
+    formatDate(date);
 
   document.getElementById('list-page-content').classList.toggle('hide');
   document.getElementById('show-cal').classList.toggle('hide-cal');
