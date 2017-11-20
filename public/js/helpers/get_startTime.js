@@ -4,9 +4,9 @@
   axios
     .get('https://nazareth-open-tourism-platform.herokuapp.com/api/v1/events')
     .then(function (res) {
-      var data = res.data.reduce((acc, event) => {
-        return acc.concat(event.startTime);
-      }, []);
+      var data = res.data.map(event => {
+        return event.startTime;
+      });
       // create calendar
       var calendar = new Cal('calendar');
       calendar.render(data);
