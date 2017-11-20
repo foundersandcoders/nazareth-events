@@ -169,3 +169,5 @@ Cal.prototype.showMonth = function (y, m, dateArray) {
   // Write HTML to the div
   document.getElementById(this.divId).innerHTML = html;
 };
+
+export default Cal;

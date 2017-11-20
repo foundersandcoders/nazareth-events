@@ -1,4 +1,7 @@
 /* global axios Cal addDateEventListeners */
+import axios from 'axios';
+import Cal from '../calendar';
+import addDateEventListeners from '../main';
 
 (function () {
   axios
