@@ -18,7 +18,6 @@ module.exports = async ({ body }, res, next) => {
   }
 
   try {
-    console.log('wtf');
     const addPlaceRes = await axios.post(url, requestBody);
     res.locals.id = addPlaceRes.data._id;
     return next();

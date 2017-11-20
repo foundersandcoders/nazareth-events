@@ -5,7 +5,7 @@ require('dotenv').config();
 
 module.exports = async (req, res) => {
   if (req.query.state !== process.env.STATE) {
-    res.redirect(`${process.env.OAUTH_URI}`);
+    res.redirect(`${process.env.OAUTH_URI}/authorize`);
   } else {
     const tokenQueries = qs.stringify({
       code: req.query.code,
