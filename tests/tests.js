@@ -171,7 +171,13 @@ tape('Test the event details route', async t => {
     .get('/events/1')
     .reply(200, {
       en: { name: 'FAC' },
-      place: { en: { name: 'somehwere' } }
+      place: { en: { name: 'somewhere', address: 'Nazareth' } }
+    });
+
+  nock('https://maps.googleapis.com/maps/api/geocode/json')
+    .get(`?address=Nazareth&region=il&key=${process.env.GEOCODE_KEY}`)
+    .reply(200, {
+      results: [{ geometry: { location: { lng: 32.223, lat: 32.12312 } } }]
     });
 
   const htmlSample = `<h1 class="event-name-details">FAC</h1>`;
@@ -183,13 +189,26 @@ tape('Test the event details route', async t => {
     });
 
   nock(process.env.URI)
-    .get('/en/events/someid')
+    .get('/events/someid')
     .reply(404);
 
   supertest(server)
     .get('/en/events/someid')
     .end((err, res) => {
       t.error(err, 'event details /:lang/events/:id did not return an error');
+    });
+
+  nock(process.env.URI)
+    .get('/events/2')
+    .reply(200, {
+      en: { name: 'FAC' },
+      place: { en: { name: 'somewhere' }, location: [32.2323, 33.23232] }
+    });
+
+  supertest(server)
+    .get('/en/events/2')
+    .end((err, res) => {
+      t.error(err, 'It rendered the event details with a map from api coords');
       t.end();
     });
 });
