@@ -387,6 +387,10 @@ td {
   align-items: center;
 }
 
+.event-found {
+  background-color: PaleVioletRed;
+}
+
 td {
   width: 3.5rem;
   height: 3.5rem;
