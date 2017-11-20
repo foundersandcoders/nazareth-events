@@ -21,15 +21,20 @@ server.use(compression());
 
 server.use(router);
 
-server.engine('hbs', hbs({
-  defaultLayout: 'main',
-  layoutDir: path.join(__dirname, './', 'views/layouts'),
-  partialsDir: path.join(__dirname, './', 'views/partials'),
-  extname: 'hbs',
-  helpers: {
-    prettyDate: (date) => dateFormat(date, 'dddd d  mmm  yyyy'),
-    prettyTime: (time) => dateFormat(time, 'UTC:HH:MM')
-  }
-}));
+server.engine(
+  'hbs',
+  hbs({
+    defaultLayout: 'main',
+    layoutDir: path.join(__dirname, './', 'views/layouts'),
+    partialsDir: path.join(__dirname, './', 'views/partials'),
+    extname: 'hbs',
+    helpers: {
+      prettyDate: date => dateFormat(date, 'dddd d  mmm  yyyy'),
+      prettyTime: time => dateFormat(time, 'UTC:HH:MM'),
+      findNamelang: (lang, event) => event[lang].name,
+      findPlaceLang: (lang, event) => event.place[lang].name
+    }
+  })
+);
 
 module.exports = server;

@@ -28,6 +28,21 @@ body {
   background-color: #f2f2f2;
 }
 
+/*** ERROR ***/
+
+.error-container {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.error-message {
+  color: #585858;
+  font: bold 2rem 'Lato', sans-serif;
+  text-align: center;
+  margin-top: 55%;
+}
+
 /*** HEADER BAR ***/
 
 .header {
@@ -137,24 +152,6 @@ body {
   margin-top: 55%;
 }
 
-.loading-icon {
-  color: #585858;
-  width: 100%;
-  text-align: center;
-  margin-top: 55%;
-  font-size: 5rem;
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 /*** EVENT DETAILS ***/
 
 .event-details {
@@ -191,10 +188,9 @@ body {
 
 .map {
   margin-top: 1rem;
-  height: 20rem;
+  height: 25rem;
   background-color: lightgray;
   box-shadow: 0 0.3rem 0.3rem #ccc;
-  background-image: url('https://i.imgur.com/uf4WPdJ.png');
   background-size: cover;
   background-position: center;
 }
@@ -267,6 +263,13 @@ select {
   background-color: #e8e8e8;
 }
 
+.error-msg {
+  font: bold 1.8rem 'Lato';
+  color: #5c5c5c;
+  display: flex;
+  flex-direction: column;
+}
+
 .checkbox-wrap label {
   height: 2.5rem;
   width: 50%;
@@ -294,6 +297,7 @@ select {
 .place-section label {
   color: #5c5c5c;
   font: bold 1.8rem 'Lato';
+  margin-bottom: 2rem;
 }
 
 .add-place {
@@ -381,6 +385,10 @@ td {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.event-found {
+  background-color: PaleVioletRed;
 }
 
 td {
