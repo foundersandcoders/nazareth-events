@@ -9,16 +9,41 @@ require('dotenv').config();
 
 const sortPlaces = require('../helpers/sort_places.js');
 
-tape('home route test: GET request to /', t => {
+tape('Test home route', t => {
+  const currentDate = new Date().toISOString().slice(0, 10);
+  nock(process.env.URI)
+    .get(`/events?date_from=${currentDate}`)
+    .reply(200, [{ en: { name: 'king go home' }, place: { en: 'somehwere' } }]);
+
+  nock(process.env.URI)
+    .get(`/events?date_from=${currentDate}`)
+    .reply(200, [{ en: { name: 'king go home' }, place: { en: 'somehwere' } }]);
+
+  nock(process.env.URI)
+    .get(`/events?date_from=${currentDate}&date_to=2024-1-1`)
+    .reply(200, [{ en: { name: 'king go home' }, place: { en: 'somehwere' } }]);
+
   supertest(server)
-    .get('/')
+    .get('/en')
     .end((err, res) => {
-      t.error(err, '/ home route does not return an error');
+      t.error(err, '/en home route with english lang does not return an error');
       t.equal(res.status, 200, 'should return status code 200');
       t.ok(
         res.text.includes('<div id="list-page-content">'),
         'rendered the home view correctly'
       );
+    });
+
+  supertest(server)
+    .get('/')
+    .end((err, res) => {
+      t.error(err, '/ home route does not return an error');
+    });
+
+  supertest(server)
+    .get(`/?date_from=${currentDate}&date_to=2024-1-1`)
+    .end((err, res) => {
+      t.error(err);
       t.end();
     });
 });
@@ -146,7 +171,13 @@ tape('Test the event details route', async t => {
     .get('/events/1')
     .reply(200, {
       en: { name: 'FAC' },
-      place: { en: { name: 'somehwere' } }
+      place: { en: { name: 'somewhere', address: 'Nazareth' } }
+    });
+
+  nock('https://maps.googleapis.com/maps/api/geocode/json')
+    .get(`?address=Nazareth&region=il&key=${process.env.GEOCODE_KEY}`)
+    .reply(200, {
+      results: [{ geometry: { location: { lng: 32.223, lat: 32.12312 } } }]
     });
 
   const htmlSample = `<h1 class="event-name-details">FAC</h1>`;
@@ -158,13 +189,26 @@ tape('Test the event details route', async t => {
     });
 
   nock(process.env.URI)
-    .get('/en/events/someid')
+    .get('/events/someid')
     .reply(404);
 
   supertest(server)
     .get('/en/events/someid')
     .end((err, res) => {
       t.error(err, 'event details /:lang/events/:id did not return an error');
+    });
+
+  nock(process.env.URI)
+    .get('/events/2')
+    .reply(200, {
+      en: { name: 'FAC' },
+      place: { en: { name: 'somewhere' }, location: [32.2323, 33.23232] }
+    });
+
+  supertest(server)
+    .get('/en/events/2')
+    .end((err, res) => {
+      t.error(err, 'It rendered the event details with a map from api coords');
       t.end();
     });
 });
