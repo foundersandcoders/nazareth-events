@@ -9,16 +9,41 @@ require('dotenv').config();
 
 const sortPlaces = require('../helpers/sort_places.js');
 
-tape('home route test: GET request to /', t => {
+tape('Test home route', t => {
+  const currentDate = new Date().toISOString().slice(0, 10);
+  nock(process.env.URI)
+    .get(`/events?date_from=${currentDate}`)
+    .reply(200, [{ en: { name: 'king go home' }, place: { en: 'somehwere' } }]);
+
+  nock(process.env.URI)
+    .get(`/events?date_from=${currentDate}`)
+    .reply(200, [{ en: { name: 'king go home' }, place: { en: 'somehwere' } }]);
+
+  nock(process.env.URI)
+    .get(`/events?date_from=${currentDate}&date_to=2024-1-1`)
+    .reply(200, [{ en: { name: 'king go home' }, place: { en: 'somehwere' } }]);
+
   supertest(server)
-    .get('/')
+    .get('/en')
     .end((err, res) => {
-      t.error(err, '/ home route does not return an error');
+      t.error(err, '/en home route with english lang does not return an error');
       t.equal(res.status, 200, 'should return status code 200');
       t.ok(
         res.text.includes('<div id="list-page-content">'),
         'rendered the home view correctly'
       );
+    });
+
+  supertest(server)
+    .get('/')
+    .end((err, res) => {
+      t.error(err, '/ home route does not return an error');
+    });
+
+  supertest(server)
+    .get(`/?date_from=${currentDate}&date_to=2024-1-1`)
+    .end((err, res) => {
+      t.error(err);
       t.end();
     });
 });

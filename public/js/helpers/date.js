@@ -1,9 +1,11 @@
 var toDateString = function (date) {
   // + 1 on the month because month is zero-indexed
-  return date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
+  return (
+    date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate()
+  );
 };
 
-var addDays = function (date, daysToAdd) {
+var formatDate = function (date) {
   var splitDate = date.split('-');
   var newDate = new Date(
     // year
@@ -11,7 +13,7 @@ var addDays = function (date, daysToAdd) {
     // month (-1 because zero indexed)
     +splitDate[1] - 1,
     // day
-    +splitDate[2] + daysToAdd
+    +splitDate[2] + 365
   );
   return toDateString(newDate);
 };

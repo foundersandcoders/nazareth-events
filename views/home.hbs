@@ -2,11 +2,23 @@
 {{>calendar}}
 <div id="list-page-content">
   <section id="events-section" class="events-section">
-    <i class="fa fa-spinner loading-icon"></i>
+    {{#if events}}
+      {{#each events}}
+        <a href='{{../lang}}/events/{{this._id}}'>
+          <h3 class="event-name">{{findNamelang ../lang this}}</h3>
+          <h4 class="time">{{prettyDate this.startTime}} {{prettyTime this.startTime}} - {{prettyTime this.endTime}}</h4>
+          <h5 class="where">{{findPlaceLang ../lang this}}</h5>
+        </a>
+      {{/each}}
+    {{else}}
+      <h1 class="no-events">No upcoming events</h1>
+    {{/if}}
+
   </section>
 </div>
 
 <script src="/js/helpers/date.js" type="text/javascript"></script>
-<script src="/js/get_events.js" type="text/javascript"></script>
 <script src="/js/render.js" type="text/javascript"></script>
 <script src="/js/calendar.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
