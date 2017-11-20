@@ -150,7 +150,7 @@ tape('Test the event details route', async t => {
     .get('/events/1')
     .reply(200, {
       en: { name: 'FAC' },
-      place: { en: { name: 'somehwere', address: 'Nazareth' } }
+      place: { en: { name: 'somewhere', address: 'Nazareth' } }
     });
 
   nock('https://maps.googleapis.com/maps/api/geocode/json')
@@ -181,7 +181,7 @@ tape('Test the event details route', async t => {
     .get('/events/2')
     .reply(200, {
       en: { name: 'FAC' },
-      place: { en: { name: 'somehwere' }, location: [32.2323, 33.23232] }
+      place: { en: { name: 'somewhere' }, location: [32.2323, 33.23232] }
     });
 
   supertest(server)
