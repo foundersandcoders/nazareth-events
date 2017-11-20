@@ -14,8 +14,8 @@ module.exports = async (req, res) => {
       back: req.headers.referer
     });
   } catch (err) {
-    res.render('event_details', {
-      title: 'Not Found'
+    res.render('error', {
+      errorMessage: 'Sorry something went wrong please try again'
     });
   }
 };

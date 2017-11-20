@@ -27,8 +27,8 @@ module.exports = (req, res, next) => {
   request(options, (error, result, body) => {
     /* istanbul ignore next */
     if (error) {
-      res.render('home', {
-        title: 'Not found'
+      res.render('error', {
+        errorMessage: 'Sorry something went wrong please try again'
       });
     } else {
       res.locals.id = body._id;

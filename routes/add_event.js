@@ -38,8 +38,9 @@ module.exports = (req, res) => {
   request(options, (error, result, body) => {
     /* istanbul ignore next */
     if (error) {
-      res.render('home', {
-        title: 'Not found'
+      res.render('error', {
+        errorMessage:
+          'Sorry something went wrong, go back to the form and try again'
       });
     } else {
       res.redirect(`en/events/${body._id}`);
