@@ -5,7 +5,7 @@ require('dotenv').config();
 
 module.exports = (req, res) => {
   if (req.query.state !== process.env.STATE) {
-    res.send('Access not allowed');
+    res.redirect(`${process.env.OAUTH_URI}/authorize`);
   } else {
     const tokenQueries = qs.stringify({
       code: req.query.code,
@@ -26,7 +26,9 @@ module.exports = (req, res) => {
 
     request(tokenRequestOptions, (err, response, body) => {
       if (err) {
-        return res.send('Something went wrong, please try again');
+        return res.render('error', {
+          errorMessage: 'Something went wrong on our end, try again'
+        });
       } else {
         const parsedBody = JSON.parse(body);
         const token = jwt.sign(parsedBody.access_token, process.env.JWT_SECRET);

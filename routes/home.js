@@ -29,8 +29,8 @@ module.exports = async (req, res) => {
     });
   } catch (err) {
     /* istanbul ignore next */
-    res.render('home', {
-      title: 'Not Found'
+    res.render('error', {
+      errorMessage: 'An error occurred, click on the title to go back home'
     });
   }
 };

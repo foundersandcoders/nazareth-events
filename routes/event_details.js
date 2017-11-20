@@ -35,8 +35,8 @@ module.exports = async (req, res) => {
       lat
     });
   } catch (err) {
-    res.render('event_details', {
-      title: 'Not Found'
+    res.render('error', {
+      errorMessage: 'Sorry something went wrong please try again'
     });
   }
 };
