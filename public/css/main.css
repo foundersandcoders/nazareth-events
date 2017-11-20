@@ -28,6 +28,21 @@ body {
   background-color: #f2f2f2;
 }
 
+/*** ERROR ***/
+
+.error-container {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.error-message {
+  color: #585858;
+  font: bold 2rem 'Lato', sans-serif;
+  text-align: center;
+  margin-top: 55%;
+}
+
 /*** HEADER BAR ***/
 
 .header {
