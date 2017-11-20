@@ -301,6 +301,7 @@ select {
 .place-section label {
   color: #5c5c5c;
   font: bold 1.8rem 'Lato';
+  margin-bottom: 2rem;
 }
 
 .add-place {
