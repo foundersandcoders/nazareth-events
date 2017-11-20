@@ -152,24 +152,6 @@ body {
   margin-top: 55%;
 }
 
-.loading-icon {
-  color: #585858;
-  width: 100%;
-  text-align: center;
-  margin-top: 55%;
-  font-size: 5rem;
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 /*** EVENT DETAILS ***/
 
 .event-details {
