@@ -36,8 +36,7 @@
     "express": "^4.15.3",
     "express-handlebars": "^3.0.0",
     "jsonwebtoken": "^8.0.1",
-    "mongodb": "^2.2.33",
-    "request": "^2.81.0"
+    "mongodb": "^2.2.33"
   },
   "devDependencies": {
     "codecov": "^3.0.0",
