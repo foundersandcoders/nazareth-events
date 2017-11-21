@@ -5,26 +5,30 @@ module.exports = async ({ body }, res, next) => {
   const {
     place_name_en,
     place_name_ar,
-    placeAddress,
+    placeAddressEn,
+    placeAddressAr,
     placeWebsite,
     placeEmail,
     placePhone
   } = body;
+  console.log(body);
 
   const requestBody = {
-    address: placeAddress,
     website: placeWebsite,
     email: placeEmail,
     phone: placePhone
   };
 
   if (place_name_en) {
+    console.log(placeAddressEn);
     requestBody.en = {
-      name: place_name_en
+      name: place_name_en,
+      address: placeAddressEn
     };
   } else if (place_name_ar) {
     requestBody.ar = {
-      name: place_name_ar
+      name: place_name_ar,
+      address: placeAddressAr
     };
   } else {
     return next();

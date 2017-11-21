@@ -63,7 +63,12 @@ document
       cost: elements.cost.value,
       imageUrl: elements.imageUrl.value,
       place_name_en: elements.place_name_en.value,
-      place_name_ar: elements.place_name_ar.value
+      place_name_ar: elements.place_name_ar.value,
+      placeAddressEn: elements.placeAddressEn.value,
+      placeAddressAr: elements.placeAddressAr.value,
+      placeWebsite: elements.placeWebsite.value,
+      placeEmail: elements.placeEmail.value,
+      placePhone: elements.placePhone.value
     };
 
     if (!data.nameEn && !data.nameAr) {
