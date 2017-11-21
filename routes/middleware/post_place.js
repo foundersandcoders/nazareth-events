@@ -2,8 +2,21 @@ const axios = require('axios');
 require('dotenv').config();
 
 module.exports = async ({ body }, res, next) => {
-  const { place_name_en, place_name_ar } = body;
-  const requestBody = {};
+  const {
+    place_name_en,
+    place_name_ar,
+    placeAddress,
+    placeWebsite,
+    placeEmail,
+    placePhone
+  } = body;
+
+  const requestBody = {
+    address: placeAddress,
+    website: placeWebsite,
+    email: placeEmail,
+    phone: placePhone
+  };
 
   if (place_name_en) {
     requestBody.en = {

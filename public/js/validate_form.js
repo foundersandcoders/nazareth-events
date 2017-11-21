@@ -148,7 +148,6 @@ document
     }
 
     axios.post('/add-event', data).then(function (res) {
-      console.log(res.request.responseURL);
       window.location = res.request.responseURL;
     });
   });
