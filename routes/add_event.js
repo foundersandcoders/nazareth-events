@@ -1,49 +1,41 @@
-const request = require('request');
+const axios = require('axios');
 require('dotenv').config();
 
-module.exports = (req, res) => {
+module.exports = async ({ body }, res) => {
   const url = `${process.env.URI}/events`;
 
   const requestBody = {
-    place: res.locals.id || req.body.placeId,
-    categories: req.body.categories,
-    accessibilityOptions: req.body.accessibilityOptions || [],
-    startTime: req.body.startDate + 'T' + req.body.startTime,
-    endTime: req.body.startDate + 'T' + req.body.endTime,
-    cost: req.body.cost,
-    imageUrl: req.body.imageUrl
+    place: res.locals.id || body.placeId,
+    categories: body.categories,
+    accessibilityOptions: body.accessibilityOptions || [],
+    startTime: body.startDate + 'T' + body.startTime,
+    endTime: body.startDate + 'T' + body.endTime,
+    cost: body.cost,
+    imageUrl: body.imageUrl
   };
 
-  if (req.body.nameEn) {
+  if (body.nameEn) {
     requestBody.en = {
-      name: req.body.nameEn,
-      description: req.body.descriptionEn
+      name: body.nameEn,
+      description: body.descriptionEn
     };
   }
 
-  if (req.body.nameAr) {
+  if (body.nameAr) {
     requestBody.ar = {
-      name: req.body.nameAr,
-      description: req.body.descriptionAr
+      name: body.nameAr,
+      description: body.descriptionAr
     };
   }
 
-  const options = {
-    method: 'post',
-    body: requestBody,
-    json: true,
-    url
-  };
-
-  request(options, (error, result, body) => {
+  try {
+    const { data: { _id } } = await axios.post(url, requestBody);
+    res.redirect(`en/events/${_id}`);
+  } catch (err) {
     /* istanbul ignore next */
-    if (error) {
-      res.render('error', {
-        errorMessage:
-          'Sorry something went wrong, go back to the form and try again'
-      });
-    } else {
-      res.redirect(`en/events/${body._id}`);
-    }
-  });
+    res.render('error', {
+      errorMessage:
+        'Sorry something went wrong, go back to the form and try again'
+    });
+  }
 };

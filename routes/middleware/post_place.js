@@ -1,38 +1,33 @@
-const request = require('request');
+const axios = require('axios');
 require('dotenv').config();
 
-module.exports = (req, res, next) => {
-  var url = `${process.env.URI}/places`;
+module.exports = async ({ body }, res, next) => {
+  const { place_name_en, place_name_ar } = body;
   const requestBody = {};
 
-  if (req.body.place_name_en) {
+  if (place_name_en) {
     requestBody.en = {
-      name: req.body.place_name_en
+      name: place_name_en
     };
-  } else if (req.body.place_name_ar) {
+  } else if (place_name_ar) {
     requestBody.ar = {
-      name: req.body.place_name_ar
+      name: place_name_ar
     };
   } else {
     return next();
   }
 
-  const options = {
-    method: 'post',
-    body: requestBody,
-    json: true,
-    url
-  };
-
-  request(options, (error, result, body) => {
+  try {
+    const addPlaceRes = await axios.post(
+      `${process.env.URI}/places`,
+      requestBody
+    );
+    res.locals.id = addPlaceRes.data._id;
+    return next();
+  } catch (err) {
     /* istanbul ignore next */
-    if (error) {
-      res.render('error', {
-        errorMessage: 'Sorry something went wrong please try again'
-      });
-    } else {
-      res.locals.id = body._id;
-      return next();
-    }
-  });
+    res.render('error', {
+      errorMessage: 'Could not save your location, please try again'
+    });
+  }
 };
