@@ -1,9 +1,9 @@
 const qs = require('querystring');
-const request = require('request');
+const axios = require('axios');
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
 
-module.exports = (req, res) => {
+module.exports = async (req, res) => {
   if (req.query.state !== process.env.STATE) {
     res.redirect(`${process.env.OAUTH_URI}/authorize`);
   } else {
@@ -15,27 +15,20 @@ module.exports = (req, res) => {
       grant_type: 'authorization_code'
     });
 
-    const tokenRequestOptions = {
-      method: 'POST',
-      uri: `${process.env.OAUTH_URI}/token`,
-      body: tokenQueries,
-      headers: {
-        'content-type': 'application/x-www-form-urlencoded'
-      }
-    };
-
-    request(tokenRequestOptions, (err, response, body) => {
-      if (err) {
-        return res.render('error', {
-          errorMessage: 'Something went wrong on our end, try again'
-        });
-      } else {
-        const parsedBody = JSON.parse(body);
-        const token = jwt.sign(parsedBody.access_token, process.env.JWT_SECRET);
-
-        res.cookie('token', token, { maxAge: 604800000 });
-        res.redirect('/add-event');
-      }
-    });
+    try {
+      const tokenRes = await axios({
+        method: 'post',
+        url: `${process.env.OAUTH_URI}/token`,
+        data: tokenQueries,
+        headers: { 'Content-type': 'application/x-www-form-urlencoded' }
+      });
+      const token = jwt.sign(tokenRes.access_token, process.env.JWT_SECRET);
+      res.cookie('token', token, { maxAge: 604800000 });
+      res.redirect('/add-event');
+    } catch (err) {
+      res.render('error', {
+        errorMessage: 'There was a problem logging you in, please try again'
+      });
+    }
   }
 };

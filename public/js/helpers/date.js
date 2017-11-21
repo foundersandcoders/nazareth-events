@@ -17,3 +17,5 @@ var formatDate = function (date) {
   );
   return toDateString(newDate);
 };
+
+export default formatDate;
