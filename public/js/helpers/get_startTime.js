@@ -1,10 +1,10 @@
-/* global axios Cal addDateEventListeners */
+/* global axios Cal addDateEventListeners webpack */
 import axios from 'axios';
 import Cal from '../calendar';
 import addDateEventListeners from '../main';
 
 (function () {
-  axios.get(`${process.env.URI}/events`).then(function (res) {
+  axios.get(`${webpack.env.URI}/events`).then(function (res) {
     var data = res.data.map(event => {
       return event.startTime;
     });

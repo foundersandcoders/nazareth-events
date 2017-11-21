@@ -30,7 +30,7 @@ module.exports = {
   watch: true,
   plugins: [
     new webpack.DefinePlugin({
-      'process.env': {
+      'webpack.env': {
         URI: JSON.stringify('http://localhost:3000/api/v1')
       }
     })
