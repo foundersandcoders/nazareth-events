@@ -31,6 +31,13 @@ module.exports = {
       compress: {
         warnings: true
       }
+    }),
+    new webpack.DefinePlugin({
+      'process.env': {
+        URI: JSON.stringify(
+          'https://nazareth-open-tourism-platform.herokuapp.com/api/v1'
+        )
+      }
     })
   ]
 };

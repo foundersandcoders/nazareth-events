@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
   context: path.join(__dirname),
@@ -26,5 +27,12 @@ module.exports = {
   resolve: {
     extensions: ['.js']
   },
-  watch: true
+  watch: true,
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env': {
+        URI: JSON.stringify('http://localhost:3000/api/v1')
+      }
+    })
+  ]
 };
