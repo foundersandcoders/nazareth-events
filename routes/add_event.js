@@ -29,8 +29,8 @@ module.exports = async ({ body }, res) => {
   }
 
   try {
-    const addEventRes = await axios.post(url, requestBody);
-    res.redirect(`en/events/${addEventRes.data._id}`);
+    const { data: { _id } } = await axios.post(url, requestBody);
+    res.redirect(`en/events/${_id}`);
   } catch (err) {
     /* istanbul ignore next */
     res.render('error', {

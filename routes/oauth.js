@@ -27,7 +27,7 @@ module.exports = async (req, res) => {
       res.redirect('/add-event');
     } catch (err) {
       res.render('error', {
-        errorMessage: 'Something went wrong, please try again'
+        errorMessage: 'There was a problem logging you in, please try again'
       });
     }
   }
