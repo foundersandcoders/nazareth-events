@@ -5,17 +5,14 @@
   "main": "server.js",
   "scripts": {
     "test": "node ./tests/tests.js | tap-spec",
-    "start": "node ./start.js",
+    "start": "webpack --config ./webpack.prod.config.js && node ./start.js",
     "dev": "./node_modules/.bin/nodemon start.js",
     "lint": "./node_modules/.bin/eslint '**/**/*.js'",
     "coverage": "istanbul cover ./tests/tests.js",
-    "report-coverage": "codecov -t b766cfc5-d01f-48a0-9fe9-51c9e61c2b9b"
+    "report-coverage": "codecov -t b766cfc5-d01f-48a0-9fe9-51c9e61c2b9b",
+    "dev:bundle": "webpack --config ./webpack.dev.config.js"
   },
-  "pre-commit": [
-    "lint",
-    "test",
-    "report-coverage"
-  ],
+  "pre-commit": ["lint", "test", "report-coverage"],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/foundersandcoders/nazareth-events.git"
@@ -28,6 +25,9 @@
   "homepage": "https://github.com/foundersandcoders/nazareth-events#readme",
   "dependencies": {
     "axios": "^0.17.1",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
     "body-parser": "^1.17.2",
     "compression": "^1.7.1",
     "cookie-parser": "^1.4.3",
@@ -37,9 +37,11 @@
     "express-handlebars": "^3.0.0",
     "jsonwebtoken": "^8.0.1",
     "mongodb": "^2.2.33",
-    "request": "^2.81.0"
+    "request": "^2.83.0",
+    "webpack": "^3.8.1"
   },
   "devDependencies": {
+    "babel-eslint": "^8.0.2",
     "codecov": "^3.0.0",
     "eslint": "^4.3.0",
     "eslint-config-standard": "^10.2.1",
