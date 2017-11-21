@@ -18,3 +18,10 @@ document.getElementById('enLang').addEventListener('click', function () {
     window.location.href = '/en';
   }
 });
+
+// event listener for category select in header
+document.getElementById('categoryButton').addEventListener('click', function () {
+  document
+    .getElementById('categorySelectContainer')
+    .classList.toggle('hide-cal');
+});
