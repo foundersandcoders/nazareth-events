@@ -171,7 +171,10 @@ tape('Test the event details route', async t => {
     .get('/events/1')
     .reply(200, {
       en: { name: 'FAC' },
-      place: { en: { name: 'somewhere', address: 'Nazareth' } }
+      place: {
+        en: { name: 'somewhere', address: 'Nazareth' },
+        website: 'facebool.com'
+      }
     });
 
   nock('https://maps.googleapis.com/maps/api/geocode/json')

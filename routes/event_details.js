@@ -23,18 +23,25 @@ module.exports = async (req, res) => {
       lng = location.lng;
       lat = location.lat;
     }
+    console.log(event.place);
 
     res.render('event_details', {
       title: 'Event Details',
       eventText: event[req.params.lang],
       event,
-      place: event.place[req.params.lang],
+      placeDetails: event.place[req.params.lang],
+      placeContact: event.place,
       back: req.headers.referer,
       key: process.env.GOOGLE_MAPS_KEY,
       lng,
-      lat
+      lat,
+      website: event.place.website,
+      facebook: event.place.website
+        ? event.place.website.includes('facebook')
+        : ''
     });
   } catch (err) {
+    console.log(err);
     res.render('error', {
       errorMessage: 'Sorry something went wrong please try again'
     });
