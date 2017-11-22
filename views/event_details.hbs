@@ -5,7 +5,7 @@
 {{/if}}
 
 <div class="event-details">
-  <div class="margins">
+  <div style="margin-bottom: 2rem;">
     <h1 class="event-name-details">{{eventText.name}}</h1>
     <span class="light-text">{{prettyDate event.startTime}}, {{prettyTime event.startTime}}</span>
   </div>
@@ -19,10 +19,25 @@
     </h4>
   {{/if}}
 
-  <div class="margins">
-    <h3 class="dark-text">
+  <div>
+    <h1 class="dark-text" style="font-size: 1.8rem; display: inline-block; margin-right: 1rem;">Place: {{placeDetails.name}}</h1>
+    {{#if website}}
+      {{#if facebook}}
+          <a href={{placeContact.website}}><i style="margin-bottom: 1rem; color: #409a93;" class="fa fa-facebook-square fa-2x"></i></a>
+      {{else}}
+        <a href={{placeContact.website}}><i style="margin-bottom: 1rem; color: #409a93;" class="fa fa-link fa-2x"></i></a>
+      {{/if}}
+    {{/if}}
+
+    {{#if placeContact.phone}}
+    <h1 class="dark-text">Phone: {{placeContact.phone}}</h1><br>
+    {{/if}}
+    {{#if placeContact.email}}
+    <h1 class="dark-text" style="margin-bottom: 1rem;">Email: {{placeContact.email}}</h1>
+    {{/if}}
+    <h3 class="dark-text" style="margin-bottom: 1rem;">
       <i class="fa fa-map-marker map-icon" aria-hidden="true"></i>
-      {{place.name}}
+      {{placeDetails.address}}
     </h3>
     <div class="map" id="map"></div>
   </div>
