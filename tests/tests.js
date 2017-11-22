@@ -173,7 +173,7 @@ tape('Test the event details route', async t => {
       en: { name: 'FAC' },
       place: {
         en: { name: 'somewhere', address: 'Nazareth' },
-        website: 'facebool.com'
+        website: 'facebook.com'
       }
     });
 

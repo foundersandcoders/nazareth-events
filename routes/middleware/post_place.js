@@ -11,7 +11,6 @@ module.exports = async ({ body }, res, next) => {
     placeEmail,
     placePhone
   } = body;
-  console.log(body);
 
   const requestBody = {
     website: placeWebsite,

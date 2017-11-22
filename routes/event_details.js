@@ -23,7 +23,6 @@ module.exports = async (req, res) => {
       lng = location.lng;
       lat = location.lat;
     }
-    console.log(event.place);
 
     res.render('event_details', {
       title: 'Event Details',
@@ -41,7 +40,6 @@ module.exports = async (req, res) => {
         : ''
     });
   } catch (err) {
-    console.log(err);
     res.render('error', {
       errorMessage: 'Sorry something went wrong please try again'
     });
