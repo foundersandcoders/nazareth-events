@@ -5,7 +5,8 @@ module.exports = {
   context: path.join(__dirname),
   entry: [
     './public/js/helpers/get_startTime.js',
-    './public/js/filter_listeners'
+    './public/js/filter_listeners',
+    './public/js/validate_form.js'
   ],
   output: {
     path: path.join(__dirname, 'public/dist/'),
