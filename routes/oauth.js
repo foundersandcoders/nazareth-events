@@ -7,22 +7,24 @@ module.exports = async (req, res) => {
   if (req.query.state !== process.env.STATE) {
     res.redirect(`${process.env.OAUTH_URI}/authorize`);
   } else {
-    const tokenQueries = qs.stringify({
-      code: req.query.code,
-      client_id: process.env.CLIENT_ID,
-      client_secret: process.env.CLIENT_SECRET,
-      redirect_uri: process.env.REDIRECT_URI,
-      grant_type: 'authorization_code'
-    });
-
     try {
       const tokenRes = await axios({
-        method: 'post',
+        method: 'POST',
         url: `${process.env.OAUTH_URI}/token`,
-        data: tokenQueries,
-        headers: { 'Content-type': 'application/x-www-form-urlencoded' }
+        data: qs.stringify({
+          code: req.query.code,
+          client_secret: process.env.CLIENT_SECRET,
+          client_id: process.env.CLIENT_ID,
+          redirect_uri: process.env.REDIRECT_URI,
+          grant_type: 'authorization_code'
+        }),
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
       });
-      const token = jwt.sign(tokenRes.access_token, process.env.JWT_SECRET);
+
+      const token = jwt.sign(
+        tokenRes.data.access_token,
+        process.env.JWT_SECRET
+      );
       res.cookie('token', token, { maxAge: 604800000 });
       res.redirect('/add-event');
     } catch (err) {

@@ -51,25 +51,30 @@ if (document.querySelector('.add-event-form')) {
     .addEventListener('submit', function(event) {
       event.preventDefault();
 
-      var englishChars = /[a-zA-Z0-9]/;
-      var arabicChars = /[ا-ي0-9]/;
-      var elements = event.target.elements;
-      var data = {
-        nameEn: elements.name_english.value,
-        nameAr: elements.name_arabic.value,
-        descriptionEn: elements.description_en.value,
-        descriptionAr: elements.description_ar.value,
-        categories: elements.categories,
-        placeId: elements.placeId.value,
-        accessibilityOptions: elements.accessibilityOptions.value,
-        startDate: elements.startDate.value,
-        startTime: elements.startTime.value,
-        endTime: elements.endTime.value,
-        cost: elements.cost.value,
-        imageUrl: elements.imageUrl.value,
-        place_name_en: elements.place_name_en.value,
-        place_name_ar: elements.place_name_ar.value
-      };
+    var englishChars = /[a-zA-Z0-9]/;
+    var arabicChars = /[ا-ي0-9]/;
+    var elements = event.target.elements;
+    var data = {
+      nameEn: elements.name_english.value,
+      nameAr: elements.name_arabic.value,
+      descriptionEn: elements.description_en.value,
+      descriptionAr: elements.description_ar.value,
+      categories: elements.categories,
+      placeId: elements.placeId.value,
+      accessibilityOptions: elements.accessibilityOptions.value,
+      startDate: elements.startDate.value,
+      startTime: elements.startTime.value,
+      endTime: elements.endTime.value,
+      cost: elements.cost.value,
+      imageUrl: elements.imageUrl.value,
+      place_name_en: elements.place_name_en.value,
+      place_name_ar: elements.place_name_ar.value,
+      placeAddressEn: elements.placeAddressEn.value,
+      placeAddressAr: elements.placeAddressAr.value,
+      placeWebsite: elements.placeWebsite.value,
+      placeEmail: elements.placeEmail.value,
+      placePhone: elements.placePhone.value
+    };
 
       if (!data.nameEn && !data.nameAr) {
         return handleValidate(
@@ -155,7 +160,6 @@ if (document.querySelector('.add-event-form')) {
       axios
         .post('/add-event', data)
         .then(function(res) {
-          console.log('responsasljkdbaihhdgiausdviksajdbkjasbdkha e', res);
           window.location = res.request.responseURL;
         })
         .catch(err => console.log('err', err));

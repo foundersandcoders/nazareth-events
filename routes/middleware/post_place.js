@@ -2,16 +2,32 @@ const axios = require('axios');
 require('dotenv').config();
 
 module.exports = async ({ body }, res, next) => {
-  const { place_name_en, place_name_ar } = body;
-  const requestBody = {};
+  const {
+    place_name_en,
+    place_name_ar,
+    placeAddressEn,
+    placeAddressAr,
+    placeWebsite,
+    placeEmail,
+    placePhone
+  } = body;
+
+  const requestBody = {
+    website: placeWebsite,
+    email: placeEmail,
+    phone: placePhone
+  };
 
   if (place_name_en) {
+    console.log(placeAddressEn);
     requestBody.en = {
-      name: place_name_en
+      name: place_name_en,
+      address: placeAddressEn
     };
   } else if (place_name_ar) {
     requestBody.ar = {
-      name: place_name_ar
+      name: place_name_ar,
+      address: placeAddressAr
     };
   } else {
     return next();

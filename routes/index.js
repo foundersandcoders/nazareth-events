@@ -11,8 +11,8 @@ const authenticate = require('./middleware/authenticate');
 
 router.get('/add-event', authenticate, getAllPlaces, addEventForm);
 router.post('/add-event', addPlace, addEvent);
-router.get('/:lang?', homePage);
 router.get('/token', handleOauth);
+router.get('/:lang?', homePage);
 router.get('/:lang/events/:id', detailsPage);
 
 module.exports = router;

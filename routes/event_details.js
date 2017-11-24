@@ -28,11 +28,16 @@ module.exports = async (req, res) => {
       title: 'Event Details',
       eventText: event[req.params.lang],
       event,
-      place: event.place[req.params.lang],
+      placeDetails: event.place[req.params.lang],
+      placeContact: event.place,
       back: req.headers.referer,
       key: process.env.GOOGLE_MAPS_KEY,
       lng,
-      lat
+      lat,
+      website: event.place.website,
+      facebook: event.place.website
+        ? event.place.website.includes('facebook')
+        : ''
     });
   } catch (err) {
     res.render('error', {
