@@ -20,12 +20,13 @@
   {{/if}}
 
   <div>
-    <h1 class="dark-text" style="font-size: 1.8rem; display: inline-block; margin-right: 1rem;">Place: {{placeDetails.name}}</h1>
+    <h1 class="dark-text" style="font-size: 1.8rem; display: inline-block; margin-right: .5rem;">Place: {{placeDetails.name}}</h1>
     {{#if website}}
       {{#if facebook}}
-          <a href={{placeContact.website}}><i style="margin-bottom: 1rem; color: #409a93;" class="fa fa-facebook-square fa-2x"></i></a>
+          <a href="http://www.{{removeProtocol website}}"><i style="margin-bottom: 1rem; color: #409a93;" class="fa fa-facebook-square fa-2x"></i></a>
       {{else}}
-        <a href={{placeContact.website}}><i style="margin-bottom: 1rem; color: #409a93;" class="fa fa-link fa-2x"></i></a>
+        <a href="http://www.{{removeProtocol website}}"><i style="margin-bottom: 1rem; color: #409a93;" class="fa fa-link fa-2x"></i></a>
+        <a href="http://www.{{removeProtocol website}}" style="font-size: 1.7rem;">website</a>
       {{/if}}
     {{/if}}
 

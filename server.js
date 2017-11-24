@@ -32,7 +32,9 @@ server.engine(
       prettyDate: date => dateFormat(date, 'dddd d  mmm  yyyy'),
       prettyTime: time => dateFormat(time, 'UTC:HH:MM'),
       findNamelang: (lang, event) => event[lang].name,
-      findPlaceLang: (lang, event) => event.place[lang].name
+      findPlaceLang: (lang, event) => event.place[lang].name,
+      removeProtocol: website =>
+        website.split('www.')[1] || website.split('www.')[0]
     }
   })
 );
