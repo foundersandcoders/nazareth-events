@@ -28,4 +28,17 @@ if (document.getElementById('arLang')) {
         .getElementById('categorySelectContainer')
         .classList.toggle('hide-cal');
     });
+
+  const categoriesDropdownList = document.getElementById('categorySelect');
+
+  categoriesDropdownList.addEventListener('click', event => {
+    const { value } = categoriesDropdownList.options[
+      categoriesDropdownList.selectedIndex
+    ];
+    if (categoriesDropdownList.selectedIndex > 0) {
+      window.location.href = `${
+        new URL(window.location.href).pathname
+      }?category=${value}`;
+    }
+  });
 }

@@ -18,6 +18,12 @@ module.exports = async (req, res) => {
       events = eventsResponse.data.filter(event => event[req.params.lang]);
     }
 
+    if (req.query.category) {
+      events = eventsResponse.data.filter(event =>
+        event.categories.includes(req.query.category)
+      );
+    }
+
     res.render('home', {
       title: 'events',
       events,
