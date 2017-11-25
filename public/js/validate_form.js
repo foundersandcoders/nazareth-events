@@ -4,29 +4,27 @@ import axios from 'axios';
 
 if (document.querySelector('.add-event-form')) {
   // add a new place
-  document
-    .getElementById('addPlaceIcon')
-    .addEventListener('click', function(e) {
-      document.getElementById('addPlaceContainer').classList.toggle('hide');
-      document.getElementById('selectAllPlaces').classList.toggle('hide');
-    });
+  document.getElementById('addPlaceIcon').addEventListener('click', e => {
+    document.getElementById('addPlaceContainer').classList.toggle('hide');
+    document.getElementById('selectAllPlaces').classList.toggle('hide');
+  });
 
-  function handleValidate(messageBox, message, input, childInputs) {
+  const handleValidate = (messageBox, message, input, childInputs) => {
     window.location.href = input;
     if (childInputs) {
-      var inputParent = document.querySelector(input).children;
+      const inputParent = document.querySelector(input).children;
       inputParent[0].style = 'border: 0.1rem red solid';
       inputParent[1].style = 'border: 0.1rem red solid';
     } else {
-      var container = document.querySelector(input);
+      const container = document.querySelector(input);
       container.style = 'border: 0.1rem red solid';
     }
     document.querySelector(messageBox).innerHTML = message;
-  }
+  };
 
-  function validated(input, messageBox, childInputs) {
+  const validated = (input, messageBox, childInputs) => {
     if (childInputs) {
-      var inputParent = document.querySelector(input).children;
+      const inputParent = document.querySelector(input).children;
       inputParent[0].style = 'border: 0.1rem gray solid';
       inputParent[1].style = 'border: 0.1rem gray solid';
     } else {
@@ -34,47 +32,47 @@ if (document.querySelector('.add-event-form')) {
       container.style = 'border: 0.1rem gray solid';
     }
     document.querySelector(messageBox).innerHTML = '';
-  }
+  };
 
-  function validatedLanguage(input, messageBox, lang) {
+  const validatedLanguage = (input, messageBox, lang) => {
     window.location.href = '#eventName';
     document.querySelector('#eventName').children[input].style =
       'border: 0.1rem red solid';
-    var messageBoxElement = document.querySelector(messageBox);
-    messageBoxElement.innerHTML = 'Should contain ' + lang + ' characters only';
+    const messageBoxElement = document.querySelector(messageBox);
+    messageBoxElement.innerHTML = `Should contain ${lang} characters only`;
     messageBoxElement.style = 'margin-top: 0.5rem;';
-  }
+  };
 
   // form event listener
   document
     .querySelector('.add-event-form')
-    .addEventListener('submit', function(event) {
+    .addEventListener('submit', event => {
       event.preventDefault();
 
-    var englishChars = /[a-zA-Z0-9]/;
-    var arabicChars = /[ا-ي0-9]/;
-    var elements = event.target.elements;
-    var data = {
-      nameEn: elements.name_english.value,
-      nameAr: elements.name_arabic.value,
-      descriptionEn: elements.description_en.value,
-      descriptionAr: elements.description_ar.value,
-      categories: elements.categories,
-      placeId: elements.placeId.value,
-      accessibilityOptions: elements.accessibilityOptions.value,
-      startDate: elements.startDate.value,
-      startTime: elements.startTime.value,
-      endTime: elements.endTime.value,
-      cost: elements.cost.value,
-      imageUrl: elements.imageUrl.value,
-      place_name_en: elements.place_name_en.value,
-      place_name_ar: elements.place_name_ar.value,
-      placeAddressEn: elements.placeAddressEn.value,
-      placeAddressAr: elements.placeAddressAr.value,
-      placeWebsite: elements.placeWebsite.value,
-      placeEmail: elements.placeEmail.value,
-      placePhone: elements.placePhone.value
-    };
+      const englishChars = /[a-zA-Z0-9]/;
+      const arabicChars = /[ا-ي0-9]/;
+      const { elements } = event.target;
+      const data = {
+        nameEn: elements.name_english.value,
+        nameAr: elements.name_arabic.value,
+        descriptionEn: elements.description_en.value,
+        descriptionAr: elements.description_ar.value,
+        categories: elements.categories,
+        placeId: elements.placeId.value,
+        accessibilityOptions: elements.accessibilityOptions.value,
+        startDate: elements.startDate.value,
+        startTime: elements.startTime.value,
+        endTime: elements.endTime.value,
+        cost: elements.cost.value,
+        imageUrl: elements.imageUrl.value,
+        place_name_en: elements.place_name_en.value,
+        place_name_ar: elements.place_name_ar.value,
+        placeAddressEn: elements.placeAddressEn.value,
+        placeAddressAr: elements.placeAddressAr.value,
+        placeWebsite: elements.placeWebsite.value,
+        placeEmail: elements.placeEmail.value,
+        placePhone: elements.placePhone.value
+      };
 
       if (!data.nameEn && !data.nameAr) {
         return handleValidate(
@@ -113,8 +111,8 @@ if (document.querySelector('.add-event-form')) {
       } else {
         validated('#eventDescription', '.msg-box-input', true);
       }
-      var categoryChecks = 0;
-      var checkedCategories = [];
+      let categoryChecks = 0;
+      const checkedCategories = [];
       for (var i in data.categories) {
         if (data.categories[i].checked) {
           checkedCategories.push(data.categories[i].value);
@@ -148,7 +146,7 @@ if (document.querySelector('.add-event-form')) {
       }
 
       if (data.accessibilityOptions) {
-        var checkedAccessibility = [];
+        const checkedAccessibility = [];
         for (i in data.accessibilityOptions) {
           if (data.accessibilityOptions[i].checked) {
             checkedAccessibility.push(data.accessibilityOptions[i].value);
@@ -159,7 +157,7 @@ if (document.querySelector('.add-event-form')) {
 
       axios
         .post('/add-event', data)
-        .then(function(res) {
+        .then(res => {
           window.location = res.request.responseURL;
         })
         .catch(err => console.log('err', err));
