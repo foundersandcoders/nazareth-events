@@ -19,7 +19,7 @@ module.exports = async (req, res) => {
     }
 
     if (req.query.category) {
-      events = eventsResponse.data.filter(event =>
+      events = events.filter(event =>
         event.categories.includes(req.query.category)
       );
     }
