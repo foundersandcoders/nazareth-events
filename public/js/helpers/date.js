@@ -1,6 +1,6 @@
 const toDateString = date =>
   // + 1 on the month because month is zero-indexed
-  `${date.getFullYear()}-${date.getMonth() + 1}- ${date.getDate()}`;
+  `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
 
 const formatDate = date => {
   const splitDate = date.split('-');
