@@ -1,13 +1,10 @@
-var toDateString = function (date) {
+const toDateString = date =>
   // + 1 on the month because month is zero-indexed
-  return (
-    date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate()
-  );
-};
+  `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
 
-var formatDate = function (date) {
-  var splitDate = date.split('-');
-  var newDate = new Date(
+const formatDate = date => {
+  const splitDate = date.split('-');
+  const newDate = new Date(
     // year
     splitDate[0],
     // month (-1 because zero indexed)

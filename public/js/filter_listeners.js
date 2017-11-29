@@ -2,8 +2,8 @@
 /* eslint no-global-assign: "error" */
 
 if (document.getElementById('arLang')) {
-  document.getElementById('arLang').addEventListener('click', function() {
-    var search = new URL(window.location.href).search;
+  document.getElementById('arLang').addEventListener('click', () => {
+    const { search } = new URL(window.location.href);
     if (search) {
       window.location.href = '/ar' + search;
     } else {
@@ -11,8 +11,8 @@ if (document.getElementById('arLang')) {
     }
   });
 
-  document.getElementById('enLang').addEventListener('click', function() {
-    var search = new URL(window.location.href).search;
+  document.getElementById('enLang').addEventListener('click', () => {
+    const { search } = new URL(window.location.href);
     if (search) {
       window.location.href = '/en' + search;
     } else {
@@ -21,6 +21,7 @@ if (document.getElementById('arLang')) {
   });
 
   // event listener for category select in header
+
   document
     .getElementById('categoryButton')
     .addEventListener('click', function() {

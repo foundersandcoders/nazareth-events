@@ -4,25 +4,21 @@ import Cal from '../calendar';
 import addDateEventListeners from '../main';
 
 if (document.getElementById('calendarIcon')) {
-  (function() {
-    axios.get(`${webpack.env.URI}/events`).then(function(res) {
-      var data = res.data.map(event => {
-        return event.startTime;
-      });
-      // create calendar
-      var calendar = new Cal('calendar');
-      calendar.render(data);
-      addDateEventListeners();
+  axios.get(`${webpack.env.URI}/events`).then(res => {
+    const data = res.data.map(event => event.startTime);
+    // create calendar
+    const calendar = new Cal('calendar');
+    calendar.render(data);
+    addDateEventListeners();
 
-      // calendar next and prev month buttons
-      document.getElementById('next-button').onclick = function() {
-        calendar.nextMonth(data);
-        addDateEventListeners();
-      };
-      document.getElementById('prev-button').onclick = function() {
-        calendar.previousMonth(data);
-        addDateEventListeners();
-      };
-    });
-  })();
+    // calendar next and prev month buttons
+    document.getElementById('next-button').onclick = () => {
+      calendar.nextMonth(data);
+      addDateEventListeners();
+    };
+    document.getElementById('prev-button').onclick = () => {
+      calendar.previousMonth(data);
+      addDateEventListeners();
+    };
+  });
 }
