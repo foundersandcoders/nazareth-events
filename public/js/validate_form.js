@@ -19,7 +19,7 @@ if (document.querySelector('.add-event-form')) {
       const container = document.querySelector(input);
       container.style = 'border: 0.1rem red solid';
     }
-    document.querySelector(messageBox).innerHTML = message;
+    document.querySelector(messageBox).textContent = message;
   };
 
   const validated = (input, messageBox, childInputs) => {
@@ -31,7 +31,7 @@ if (document.querySelector('.add-event-form')) {
       var container = document.querySelector(input);
       container.style = 'border: 0.1rem gray solid';
     }
-    document.querySelector(messageBox).innerHTML = '';
+    document.querySelector(messageBox).textContent = '';
   };
 
   const validatedLanguage = (input, messageBox, lang) => {
@@ -39,7 +39,7 @@ if (document.querySelector('.add-event-form')) {
     document.querySelector('#eventName').children[input].style =
       'border: 0.1rem red solid';
     const messageBoxElement = document.querySelector(messageBox);
-    messageBoxElement.innerHTML = `Should contain ${lang} characters only`;
+    messageBoxElement.textContent = `Should contain ${lang} characters only`;
     messageBoxElement.style = 'margin-top: 0.5rem;';
   };
 
