@@ -19,7 +19,6 @@ module.exports = async ({ body }, res, next) => {
   };
 
   if (place_name_en) {
-    console.log(placeAddressEn);
     requestBody.en = {
       name: place_name_en,
       address: placeAddressEn

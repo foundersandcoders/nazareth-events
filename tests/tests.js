@@ -11,6 +11,11 @@ const sortPlaces = require('../helpers/sort_places.js');
 
 tape('Test home route', t => {
   const currentDate = new Date().toISOString().slice(0, 10);
+
+  nock(process.env.URI)
+    .get(`/events?date_from=${currentDate}`)
+    .reply(200, [{ en: { name: 'king go home' }, place: { en: 'somehwere' } }]);
+
   nock(process.env.URI)
     .get(`/events?date_from=${currentDate}`)
     .reply(200, [{ en: { name: 'king go home' }, place: { en: 'somehwere' } }]);
@@ -38,12 +43,23 @@ tape('Test home route', t => {
     .get('/')
     .end((err, res) => {
       t.error(err, '/ home route does not return an error');
+      t.ok(
+        res.text.includes(
+          '<section id="events-section" class="events-section">'
+        )
+      );
     });
 
   supertest(server)
     .get(`/?date_from=${currentDate}&date_to=2024-1-1`)
     .end((err, res) => {
-      t.error(err);
+      t.error(err, 'Filter by date did not error');
+    });
+
+  supertest(server)
+    .get('/?category=sport')
+    .end((err, res) => {
+      t.error(err, 'Filter by categories did not error');
       t.end();
     });
 });
