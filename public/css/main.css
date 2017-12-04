@@ -128,8 +128,8 @@ body {
 .event-link {
   background-color: #eaeaea;
   min-height: 9.5rem;
-  padding: 1rem;
-  margin-bottom: 1rem;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
   box-shadow: 0 0.2rem 0.2rem #dadada;
   display: flex;
   flex-direction: column;
@@ -208,7 +208,7 @@ body {
 }
 
 .margins {
-  margin-bottom: 4rem;
+  margin-bottom: 3rem;
 }
 
 .access-category {
