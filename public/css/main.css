@@ -390,6 +390,12 @@ select {
   text-align: center;
 }
 
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) {
+  .cal-month {
+    font: bolder 2rem 'Lato', sans-serif;
+  }
+}
+
 .cal-instructions {
   margin: 1.7rem 0 1.5rem 0;
   font-size: 1.8rem;
