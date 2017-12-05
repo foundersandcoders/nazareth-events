@@ -27,7 +27,7 @@ if (document.getElementById('arLang')) {
     .addEventListener('click', function() {
       document
         .getElementById('categorySelectContainer')
-        .classList.toggle('hide-cal');
+        .classList.toggle('hide');
     });
 
   const categoriesDropdownList = document.getElementById('categorySelect');
