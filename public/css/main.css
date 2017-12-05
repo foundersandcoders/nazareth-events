@@ -128,8 +128,8 @@ body {
 .event-link {
   background-color: #eaeaea;
   min-height: 9.5rem;
-  padding: 1rem;
-  margin-bottom: 1rem;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
   box-shadow: 0 0.2rem 0.2rem #dadada;
   display: flex;
   flex-direction: column;
@@ -155,6 +155,16 @@ body {
   font: 1.5rem 'Lato', sans-serif;
   font-style: italic;
   margin-bottom: 0.2rem;
+}
+
+.category-icon-container {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+}
+
+.category-icon {
+  width: 2rem;
 }
 
 .no-events {
@@ -208,7 +218,7 @@ body {
 }
 
 .margins {
-  margin-bottom: 4rem;
+  margin-bottom: 3rem;
 }
 
 .access-category {
@@ -348,7 +358,7 @@ select {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  position: fixed;
+  position: absolute;
   top: 8rem;
   left: 0;
   width: 100%;
