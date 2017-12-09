@@ -14,7 +14,13 @@ tape('Test home route', t => {
 
   nock(process.env.URI)
     .get(`/events?date_from=${currentDate}`)
-    .reply(200, [{ en: { name: 'king go home' }, place: { en: 'somehwere' } }]);
+    .reply(200, [
+      {
+        en: { name: 'king go home' },
+        place: { en: 'somehwere' },
+        categories: ['miscellaneous', 'sport']
+      }
+    ]);
 
   nock(process.env.URI)
     .get(`/events?date_from=${currentDate}`)

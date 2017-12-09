@@ -157,6 +157,17 @@ body {
   margin-bottom: 0.2rem;
 }
 
+.category-icon-container {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+}
+
+.category-icon {
+  width: 2rem;
+  height: 2rem;
+}
+
 .no-events {
   color: #585858;
   font: bold 2rem 'Lato', sans-serif;
@@ -348,7 +359,7 @@ select {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  position: fixed;
+  position: absolute;
   top: 8rem;
   left: 0;
   width: 100%;
@@ -378,6 +389,12 @@ select {
   margin: 0 3rem;
   width: 19.5rem;
   text-align: center;
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-device-pixel-ratio: 2) and (device-aspect-ratio: 40/71) {
+  .cal-month {
+    font: bolder 2rem 'Lato', sans-serif;
+  }
 }
 
 .cal-instructions {

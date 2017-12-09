@@ -8,6 +8,13 @@
           <h3 class="event-name">{{findNamelang ../lang this}}</h3>
           <h4 class="time">{{prettyDate this.startTime}} {{prettyTime this.startTime}} - {{prettyTime this.endTime}}</h4>
           <h5 class="where">{{findPlaceLang ../lang this}}</h5>
+          <div class="category-icon-container">
+            {{#each this.categories}}
+              {{#if (checkCategory this)}}
+                <img src="/images/categories/{{this}}.png" class="category-icon" alt="{{this}}">
+              {{/if}}
+            {{/each}}
+          </div>
         </a>
       {{/each}}
     {{else}}

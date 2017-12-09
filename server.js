@@ -34,7 +34,8 @@ server.engine(
       findNamelang: (lang, event) => event[lang].name,
       findPlaceLang: (lang, event) => event.place[lang].name,
       removeProtocol: website =>
-        website.split('www.')[1] || website.split('www.')[0]
+        website.split('www.')[1] || website.split('www.')[0],
+      checkCategory: category => (category === 'miscellaneous' ? false : true)
     }
   })
 );

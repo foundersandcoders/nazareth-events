@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+require('dotenv').config();
 
 module.exports = {
   context: path.join(__dirname),
@@ -32,7 +33,7 @@ module.exports = {
   plugins: [
     new webpack.DefinePlugin({
       'webpack.env': {
-        URI: JSON.stringify('http://localhost:3000/api/v1')
+        URI: JSON.stringify(process.env.URI)
       }
     })
   ]
