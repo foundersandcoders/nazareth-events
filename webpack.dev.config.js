@@ -23,6 +23,18 @@ module.exports = {
         query: {
           presets: [['env', { targets: { browsers: 'last 2 versions' } }]]
         }
+      },
+      {
+        test: /\.hbs$/,
+        loader: 'handlebars-loader',
+        query: {
+          precompileOptions: {
+            knownHelpersOnly: false
+          },
+          layoutDirs: path.join(__dirname, 'views/layouts'),
+          partialDirs: path.join(__dirname, 'views/partials'),
+          helperDirs: path.join(__dirname, 'views/helpers')
+        }
       }
     ]
   },
