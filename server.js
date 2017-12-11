@@ -29,13 +29,12 @@ server.engine(
     partialsDir: path.join(__dirname, './', 'views/partials'),
     extname: 'hbs',
     helpers: {
-      prettyDate: date => dateFormat(date, 'dddd d  mmm  yyyy'),
-      prettyTime: time => dateFormat(time, 'UTC:HH:MM'),
-      findNamelang: (lang, event) => event[lang].name,
-      findPlaceLang: (lang, event) => event.place[lang].name,
-      removeProtocol: website =>
-        website.split('www.')[1] || website.split('www.')[0],
-      checkCategory: category => (category === 'miscellaneous' ? false : true)
+      prettyDate: require('./views/helpers/prettyDate.js'),
+      prettyTime: require('./views/helpers/prettyTime.js'),
+      findNamelang: require('./views/helpers/findNamelang.js'),
+      findPlaceLang: require('./views/helpers/findPlaceLang.js'),
+      removeProtocol: require('./views/helpers/removeProtocol.js'),
+      checkCategory: require('./views/helpers/checkCategory.js')
     }
   })
 );
