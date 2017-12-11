@@ -7,8 +7,6 @@ const nock = require('nock');
 const flush = require('./flush_database.js');
 require('dotenv').config();
 
-const sortPlaces = require('../helpers/sort_places.js');
-
 tape('Test home route', t => {
   const currentDate = new Date().toISOString().slice(0, 10);
 
@@ -70,124 +68,6 @@ tape('Test home route', t => {
     });
 });
 
-tape('Test POST arabic event', t => {
-  const data = {
-    nameAr: 'شو عم بصير',
-    descriptionAr: 'واو',
-    categories: ['music'],
-    accessibilityOptions: '',
-    startDate: '2017-11-24',
-    startTime: '00:00',
-    endTime: '14:00',
-    cost: 0,
-    place_name_ar: 'واو'
-  };
-
-  nock(process.env.URI)
-    .post('/events')
-    .reply(200, { _id: 1 });
-
-  nock(process.env.URI)
-    .post('/places')
-    .reply(200, { _id: 1 });
-
-  supertest(server)
-    .post('/add-event')
-    .send(data)
-    .end((err, res) => {
-      t.error(err, 'posting an event did not error');
-      t.equal(res.statusCode, 302, 'added the event successfully');
-      t.end();
-    });
-});
-
-tape('Test POST english event', t => {
-  const data = {
-    nameEn: 'going to the beach',
-    descriptionEn: 'there is a beach',
-    categories: ['music'],
-    accessibilityOptions: ['Disabled toilets'],
-    startDate: '2017-11-24',
-    startTime: '00:00',
-    endTime: '14:00',
-    cost: 0,
-    place_name_en: 'over the rainbow'
-  };
-
-  nock(process.env.URI)
-    .post('/events')
-    .reply(200, { _id: 1 });
-
-  nock(process.env.URI)
-    .post('/places')
-    .reply(200, { _id: 1 });
-
-  supertest(server)
-    .post('/add-event')
-    .send(data)
-    .end((err, res) => {
-      t.error(err, 'posting an event did not error');
-      t.end();
-    });
-});
-
-tape('Test POST event with a specific place', t => {
-  const data = {
-    nameEn: 'Finn week off',
-    descriptionEn: 'there is a beach, music',
-    categories: ['music'],
-    accessibilityOptions: ['Disabled toilets'],
-    startDate: '2017-11-24',
-    startTime: '00:00',
-    endTime: '14:00',
-    cost: 0,
-    placeId: 1
-  };
-
-  nock(process.env.URI)
-    .post('/events')
-    .reply(200, { _id: 1 });
-
-  supertest(server)
-    .post('/add-event')
-    .send(data)
-    .end((err, res) => {
-      t.error(err, 'posting an event did not error');
-      t.end();
-    });
-});
-
-tape('Test the authentication middleware', t => {
-  nock(process.env.URI)
-    .get('/places')
-    .reply(200, [{ en: { name: 'home' } }]);
-
-  const token = jwt.sign('somthing', process.env.JWT_SECRET);
-  supertest(server)
-    .get('/add-event')
-    .set('Cookie', [`token=${token}`])
-    .end((err, res) => {
-      t.error(err, ' /add-event with a valid token did not return an error');
-      t.ok(res.text.includes('<form class="add-event-form">'));
-    });
-
-  supertest(server)
-    .get('/add-event')
-    .end((err, res) => {
-      t.error(err, '/add-event with no cookie did not return error');
-      t.equal(res.status, 302, 'Should redirect to the OTP api login');
-    });
-
-  supertest(server)
-    .get('/add-event')
-    .set('Cookie', ['token=testcookie'])
-    .end((err, res) => {
-      t.error(err, '/add-event with an invalid token did not return an error');
-      t.equal(res.status, 302, 'Should redirect to the OTP api login');
-      t.end();
-    });
-});
-
 tape('Test the event details route', async t => {
   nock(process.env.URI)
     .get('/events/1')
@@ -236,21 +116,4 @@ tape('Test the event details route', async t => {
       t.error(err, 'It rendered the event details with a map from api coords');
       t.end();
     });
-});
-
-tape('test sort places function', t => {
-  const expected = sortPlaces([
-    { ar: { name: 'بقبق' }, _id: 1 },
-    { en: { name: 'liwan' }, _id: 2 },
-    { en: { name: 'somewhere' }, ar: { name: 'بقبق' }, _id: 3 }
-  ]);
-
-  const actual = [
-    { name: 'liwan', id: 2 },
-    { name: 'somewhere / بقبق', id: 3 },
-    { name: 'بقبق', id: 1 }
-  ];
-
-  t.deepEqual(actual, expected, 'should get an array with 2 indexes');
-  t.end();
 });
