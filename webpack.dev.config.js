@@ -44,7 +44,7 @@ module.exports = {
   plugins: [
     new webpack.DefinePlugin({
       'webpack.env': {
-        URI: JSON.stringify(process.env.URI)
+        URI: JSON.stringify(process.env.PRODUCTION_API)
       }
     })
   ]
