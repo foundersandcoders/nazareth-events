@@ -1,7 +1,7 @@
 const axios = require('axios');
 
 module.exports = async (req, res) => {
-  let url = `${process.env.URI}/events`;
+  let url = `${process.env.PRODUCTION_API}/events`;
   try {
     if (req.query.date_from) {
       url =
@@ -31,9 +31,12 @@ module.exports = async (req, res) => {
       calendarButton: true,
       filterButtons: true,
       english: req.params.lang !== 'ar',
-      arabic: req.params.lang === 'ar'
+      currentDate: new Date().toISOString().split('T')[0],
+      arabic: req.params.lang === 'ar',
+      numberOfEvents: events.length
     });
   } catch (err) {
+    console.log(err);
     /* istanbul ignore next */
     res.render('error', {
       errorMessage: 'An error occurred, click on the title to go back home'
