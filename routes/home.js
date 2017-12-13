@@ -1,7 +1,7 @@
 const axios = require('axios');
 
 module.exports = async (req, res) => {
-  let url = `${process.env.PRODUCTION_API}/events`;
+  let url = `${process.env.URI}/events`;
   try {
     if (req.query.date_from) {
       url =
@@ -36,7 +36,6 @@ module.exports = async (req, res) => {
       numberOfEvents: events.length
     });
   } catch (err) {
-    console.log(err);
     /* istanbul ignore next */
     res.render('error', {
       errorMessage: 'An error occurred, click on the title to go back home'
