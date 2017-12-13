@@ -33,7 +33,6 @@ module.exports = async (req, res) => {
           return acc;
         }, {})
     );
-    console.log(categories);
 
     res.render('home', {
       title: 'events',
