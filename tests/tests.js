@@ -69,7 +69,7 @@ tape('Test home route', t => {
 });
 
 tape('Test the event details route', async t => {
-  nock(process.env.URI)
+  nock(process.env.PRODUCTION_API)
     .get('/events/1')
     .reply(200, {
       en: { name: 'FAC' },
@@ -93,7 +93,7 @@ tape('Test the event details route', async t => {
       t.ok(res.text.includes(htmlSample), 'It found the right event');
     });
 
-  nock(process.env.URI)
+  nock(process.env.PRODUCTION_API)
     .get('/events/someid')
     .reply(404);
 
@@ -103,7 +103,7 @@ tape('Test the event details route', async t => {
       t.error(err, 'event details /:lang/events/:id did not return an error');
     });
 
-  nock(process.env.URI)
+  nock(process.env.PRODUCTION_API)
     .get('/events/2')
     .reply(200, {
       en: { name: 'FAC' },

@@ -1,8 +1,10 @@
 /* global  URL Cal formatDate */
 import formatDate from './helpers/date';
-let addDateEventListeners;
+import Cal from './calendar';
 
-if (document.getElementById('list-page-content')) {
+export function initCalendarEventListener(data) {
+  const calendarData = data.map(event => event.startTime);
+
   const dateClickHandler = e => {
     const { date } = e.target.dataset;
     window.location.href = `${
@@ -20,12 +22,28 @@ if (document.getElementById('list-page-content')) {
     document.getElementById('show-cal').classList.toggle('hide-cal');
   });
 
-  addDateEventListeners = () => {
+  // builds the calendar
+  const calendar = new Cal('calendar');
+  calendar.render(calendarData);
+
+  // calendar next and prev month buttons
+  document.getElementById('next-button').onclick = () => {
+    calendar.nextMonth(calendarData);
     document.querySelectorAll('td.day').forEach(day => {
       day.removeEventListener('click', dateClickHandler);
       day.addEventListener('click', dateClickHandler);
     });
   };
-}
+  document.getElementById('prev-button').onclick = () => {
+    calendar.previousMonth(calendarData);
+    document.querySelectorAll('td.day').forEach(day => {
+      day.removeEventListener('click', dateClickHandler);
+      day.addEventListener('click', dateClickHandler);
+    });
+  };
 
-export default addDateEventListeners;
+  document.querySelectorAll('td.day').forEach(day => {
+    day.removeEventListener('click', dateClickHandler);
+    day.addEventListener('click', dateClickHandler);
+  });
+}

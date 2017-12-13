@@ -1,22 +1,37 @@
 /* global URL type:true axios */
 /* eslint no-global-assign: "error" */
-
-if (document.getElementById('arLang')) {
-  document.getElementById('arLang').addEventListener('click', () => {
-    const { search } = new URL(window.location.href);
-    if (search) {
-      window.location.href = '/ar' + search;
-    } else {
-      window.location.href = '/ar';
-    }
-  });
-
+import { renderStuff } from './template';
+import parse from 'webpack-parse-query';
+export function initEventListeners() {
+  if (document.getElementById('arLang')) {
+    document.getElementById('arLang').addEventListener('click', () => {
+      const { search } = new URL(window.location.href);
+      if (search) {
+        const { date_to, date_from } = parse(search);
+        const data = {
+          date_to,
+          date_from,
+          category,
+          lang: 'ar'
+        };
+        return renderStuff(data);
+      } else {
+        return renderStuff({ lang: 'ar' });
+      }
+    });
+  }
   document.getElementById('enLang').addEventListener('click', () => {
     const { search } = new URL(window.location.href);
     if (search) {
-      window.location.href = '/en' + search;
+      const { date_to, date_from } = parse(search);
+      const data = {
+        date_to,
+        date_from,
+        lang: 'en'
+      };
+      renderStuff(data);
     } else {
-      window.location.href = '/en';
+      renderStuff({ lang: 'en' });
     }
   });
 
@@ -37,9 +52,23 @@ if (document.getElementById('arLang')) {
       categoriesDropdownList.selectedIndex
     ];
     if (categoriesDropdownList.selectedIndex > 0) {
-      window.location.href = `${
-        new URL(window.location.href).pathname
-      }?category=${value}`;
+      const { pathname, search } = new URL(window.location.href);
+      if (search) {
+        const { date_to, date_from } = parse(search);
+        data = {
+          date_to,
+          date_from,
+          lang: pathname.split('/')[1],
+          categories: value
+        };
+        renderStuff(data);
+      } else {
+        data = {
+          lang: pathname.split('/')[1],
+          categories: value
+        };
+        renderStuff(data);
+      }
     }
   });
 }
