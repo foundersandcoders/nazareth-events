@@ -6,23 +6,21 @@ let eventsState = [];
 
 export function renderStuff(newFilter) {
   let filteredEvents = eventsState.filter(event => event[newFilter.lang]);
-  let newDateTo;
-  let newDateFrom;
+
   if (newFilter.date_from) {
-    newDateTo = new Date('2018-11-2');
-    newDateFrom = new Date(newFilter.date_from);
+    const newDateFrom = new Date(newFilter.date_from);
     filteredEvents = filteredEvents.filter(
       event =>
         new Date(event.startTime) >= newDateFrom &&
-        new Date(event.startTime) <= newDateTo
+        new Date(event.startTime) <=
+          new Date().setFullYear(newDateTo.getFullYear() + 1)
     );
   } else if (newFilter.categories && !newFilter.date_from) {
-    newDateFrom = new Date();
     filteredEvents = filteredEvents.filter(
-      event => new Date(event.startTime) > newDateFrom
+      event => new Date(event.startTime) > new Date()
     );
   } else {
-    newDateFrom = new Date();
+    const newDateFrom = new Date();
     filteredEvents = filteredEvents.filter(
       event => new Date(event.startTime) > newDateFrom
     );

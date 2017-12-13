@@ -2,14 +2,13 @@
 /* eslint no-global-assign: "error" */
 import { renderStuff } from './template';
 import parse from 'webpack-parse-query';
-let data;
 export function initEventListeners() {
   if (document.getElementById('arLang')) {
     document.getElementById('arLang').addEventListener('click', () => {
       const { search } = new URL(window.location.href);
       if (search) {
-        const { date_to, date_from, category } = parse(search);
-        data = {
+        const { date_to, date_from } = parse(search);
+        const data = {
           date_to,
           date_from,
           category,
@@ -25,7 +24,7 @@ export function initEventListeners() {
     const { search } = new URL(window.location.href);
     if (search) {
       const { date_to, date_from } = parse(search);
-      data = {
+      const data = {
         date_to,
         date_from,
         lang: 'en'
