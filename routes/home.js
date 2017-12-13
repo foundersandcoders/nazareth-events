@@ -24,9 +24,20 @@ module.exports = async (req, res) => {
       );
     }
 
+    const categories = Object.keys(
+      events
+        .reduce((acc, { categories }) => [...acc, ...categories], [])
+        .reduce((acc, category) => {
+          acc[category] = true;
+
+          return acc;
+        }, {})
+    );
+
     res.render('home', {
       title: 'events',
       events,
+      categories,
       lang: req.params.lang || 'en',
       calendarButton: true,
       filterButtons: true,

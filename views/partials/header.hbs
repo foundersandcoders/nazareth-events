@@ -15,18 +15,10 @@
     <button id="arLang" class="lang-btn ar-lang {{#if arabic}}active-lang{{/if}}" type="button" name="arabic button">عربية</button>
   </nav>
   <div class="filter-nav categories-select-container hide" id="categorySelectContainer">
-    <select class="lang-btn categories-select" id="categorySelect">
-      <option disabled selected></option>
-      <option value="music">Music</option>
-      <option value="dining">Dining</option>
-      <option value="educational">Educational</option>
-      <option value="conference">Conference</option>
-      <option value="sport">Sport</option>
-      <option value="competition">Competition</option>
-      <option value="launch">Launch</option>
-      <option value="party">Party</option>
-      <option value="culture">Culture</option>
-      <option value="miscellaneous">Miscellaneous</option>
-    </select>
+    {{#each categories}}
+    <label>{{this}}
+      <input type="checkbox" name="{{this}}" value="{{this}}">
+    </label>
+    {{/each}}
   </div>
 {{/if}}
