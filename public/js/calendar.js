@@ -1,5 +1,9 @@
 /* global dateArray */
 
+(props.passed === 'passed' && '#26a69a') ||
+  (props.passed === 'not passed' && '#d32f2f') ||
+  '#455a64';
+
 const Cal = function(divId) {
   this.divId = divId;
 
@@ -19,7 +23,7 @@ const Cal = function(divId) {
     'September',
     'October',
     'November',
-    'December'
+    'December',
   ];
 
   // Set the current month, year
@@ -105,7 +109,7 @@ Cal.prototype.showMonth = function(year, month, dateArray) {
       for (var j = 0; j < this.firstDayOfMonth; j++) {
         html += `<td data-date=
           ${dstring}
-          class="day not-current-month">
+          class="day calendar__not-current-month">
           ${k}
           </td>`;
         k++;
@@ -121,7 +125,12 @@ Cal.prototype.showMonth = function(year, month, dateArray) {
       chkM === this.currMonth &&
       i === this.currDay
     ) {
-      html += '<td data-date=' + dstring + ' class="day today">' + i + '</td>';
+      html +=
+        '<td data-date=' +
+        dstring +
+        ' class="day calendar__today">' +
+        i +
+        '</td>';
     } else {
       var currentDate = new Date(this.currYear, this.currMonth, i);
       for (var h = 0; h < dateArray.length; h++) {
@@ -135,7 +144,7 @@ Cal.prototype.showMonth = function(year, month, dateArray) {
           html +=
             '<td data-date=' +
             dstring +
-            ' class="day normal event-found">' +
+            ' class="day normal calendar__event-found">' +
             i +
             '</td>';
           break;
@@ -156,7 +165,7 @@ Cal.prototype.showMonth = function(year, month, dateArray) {
         html +=
           '<td data-date=' +
           dstring +
-          ' class="day not-current-month">' +
+          ' class="day calendar__not-current-month">' +
           k +
           '</td>';
         k++;
