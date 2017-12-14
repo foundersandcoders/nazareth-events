@@ -29,7 +29,8 @@ server.engine(
       findNamelang: require('./views/helpers/findNamelang.js'),
       findPlaceLang: require('./views/helpers/findPlaceLang.js'),
       removeProtocol: require('./views/helpers/removeProtocol.js'),
-      checkCategory: require('./views/helpers/checkCategory.js')
+      checkCategory: require('./views/helpers/checkCategory.js'),
+      getLength: require('./views/helpers/getLength.js')
     }
   })
 );
