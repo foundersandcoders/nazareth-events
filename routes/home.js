@@ -1,7 +1,7 @@
 const axios = require('axios');
 
 module.exports = async (req, res) => {
-  let url = `${process.env.URI}/events`;
+  let url = `${process.env.PRODUCTION_API}/events`;
   try {
     if (req.query.date_from) {
       url =

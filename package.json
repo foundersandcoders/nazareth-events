@@ -42,7 +42,8 @@
     "handlebars-loader": "^1.6.0",
     "jsonwebtoken": "^8.0.1",
     "mongodb": "^2.2.33",
-    "webpack": "^3.8.1"
+    "webpack": "^3.8.1",
+    "webpack-parse-query": "^1.0.1"
   },
   "devDependencies": {
     "babel-eslint": "^8.0.2",

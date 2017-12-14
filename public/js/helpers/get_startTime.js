@@ -1,24 +1,16 @@
 /* global axios Cal addDateEventListeners webpack */
 import axios from 'axios';
-import Cal from '../calendar';
-import addDateEventListeners from '../main';
+import addDateEventListeners, { initCalendarEventListener } from '../main';
+import { updateEvents } from '../template';
+import { initEventListeners } from '../filter_listeners';
 
 if (document.getElementById('calendarIcon')) {
   axios.get(`${webpack.env.URI}/events`).then(res => {
-    const data = res.data.map(event => event.startTime);
+    // update the state with the events
+    updateEvents(res.data);
+    // initiate the event listeners
+    initEventListeners();
     // create calendar
-    const calendar = new Cal('calendar');
-    calendar.render(data);
-    addDateEventListeners();
-
-    // calendar next and prev month buttons
-    document.getElementById('next-button').onclick = () => {
-      calendar.nextMonth(data);
-      addDateEventListeners();
-    };
-    document.getElementById('prev-button').onclick = () => {
-      calendar.previousMonth(data);
-      addDateEventListeners();
-    };
+    initCalendarEventListener(res.data);
   });
 }
