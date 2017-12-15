@@ -1,6 +1,7 @@
 import homeView from '../../views/home.hbs';
 import { initEventListeners } from './filter_listeners';
 import { initCalendarEventListener } from './main.js';
+import parse from 'webpack-parse-query';
 
 let eventsState = [];
 
@@ -8,6 +9,7 @@ export function renderStuff(newFilter) {
   let filteredEvents = eventsState.filter(event => event[newFilter.lang]);
 
   if (newFilter.date_from) {
+    const newDateTo = new Date();
     const newDateFrom = new Date(newFilter.date_from);
     filteredEvents = filteredEvents.filter(
       event =>
@@ -20,9 +22,8 @@ export function renderStuff(newFilter) {
       event => new Date(event.startTime) > new Date()
     );
   } else {
-    const newDateFrom = new Date();
     filteredEvents = filteredEvents.filter(
-      event => new Date(event.startTime) > newDateFrom
+      event => new Date(event.startTime) > new Date()
     );
   }
 
@@ -32,13 +33,18 @@ export function renderStuff(newFilter) {
     );
   }
 
+  // when we use the template, we need the result bar date to be the same
+  const { search } = new URL(window.location.href);
+  const { date_from } = parse(search);
+
   const template = homeView({
     events: filteredEvents,
     lang: newFilter.lang || 'en',
     calendarButton: true,
     filterButtons: true,
     english: newFilter.lang === 'en',
-    arabic: newFilter.lang === 'ar'
+    arabic: newFilter.lang === 'ar',
+    currentDate: date_from || new Date().toISOString().split('T')[0]
   });
   document.getElementById('root').innerHTML = template;
   initCalendarEventListener(eventsState);
