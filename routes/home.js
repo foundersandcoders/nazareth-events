@@ -31,7 +31,8 @@ module.exports = async (req, res) => {
       calendarButton: true,
       filterButtons: true,
       english: req.params.lang !== 'ar',
-      currentDate: new Date().toISOString().split('T')[0],
+      currentDate:
+        req.query.date_from || new Date().toISOString().split('T')[0],
       arabic: req.params.lang === 'ar'
     });
   } catch (err) {
