@@ -193,6 +193,7 @@ body {
 .search-bar__top__filter__input {
   width: 100%;
   padding: 0.6rem;
+  padding-bottom: 0.3rem;
   font-size: 1rem;
   border-radius: 0.3rem;
   outline-color: #4a9dc6;
@@ -227,10 +228,29 @@ body {
 
 /*** EVENTS LIST ***/
 
+.event-results {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6c6c6c;
+  font-family: 'Open Sans';
+  font-size: .9rem;
+}
+
+.event-results__string {
+  text-align:center;
+  padding: 1.3rem 1rem 0rem 1rem;
+}
+
+.event-results__string--pink {
+  color: #FF447F;
+}
+
 .event-list {
   display: flex;
   flex-direction: column;
   padding: 0.9rem;
+  padding-top: 0.3rem;
 }
 
 .event {
@@ -239,6 +259,10 @@ body {
   border-bottom: 0.1rem solid #eee;
   display: flex;
   align-items: center;
+}
+
+.event:first-child {
+  padding-top: .8rem;
 }
 
 .event:last-child {

@@ -1,7 +1,7 @@
 {{>header}}
 {{>calendar}}
-<div class="">
-  <p>showing {{getLength events}} events from {{currentDate}}</p>
+<div class="event-results">
+  <p class="event-results__string">Showing <span class="event-results__string--pink">{{getLength events}}</span> events from <span class="event-results__string--pink">{{currentDate}}</span></p>
 </div>
 <div id="list-page-content">
   <section id="events-section" class="event-list">
