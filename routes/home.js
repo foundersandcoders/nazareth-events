@@ -1,7 +1,7 @@
 const axios = require('axios');
 
 module.exports = async (req, res) => {
-  let url = `${process.env.URI}/events`;
+  let url = `${process.env.PRODUCTION_API}/events`;
   try {
     if (req.query.date_from) {
       url =
@@ -24,9 +24,20 @@ module.exports = async (req, res) => {
       );
     }
 
+    const categories = Object.keys(
+      events
+        .reduce((acc, { categories }) => [...acc, ...categories], [])
+        .reduce((acc, category) => {
+          acc[category] = true;
+
+          return acc;
+        }, {})
+    );
+
     res.render('home', {
       title: 'events',
       events,
+      categories,
       lang: req.params.lang || 'en',
       calendarButton: true,
       filterButtons: true,

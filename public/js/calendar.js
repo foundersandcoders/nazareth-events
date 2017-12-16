@@ -1,9 +1,5 @@
 /* global dateArray */
 
-(props.passed === 'passed' && '#26a69a') ||
-  (props.passed === 'not passed' && '#d32f2f') ||
-  '#455a64';
-
 const Cal = function(divId) {
   this.divId = divId;
 
@@ -23,7 +19,7 @@ const Cal = function(divId) {
     'September',
     'October',
     'November',
-    'December',
+    'December'
   ];
 
   // Set the current month, year

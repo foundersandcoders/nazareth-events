@@ -2,7 +2,7 @@ const axios = require('axios');
 require('dotenv').config();
 
 module.exports = async (req, res) => {
-  const url = `${process.env.URI}/events/${req.params.id}`;
+  const url = `${process.env.PRODUCTION_API}/events/${req.params.id}`;
 
   try {
     const specificEventResponse = await axios.get(url);

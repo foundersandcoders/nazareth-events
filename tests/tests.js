@@ -22,15 +22,33 @@ tape('Test home route', t => {
 
   nock(process.env.URI)
     .get(`/events?date_from=${currentDate}`)
-    .reply(200, [{ en: { name: 'king go home' }, place: { en: 'somehwere' } }]);
+    .reply(200, [
+      {
+        en: { name: 'king go home' },
+        place: { en: 'somehwere' },
+        categories: ['music']
+      }
+    ]);
 
   nock(process.env.URI)
     .get(`/events?date_from=${currentDate}`)
-    .reply(200, [{ en: { name: 'king go home' }, place: { en: 'somehwere' } }]);
+    .reply(200, [
+      {
+        en: { name: 'king go home' },
+        place: { en: 'somehwere' },
+        categories: ['music']
+      }
+    ]);
 
   nock(process.env.URI)
     .get(`/events?date_from=${currentDate}&date_to=2024-1-1`)
-    .reply(200, [{ en: { name: 'king go home' }, place: { en: 'somehwere' } }]);
+    .reply(200, [
+      {
+        en: { name: 'king go home' },
+        place: { en: 'somehwere' },
+        categories: ['music']
+      }
+    ]);
 
   supertest(server)
     .get('/en')
@@ -67,7 +85,7 @@ tape('Test home route', t => {
 });
 
 tape('Test the event details route', async t => {
-  nock(process.env.URI)
+  nock(process.env.PRODUCTION_API)
     .get('/events/1')
     .reply(200, {
       en: { name: 'FAC' },
@@ -91,7 +109,7 @@ tape('Test the event details route', async t => {
       t.ok(res.text.includes(htmlSample), 'It found the right event');
     });
 
-  nock(process.env.URI)
+  nock(process.env.PRODUCTION_API)
     .get('/events/someid')
     .reply(404);
 
@@ -101,7 +119,7 @@ tape('Test the event details route', async t => {
       t.error(err, 'event details /:lang/events/:id did not return an error');
     });
 
-  nock(process.env.URI)
+  nock(process.env.PRODUCTION_API)
     .get('/events/2')
     .reply(200, {
       en: { name: 'FAC' },

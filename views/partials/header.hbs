@@ -23,9 +23,32 @@
     </a>
     <input type="checkbox" class="hidden" id="settings-toggle" />
     <div class="header__options__dialogue header__options__unhide">
-      <a class="header__options__dialogue__link" href="">Arabic</a>
-      <a class="header__options__dialogue__link header__options__dialogue__link--active" href="">English</a>
+      <a id="langAr" class="header__options__dialogue__link {{#if arabic}}header__options__dialogue__link--active{{/if}}">Arabic</a>
+      <a id="langEn" class="header__options__dialogue__link {{#if english}}header__options__dialogue__link--active{{/if}}">English</a>
     </div>
-  </div>
 </header>
 <div class="header__spacing"></div>
+
+{{#if filterButtons}}
+  <div class="search-bar" id="searchBar">
+    <section class="search-bar__top">
+      <section class="search-bar__top__filter">
+        <label for="filterEvents" class="hidden">Filter events by name and location</label>
+        <input id="filterEvents" placeholder="Search..." type="text" class="search-bar__top__filter__input"/>
+      </section>
+
+      <a href="#" id="toggleCategorySelect" class="search-bar__top__category__toggle">
+        <?xml version="1.0" encoding="utf-8"?>
+        <svg width="22" height="22" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M480 1408v128h-352v-128h352zm352-128q26 0 45 19t19 45v256q0 26-19 45t-45 19h-256q-26 0-45-19t-19-45v-256q0-26 19-45t45-19h256zm160-384v128h-864v-128h864zm-640-512v128h-224v-128h224zm1312 1024v128h-736v-128h736zm-960-1152q26 0 45 19t19 45v256q0 26-19 45t-45 19h-256q-26 0-45-19t-19-45v-256q0-26 19-45t45-19h256zm640 512q26 0 45 19t19 45v256q0 26-19 45t-45 19h-256q-26 0-45-19t-19-45v-256q0-26 19-45t45-19h256zm320 128v128h-224v-128h224zm0-512v128h-864v-128h864z" fill="#6c6c6c"/></svg>
+      </a>
+    </section>
+    <section class="search-bar__categories">
+    {{#each categories}}
+    <label class="search-bar__category">
+      <input class="hidden" type="checkbox" name="{{this}}" value="{{this}}">
+      <span class="search-bar__category__name">{{this}}</span>
+    </label>
+    {{/each}}
+    </section>
+  </div>
+{{/if}}

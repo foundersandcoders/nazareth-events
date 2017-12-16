@@ -164,45 +164,65 @@ body {
   padding-bottom: 0.5rem;
 }
 
-.filter-nav {
+/*** FILTER EVENTS ***/
+
+.search-bar {
   background: #f2f2f2;
+  padding: 0.9rem 0.75rem 0.75rem 0.75rem;
+  flex-grow: 0;
   width: 100%;
-  padding: 0.6rem;
-  box-shadow: 0 0.2rem 0.5rem #dadada;
   display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
-.lang-btn {
-  color: #5c5c5c;
-  padding: 0.5rem;
-  background: #dbdbdb;
-  border-radius: 0.1rem;
-  font: bolder 1.5rem 'Lato', sans-serif;
+.search-bar__top {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 0.75rem;
+  width: 100%;
   flex-grow: 1;
 }
 
-.lang-btn:focus {
-  outline: none;
+.search-bar__top__filter {
+  display: flex;
+  flex-grow: 1;
 }
 
-.en-lang {
-  margin-right: 0.6rem;
+.search-bar__top__filter__input {
+  width: 100%;
+  padding: 0.6rem;
+  font-size: 1rem;
+  border-radius: 0.3rem;
+  outline-color: #4a9dc6;
+  color: #595959;
 }
 
-.active-lang {
-  color: #409a93;
-}
-
-.categories-select-container {
-  z-index: 0;
-  transition: 0.1s linear;
-}
-
-.categories-select {
+.search-bar__top__category__toggle {
+  border-radius: 0.3rem;
+  background-color: white;
   flex-grow: 0;
-  width: 80%;
-  margin-left: auto;
-  margin-right: auto;
+  padding: 0.4rem 0.4rem 0.2rem 0.4rem;
+  margin-left: 0.75rem;
+}
+
+.search-bar__top__category__toggle:focus {
+  border .3rem solid #4a9dc6;
+}
+
+.search-bar__category__name {
+  padding: 0.12rem 0.4rem;
+  background-color: #a2a2a2;
+  border-radius: 0.25rem;
+  margin-right: 0.3rem;
+  font: 0.75rem 'Open Sans', sans-serif;
+  color: white;
+}
+
+.search-bar input[type='checkbox']:checked ~ .search-bar__category__name {
+  background-color: #4a9dc6;
+  color: white;
 }
 
 /*** EVENTS LIST ***/
@@ -276,32 +296,9 @@ body {
   font: 0.8rem 'Open Sans', sans-serif;
 }
 
-.time {
-  color: #585858;
-  font: 1.5rem 'Lato', sans-serif;
-}
-
-.where {
-  color: #a6a8a9;
-  font: 1.5rem 'Lato', sans-serif;
-  font-style: italic;
-  margin-bottom: 0.2rem;
-}
-
-.category-icon-container {
-  display: flex;
-  width: 100%;
-  justify-content: flex-end;
-}
-
-.category-icon {
-  width: 2rem;
-  height: 2rem;
-}
-
 .no-events {
   color: #585858;
-  font: bold 2rem 'Lato', sans-serif;
+  font: 2rem 'Open Sans', sans-serif;
   text-align: center;
   margin-top: 55%;
 }
