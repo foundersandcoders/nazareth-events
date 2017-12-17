@@ -1,7 +1,12 @@
 {{>header}}
 {{>calendar}}
 <div class="event-results">
-  <p class="event-results__string">Showing <span class="event-results__string--pink">{{getLength events}}</span> events from <span class="event-results__string--pink">{{currentDate}}</span></p>
+  {{#if arabic}}
+  <p class="event-results__string">يظهر <span class="event-results__string--pink">{{getLength events}}</span> احداث من <span class="event-results__string--pink">{{currentDate}}</span></p>
+
+  {{else}}
+  <p class="event-results__string">Showing <span class="event-results__string--pink">{{getLength events}}</span> events from <span class="event-results__string--pink">{{englishDate currentDate}}</span></p>
+  {{/if}}
 </div>
 <div id="list-page-content">
   <section id="events-section" class="event-list">
