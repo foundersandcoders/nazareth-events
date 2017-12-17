@@ -13,9 +13,14 @@ export function initEventListeners() {
     document
       .getElementById('langEn')
       .classList.toggle('header__options__dialogue__link--active');
-    window.location.href = `/${lang}`;
-  };
 
+    const { search } = new URL(window.location.href);
+    if (search) {
+      window.location.href = `/${lang}${search}`;
+    } else {
+      window.location.href = `/${lang}`;
+    }
+  };
   const langAr = document.getElementById('langAr');
   langAr && langAr.addEventListener('click', langSelect('ar'));
 

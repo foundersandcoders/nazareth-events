@@ -34,16 +34,17 @@ export function renderStuff(newFilter) {
   }
 
   // when we use the template, we need the result bar date to be the same
-  const { search } = new URL(window.location.href);
+  const { search, pathname } = new URL(window.location.href);
   const { date_from } = parse(search);
+  const pathLang = pathname.split('/')[1];
 
   const template = homeView({
     events: filteredEvents,
-    lang: newFilter.lang || 'en',
+    lang: pathLang,
     calendarButton: true,
     filterButtons: true,
-    english: newFilter.lang === 'en',
-    arabic: newFilter.lang === 'ar',
+    english: pathLang === '/en',
+    arabic: pathLang === 'ar',
     currentDate: date_from || new Date().toISOString().split('T')[0]
   });
   document.getElementById('root').innerHTML = template;
