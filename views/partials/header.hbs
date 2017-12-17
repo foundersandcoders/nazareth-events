@@ -43,9 +43,10 @@
       </a>
     </section>
     <section id="categoriesSelect" class="search-bar__categories hide">
+      
     {{#each categories}}
     <label class="search-bar__category">
-      <input class="hidden" type="checkbox" name="{{this}}" value="{{this}}">
+      <input class="hidden category-checkbox" type="checkbox" name="{{this}}" value="{{this}}">
       <span class="search-bar__category__name">{{this}}</span>
     </label>
     {{/each}}

@@ -1,6 +1,6 @@
 /* global URL type:true axios */
 /* eslint no-global-assign: "error" */
-import { renderStuff } from './template';
+import { state, addCategory, removeCategory } from './template';
 import parse from 'webpack-parse-query';
 
 export function initEventListeners() {
@@ -15,6 +15,7 @@ export function initEventListeners() {
       .classList.toggle('header__options__dialogue__link--active');
 
     const { search } = new URL(window.location.href);
+    const { date_from } = parse(search);
     if (search) {
       window.location.href = `/${lang}${search}`;
     } else {
