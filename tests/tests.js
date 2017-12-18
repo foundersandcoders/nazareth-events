@@ -66,9 +66,7 @@ tape('Test home route', t => {
     .end((err, res) => {
       t.error(err, '/ home route does not return an error');
       t.ok(
-        res.text.includes(
-          '<section id="events-section" class="events-section">'
-        )
+        res.text.includes('<section id="events-section" class="event-list">')
       );
     });
 

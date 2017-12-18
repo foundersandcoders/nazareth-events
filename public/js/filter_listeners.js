@@ -1,69 +1,42 @@
 /* global URL type:true axios */
 /* eslint no-global-assign: "error" */
-import { renderStuff } from './template';
+import { state, addCategory, removeCategory } from './template';
 import parse from 'webpack-parse-query';
 
 export function initEventListeners() {
-  if (document.getElementById('arLang')) {
-    document.getElementById('arLang').addEventListener('click', () => {
-      const { search } = new URL(window.location.href);
-      if (search) {
-        const { date_to, date_from } = parse(search);
-        const data = {
-          date_to,
-          date_from,
-          lang: 'ar'
-        };
-        return renderStuff(data);
-      } else {
-        return renderStuff({ lang: 'ar' });
-      }
-    });
-  }
-  document.getElementById('enLang').addEventListener('click', () => {
+  const langSelect = lang => event => {
+    event.preventDefault();
+    document
+      .getElementById('langAr')
+      .classList.toggle('header__options__dialogue__link--active');
+
+    document
+      .getElementById('langEn')
+      .classList.toggle('header__options__dialogue__link--active');
+
     const { search } = new URL(window.location.href);
+    const { date_from } = parse(search);
     if (search) {
-      const { date_from } = parse(search);
-      renderStuff({ date_from, lang: 'en' });
+      window.location.href = `/${lang}${search}`;
     } else {
-      renderStuff({ lang: 'en' });
+      window.location.href = `/${lang}`;
     }
-  });
+  };
+  const langAr = document.getElementById('langAr');
+  langAr && langAr.addEventListener('click', langSelect('ar'));
 
-  // event listener for category select in header
+  const langEn = document.getElementById('langEn');
+  langEn && langEn.addEventListener('click', langSelect('en'));
 
-  document
-    .getElementById('categoryButton')
-    .addEventListener('click', function() {
-      document
-        .getElementById('categorySelectContainer')
-        .classList.toggle('hide');
+  const toggleCategoriesList = document.getElementById('toggleCategorySelect');
+  toggleCategoriesList &&
+    toggleCategorySelect.addEventListener('click', () => {
+      document.getElementById('categoriesSelect').classList.toggle('hide');
     });
 
-  const categoriesDropdownList = document.getElementById('categorySelect');
-
-  categoriesDropdownList.addEventListener('click', event => {
-    const { value } = categoriesDropdownList.options[
-      categoriesDropdownList.selectedIndex
-    ];
-
-    if (categoriesDropdownList.selectedIndex > 0) {
-      const { pathname, search } = new URL(window.location.href);
-      if (search) {
-        const { date_from } = parse(search);
-        const data = {
-          date_from,
-          lang: pathname.split('/')[1],
-          categories: value
-        };
-        renderStuff(data);
-      } else {
-        const data = {
-          lang: pathname.split('/')[1],
-          categories: value
-        };
-        renderStuff(data);
-      }
-    }
-  });
+  const toggleSearchBar = document.getElementById('toggleSearchBar');
+  toggleSearchBar &&
+    toggleSearchBar.addEventListener('click', () => {
+      document.getElementById('searchBar').classList.toggle('hide');
+    });
 }

@@ -13,13 +13,13 @@ export function initCalendarEventListener(data) {
       ${formatDate(date)}`;
 
     document.getElementById('list-page-content').classList.toggle('hide');
-    document.getElementById('show-cal').classList.toggle('hide-cal');
+    document.getElementById('show-cal').classList.toggle('calendar--hide');
   };
 
   // event listener for calendar button in header
   document.getElementById('calendarIcon').addEventListener('click', () => {
     document.getElementById('list-page-content').classList.toggle('hide');
-    document.getElementById('show-cal').classList.toggle('hide-cal');
+    document.getElementById('show-cal').classList.toggle('calendar--hide');
   });
 
   // builds the calendar
