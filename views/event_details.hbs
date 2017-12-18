@@ -32,6 +32,8 @@
 
     {{#if placeContact.phone}}
     <h1 class="dark-text">Phone: {{placeContact.phone}}</h1><br>
+    {{else}}
+    <h1 class="dark-text">Phone number was not provided contact Nazareth cultural & tourism association to find out more: +972-4-6106611</h1><br>
     {{/if}}
     {{#if placeContact.email}}
     <h1 class="dark-text" style="margin-bottom: 1rem;">Email: {{placeContact.email}}</h1>
@@ -66,7 +68,7 @@
   function initMap() {
     var uluru = {lat: {{this.lat}}, lng: {{this.lng}} };
     var map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 18,
+      zoom: 15,
       center: uluru
     });
     var marker = new google.maps.Marker({
