@@ -10,8 +10,8 @@ export function initEventListeners() {
     } else {
       window.location.href = `/${lang}`;
     }
-    const langAr = document.getElementById('langAr');
   };
+  const langAr = document.getElementById('langAr');
   langAr && langAr.addEventListener('click', langSelect('ar'));
 
   const langEn = document.getElementById('langEn');
