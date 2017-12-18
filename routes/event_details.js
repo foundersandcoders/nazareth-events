@@ -57,6 +57,11 @@ module.exports = async (req, res) => {
       lng = 35.303546;
     }
 
+    const phoneMessage =
+      req.params.lang === 'en'
+        ? 'Phone number was not provided contact Nazareth cultural & tourism association to find out more: +972-4-6106611'
+        : 'الرجاء الاتصال بجمعية الناصرة للثقافة والسياحة لمعرفة المزيد +972-4-6106611 ';
+
     res.render('event_details', {
       title: 'Event Details',
       eventText: event[req.params.lang],
@@ -66,6 +71,7 @@ module.exports = async (req, res) => {
       back: req.headers.referer,
       key: process.env.GOOGLE_MAPS_KEY,
       lng,
+      phoneMessage,
       lat,
       website: event.place.website,
       facebook: event.place.website
