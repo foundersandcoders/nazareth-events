@@ -1,28 +1,17 @@
-/* global URL type:true axios */
-/* eslint no-global-assign: "error" */
-import { state, addCategory, removeCategory } from './template';
-import parse from 'webpack-parse-query';
+import { state } from './template';
 
 export function initEventListeners() {
   const langSelect = lang => event => {
     event.preventDefault();
-    document
-      .getElementById('langAr')
-      .classList.toggle('header__options__dialogue__link--active');
-
-    document
-      .getElementById('langEn')
-      .classList.toggle('header__options__dialogue__link--active');
 
     const { search } = new URL(window.location.href);
-    const { date_from } = parse(search);
     if (search) {
       window.location.href = `/${lang}${search}`;
     } else {
       window.location.href = `/${lang}`;
     }
+    const langAr = document.getElementById('langAr');
   };
-  const langAr = document.getElementById('langAr');
   langAr && langAr.addEventListener('click', langSelect('ar'));
 
   const langEn = document.getElementById('langEn');

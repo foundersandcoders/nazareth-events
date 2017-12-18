@@ -5,8 +5,8 @@ import {
   updateEvents,
   addCategory,
   removeCategory,
-  renderStuff,
-  state
+  state,
+  addSearchTerm
 } from '../template';
 import { initEventListeners } from '../filter_listeners';
 import parse from 'webpack-parse-query';
@@ -25,6 +25,11 @@ if (document.getElementById('calendarIcon')) {
     initEventListeners();
     // create calendar
     initCalendarEventListener(res.data);
+
+    const searchBarFilter = document.getElementById('filterEvents');
+    searchBarFilter.addEventListener('keyup', event =>
+      addSearchTerm(event.target.value)
+    );
 
     const categoryCheckboxEventListen = event => {
       const checked = event.target.checked;

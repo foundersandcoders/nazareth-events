@@ -1,16 +1,33 @@
 import homeView from '../../views/home.hbs';
 import { initEventListeners } from './filter_listeners';
 import { initCalendarEventListener } from './main.js';
-import parse from 'webpack-parse-query';
 
 let eventsState = [];
 let categoryState = [];
 
-export let state = { date_from: new Date(), category: [], lang: 'en' };
+export let state = {
+  date_from: new Date(),
+  category: [],
+  lang: 'en',
+  searchTerm: ''
+};
 
 function render() {
   console.log(state);
   let filteredEvents = eventsState.filter(event => event[state.lang]);
+
+  if (state.searchTerm) {
+    filteredEvents = filteredEvents.filter(
+      event =>
+        event[state.lang].name
+          .toUpperCase()
+          .includes(state.searchTerm.toUpperCase()) ||
+        event.place[state.lang].name
+          .toUpperCase()
+          .includes(state.searchTerm.toUpperCase())
+    );
+  }
+
   if (state.date_from) {
     const newDateTo = new Date();
     const newDateFrom = new Date(state.date_from);
@@ -29,7 +46,6 @@ function render() {
       event => new Date(event.startTime) > new Date()
     );
   }
-  console.log(filteredEvents);
 
   if (state.category.length) {
     filteredEvents = filteredEvents.filter(event => {
@@ -62,7 +78,12 @@ export function addCategory(category) {
   render();
 }
 
-export function removeCategory(category, dateFilter) {
+export function removeCategory(category) {
   state.category = state.category.filter(cat => cat !== category);
+  render();
+}
+
+export function addSearchTerm(searchTerm) {
+  state.searchTerm = searchTerm;
   render();
 }
