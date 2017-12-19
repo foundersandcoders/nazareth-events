@@ -102,7 +102,7 @@ tape('Test the event details route', async t => {
     });
 
   const htmlSample =
-    '<h1 id="eventDetailsStickyTitle" class="event-details__title event-details__title--fixed">FAC</h1>';
+    '<h1 id="eventDetailsStickyTitle" class="event-details__title">FAC</h1>';
 
   supertest(server)
     .get('/en/events/1')
