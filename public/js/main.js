@@ -6,8 +6,8 @@ export function initCalendarEventListener(data) {
   const calendarData = data.map(event => event.startTime);
 
   const dateClickHandler = e => {
-    e.target.classList.add('current__selected');
     const { date } = e.target.dataset;
+    console.log(date);
     window.location.href = `${
       new URL(window.location.href).pathname
     }?date_from=${date}&date_to=${formatDate(date)}`;
