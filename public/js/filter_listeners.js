@@ -39,4 +39,11 @@ export function initEventListeners() {
     toggleSearchBar.addEventListener('click', () => {
       document.getElementById('searchBar').classList.toggle('hide');
     });
+
+  const calendarIcon = document.getElementById('calendarIcon');
+  calendarIcon &&
+    calendarIcon.addEventListener('click', () => {
+      document.getElementById('list-page-content').classList.toggle('hide');
+      document.getElementById('show-cal').classList.toggle('calendar--hide');
+    });
 }
