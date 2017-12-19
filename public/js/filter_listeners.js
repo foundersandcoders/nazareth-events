@@ -1,21 +1,10 @@
-/* global URL type:true axios */
-/* eslint no-global-assign: "error" */
-import { state, addCategory, removeCategory } from './template';
-import parse from 'webpack-parse-query';
+import { state } from './template';
 
 export function initEventListeners() {
   const langSelect = lang => event => {
     event.preventDefault();
-    document
-      .getElementById('langAr')
-      .classList.toggle('header__options__dialogue__link--active');
-
-    document
-      .getElementById('langEn')
-      .classList.toggle('header__options__dialogue__link--active');
 
     const { search } = new URL(window.location.href);
-    const { date_from } = parse(search);
     if (search) {
       window.location.href = `/${lang}${search}`;
     } else {
@@ -31,19 +20,18 @@ export function initEventListeners() {
   const toggleCategoriesList = document.getElementById('toggleCategorySelect');
   toggleCategoriesList &&
     toggleCategorySelect.addEventListener('click', () => {
-      document.getElementById('categoriesSelect').classList.toggle('hide');
+      document.getElementById('categoriesSelect').classList.toggle('hidden');
     });
 
   const toggleSearchBar = document.getElementById('toggleSearchBar');
   toggleSearchBar &&
     toggleSearchBar.addEventListener('click', () => {
-      document.getElementById('searchBar').classList.toggle('hide');
+      document.getElementById('searchBar').classList.toggle('hidden');
     });
 
   const calendarIcon = document.getElementById('calendarIcon');
   calendarIcon &&
     calendarIcon.addEventListener('click', () => {
-      document.getElementById('list-page-content').classList.toggle('hide');
       document.getElementById('show-cal').classList.toggle('calendar--hide');
     });
 }

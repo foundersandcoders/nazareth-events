@@ -94,6 +94,7 @@ body {
   font-size: 1.9rem;
   width: 1.9rem;
   fill: #fff;
+  cursor: pointer;
 }
 
 .header__options {
@@ -106,6 +107,7 @@ body {
   padding-top: 0.6rem;
   width: 1.5rem;
   display: block;
+  cursor: pointer;
 }
 
 .header__options__language {
@@ -113,6 +115,7 @@ body {
   width: 1.5rem;
   margin-right: 0.6rem;
   display: block;
+  cursor: pointer;
 }
 
 .header__options__dialogue {
@@ -343,18 +346,26 @@ body {
 .event-details {
   text-align: left;
   text-rendering: optimizeLegibility;
+  position: relative;
 }
 
-.event-details--fixed {
-  padding-top: 4.5rem;
+.event-details__title--absolute {
+  background-color: #eee;
+  color: #eee;
+  width: 100%;
+  padding: 0.8rem 1.7rem 0.8rem 1.7rem;
+  font: 1.1rem 'Open Sans', sans-serif;
 }
 
 .event-details__title {
+  position: absolute;
+  top: 0;
   background-color: #eee;
   width: 100%;
   padding: 0.8rem 1.7rem 0.8rem 1.7rem;
   color: #5c5c5c;
   font: 1.1rem 'Open Sans', sans-serif;
+  z-index: 0;
 }
 
 .event-details__title--fixed {
@@ -393,8 +404,8 @@ body {
 }
 
 .event-details__description {
-  margin-top: 1rem;
-  margin-bottom: 1.6rem;
+  margin-top: 1.3rem;
+  margin-bottom: 1.3rem;
 }
 
 .event-details__description__text {
@@ -478,7 +489,7 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  position: absolute;
+  position: fixed;
   top: 4.5rem;
   left: 0;
   width: 100%;

@@ -12,7 +12,6 @@ export function initCalendarEventListener(data) {
     }?date_from=${date}&date_to=
       ${formatDate(date)}`;
 
-    document.getElementById('list-page-content').classList.toggle('hide');
     document.getElementById('show-cal').classList.toggle('calendar--hide');
   };
 

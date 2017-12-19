@@ -5,8 +5,8 @@ import {
   updateEvents,
   addCategory,
   removeCategory,
-  renderStuff,
-  state
+  state,
+  addSearchTerm
 } from '../template';
 import { initEventListeners } from '../filter_listeners';
 import parse from 'webpack-parse-query';
@@ -25,6 +25,11 @@ if (document.getElementById('calendarIcon')) {
     initEventListeners();
     // create calendar
     initCalendarEventListener(res.data);
+
+    const searchBarFilter = document.getElementById('filterEvents');
+    searchBarFilter.addEventListener('keyup', event =>
+      addSearchTerm(event.target.value)
+    );
 
     const categoryCheckboxEventListen = event => {
       const checked = event.target.checked;
@@ -46,3 +51,19 @@ if (document.getElementById('calendarIcon')) {
     }
   });
 }
+
+const details = document.getElementById('eventDetailsSection');
+const title = document.getElementById('eventDetailsStickyTitle');
+
+const sticky = (elements, stickDistance) => e => {
+  console.log('hi', window.scrollY);
+  if (window.scrollY > stickDistance) {
+    elements[0].classList.add('event-details__title--fixed');
+  } else {
+    elements[0].classList.remove('event-details__title--fixed');
+  }
+};
+
+title &&
+  details &&
+  window.addEventListener('scroll', sticky([title, details], 18 * 16));

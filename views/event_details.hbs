@@ -2,8 +2,9 @@
   <div class="event-img" style="background-image: url('{{event.imageUrl}}')"></div>
 {{/if}}
 
-<section id="eventDetailsSection" class="event-details event-details--fixed">
-  <h1 id="eventDetailsStickyTitle" class="event-details__title event-details__title--fixed">{{eventText.name}}</h1>
+<section id="eventDetailsSection" class="event-details">
+  <h1 class="event-details__title--absolute">{{eventText.name}}</h1>
+  <h1 id="eventDetailsStickyTitle" class="event-details__title">{{eventText.name}}</h1>
 
   {{#if website}}
   {{#if facebook}}
