@@ -6,11 +6,11 @@ export function initCalendarEventListener(data) {
   const calendarData = data.map(event => event.startTime);
 
   const dateClickHandler = e => {
+    e.target.classList.add('current__selected');
     const { date } = e.target.dataset;
     window.location.href = `${
       new URL(window.location.href).pathname
-    }?date_from=${date}&date_to=
-      ${formatDate(date)}`;
+    }?date_from=${date}&date_to=${formatDate(date)}`;
 
     document.getElementById('list-page-content').classList.toggle('hide');
     document.getElementById('show-cal').classList.toggle('calendar--hide');
