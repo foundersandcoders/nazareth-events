@@ -13,6 +13,7 @@ module.exports = async (req, res) => {
         );
         resolve(geocodeRes);
       } catch (err) {
+        /* istanbul ignore next */
         reject(err);
       }
     });

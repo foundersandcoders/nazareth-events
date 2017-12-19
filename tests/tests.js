@@ -158,6 +158,37 @@ tape('Test the event details route', async t => {
     .get('/ar/events/3')
     .end((err, res) => {
       t.error(err, 'It rendered the event details with a map from api coords');
+    });
+
+  nock(process.env.PRODUCTION_API)
+    .get('/events/4')
+    .reply(200, {
+      en: { name: 'FACN' },
+      place: { en: { name: 'wow' } }
+    });
+
+  supertest(server)
+    .get('/en/events/4')
+    .end((err, res) => {
+      t.error(
+        err,
+        'It rendered the event details with Nazareth default coords'
+      );
+    });
+
+  nock(process.env.PRODUCTION_API)
+    .get('/events/5')
+    .reply(200, {
+      en: { name: 'FACN' }
+    });
+
+  supertest(server)
+    .get('/en/events/5')
+    .end((err, res) => {
+      t.error(
+        err,
+        'It rendered the event details with Nazareth default coords'
+      );
       t.end();
     });
 });
