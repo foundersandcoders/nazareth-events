@@ -56,7 +56,6 @@ const details = document.getElementById('eventDetailsSection');
 const title = document.getElementById('eventDetailsStickyTitle');
 
 const sticky = (elements, stickDistance) => e => {
-  console.log('hi', window.scrollY);
   if (window.scrollY > stickDistance) {
     elements[0].classList.add('event-details__title--fixed');
   } else {
