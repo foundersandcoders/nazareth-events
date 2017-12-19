@@ -10,27 +10,18 @@ require('dotenv').config();
 tape('Test home route', t => {
   const currentDate = new Date().toISOString().slice(0, 10);
 
-  nock(process.env.URI)
+  nock(process.env.PRODUCTION_API)
     .get(`/events?date_from=${currentDate}`)
     .reply(200, [
       {
         en: { name: 'king go home' },
         place: { en: 'somehwere' },
-        categories: ['miscellaneous', 'sport']
+        categories: ['miscellaneous', 'sport'],
+        imageUrl: 'www.image.com'
       }
     ]);
 
-  nock(process.env.URI)
-    .get(`/events?date_from=${currentDate}`)
-    .reply(200, [
-      {
-        en: { name: 'king go home' },
-        place: { en: 'somehwere' },
-        categories: ['music']
-      }
-    ]);
-
-  nock(process.env.URI)
+  nock(process.env.PRODUCTION_API)
     .get(`/events?date_from=${currentDate}`)
     .reply(200, [
       {
@@ -40,7 +31,17 @@ tape('Test home route', t => {
       }
     ]);
 
-  nock(process.env.URI)
+  nock(process.env.PRODUCTION_API)
+    .get(`/events?date_from=${currentDate}`)
+    .reply(200, [
+      {
+        en: { name: 'king go home' },
+        place: { en: 'somehwere' },
+        categories: ['music']
+      }
+    ]);
+
+  nock(process.env.PRODUCTION_API)
     .get(`/events?date_from=${currentDate}&date_to=2024-1-1`)
     .reply(200, [
       {
@@ -88,22 +89,25 @@ tape('Test the event details route', async t => {
   nock(process.env.PRODUCTION_API)
     .get('/events/1')
     .reply(200, {
-      en: { name: 'FAC' },
+      ar: { name: 'FAC' },
       place: {
-        en: { name: 'somewhere', address: 'Nazareth' },
+        ar: { name: 'somewhere', address: 'Nazareth' },
         website: 'facebook.com'
-      }
+      },
+      imageUrl: 'www.image.com',
+      categories: ['miscellaneous']
     });
 
   nock('https://maps.googleapis.com/maps/api/geocode/json')
     .get(`?address=Nazareth&region=il&key=${process.env.GEOCODE_KEY}`)
     .reply(200, {
-      results: [{ geometry: { location: { lng: 32.223, lat: 32.12312 } } }]
+      results: [{ geometry: { location: { lng: 32.223, lat: 32.12312 } } }],
+      status: 'OK'
     });
 
   const htmlSample = `<h1 class="event-name-details">FAC</h1>`;
   supertest(server)
-    .get('/en/events/1')
+    .get('/ar/events/1')
     .end((err, res) => {
       t.error(err, 'event details /:lang/events/:id did not return an error');
       t.ok(res.text.includes(htmlSample), 'It found the right event');
@@ -128,6 +132,30 @@ tape('Test the event details route', async t => {
 
   supertest(server)
     .get('/en/events/2')
+    .end((err, res) => {
+      t.error(err, 'It rendered the event details with a map from api coords');
+    });
+
+  nock(process.env.PRODUCTION_API)
+    .get('/events/3')
+    .reply(200, {
+      en: { name: 'FACN' },
+      ar: { name: 'FACN' },
+      place: {
+        ar: { name: 'somewhere' },
+        en: { name: 'somehwere nice', address: 'no where' }
+      }
+    });
+
+  nock('https://maps.googleapis.com/maps/api/geocode/json')
+    .get(`?address=no%20where&region=il&key=${process.env.GEOCODE_KEY}`)
+    .reply(200, {
+      results: [{ geometry: { location: { lng: 32.223, lat: 32.12312 } } }],
+      status: 'OK'
+    });
+
+  supertest(server)
+    .get('/ar/events/3')
     .end((err, res) => {
       t.error(err, 'It rendered the event details with a map from api coords');
       t.end();

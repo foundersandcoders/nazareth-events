@@ -23,9 +23,7 @@
             <p class="event__details__time">{{prettyTime this.startTime}} - {{prettyTime this.endTime}}, {{prettyDate this.startTime}}</p>
             <div class="event__details__categories">
               {{#each this.categories}}
-                {{#if (checkCategory this)}}
                   <div class="event__details__categories__category">{{this}}</div>
-                {{/if}}
               {{/each}}
             </div>
           </div>

@@ -23,14 +23,20 @@ module.exports = async (req, res) => {
     const event = specificEventResponse.data;
     let lng;
     let lat;
-    if (event.place.location) {
-      lat = event.place.location[0];
-      lng = event.place.location[1];
-    } else if (event.place[req.params.lang].address.trim()) {
-      let address = event.place[req.params.lang].address;
-      const geocode = await getCoords(address);
-      console.log('here', geocode);
-      if (geocode.data.status === 'OK') {
+    try {
+      if (event.place.location) {
+        lat = event.place.location[0];
+        lng = event.place.location[1];
+      } else if (event.place[req.params.lang].address) {
+        let address = event.place[req.params.lang].address;
+        const geocode = await getCoords(address);
+
+        const { location } = geocode.data.results[0].geometry;
+        lat = location.lat;
+        lng = location.lng;
+      } else if (event.place.en.address) {
+        let address = event.place.en.address;
+        const geocode = await getCoords(address);
         const { location } = geocode.data.results[0].geometry;
         lat = location.lat;
         lng = location.lng;
@@ -39,19 +45,7 @@ module.exports = async (req, res) => {
         lat = 32.699635;
         lng = 35.303546;
       }
-    } else if (event.place.en.address.trim()) {
-      let address = event.place.en.address;
-      const geocode = await getCoords(address);
-      if (geocode.data.status === 'OK') {
-        const { location } = geocode.data.results[0].geometry;
-        lat = location.lat;
-        lng = location.lng;
-      } else {
-        // Nazareth coords
-        lat = 32.699635;
-        lng = 35.303546;
-      }
-    } else {
+    } catch (err) {
       // Nazareth coords
       lat = 32.699635;
       lng = 35.303546;
@@ -79,7 +73,6 @@ module.exports = async (req, res) => {
         : ''
     });
   } catch (err) {
-    console.log('error', err);
     res.render('error', {
       errorMessage: 'Sorry something went wrong please try again'
     });
