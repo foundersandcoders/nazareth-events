@@ -20,12 +20,18 @@ export function initEventListeners() {
   const toggleCategoriesList = document.getElementById('toggleCategorySelect');
   toggleCategoriesList &&
     toggleCategorySelect.addEventListener('click', () => {
-      document.getElementById('categoriesSelect').classList.toggle('hide');
+      document.getElementById('categoriesSelect').classList.toggle('hidden');
     });
 
   const toggleSearchBar = document.getElementById('toggleSearchBar');
   toggleSearchBar &&
     toggleSearchBar.addEventListener('click', () => {
-      document.getElementById('searchBar').classList.toggle('hide');
+      document.getElementById('searchBar').classList.toggle('hidden');
+    });
+
+  const calendarIcon = document.getElementById('calendarIcon');
+  calendarIcon &&
+    calendarIcon.addEventListener('click', () => {
+      document.getElementById('show-cal').classList.toggle('calendar--hide');
     });
 }

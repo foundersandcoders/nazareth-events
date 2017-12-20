@@ -66,7 +66,6 @@ function render() {
   });
   document.getElementById('root').innerHTML = template;
   initCalendarEventListener(eventsState);
-  initEventListeners();
 }
 
 export function updateEvents(data) {

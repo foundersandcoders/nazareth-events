@@ -101,7 +101,9 @@ tape('Test the event details route', async t => {
       results: [{ geometry: { location: { lng: 32.223, lat: 32.12312 } } }]
     });
 
-  const htmlSample = `<h1 class="event-name-details">FAC</h1>`;
+  const htmlSample =
+    '<h1 id="eventDetailsStickyTitle" class="event-details__title">FAC</h1>';
+
   supertest(server)
     .get('/en/events/1')
     .end((err, res) => {
