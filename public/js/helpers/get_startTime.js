@@ -51,3 +51,18 @@ if (document.getElementById('calendarIcon')) {
     }
   });
 }
+
+const details = document.getElementById('eventDetailsSection');
+const title = document.getElementById('eventDetailsStickyTitle');
+
+const sticky = (elements, stickDistance) => e => {
+  if (window.scrollY > stickDistance) {
+    elements[0].classList.add('event-details__title--fixed');
+  } else {
+    elements[0].classList.remove('event-details__title--fixed');
+  }
+};
+
+title &&
+  details &&
+  window.addEventListener('scroll', sticky([title, details], 18 * 16));

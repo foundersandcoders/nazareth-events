@@ -2,67 +2,108 @@
   <div class="event-img" style="background-image: url('{{event.imageUrl}}')"></div>
 {{/if}}
 
-<div class="event-details">
-  <div style="margin-bottom: 2rem;">
-    <h1 class="event-name-details">{{eventText.name}}</h1>
-    <span class="light-text">{{prettyDate event.startTime}}, {{prettyTime event.startTime}}</span>
+<section id="eventDetailsSection" class="event-details">
+  <h1 class="event-details__title--absolute">{{eventText.name}}</h1>
+  <h1 id="eventDetailsStickyTitle" class="event-details__title">{{eventText.name}}</h1>
+
+  {{#if website}}
+  {{#if facebook}}
+  <div class="event-details__facebook">
+  <a href="http://www.{{removeProtocol website}}">
+    <svg class="event-details__facebook__icon" width="35" height="35" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1579 128q35 0 60 25t25 60v1366q0 35-25 60t-60 25h-391v-595h199l30-232h-229v-148q0-56 23.5-84t91.5-28l122-1v-207q-63-9-178-9-136 0-217.5 80t-81.5 226v171h-200v232h200v595h-735q-35 0-60-25t-25-60v-1366q0-35 25-60t60-25h1366z"/></svg>
+  </a>
+    <div>
+  {{/if}}
+  {{/if}}
+  <div class="event-details__date">{{prettyTime event.startTime}}, {{prettyDate event.startTime}}</div>
+  <div class="event-details__place">{{placeDetails.name}}</div>
+  {{#if website}}
+  {{#if facebook}}
+    </div>
   </div>
-
-  <p class="light-text description margins">{{eventText.description}}</p>
-
-  {{#if event.cost}}
-    <h4 class="dark-text margins">
-      {{event.cost}}
-      <i class="fa fa-ils"></i>
-    </h4>
+  {{/if}}
   {{/if}}
 
-  <div>
-    <h1 class="dark-text" style="font-size: 1.8rem; display: inline-block; margin-right: .5rem;">Place: {{placeDetails.name}}</h1>
-    {{#if website}}
-      {{#if facebook}}
-          <a href="http://www.{{removeProtocol website}}"><i style="margin-bottom: 1rem; color: #409a93;" class="fa fa-facebook-square fa-2x"></i></a>
-      {{else}}
-        <a href="http://www.{{removeProtocol website}}">
-          <i style="margin-bottom: 1rem; color: #409a93;" class="fa fa-link fa-2x"></i>
-          <span style="font-size: 1.7rem;">website</span>
-        </a>
-      {{/if}}
-    {{/if}}
+  <section class="event-details__description">
+    <p class="event-details__description__text">{{eventText.description}}</p>
+  </section>
+
+  {{#if event.cost}}
+  <div class="event-details__detail">
+    <svg class="event-details__detail__icon" width="17" height="17" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1120 624v496q0 14-9 23t-23 9h-160q-14 0-23-9t-9-23v-496q0-112-80-192t-192-80h-272v1152q0 14-9 23t-23 9h-160q-14 0-23-9t-9-23v-1344q0-14 9-23t23-9h464q135 0 249 66.5t180.5 180.5 66.5 249zm384-464v880q0 135-66.5 249t-180.5 180.5-249 66.5h-464q-14 0-23-9t-9-23v-960q0-14 9-23t23-9h160q14 0 23 9t9 23v768h272q112 0 192-80t80-192v-880q0-14 9-23t23-9h160q14 0 23 9t9 23z"/></svg>
+    <span class="event-details__detail__text">{{event.cost}}</span>
+  </div>
+  {{/if}}
+
 
     {{#if placeContact.phone}}
-    <h1 class="dark-text">Phone: {{placeContact.phone}}</h1><br>
+    <div class="event-details__detail">
+      <svg class="event-details__detail__icon" height="20" viewBox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 0h24v24H0z" fill="none"/>
+        <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+      </svg>
+      <span class="event-details__detail__text">{{placeContact.phone}}</span>
+    </div>
     {{else}}
     <h1 class="dark-text">{{phoneMessage}}</h1><br>
     {{/if}}
-    {{#if placeContact.email}}
-    <h1 class="dark-text" style="margin-bottom: 1rem;">Email: {{placeContact.email}}</h1>
-    {{/if}}
-    <h3 class="dark-text" style="margin-bottom: 1rem;">
-      <i class="fa fa-map-marker map-icon" aria-hidden="true"></i>
-      {{placeDetails.address}}
-    </h3>
-    <div class="map" id="map"></div>
+
+  {{#if placeContact.email}}
+  <div class="event-details__detail">
+    <svg class="event-details__detail__icon" height="19" viewBox="0 0 24 24" width="19" xmlns="http://www.w3.org/2000/svg">
+        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+        <path d="M0 0h24v24H0z" fill="none"/>
+    </svg>
+    <span class="event-details__detail__text">{{placeContact.email}}</span>
   </div>
+  {{/if}}
 
-  <div class="access-category">
+  {{#if website}}
+  <div class="event-details__detail">
+    <svg class="event-details__detail__icon" height="20" viewBox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 0h24v24H0z" fill="none"/>
+        <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/>
+    </svg>
+    <a class="event-details__detail__link" href="{{removeProtocol website}}">
+      {{removeProtocol website}}
+    </a>
+  </div>
+  {{/if}}
 
-    {{#if event.accessibilityOptions}}
-      <h3 class="dark-text margin-access-category">Accessibility</h3>
+  {{#if event.accessibilityOptions}}
+  <div class="event-details__accessibility">
+    <svg class="event-details__accessibility__icon" height="20" viewBox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 0h24v24H0z" fill="none"/>
+        <circle cx="12" cy="4" r="2"/>
+        <path d="M19 13v-2c-1.54.02-3.09-.75-4.07-1.83l-1.29-1.43c-.17-.19-.38-.34-.61-.45-.01 0-.01-.01-.02-.01H13c-.35-.2-.75-.3-1.19-.26C10.76 7.11 10 8.04 10 9.09V15c0 1.1.9 2 2 2h5v5h2v-5.5c0-1.1-.9-2-2-2h-3v-3.45c1.29 1.07 3.25 1.94 5 1.95zm-6.17 5c-.41 1.16-1.52 2-2.83 2-1.66 0-3-1.34-3-3 0-1.31.84-2.41 2-2.83V12.1c-2.28.46-4 2.48-4 4.9 0 2.76 2.24 5 5 5 2.42 0 4.44-1.72 4.9-4h-2.07z"/>
+    </svg>
+    <ul class="event-details__accessibility__list">
       {{#each event.accessibilityOptions}}
-        <li class="light-text">{{this}}</li>
+        <li class="event-details__accessibility__list__item">{{this}}</li>
       {{/each}}
-    {{/if}}
+    </ul>
+  </div>
+  {{/if}}
 
-    {{#if event.categories}}
-      <h3  class="dark-text margin-access-category">Categories</h3>
-      {{#each event.categories}}
-        <li class="light-text">{{this}}</li>
-      {{/each}}
-    {{/if}}
+  <div class="event-details__detail event-details__detail--last">
+    <svg class="event-details__detail__icon" height="20" viewBox="0 0 24 24" width="20" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+      <path d="M0 0h24v24H0z" fill="none"/>
+    </svg>
+    <span class="event-details__detail__text">
+      {{placeDetails.address}}
+    </span>
   </div>
 
-</div>
+  <div class="map" id="map"></div>
+
+  <a href="#top" class="event-details__top">
+    <svg height="40" viewBox="0 0 24 24" width="40" xmlns="http://www.w3.org/2000/svg">
+        <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/>
+        <path d="M0 0h24v24H0z" fill="none"/>
+    </svg>
+  </a>
+</section>
 
 <script type="text/javascript">
   function initMap() {

@@ -12,15 +12,8 @@ export function initCalendarEventListener(data) {
     }?date_from=${date}&date_to=
       ${formatDate(date)}`;
 
-    document.getElementById('list-page-content').classList.toggle('hide');
     document.getElementById('show-cal').classList.toggle('calendar--hide');
   };
-
-  // event listener for calendar button in header
-  document.getElementById('calendarIcon').addEventListener('click', () => {
-    document.getElementById('list-page-content').classList.toggle('hide');
-    document.getElementById('show-cal').classList.toggle('calendar--hide');
-  });
 
   // builds the calendar
   const calendar = new Cal('calendar');

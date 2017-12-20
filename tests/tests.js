@@ -105,7 +105,9 @@ tape('Test the event details route', async t => {
       status: 'OK'
     });
 
-  const htmlSample = `<h1 class="event-name-details">FAC</h1>`;
+  const htmlSample =
+    '<h1 id="eventDetailsStickyTitle" class="event-details__title">FAC</h1>';
+
   supertest(server)
     .get('/ar/events/1')
     .end((err, res) => {
