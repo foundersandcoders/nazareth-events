@@ -566,8 +566,19 @@ td {
   background-color: palevioletred;
   position: absolute;
   left: 0.92rem;
-  top: 2rem;
+  top: 1.9rem;
   border-radius: 50%;
+}
+
+.current__selected {
+  width: 2.38rem;
+  height: 2.38rem;
+  background-color: #FF447F;
+  color: white;
+}
+
+.calendar__event-found.current__selected::after {
+  background-color: white;
 }
 
 .calendar__today {

@@ -1,5 +1,7 @@
 /* global dateArray */
 
+import parse from 'webpack-parse-query';
+
 const Cal = function(divId) {
   this.divId = divId;
 
@@ -130,23 +132,51 @@ Cal.prototype.showMonth = function(year, month, dateArray) {
     } else {
       var currentDate = new Date(this.currYear, this.currMonth, i);
       for (var h = 0; h < dateArray.length; h++) {
+        const { search } = new URL(window.location.href);
+        const { date_from } = parse(search);
         var check = false;
 
         if (
           new Date(dateArray[h]).setHours(0, 0, 0, 0) ===
           currentDate.setHours(0, 0, 0, 0)
         ) {
-          check = true;
-          html +=
-            '<td data-date=' +
-            dstring +
-            ' class="day normal calendar__event-found">' +
-            i +
-            '</td>';
-          break;
+          if (
+            currentDate.setHours(0, 0, 0, 0) ===
+            new Date(date_from).setHours(0, 0, 0, 0)
+          ) {
+            check = true;
+            html +=
+              '<td data-date=' +
+              dstring +
+              ' class="day normal calendar__event-found current__selected">' +
+              i +
+              '</td>';
+            break;
+          } else {
+            check = true;
+            html +=
+              '<td data-date=' +
+              dstring +
+              ' class="day normal calendar__event-found">' +
+              i +
+              '</td>';
+            break;
+          }
         } else if (h === dateArray.length - 1 && !check) {
-          html +=
-            '<td data-date=' + dstring + ' class="day normal">' + i + '</td>';
+          if (
+            currentDate.setHours(0, 0, 0, 0) ===
+            new Date(date_from).setHours(0, 0, 0, 0)
+          ) {
+            html +=
+              '<td data-date=' +
+              dstring +
+              ' class="day normal current__selected">' +
+              i +
+              '</td>';
+          } else {
+            html +=
+              '<td data-date=' + dstring + ' class="day normal">' + i + '</td>';
+          }
         }
       }
     }
