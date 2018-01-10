@@ -573,7 +573,7 @@ td {
 .current__selected {
   width: 2.38rem;
   height: 2.38rem;
-  background-color: #FF447F;
+  background-color: #ff447f;
   color: white;
 }
 
@@ -597,4 +597,28 @@ td {
 
 .calendar__not-current-month {
   color: #9c9c9c;
+}
+
+/* Desktop view */
+
+@media (min-width: 1025px) {
+  /* Home page */
+
+  .event {
+    width: 45%;
+    margin-left: 1rem;
+  }
+
+  #events-section {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+  }
+
+  /*Event details page*/
+
+  .event-details__description__text {
+    width: 50%;
+  }
 }
