@@ -4,6 +4,7 @@ const express = require('express');
 const compression = require('compression');
 const router = require('./routes/index.js');
 const dateFormat = require('dateformat');
+const favicon = require('serve-favicon');
 
 const server = express();
 
@@ -13,6 +14,7 @@ server.set('views', path.join(__dirname, './', 'views'));
 
 server.use(express.static(path.join(__dirname, './', 'public')));
 server.use(compression());
+server.use(favicon(path.join(__dirname, 'public/assets/calendar-favicon.png')));
 
 server.use(router);
 
@@ -30,9 +32,9 @@ server.engine(
       findPlaceLang: require('./views/helpers/findPlaceLang.js'),
       removeProtocol: require('./views/helpers/removeProtocol.js'),
       getLength: require('./views/helpers/getLength.js'),
-      englishDate: require('./views/helpers/englishDate.js')
-    }
-  })
+      englishDate: require('./views/helpers/englishDate.js'),
+    },
+  }),
 );
 
 module.exports = server;
