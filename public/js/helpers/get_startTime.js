@@ -15,7 +15,7 @@ if (document.getElementById('calendarIcon')) {
   const { search, pathname } = new URL(window.location.href);
   const { date_from } = parse(search);
   const pathLang = pathname.split('/')[1];
-  state.lang = pathLang;
+  state.lang = pathLang === '' ? 'en' : pathLang;
   state.date_from = date_from;
 
   axios.get(`${webpack.env.URI}/events`).then(res => {
