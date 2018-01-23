@@ -13,7 +13,6 @@ export let state = {
 };
 
 function render() {
-  console.log(state);
   let filteredEvents = eventsState.filter(event => event[state.lang]);
 
   if (state.searchTerm) {

@@ -1,5 +1,3 @@
-import { state } from './template';
-
 export function initEventListeners() {
   const langSelect = lang => event => {
     event.preventDefault();
