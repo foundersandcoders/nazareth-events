@@ -7,7 +7,6 @@ export function initCalendarEventListener(data) {
 
   const dateClickHandler = e => {
     const { date } = e.target.dataset;
-    console.log(date);
     window.location.href = `${
       new URL(window.location.href).pathname
     }?date_from=${date}&date_to=${formatDate(date)}`;
