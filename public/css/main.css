@@ -1,5 +1,7 @@
 /*** ELEMENT RESET ***/
 
+@import 'tachyons.css';
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -19,8 +21,7 @@ a {
 }
 
 /*** GENERAL ***/
-
-body {
+tachyons-build-css body {
   background-color: #fff;
 }
 

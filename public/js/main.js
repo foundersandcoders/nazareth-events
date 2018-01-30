@@ -1,6 +1,7 @@
 /* global  URL Cal formatDate */
 import formatDate from './helpers/date';
 import Cal from './calendar';
+import '../css/index.css';
 
 export function initCalendarEventListener(data) {
   const calendarData = data.map(event => event.startTime);
