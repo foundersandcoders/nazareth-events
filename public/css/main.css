@@ -19,8 +19,7 @@ a {
 }
 
 /*** GENERAL ***/
-
-body {
+tachyons-build-css body {
   background-color: #fff;
 }
 
