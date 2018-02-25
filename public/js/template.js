@@ -13,7 +13,9 @@ export let state = {
 };
 
 function render() {
-  let filteredEvents = eventsState.filter(event => event[state.lang]);
+  let filteredEvents = eventsState.filter(
+    event => event[state.lang] && event.verified
+  );
 
   if (state.searchTerm) {
     filteredEvents = filteredEvents.filter(

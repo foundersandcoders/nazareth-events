@@ -4,7 +4,9 @@ import Cal from './calendar';
 import '../css/index.css';
 
 export function initCalendarEventListener(data) {
-  const calendarData = data.map(event => event.startTime);
+  const calendarData = data
+    .filter(event => event.verified)
+    .map(event => event.startTime);
 
   const dateClickHandler = e => {
     const { date } = e.target.dataset;
