@@ -12,7 +12,9 @@ module.exports = async (req, res) => {
     }
     const eventsResponse = await axios.get(url);
 
-    let events = eventsResponse.data.filter(event => event['en']);
+    let events = eventsResponse.data.filter(
+      event => event['en'] && event.verified
+    );
 
     if (req.params.lang) {
       events = eventsResponse.data.filter(event => event[req.params.lang]);
